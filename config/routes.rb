@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'movies/new'
   root 'home_page#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  resources :movies, only: [:index, :new, :create,:edit ,:update, :destroy]
 end

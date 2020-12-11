@@ -1,0 +1,18 @@
+<h1>Movies#new</h1>
+<p>Find me in app/views/movies/new.html.erb</p>
+<%= link_to "動画一覧", movies_path, class: "" %>
+<div class="contents">
+ <div class="movies__form">
+  <%= form_with(model: @movie, local: true) do |f| %>
+    <div class="movies__title">
+      <%= f.label :title, "動画タイトル"%>
+      <%= f.text_field :tetle,  placeholder: 'title'%>
+    </div>
+    <div class="movies__movie">
+      <%= f.label :youtube_url, "YouTubeのURL"%>
+      <%= f.text_field :youtube_url, placeholder: 'youtube_url'%>
+    </div>
+    <%= f.submit '投稿する' %>
+  <% end %>
+ </div>
+</div>

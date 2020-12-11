@@ -1,0 +1,17 @@
+<div class="contents">
+
+<%= link_to "動画投稿", new_movie_url, class: "" %>
+
+  <% @movies.each do |movie|%>
+    <div class="movie__title">
+      <%= movie.title %>
+    </div>
+    <div class="content__movies">
+      <iframe src="<%= "https://www.youtube.com/embed/#{movie.youtube_url[32..42]}" %>" 
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              frameborder="0"
+              height="315" width="560">
+      </iframe>
+    </div>
+  <% end %>
+</div>
