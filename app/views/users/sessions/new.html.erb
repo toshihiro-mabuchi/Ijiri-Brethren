@@ -1,14 +1,22 @@
-<h2>ログイン</h2>
+<h2><%= t('.sign_in') %></h2>
+<%= render 'layouts/flash_messages' %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, autocomplete: 'name',
+                                                 class: 'form-control',
+                                                 required: true,
+                                                 maxlength: '50' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: 'current-password',
+                                      class: 'form-control',
+                                      required: true,
+                                      minlength: @minimum_password_length,
+                                      maxlength: '30'  %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,7 +27,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <%= f.submit t('.sign_in'), class: "btn btn-primary" %>
   </div>
 <% end %>
 
