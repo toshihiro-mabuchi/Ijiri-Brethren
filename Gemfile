@@ -13,6 +13,18 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# ログイン機能
+gem 'devise'
+
+# 日本語化
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
+
+# Bootstrap
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
