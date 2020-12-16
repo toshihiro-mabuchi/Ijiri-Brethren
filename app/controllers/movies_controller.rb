@@ -9,8 +9,24 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(movie_params)
-    redirect_to movies_path
+    @movie = Movie.new(movie_params)
+    url = params[:movie][:youtube_url]
+    url = url.last(11)
+    @movie.youtube_url = url
+    respond_to do |format|
+      if @movie.save
+        format.html { redirect_to movies_path, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @movie }
+      else
+        format.html { render :new }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
+
+    # -------------------------------
+    # Movie.create(movie_params)
+    # redirect_to movies_path
+    # -------------------------------
   end
 
   def destroy

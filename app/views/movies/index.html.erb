@@ -7,10 +7,9 @@
       <%= movie.title %>
     </div>
     <div class="content__movies">
-      <iframe src="<%= "https://www.youtube.com/embed/#{movie.youtube_url[32..42]}" %>" 
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              frameborder="0"
-              height="315" width="560">
+      <iframe src="https://www.youtube.com/embed/<%= movie.youtube_url %>"
+              frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen width="560" height="315" >
       </iframe>
     </div>
   <% end %>
