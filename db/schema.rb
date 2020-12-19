@@ -10,13 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_12_10_102206) do
 
   create_table "movies", force: :cascade do |t|
     t.text "title"
     t.string "youtube_url"
+=======
+ActiveRecord::Schema.define(version: 2020_12_17_145220) do
+
+  create_table "articles", force: :cascade do |t|
+    t.datetime "issue_date", null: false
+>>>>>>> a36d7a1087999b1815b0bb341533f1b4e9e1066d
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "users", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.boolean "admin", default: false
+    t.integer "member_group", default: 0, null: false
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+>>>>>>> a36d7a1087999b1815b0bb341533f1b4e9e1066d
 end
