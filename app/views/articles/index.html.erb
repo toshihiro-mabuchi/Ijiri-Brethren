@@ -1,0 +1,5 @@
+<%= render 'layouts/flash_messages'%>
+<h1>Articles#index</h1>
+<% @articles.each do |article| %>
+  <%= article.issue_date %>
+<% end %>

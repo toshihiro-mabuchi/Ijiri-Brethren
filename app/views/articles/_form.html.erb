@@ -1,0 +1,15 @@
+ <%= form_with model: @article, local: true do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2>入力エラーが<%= article.errors.count %>件あります。</h2>
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.date_field :issue_date, value: Date.current %>
+  <%= form.submit %>
+ <% end %>
