@@ -6,12 +6,16 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, length: { maximum: 100 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: true
+                    uniqueness: true,
+                    allow_blank: true
 
+  # has_secure_password
   VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,12}\z/
-  validates :password,
-              format: { with: VALID_PASSWORD_REGEX,
-              message: "は半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります"}
+  validates :password, length: { minimum: 6, maximum: 12 },
+                       format: { with: VALID_PASSWORD_REGEX ,
+                       message: "は半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります"}
+  
+  validates :phone_number, format: {with: /\A[0-9-]{,14}\z/}
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
