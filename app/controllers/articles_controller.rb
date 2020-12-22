@@ -15,8 +15,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:success] = "お便りの投稿が完了しました(#{@article.issue_date.strftime("%Y/%m/%d")})"
-      redirect_to @article
+      flash[:success] = "お便りの投稿が完了しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+      redirect_to articles_url
     else
       render :new
     end
@@ -26,11 +26,18 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    flash[:success] = 'test'
-    redirect_to @article
+    if @article.update(article_params)
+      flash[:success] = "お便りの投稿を更新しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+      redirect_to articles_url
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @article.destroy
+    flash[:danger] = "お便りの投稿を削除しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+    redirect_to articles_url
   end
 
   private

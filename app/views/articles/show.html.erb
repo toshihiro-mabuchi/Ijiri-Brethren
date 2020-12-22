@@ -1,3 +1,4 @@
 <%= render 'layouts/flash_messages'%>
 <h1>Articles#show</h1>
 <%= @article.issue_date %>
+<%= link_to 'お便り', rails_blob_path(@article.letter) %>

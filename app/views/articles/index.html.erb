@@ -1,5 +1,10 @@
 <%= render 'layouts/flash_messages'%>
 <h1>Articles#index</h1>
+<%= link_to '新規登録', new_article_path %>
 <% @articles.each do |article| %>
-  <%= article.issue_date %>
+  <p>
+    <%= article.issue_date %>
+    <%= link_to '編集', edit_article_path(article) %>
+    <%= link_to '削除', article_path(article), method: :delete, data: { confirm: "(#{article.issue_date})を削除してよろしいですか？" } %>
+  </p>
 <% end %>
