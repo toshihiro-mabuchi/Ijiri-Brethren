@@ -1,4 +1,7 @@
 <%= render 'layouts/flash_messages'%>
 <h1>Articles#show</h1>
 <%= @article.issue_date %>
-<%= link_to 'お便り', rails_blob_path(@article.letter) %>
+<%= link_to 'お便り', rails_blob_path(@article.letter), target: "_blank", rel: "noopener noreferrer" %>
+<div>
+  <object data="<%= rails_blob_path(@article.letter) %>" type="application/pdf" width="100%" height="1200px"></object>
+</div>
