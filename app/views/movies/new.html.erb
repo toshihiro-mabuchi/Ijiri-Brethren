@@ -4,10 +4,6 @@
 <div class="contents">
  <div class="movies__form">
   <%= form_with(model: @movie, local: true) do |f| %>
-    <div class="movies__title">
-      <%= f.label :title, "動画タイトル"%>
-      <%= f.text_field :tetle,  placeholder: 'title'%>
-    </div>
     <div class="movies__movie">
       <%= f.label :youtube_url, "YouTubeのURL"%>
       <%= f.text_field :youtube_url, placeholder: 'youtube_url'%>
