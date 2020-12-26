@@ -1,0 +1,42 @@
+<% provide(:class_text, 'new') %>
+<% provide(:button_text, '新規登録') %>
+
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h3 class="modal-title center">会員様情報新規登録</h3>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12 col-md-offset-1">
+          <%= form_with(model: @user, url: users_path(@user), local: true, method: :post) do |f| %>
+            <%= render 'layouts/flash_messages' %>
+
+            <%= f.label :name, class: "label-#{yield(:class_text)}" %>
+            <p><%= @user.name %></p>
+
+            <%= f.label :member_groups, class: "label-#{yield(:class_text)}" %>
+            <%= f.text_field :member_groups, min:0, max:2, class: "form-control" %>
+            <!--%= f.select :member_groups, :member_groups, class: "form-control" %-->
+
+            <%= f.label :email, class: "label-#{yield(:class_text)}" %>
+            <%= f.email_field :email, class: "form-control" %>
+
+            <%= f.label :phone_number, class: "label-#{yield(:class_text)}" %>
+            <%= f.telephone_field :phone_number, class: "form-control" %>
+
+            <div class="center">
+              <%= f.submit yield(:button_text), class: "btn btn-primary btn-#{yield(:class_text)}" %>
+              <button type="button" class="btn btn-default btn-<%= yield(:class_text) %>" data-dismiss="modal">
+                キャンセル
+              </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

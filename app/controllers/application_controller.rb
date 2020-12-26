@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    debugger
     if current_user
       flash[:notice] = "ログインに成功しました." 
       root_path
@@ -35,7 +34,7 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      added_attrs = [:email, :name, :phone_number, :password, :password_confirmation]
+      added_attrs = [:name, :email, :member_groups, :phone_number, :password, :password_confirmation]
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
       devise_parameter_sanitizer.permit :account_update, keys: added_attrs
       devise_parameter_sanitizer.permit :sign_in, keys: added_attrs

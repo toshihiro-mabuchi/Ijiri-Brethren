@@ -16,9 +16,9 @@ class Users::SessionsController < Devise::SessionsController
         flash[:notice] = "ログインに成功しました."
         # redirect_to root_path
         if user.admin?
-          redirect_to admin_top_path
+          redirect_to admin_home_path
         else
-          redirect_to member_top_path
+          redirect_to member_home_path
         end
       else
         flash[:danger] = "パスワードが違います。ログインをやり直して下さい。"

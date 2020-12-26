@@ -15,12 +15,29 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, maximum: 12 },
                        format: { with: VALID_PASSWORD_REGEX ,
                       #  message: "は半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります"}
-                       message: "は半角6~12文字英文字・数字それぞれ１文字以上含む必要があります"}
+                       message: "は半角6~12文字英文字・数字それぞれ１文字以上含む必要があります" },
+                       allow_blank: true
   
-  validates :phone_number, format: {with: /\A[0-9-]{,14}\z/}
+  validates :phone_number, format: { with: /\A[0-9-]{,14}\z/ }
+
+  # enum member_groups: { 未所属: "0", 正会員: "1", 準会員: "2" }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def update_without_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
+
 end

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_133509) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "admin", default: false
-    t.integer "member_group", default: 0, null: false
+    t.integer "member_groups", default: 0, null: false
     t.string "phone_number"
     t.string "confirmation_token"
     t.datetime "confirmed_at"

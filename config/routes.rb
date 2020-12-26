@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   # devise_for :users
 
   ### deviseのコントローラをusersコントローラーにする。
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    # confirmations: 'users/confirmations',
-    passwords: 'users/passwords'
+  devise_for :users,
+  #  :path_prefix => 'd',
+    controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      # confirmations: 'users/confirmations',
+      passwords: 'users/passwords'
   }
 
   ### deviseのviewファイルをuserフォルダ配下にする。
@@ -25,14 +27,9 @@ Rails.application.routes.draw do
   # end
 
   ### deviseで用意されていない処理をusersコントローラーで定義する。
-  resources :users, only: [:index, :show, :destroy] do
-    # collection do
-    #   get 'member/top', to: 'users#member_top'
-    #   get 'admini/top', to: 'users#admin_top'
-    # end  
-  end
+  resources :users
 
-  get 'member/top', to: 'users#member_top'
-  get 'admin/top',  to: 'users#admin_top'
+  get 'member/home', to: 'users#member_home'
+  get 'admin/home',  to: 'users#admin_home'
 
 end

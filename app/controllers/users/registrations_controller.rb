@@ -20,8 +20,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         @user = User.new(user_params)
         if @user.save
-          sign_in @user
-          redirect_to root_path, notice: 'アカウントの作成に成功し、ログインしました。'
+          # sign_in @user
+          redirect_to users_path, notice: 'アカウントの作成に成功しました。'
         else
           redirect_to new_user_registration_path, alert: 'アカウントの作成に失敗しました。'
         end
@@ -30,14 +30,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @user = User.find(params[:user_id])
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @user = User.find(params[:user_id])
+    if @user.update_attributes(user_params)
+      redirect_to users_path, notice: '会員様の更新に成功しました。'
+    else
+      redirect_to users_path, notice: '会員様情報の更新に失敗しました。'
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -57,29 +62,44 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def user_params
       params.require(:user)
-        .permit(:name, :email, :password, :password_confirmation)
+        .permit(:name, :email, :member_groups, :phone_number, :password, :password_confirmation)
     end
 
-  # protected
+    def update_params
+      params.require(:user)
+        .permit(:member_groups, :phone_number)
+    end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  protected
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
 
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+    # If you have extra params to permit, append them to the sanitizer.
+    # def configure_sign_up_params
+    #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    # end
 
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+    # If you have extra params to permit, append them to the sanitizer.
+    # def configure_account_update_params
+    #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+    # end
+
+    # The path used after sign up.
+    # def after_sign_up_path_for(resource)
+    #   super(resource)
+    # end
+
+    # The path used after sign up for inactive accounts.
+    # def after_inactive_sign_up_path_for(resource)
+    #   super(resource)
+    # end
+
+    # def configure_update_params
+    #   # added_attrs = [:member_groups, :pheone_number]
+    #   added_attrs = [:member_groups, :phone_number]
+    #   devise_parameter_sanitizer.permit :update, keys: added_attrs
+    # end
 
 end

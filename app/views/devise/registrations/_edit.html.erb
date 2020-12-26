@@ -1,0 +1,69 @@
+<% provide(:class_text, 'edit') %>
+<% provide(:button_text, '更新') %>
+
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h3 class="modal-title center">会員様情報編集</h3>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12 col-md-offset-1">
+          <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name, user_id: @user.id), html: { method: :put }) do |f| %>
+            <%= bootstrap_devise_error_messages! %>
+
+            <div class="form-group">
+              <%= f.label :name %>：
+              <%= @user.name %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :email %>：
+              <%= @user.email %>
+            </div>
+
+            <%= f.label :member_groups, class: "label-#{yield(:class_text)}" %>
+            <%= f.number_field :member_groups, min:0, max:2, class: "form-control" %>
+            <!--%= f.select :member_groups, options_for_select(User.member_groups), {prompt: "選択してください"}, autofocus: true, autocomplete: "member_groups", class: "form-control" %-->
+
+            <%= f.label :phone_number, class: "label-#{yield(:class_text)}" %>
+            <%= f.telephone_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control" %>
+
+            <!--
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
+
+              <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'  %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :current_password %>
+              <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control' %>
+
+              <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+            </div>
+            -->
+
+            <div class="form-group">
+              <%= f.submit t('.update'), class: 'btn btn-block btn-primary' %>
+            </div>
+          <% end %>
+
+          <p><%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+
+          <%= link_to t('.back'), :back %>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
