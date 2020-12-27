@@ -14,5 +14,10 @@ Rails.application.routes.draw do
     get "logout", to: "users/sessions#destroy"
   end
 
-  resources :movies, only: [:index, :new, :create,:edit ,:update, :destroy]
+  resources :movies do
+    collection do
+      get :members_view
+      get :general_view
+    end
+  end
 end

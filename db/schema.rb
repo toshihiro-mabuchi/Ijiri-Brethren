@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_12_17_145220) do
     t.string "youtube_mid"
     t.string "youtube_url"
     t.string "author_name"
+    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

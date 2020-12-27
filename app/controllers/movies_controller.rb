@@ -4,6 +4,14 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def members_view
+    @movies = Movie.where(category: "メンバー")
+  end
+
+  def general_view
+    @movies = Movie.where(category: "一般")
+  end
+
   def new
     @movie = Movie.new
   end
@@ -28,14 +36,15 @@ class MoviesController < ApplicationController
         youtube_mid: youtube_mid,
         youtube_url: "https://youtu.be/#{youtube_mid}",
         author_name: movie_json["author_name"],
+        category: params[:movie][:category],
       })
       if movie.save
-        redirect_to
+        redirect_to movies_path
       else
 
       end
     else
-      
+      # URLが正しくありません。
       render :new
     end
 
@@ -50,16 +59,12 @@ class MoviesController < ApplicationController
     #     format.json { render json: @movie.errors, status: :unprocessable_entity }
     #   end
     # end
-
-    # -------------------------------
-    # Movie.create(movie_params)
-    # redirect_to movies_path
-    # -------------------------------
   end
 
   def destroy
     movie = Movie.find(params[:id])
     movie.destroy
+    redirect_to movies_path
   end
 
   def edit
@@ -73,7 +78,7 @@ class MoviesController < ApplicationController
 
   private
     def movie_params
-      params.require(:movie).permit(:title, :youtube_url)
+      params.require(:movie).permit(:title, :youtube_url, :category)
     end
 
     def valid_json?(json)

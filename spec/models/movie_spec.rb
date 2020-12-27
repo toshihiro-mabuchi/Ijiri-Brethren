@@ -6,7 +6,9 @@ RSpec.describe Movie, type: :model do
   it '動画タイトルと動画URLがあれば有効な状態であること' do
     movie = Movie.new(
         title: "aaa",
-        youtube_url: "fEvM-OUbaKs",
+        youtube_mid: "fEvM-OUbaKs",
+        youtube_url: "https://youtu.be/fEvM-OUbaKs",
+        author_name: "kobayashi"
       )
     expect(movie).to be_valid
   end

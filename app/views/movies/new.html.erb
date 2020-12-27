@@ -1,14 +1,36 @@
 <h1>Movies#new</h1>
 <p>Find me in app/views/movies/new.html.erb</p>
-<%= link_to "動画一覧", movies_path, class: "" %>
-<div class="contents">
- <div class="movies__form">
-  <%= form_with(model: @movie, local: true) do |f| %>
-    <div class="movies__movie">
-      <%= f.label :youtube_url, "YouTubeのURL"%>
-      <%= f.text_field :youtube_url, placeholder: 'youtube_url'%>
+<%= link_to "全動画一覧", movies_path, class: "" %><br>
+<%= link_to "メンバー動画一覧", members_view_movies_path, class: "" %><br>
+<%= link_to "一般動画一覧", general_view_movies_path, class: "" %>
+<div class="conteiner">
+  
+  <div class="movies__member">
+    <h3>メンバー</h3>
+    <div class="movies__form">
+      <%= form_with(model: @movie, local: true) do |f| %>
+        <div class="movies__input">
+          <%= f.label :youtube_url, "YouTubeのURL"%>
+          <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
+        </div>
+        <%= f.hidden_field :category, value: "メンバー" %>
+        <%= f.submit '投稿する' %>
+      <% end %>
     </div>
-    <%= f.submit '投稿する' %>
-  <% end %>
- </div>
+  </div>
+
+  <div class="movies__no_member">
+    <h3>一般</h3>
+    <div class="movies__form">
+      <%= form_with(model: @movie, local: true) do |f| %>
+        <div class="movies__input">
+          <%= f.label :youtube_url, "YouTubeのURL"%>
+          <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
+        </div>
+        <%= f.hidden_field :category, value: "一般" %>
+        <%= f.submit '投稿する' %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
