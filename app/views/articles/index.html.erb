@@ -1,10 +1,27 @@
-<%= render 'layouts/flash_messages'%>
-<h1>Articles#index</h1>
-<%= link_to '新規登録', new_article_path %>
-<% @articles.each do |article| %>
-  <p>
-    <%= link_to article.issue_date.strftime("%Y/%m/%d"), article_path(article) %>
-    <%= link_to '編集', edit_article_path(article) %>
-    <%= link_to '削除', article_path(article), method: :delete, data: { confirm: "(#{article.issue_date})を削除してよろしいですか？" } %>
-  </p>
-<% end %>
+<% provide(:title, 'お便り一覧') %>
+<h1>お便り一覧</h1>
+<div>
+  <%= link_to '新規登録', new_article_path, class: "btn btn-primary" %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= "#{User.human_attribute_name :issue_date}" %></th>
+      <th>添付ファイル</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) %></td>
+        <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
+        <td><%= link_to '編集', edit_article_path(article), class: "btn btn-success" %></td>
+        <td><%= link_to '削除', article_path(article), class: "btn btn-danger",
+                                                  method: :delete,
+                                                  data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
