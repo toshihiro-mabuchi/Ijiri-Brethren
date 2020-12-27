@@ -10,11 +10,17 @@
     <div class="movies__form">
       <%= form_with(model: @movie, local: true) do |f| %>
         <div class="movies__input">
-          <%= f.label :youtube_url, "YouTubeのURL"%>
-          <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
+          <%= f.label :youtube_url, "YouTubeのURL"%><br>
+          <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%><br>
+
+          <%= f.label :text, "メッセージ" %><br>
+          <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
+                                 size: "20x7", class: "form-control memo"
+          %>
+
         </div>
         <%= f.hidden_field :category, value: "メンバー" %>
-        <%= f.submit '投稿する' %>
+        <%= f.submit '投稿する' %><br><br>
       <% end %>
     </div>
   </div>
@@ -24,8 +30,14 @@
     <div class="movies__form">
       <%= form_with(model: @movie, local: true) do |f| %>
         <div class="movies__input">
-          <%= f.label :youtube_url, "YouTubeのURL"%>
-          <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
+          <%= f.label :youtube_url, "YouTubeのURL"%><br>
+          <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%><br>
+
+          <%= f.label :text, "メッセージ" %><br>
+          <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
+                                 size: "20x7", class: "form-control memo"
+          %>
+
         </div>
         <%= f.hidden_field :category, value: "一般" %>
         <%= f.submit '投稿する' %>

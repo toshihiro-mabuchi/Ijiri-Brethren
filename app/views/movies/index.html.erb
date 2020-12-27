@@ -12,6 +12,9 @@
               allowfullscreen width="560" height="315" >
       </iframe>
     </div>
+    <div class="movie__text">
+      <%= movie.text %>
+    </div>
     <div class="movie__edit">
       <%= link_to "編集", edit_movie_path(movie.id), remote: true, class: "btn btn-success" %>
       <%= link_to '削除', movie_path(movie.id), method: :delete,

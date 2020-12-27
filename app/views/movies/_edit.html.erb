@@ -24,6 +24,11 @@
                   <%= f.label :youtube_url, "YouTubeのURL"%>
                   <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
 
+                  <%= f.label :youtube_url, "YouTubeのURL"%>
+                  <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
+                                         size: "8x4", class: "form-control memo"
+                  %>
+
                   <%= f.label :category, "公開設定"%>
                   <%= f.check_box :category, {}, "メンバー", "一般"%>
 
