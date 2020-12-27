@@ -36,13 +36,13 @@ class MoviesController < ApplicationController
         category: params[:movie][:category],
       })
       if movie.save
-        flash.now[:danger] ="#{params[:movie][:category]}動画を追加しました。"
+        flash[:danger] ="#{params[:movie][:category]}動画を追加しました。"
         redirect_to movies_path
       else
 
       end
     else
-      flash.now[:danger] = "URLが正しくありません。"
+      flash[:danger] = "URLが正しくありません。"
       render :new
     end
   end
@@ -54,14 +54,14 @@ class MoviesController < ApplicationController
   def update
     movie = Movie.find(params[:id])
     movie.update(movie_params)
-    flash.now[:success] = "更新しました。"
+    flash[:success] = "更新しました。"
     redirect_to movies_path
   end
 
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    flash.now[:success] = "#{@movie.title}を削除しました。"
+    flash[:success] = "#{@movie.title}を削除しました。"
     redirect_to movies_path
   end
 
