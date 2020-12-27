@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'user/index'
+
   root 'home_page#index'
+  get 'admin_page/index'
+  get 'member_page/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   ### deviseのデフォルトのroutes
@@ -18,18 +19,17 @@ Rails.application.routes.draw do
   }
 
   ### deviseのviewファイルをuserフォルダ配下にする。
-  # devise_scope :user do
+  devise_scope :user do
   #   get 'user/:id', to: 'users/registrations#detail'
   #   get 'signup',   to: 'users/registrations#new'
   #   get 'login',    to: 'users/sessions#new'
   #   get 'logout',   to: 'users/sessions#destroy'
   #   get 'edit',     to: 'users/registrations#edit'
-  # end
+      get 'users/:id/edit' => 'users/registrations#edit', as: :edit_other_user_registration
+      match 'users/:id', to: 'users/registrations#update', via: [:patch, :put], as: :other_user_registration
+  end
 
   ### deviseで用意されていない処理をusersコントローラーで定義する。
-  resources :users
-
-  get 'member/home', to: 'users#member_home'
-  get 'admin/home',  to: 'users#admin_home'
+  resources :users, only: [:index, :destroy]
 
 end

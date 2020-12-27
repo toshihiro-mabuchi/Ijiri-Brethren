@@ -28,7 +28,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def update_without_password(params, *options)
-    params.delete(:current_password)
+    params.delete(:password)
+    params.delete(:password_confirmation)
 
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)

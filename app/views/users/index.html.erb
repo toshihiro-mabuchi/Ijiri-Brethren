@@ -1,10 +1,8 @@
 <% provide(:title, 'All Members') %>
 
-<%= render 'layouts/flash_messages' %>
-
 <h2>会員様一覧</h2>
 
-<!--div class="index-table col-md-10 col-md-offset-1"-->
+<div class="index-table col-md-offset-1 col-md-12">
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
       <tr>
@@ -24,7 +22,7 @@
           <td><%= user.email %></td>
           <td><%= user.phone_number %></td>
           <td class="center">
-            <%= link_to "編集", edit_user_registration_path(user_id: user.id), remote: true, class: "btn btn-success" %>
+            <%= link_to "編集", edit_other_user_registration_path(user), remote: true, class: "btn btn-success" %>
             <%= link_to "削除", user, method: :delete,
                 data: { confirm: "削除してよろしいですか？" },
                 class: "btn btn-danger" %>
@@ -33,7 +31,7 @@
       <% end %>
     <% end %>
   </table>
-<!--/div-->
+</div>
 
 <%= link_to "新規登録", new_user_registration_path, remote: true, class: "btn btn-primary" %>
 
