@@ -20,9 +20,6 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     youtube_url = params[:movie][:youtube_url]
     youtube_mid = youtube_url.last(11)
-    # if youtube_mid.present?
-    # else
-    # end
     url = "https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=#{youtube_mid}&format=json"
     url = URI.encode url
     uri = URI.parse url
@@ -39,32 +36,15 @@ class MoviesController < ApplicationController
         category: params[:movie][:category],
       })
       if movie.save
+        flash.now[:danger] ="#{params[:movie][:category]}動画を追加しました。"
         redirect_to movies_path
       else
 
       end
     else
-      # URLが正しくありません。
+      flash.now[:danger] = "URLが正しくありません。"
       render :new
     end
-
-    # ------------------------
-    # @movie.youtube_url = youtube_url
-    # respond_to do |format|
-    #   if @movie.save
-    #     format.html { redirect_to movies_path, notice: 'Post was successfully created.' }
-    #     format.json { render :show, status: :created, location: @movie }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @movie.errors, status: :unprocessable_entity }
-    #   end
-    # end
-  end
-
-  def destroy
-    movie = Movie.find(params[:id])
-    movie.destroy
-    redirect_to movies_path
   end
 
   def edit
@@ -74,11 +54,20 @@ class MoviesController < ApplicationController
   def update
     movie = Movie.find(params[:id])
     movie.update(movie_params)
+    flash.now[:success] = "更新しました。"
+    redirect_to movies_path
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    flash.now[:success] = "#{@movie.title}を削除しました。"
+    redirect_to movies_path
   end
 
   private
     def movie_params
-      params.require(:movie).permit(:title, :youtube_url, :category)
+      params.require(:movie).permit(:title, :text, :youtube_url, :category)
     end
 
     def valid_json?(json)
