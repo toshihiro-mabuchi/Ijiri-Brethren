@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       match 'users/:id', to: 'users/registrations#update', via: [:patch, :put], as: :other_user_registration
   end
 
-  ### deviseで用意されていない処理をusersコントローラーで定義する。
   resources :users, only: [:index, :destroy]
 
+  resources :articles
 end
