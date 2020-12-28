@@ -34,9 +34,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @user = User.new(user_params)
         if @user.save
           # sign_in @user
-          redirect_to users_path, notice: 'アカウントの作成に成功しました。'
+          redirect_to users_path, notice: '会員様情報の作成に成功しました。'
         else
-          redirect_to users_path, alert: 'アカウントの作成に失敗しました。'
+          redirect_to users_path, alert: '会員様情報の作成に失敗しました。'
         end
       end
     end
