@@ -20,4 +20,6 @@ Rails.application.routes.draw do
       get :general_view
     end
   end
+
+  resources :articles
 end
