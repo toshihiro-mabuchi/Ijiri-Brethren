@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   root 'home_page#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :users,
     controllers: {
       registrations: 'users/registrations',
-      sessions: 'users/sessions'   
+      sessions: 'users/sessions'
     } 
   
   devise_scope :user do
@@ -13,6 +12,13 @@ Rails.application.routes.draw do
     get "signup", to: "users/registrations#new"
     get "login", to: "users/sessions#new"
     get "logout", to: "users/sessions#destroy"
+  end
+
+  resources :movies do
+    collection do
+      get :members_view
+      get :general_view
+    end
   end
 
   resources :articles

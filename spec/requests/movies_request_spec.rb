@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "HomePages", type: :request do
+RSpec.describe "Movies", type: :request do
 
-  describe "GET /index" do
+  describe "GET /new" do
     it "returns http success" do
-      get root_path
+      get "/movies/new"
       expect(response).to have_http_status(:success)
     end
   end
