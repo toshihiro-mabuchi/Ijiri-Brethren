@@ -5,6 +5,7 @@ class InfosController < ApplicationController
   end
 
   def new
+    @info = Info.new
   end
 
   def create
