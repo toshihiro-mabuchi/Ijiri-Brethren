@@ -68,8 +68,10 @@ ActiveRecord::Schema.define(version: 2020_12_28_064352) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "admin", default: false
-    t.integer "member_group", default: 0, null: false
+    t.string "member_groups", default: "グループ１", null: false
     t.string "phone_number"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

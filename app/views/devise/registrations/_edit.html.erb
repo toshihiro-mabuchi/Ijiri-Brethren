@@ -1,0 +1,88 @@
+<% provide(:class_text, 'edit') %>
+<% provide(:button_text, '更新') %>
+
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header", style="border:none">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h3 class="modal-title center">会員様情報編集</h3>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12">
+          <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name, user_id: @user.id), html: { method: :put }) do |f| %>
+            <%= bootstrap_devise_error_messages! %>
+
+            <div class="form-group">
+              <%= f.label :name, class: "label-#{yield(:class_text)}" %>
+              <%= f.text_field :name, autofocus: true, autocomplete: 'name',
+                                                       required: true,
+                                                       maxlength: '50',
+                                                       class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :member_groups, class: "label-#{yield(:class_text)}" %>
+              <%= f.select :member_groups, options_for_select(User.member_groups),
+                                           autocomplete: 'member_groups',
+                                           class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :phone_number, class: "label-#{yield(:class_text)}" %>
+              <%= f.telephone_field :phone_number, autocomplete: 'phone_number',
+                                                   required: true,
+                                                   maxlength: '13',
+                                                   class: 'form-control' %>
+            </div>
+
+            
+            <div class="form-group">
+              <%= f.label :email, class: "label-#{yield(:class_text)}" %>：
+              <%= @user.email %>
+              <!--
+              <%= f.email_field :email, autocomplete: 'email',
+                                        required: true,
+                                        maxlength: '100',
+                                        class: 'form-control' %>
+              -->
+            </div>
+
+            <!--
+            <div class="form-group">
+              <%= f.label :password, class: "label-#{yield(:class_text)}" %>
+              <%= f.password_field :password, autocomplete: 'current-password',
+                                              required: true,
+                                              minlength: @minimum_password_length,
+                                              maxlength: '30',
+                                              class: 'form-control' %>
+
+              <% if @minimum_password_length %>
+                <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation, class: "label-#{yield(:class_text)}" %>
+              <%= f.password_field :password_confirmation, autocomplete: 'current-password',
+                                                           required: true,
+                                                           minlength: @minimum_password_length,
+                                                           maxlength: '30',
+                                                           class: 'form-control' %>
+            </div>
+            -->
+
+            <div class="form-group">
+              <%= f.submit t('.update'), class: 'btn btn-block btn-primary' %>
+            </div>
+          <% end %>
+
+          <%= link_to t('.back'), :back, class: 'btn btn-block btn-default border-primary' %>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

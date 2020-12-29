@@ -16,8 +16,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :remember_created_at
 
       ## Additional items（追加項目）
-      t.boolean :admin,        default: false
-      t.integer  :member_group, default: 0, null: false
+      t.boolean  :admin,        default: false
+      t.string  :member_groups, default: "グループ１", null: false
       t.string   :phone_number
 
       ## Trackable（追加可能）
@@ -28,8 +28,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :last_sign_in_ip
 
       ## Confirmable（確認可能）
-      # t.string   :confirmation_token
-      # t.datetime :confirmed_at
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
       # t.datetime :confirmation_sent_at
       # t.string   :unconfirmed_email # Only if using reconfirmable
 
