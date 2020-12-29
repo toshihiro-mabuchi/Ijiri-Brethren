@@ -49,9 +49,4 @@ User.create!(name: "会員様６",
              member_groups: "グループ２",
              password_confirmation: "password6")
 
-User.create!(name: "馬渕俊広",
-             email: "toshihiro.mabuchi@gmail.com",
-             password: "Mabu_0610",
-             phone_number: "666-6666-6666",
-             member_groups: "グループ２",
-             password_confirmation: "Mabu_0610")
+
