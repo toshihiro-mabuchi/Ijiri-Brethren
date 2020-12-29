@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+  before_action :check_admin, only: :create
   # GET /resource/password/new
   # def new
   #   super
@@ -22,6 +23,14 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   # protected
+
+  def check_admin
+    email = resource&.email || params[:user][:email].downcase
+    if email == 'admin@gmail.com'
+      flash[:danger] = "管理者の変更はできません。" 
+      redirect_to new_user_password_path
+    end
+  end
 
   # def after_resetting_password_path_for(resource)
   #   super(resource)

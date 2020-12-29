@@ -20,7 +20,7 @@ class User < ApplicationRecord
   
   validates :phone_number, format: { with: /\A[0-9-]{,14}\z/ }
 
-  enum member_groups: { 正会員: "正会員", 準会員: "準会員" }
+  enum member_groups: { グループ１: "グループ１", グループ２: "グループ２" }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

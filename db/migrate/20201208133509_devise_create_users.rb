@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       ## Additional items（追加項目）
       t.boolean  :admin,        default: false
-      t.string  :member_groups, default: "正会員", null: false
+      t.string  :member_groups, default: "グループ１", null: false
       t.string   :phone_number
 
       ## Trackable（追加可能）

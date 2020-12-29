@@ -124,7 +124,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def update_params
       params.require(:user)
-        .permit(:member_groups, :phone_number)
+        .permit(:name, :member_groups, :phone_number)
     end
 
     # If you have extra params to permit, append them to the sanitizer.

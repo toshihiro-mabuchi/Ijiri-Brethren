@@ -40,8 +40,8 @@ Rails.application.configure do
     mail_address = Rails.application.credentials.gmail[:address]
     password = Rails.application.credentials.gmail[:password]
   else
-    mail_address = 'admin@example.com'
-    password = 'password'
+    mail_address = 'admin@gmail.com'
+    password = 'Passw0rd'
   end
 
   config.action_mailer.raise_delivery_errors = true
