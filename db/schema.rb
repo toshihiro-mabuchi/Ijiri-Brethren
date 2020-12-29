@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 2020_12_20_090028) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "movies", force: :cascade do |t|
+    t.text "title"
+    t.text "text"
+    t.text "thumbnail_url"
+    t.string "youtube_mid"
+    t.string "youtube_url"
+    t.string "author_name"
+    t.integer "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false

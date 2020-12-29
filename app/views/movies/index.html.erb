@@ -1,0 +1,32 @@
+
+<div class="conteiner">
+
+  <%= link_to "動画投稿ページ", new_movie_url, class: "" %>
+  <% @movies.each do |movie|%>
+    <div class="movie__title">
+      <%= movie.title %>
+    </div>
+    <div class="content__movies">
+      <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+              frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen width="560" height="315" >
+      </iframe>
+    </div>
+    <div class="movie__text">
+      <%= movie.text %>
+    </div>
+    <div class="movie__edit">
+      <%= link_to "編集", edit_movie_path(movie.id), remote: true, class: "btn btn-success" %>
+      <%= link_to '削除', movie_path(movie.id), method: :delete,
+          class: "btn btn-danger",
+          remote: true,
+          data: { confirm: "#{movie.category}動画『#{movie.title}』を削除してよろしいですか？",
+                  cancel: 'やめる',
+                  commit: '削除する'
+                }, title: '削除確認' 
+      %>
+    </div>
+  <% end %>
+</div>
+
+<div id="edit-movie" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

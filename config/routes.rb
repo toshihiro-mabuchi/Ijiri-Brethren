@@ -14,11 +14,9 @@ Rails.application.routes.draw do
     controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations',
-      # confirmations: 'users/confirmations',
       passwords: 'users/passwords'
-  }
+    }
 
-  ### deviseのviewファイルをuserフォルダ配下にする。
   devise_scope :user do
   #   get 'user/:id', to: 'users/registrations#detail'
   #   get 'signup',   to: 'users/registrations#new'
@@ -30,6 +28,13 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :destroy]
+
+  resources :movies do
+    collection do
+      get :members_view
+      get :general_view
+    end
+  end
 
   resources :articles
 end
