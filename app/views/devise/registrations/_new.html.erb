@@ -15,68 +15,44 @@
           <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name), html: { method: :post }) do |f| %>
             <%= bootstrap_devise_error_messages! %>
 
-            <!--
             <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :password %>
-              <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
-
-              <% if @minimum_password_length %>
-                <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-              <% end %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
-            </div>
-            -->
-
-            <div class="form-group">
-              <%= f.label :name %>
+              <%= f.label :name, class: "label-#{yield(:class_text)}" %>
               <%= f.text_field :name, autofocus: true, autocomplete: 'name',
-                                                       class: 'form-control',
                                                        required: true,
-                                                       maxlength: '50' %>
+                                                       maxlength: '50',
+                                                       class: 'form-control' %>
             </div>
 
             <div class="form-group">
-              <%= f.label :member_groups %>
+              <%= f.label :member_groups, class: "label-#{yield(:class_text)}" %>
               <%= f.select :member_groups, options_for_select(User.member_groups),
-                                           {prompt: "選択してください"},
-                                           autofocus: true, autocomplete: 'member_groups',
-                                           class: 'form-control',
-                                           required: true %>
+                                           autocomplete: 'member_groups',
+                                           class: 'form-control' %>
             </div>
 
             <div class="form-group">
-              <%= f.label :phone_number %>
-              <%= f.telephone_field :phone_number, autofocus: true, autocomplete: 'phone_number',
-                                                   min:1, max:2,
-                                                   class: 'form-control',
+              <%= f.label :phone_number, class: "label-#{yield(:class_text)}" %>
+              <%= f.telephone_field :phone_number, autocomplete: 'phone_number',
                                                    required: true,
-                                                   maxlength: '13' %>
+                                                   maxlength: '13',
+                                                   class: 'form-control' %>
             </div>
 
             <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, autocomplete: 'email',
-                                                         class: 'form-control',
-                                                         required: true,
-                                                         maxlength: '100' %>
+              <%= f.label :email, class: "label-#{yield(:class_text)}" %>
+              <%= f.email_field :email, autocomplete: 'email',
+                                        required: true,
+                                        maxlength: '100',
+                                        class: 'form-control' %>
             </div>
 
             <div class="form-group">
-              <%= f.label :password %>
+              <%= f.label :password, class: "label-#{yield(:class_text)}" %>
               <%= f.password_field :password, autocomplete: 'current-password',
-                                              class: 'form-control',
                                               required: true,
                                               minlength: @minimum_password_length,
-                                              maxlength: '30'  %>
+                                              maxlength: '30',
+                                              class: 'form-control' %>
 
               <% if @minimum_password_length %>
                 <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
@@ -84,21 +60,19 @@
             </div>
 
             <div class="form-group">
-              <%= f.label :password_confirmation %>
+              <%= f.label :password_confirmation, class: "label-#{yield(:class_text)}" %>
               <%= f.password_field :password_confirmation, autocomplete: 'current-password',
-                                                           class: 'form-control',
                                                            required: true,
                                                            minlength: @minimum_password_length,
-                                                           maxlength: '30' %>
+                                                           maxlength: '30',
+                                                           class: 'form-control' %>
             </div>
-
 
             <div class="form-group">
               <%= f.submit t('.sign_up'), class: 'btn btn-block btn-primary' %>
             </div>
           <% end %>
 
-          <!--%= render 'devise/shared/links' %-->
           <%= link_to t('.back'), :back, class: 'btn btn-block btn-default border-primary' %>
 
         </div>
