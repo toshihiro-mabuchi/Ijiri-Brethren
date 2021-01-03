@@ -26,8 +26,12 @@ class ApplicationController < ActionController::Base
       redirect_to root_path unless user == current_user
     end
 
-    def admin_return
-      redirect_to root_path if current_user.admin
+    def no_admin_return
+      redirect_to root_path unless current_user.admin?
+    end
+
+    def no_logged_in_return
+      redirect_to root_path unless user_signed_in?
     end
 
 
