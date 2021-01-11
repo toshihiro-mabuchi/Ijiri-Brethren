@@ -1,0 +1,38 @@
+<div class="info__form">
+  <%= form_with model: info, local: true do |f| %>
+
+    <div class="col col-6">
+      <div class="form-group">
+        <%= f.label :title, "お知らせタイトル" %>
+        <% if info.errors.include?(:title) %>
+          <p class="text-danger"><%= info.errors.full_messages_for(:title).first %>
+        <% end %>
+        <%= f.text_field :title, placeholder: 'タイトルを入力してください。', class: "form-control", required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :content, "本文" %>
+        <% if info.errors.include?(:content) %>
+          <p class="text-danger"><%= info.errors.full_messages_for(:content).first %>
+        <% end %>
+        <%= f.text_area :content, placeholder: '本文を入力してください。', class: "form-control", required: true %>
+      </div>
+
+      <div class="form-group">
+        <div class="category">
+          <%= f.label :category, "公開設定" if yield(:class_text) == 'info-edit' %>
+          <%= f.check_box :category, {}, "メンバー", "一般" if yield(:class_text) == 'info-edit' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <% if yield(:class_text) == 'info-new' %>
+          <%= f.hidden_field :category, value: "メンバー" if cate == 'メンバー' %>
+          <%= f.hidden_field :category, value: "一般" if cate == '一般' %>
+        <% end %>
+        <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+        <%= link_to '戻る', infos_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

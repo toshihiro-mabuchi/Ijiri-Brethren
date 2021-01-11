@@ -1,0 +1,42 @@
+<% provide(:title, 'お知らせ一覧') %>
+<h1>お知らせ一覧</h1>
+
+<%= link_to "お知らせ投稿ページへ", new_info_url, class: "" %>
+
+<div class="info">
+  <h2>メンバー</h2>
+  <div class="info__contents">
+    <% @members_infos.each do |info| %>
+      <div class="info__title">
+        <%= info.title %>
+      </div>
+      <div class="info__content">
+        <%= info.content %>
+      </div>
+      <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
+      <%= link_to '削除', info_path(info.id), method: :delete, class: "btn btn-danger", remote: true,
+                          data: { confirm: "『#{info.title}』を削除してよろしいですか？",
+                                  cancel: 'やめる',
+                                  commit: '削除する'
+                                }, title: '削除確認' %>
+    <% end %>
+  </div>
+
+  <h2>一般</h2>
+  <div class="info__contents">
+    <% @general_infos.each do |info| %>
+      <div class="info__title">
+        <%= info.title %>
+      </div>
+      <div class="info__content">
+        <%= info.content %>
+      </div>
+      <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
+      <%= link_to '削除', info_path(info.id), method: :delete, class: "btn btn-danger", remote: true,
+                          data: { confirm: "『#{info.title}』を削除してよろしいですか？",
+                                  cancel: 'やめる',
+                                  commit: '削除する'
+                                }, title: '削除確認' %>
+    <% end %>
+  </div>
+</div>

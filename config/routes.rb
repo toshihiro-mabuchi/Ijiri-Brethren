@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       match 'users/:id', to: 'users/registrations#update', via: [:patch, :put], as: :other_user_registration
   end
 
+  resources :infos
+
   resources :users, only: [:index, :destroy]
 
   resources :movies do
