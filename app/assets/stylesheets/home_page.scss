@@ -1,3 +1,33 @@
-// Place all the styles related to the HomePage controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/******************************************************************
+
+Stylesheet: ホームページスタイル
+
+******************************************************************/
+
+// アクセス情報
+.access {
+  @extend .content-width;
+
+  &__right {
+    display: inline-block;
+  }
+
+  &__left {
+    display: inline-block;
+  }
+
+  & .google_map {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 75%;
+    
+    & iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
