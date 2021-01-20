@@ -11,7 +11,7 @@
         <%= info.title %>
       </div>
       <div class="info__content">
-        <%= info.content %>
+        <%= info.content.html_safe %>
       </div>
       <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
       <%= link_to '削除', info_path(info.id), method: :delete, class: "btn btn-danger", remote: true,
@@ -29,7 +29,7 @@
         <%= info.title %>
       </div>
       <div class="info__content">
-        <%= info.content %>
+        <%= info.content.html_safe %>
       </div>
       <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
       <%= link_to '削除', info_path(info.id), method: :delete, class: "btn btn-danger", remote: true,
