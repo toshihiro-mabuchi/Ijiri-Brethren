@@ -30,11 +30,35 @@
           </div>
         </section><br>
         
+        <section class="event">
+          <%# 動画 %>
+          <div class="event">
+            <h1>イベント</h1>
+          </div>
+        </section><br>
+
+        <h1>動画表示</h1>
         <section class="movie">
           <%# 動画 %>
-          <div class="home-movie">
-            <h1>動画表示</h1>
-          </div>
+          
+          <% @movies.each do |movie|%>
+            <div class="movie__inner">
+              <div class="movie__item">
+                <div class="movie__title">
+                  <%= movie.title %>
+                </div>
+                <div class="movie__iframe">
+                  <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="movie__text">
+                  <%= movie.text %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </section><br>
         
 

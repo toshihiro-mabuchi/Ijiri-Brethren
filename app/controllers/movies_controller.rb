@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
         category: params[:movie][:category],
       })
       if movie.save
-        flash[:danger] ="#{params[:movie][:category]}動画を追加しました。"
+        flash[:success] ="#{params[:movie][:category]}動画を追加しました。"
         redirect_to movies_path
       else
 

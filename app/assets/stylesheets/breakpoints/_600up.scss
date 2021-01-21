@@ -51,6 +51,16 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   }
 }
 
+.movie {
+  width: 100%;
+  
+  &__inner {
+    flex-direction: row;
+    flex-basis: 50%;
+    margin-bottom: 40px;
+  }
+}
+
 .access {
   & .google_map {
     padding-top: 55%;
