@@ -27,14 +27,48 @@
         <section class="info">
           <div class="home-info">
             <h1>お知らせ表示</h1>
+            <!-- お知らせサンプル開始 -->
+          <div><U>お知らせタイトル（例）</U></div>
+          <div>
+            <p>ーーー　お知らせ内容（例）　ーーー<br>
+               12月24日のクリスマス会は、14時から予定通り開催いたします。<br>
+               心ばかりですが、催しものとお菓子、お飲み物を用意しておりますので、<br>
+               お子様とご一緒にお気軽にお越し下さい。<br>
+            </p>
+          </div>
+          <!-- お知らせサンプル終了 -->
           </div>
         </section><br>
         
+        <section class="event">
+          <%# 動画 %>
+          <div class="event">
+            <h1>イベント</h1>
+          </div>
+        </section><br>
+
+        <h1>動画表示</h1>
         <section class="movie">
           <%# 動画 %>
-          <div class="home-movie">
-            <h1>動画表示</h1>
-          </div>
+          
+          <% @movies.each do |movie|%>
+            <div class="movie__inner">
+              <div class="movie__item">
+                <div class="movie__title">
+                  <%= movie.title %>
+                </div>
+                <div class="movie__iframe">
+                  <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="movie__text">
+                  <%= movie.text %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </section><br>
         
 
@@ -58,6 +92,11 @@
         <%# 聖書の御言葉 %>
         <div class="word-of-God">
           <h1>御言葉</h1>
+          <!-- 御言葉<サンプル開始 -->
+          <p><BIG>「愛は忍耐強い。愛は情け深い。ねたまない。愛は自慢せず、高ぶらない。礼を失せず、自分の利益を求めず、いらだたず、恨みを抱かない。不義を喜ばず、真実を喜ぶ。すべてを忍び、すべてを信じ、すべてを望み、すべてに耐える。」 /（新約聖書・新共同訳）</BIG></p>
+          <U><p>コリント信徒への手紙 １</p></U>
+          <SUP><I><p><13章4節~7節></p></I></SUP>
+          <!-- 御言葉<サンプル終了 -->
         </div>
 
         <%# カテゴリー等 %>
