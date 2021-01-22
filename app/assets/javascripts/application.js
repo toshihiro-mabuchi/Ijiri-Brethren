@@ -14,6 +14,8 @@
 //= require jquery3
 //= require summernote/summernote-bs4.min
 //= require summernote-init
+// load specific locale(ja-JP)
+//= require summernote/lang/summernote-ja-JP
 //= require activestorage
 //= require turbolinks
 //= require_tree .
