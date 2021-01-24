@@ -1,54 +1,24 @@
-<header>
-  <nav class="navbar navbar-expand navbar-light">
-    <%= link_to "トップページ", root_path, class: 'navbar-brand' %>
-    <div id="Navber">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <!--
-          <li class="nav-item active">
-            <% unless current_user.admin? %>
-              <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          -->
-          <li class="nav-item active">
-            <% if current_user.admin? %>
-              <%= link_to '管理者専用画面', admin_page_index_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <% unless current_user.admin? %>
-              <%= link_to '会員様専用画面', member_page_index_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <% if current_user.admin? %>
-              <%= link_to '会員様一覧', users_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-        <% else %>
-          <!--
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          -->
-          <li class="nav-item active">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-          </li>
-        <% end %>
-        <li class="nav-item active">
-          <%= link_to "動画", movies_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "毎月のお便り投稿", articles_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "お知らせ投稿", infos_path, class: 'nav-link' %>
+
+<header class="header">
+  <div class="header__inner appear up">
+    <div class="logo item">
+      <span class="logo__stay">井尻キリスト集会</span>
+    </div>
+    <nav class="header__nav">
+      <ul class="header__ul">
+        <li class="header__li item"><a href="#">ホーム</a></li>
+        <li class="header__li item"><a href="#">定期集会</a></li>
+        <li class="header__li item"><a href="#">特別集会</a></li>
+        <li class="header__li item"><a href="#">ギャラリー</a></li>
+        <li class="header__li item">
+          <button class="btn float">Contact</button>
         </li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+    <button class="mobile-menu__btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </header>

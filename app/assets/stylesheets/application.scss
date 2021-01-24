@@ -2,48 +2,43 @@
 @import "summernote-bs4";
 @import "summernote-custom-theme.min";
 
-/* universal */
+@import 'modules/variables';
+@import 'modules/mixin';
+@import 'modules/appear';
+@import 'modules/button';
+@import 'modules/hero-slider';
+@import 'modules/text-animation';
+@import 'modules/image-slide';
+@import 'modules/mobile-menu';
 
-section {
-  overflow: auto;
+@import "breakpoints/base";
+@import "home_page";
+@import "member_page";
+@import "admin_page";
+
+@media (min-width: 480px) {
+  @import "breakpoints/480up";
 }
 
-textarea {
-  resize: vertical;
+@media (min-width: 600px) {
+  @import "breakpoints/600up";
 }
 
-.center {
-  text-align: center;
+@media (min-width: 960px) {
+  @import "breakpoints/960up";
 }
 
-.center h1 {
-  margin-bottom: 10px;
+@media (min-width: 1280px) {
+  @import "breakpoints/1280up";
 }
 
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-  text-align: center;
-  margin-bottom: 30px;
+@media (min-resolution: 192dpi)
+      ,(-webkit-min-device-pixel-ratio: 2) {
+  @import "breakpoints/2x";
 }
 
-// max-width
-.mw-md {
-  max-width: 576px;
-}
-
-.mw-xl {
-  max-width: 1200px;
-}
-
-// 「ログインしました」などのフラッシュ用スタイル
-.alert-notice {
-  @extend .alert-info;
-}
-
-.alert-alert {
-  @extend .alert-danger;
+@media print {
+  @import "breakpoints/print";
 }
 
 /* debug */
@@ -72,13 +67,3 @@ pre {
   border-radius: 4px;
 }
 
-/* モーダルウインドウの位置調整 */
-
-.modal-dialog-center {
-  padding-top: 10%;
-}
-
-/* ボタンの上下位置調整 */
-.btn-block {
-  margin: 15px 0;
-}

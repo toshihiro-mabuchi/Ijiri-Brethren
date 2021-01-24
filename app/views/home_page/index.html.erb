@@ -1,5 +1,107 @@
-<h1>HomePage#index</h1>
+  
+<div id="content">
 
+  <%# スライド表示 %>
+  <div class="first-view">
+    <h1>スライド表示</h1>
+    <div class="hero">
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+        </div>
+        <div class="hero__footer">
+        
+          <span class="hero__scrolltext">scroll</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
-<B>アクセス情報</B>
-<p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.9851001102334!2d130.43827531528797!3d33.55376345128081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354190fab73648d3%3A0x1ba2ed539d874980!2z5LqV5bC744Kt44Oq44K544OI6ZuG5Lya!5e0!3m2!1sja!2sjp!4v1609940759232!5m2!1sja!2sjp" width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+  <div id="main-content">
+    <main>
+      <div id="home-content">
+        <%# お知らせ %>
+        <section class="info">
+          <div class="home-info">
+            <h1>お知らせ表示</h1>
+            <!-- お知らせサンプル開始 -->
+          <div><U>お知らせタイトル（例）</U></div>
+          <div>
+            <p>ーーー　お知らせ内容（例）　ーーー<br>
+               12月24日のクリスマス会は、14時から予定通り開催いたします。<br>
+               心ばかりですが、催しものとお菓子、お飲み物を用意しておりますので、<br>
+               お子様とご一緒にお気軽にお越し下さい。<br>
+            </p>
+          </div>
+          <!-- お知らせサンプル終了 -->
+          </div>
+        </section><br>
+        
+        <section class="event">
+          <%# 動画 %>
+          <div class="event">
+            <h1>イベント</h1>
+          </div>
+        </section><br>
+
+        <h1>動画表示</h1>
+        <section class="movie">
+          <%# 動画 %>
+          
+          <% @movies.each do |movie|%>
+            <div class="movie__inner">
+              <div class="movie__item">
+                <div class="movie__title">
+                  <%= movie.title %>
+                </div>
+                <div class="movie__iframe">
+                  <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="movie__text">
+                  <%= movie.text %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </section><br>
+        
+
+        <%# アクセス情報 %>
+        <div class="access">
+          <div class="access__right access__info" >
+            <B>アクセス情報</B>
+          </div>
+          <div class="access__left google_map" >
+            <p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.9851001102334!2d130.43827531528797!3d33.55376345128081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354190fab73648d3%3A0x1ba2ed539d874980!2z5LqV5bC744Kt44Oq44K544OI6ZuG5Lya!5e0!3m2!1sja!2sjp!4v1609940759232!5m2!1sja!2sjp"
+                      width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="local-nav">
+        <p>ローカルナビゲーション</p>
+        <%# 聖書の御言葉 %>
+        <div class="word-of-God">
+          <h1>御言葉</h1>
+          <!-- 御言葉<サンプル開始 -->
+          <p><BIG>「愛は忍耐強い。愛は情け深い。ねたまない。愛は自慢せず、高ぶらない。礼を失せず、自分の利益を求めず、いらだたず、恨みを抱かない。不義を喜ばず、真実を喜ぶ。すべてを忍び、すべてを信じ、すべてを望み、すべてに耐える。」 /（新約聖書・新共同訳）</BIG></p>
+          <U><p>コリント信徒への手紙 １</p></U>
+          <SUP><I><p><13章4節~7節></p></I></SUP>
+          <!-- 御言葉<サンプル終了 -->
+        </div>
+
+        <%# カテゴリー等 %>
+      </div>
+    </main>
+  </div>
+
+</div>
