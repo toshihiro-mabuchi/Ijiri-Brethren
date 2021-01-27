@@ -24,21 +24,19 @@
     <main>
       <div id="home-content">
         <%# お知らせ %>
-        <section class="info">
-          <div class="home-info">
-            <h1>お知らせ表示</h1>
-            <!-- お知らせサンプル開始 -->
-          <div><U>お知らせタイトル（例）</U></div>
-          <div>
-            <p>ーーー　お知らせ内容（例）　ーーー<br>
-               12月24日のクリスマス会は、14時から予定通り開催いたします。<br>
-               心ばかりですが、催しものとお菓子、お飲み物を用意しておりますので、<br>
-               お子様とご一緒にお気軽にお越し下さい。<br>
-            </p>
+        <section class="info container" id="general-info">
+          <h2>お知らせ</h2>
+          <div class="info__contents">
+            <% @general_infos.each do |info| %>
+              <div class="info__title">
+                <U><%= info.title %></U>
+              </div>
+              <div class="info__content">
+                <%= info.content %>
+              </div><br>
+            <% end %>
           </div>
-          <!-- お知らせサンプル終了 -->
-          </div>
-        </section><br>
+        </section>
         
         <section class="event">
           <%# 動画 %>
@@ -75,7 +73,7 @@
         <%# アクセス情報 %>
         <div class="access">
           <div class="access__right access__info" >
-            <B>アクセス情報</B>
+            <h2>アクセス情報</h2>
           </div>
           <div class="access__left google_map" >
             <p>

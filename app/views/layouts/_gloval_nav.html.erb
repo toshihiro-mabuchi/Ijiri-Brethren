@@ -1,40 +1,37 @@
 <div id="menu-bar">
   <nav class="navbar navbar-expand navbar-light">
     <%= link_to "トップページ", root_path, class: 'navbar-brand' %>
+
+    <!-- １行追加 -->
+    <%# <div class="collapse navbar-collapse" id="navbarNavDropdown"> %>
+
     <div id="Navber">
       <ul class="navbar-nav">
+      <%# <ul class="navbar-nav mr-auto"> %>
+
+      <!-- １行追加 -->
+      <%# </ul> %>
+      <!-- １行追加 -->
+      <%# <ul class="navbar-nav"> %>
         <% if user_signed_in? %>
-          <!--
-          <li class="nav-item active">
-            <% unless current_user.admin? %>
-              <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          -->
-          <li class="nav-item active">
-            <% if current_user.admin? %>
+          <% if current_user.admin? %>
+            <li class="nav-item active">
               <%= link_to '管理者専用画面', admin_page_index_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <% unless current_user.admin? %>
+            </li>
+          <% else %>
+            <li class="nav-item active">
               <%= link_to '会員様専用画面', member_page_index_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <% if current_user.admin? %>
+            </li>
+          <% end %>
+          <% if current_user.admin? %>
+            <li class="nav-item active">
               <%= link_to '会員様一覧', users_path, class: 'nav-link' %>
-            <% end %>
-          </li>
+            </li>
+          <% end %>
           <li class="nav-item active">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
         <% else %>
-          <!--
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          -->
           <li class="nav-item active">
             <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
           </li>
@@ -48,6 +45,11 @@
         <li class="nav-item active">
           <%= link_to "お知らせ投稿", infos_path, class: 'nav-link' %>
         </li>
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <div class='nav-link'><%= current_user.name %></div>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>

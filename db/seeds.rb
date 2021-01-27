@@ -12,7 +12,7 @@ puts "管理者作成！"
    n = i + 1 
   group = "１"
   group = "２" if n > 3
-  User.create!(name: "会員様#{n}",
+  User.create!(name: "member#{n}",
                email: "sample#{n}@gmail.com",
                password: "password#{n}",
                phone_number: "#{n*111}-#{n*1111}-#{n*1111}",

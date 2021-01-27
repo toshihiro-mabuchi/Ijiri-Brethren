@@ -5,8 +5,14 @@ Stylesheet: ホームページスタイル
 ******************************************************************/
 // メソッド
 
+// お知らせ
+.info__contents {
+  text-align: left;
+}
 
-//動画 
+
+
+// 動画
 .movie {
   @extend .content-width;
   @extend .mb-lg;
