@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :infos
 
-  resources :users, only: [:index, :destroy]
+  resources :users, only: [:index, :show, :destroy]
 
   resources :movies do
     collection do
