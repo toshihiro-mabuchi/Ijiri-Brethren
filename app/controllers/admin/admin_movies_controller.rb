@@ -1,5 +1,4 @@
-class MoviesController < ApplicationController
-  layout 'admin_page', except: [:members_view, :general_view]
+class Admin::AdminMovies < AdminPageController
 
   def index
     @movies = Movie.all

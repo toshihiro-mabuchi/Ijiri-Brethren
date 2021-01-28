@@ -3,3 +3,20 @@
 Stylesheet: 管理者ページスタイル
 
 ******************************************************************/
+@import "admin/breakpoints/base";
+
+@media (min-width: 480px) {
+  @import "admin/breakpoints/480up";
+}
+
+@media (min-width: 600px) {
+  @import "admin/breakpoints/600up";
+}
+
+@media (min-width: 960px) {
+  @import "admin/breakpoints/960up";
+}
+
+@media (min-width: 1280px) {
+  @import "admin/breakpoints/1280up";
+}
