@@ -41,6 +41,16 @@
   @import "breakpoints/print";
 }
 
+/* summernote-rails */
+
+.note-group-image-url {
+  display: none;
+}
+
+.note-image-btn {
+  display: none;
+}
+
 /* debug */
 
 .debug_dump {
