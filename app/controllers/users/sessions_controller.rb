@@ -16,7 +16,7 @@ class Users::SessionsController < Devise::SessionsController
         flash[:notice] = "ログインに成功しました."
         # redirect_to root_path
         if user.admin?
-          redirect_to admin_page_index_path
+          redirect_to admin_pages_path
         else
           redirect_to member_page_index_path
         end

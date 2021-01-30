@@ -1,0 +1,42 @@
+<h1>管理者専用画面</h1>
+<div id="admin-contents">
+  <div class="admin-nav">
+    <%= link_to 'ホーム（メンバー数、動画投稿数など）', home_admin_pages_path, class: 'nav-link ' %>
+    <%# ↑ホームボタンにクラス名　clicked　を追加 %>
+    <p>アプリ</p>    
+    <%= link_to 'メンバー', users_path, class: 'nav-link' %>
+    <%= link_to "動画", movie_admin_pages_path, class: 'nav-link' %>
+    <%= link_to "毎月のお便り", articles_path, class: 'nav-link' %>
+    <%= link_to "お知らせ", infos_path, class: 'nav-link' %>
+    <p>ホームページ</p>
+    <%= link_to "動画", movies_path, class: 'nav-link' %>
+    <%= link_to "お知らせ", infos_path, class: 'nav-link' %>
+    <p>----------</p>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+  </div>
+
+  <div class="admin-main">
+    <div class="admin-main__contents">
+      <%# 各コンテンツ(render) %>
+      <div class="admin-main__item ad-home chosen">
+        <%= render 'admin_pages/home' %>
+      </div>
+      <div class="admin-main__item ad-movie">
+        <%= render 'admin_pages/movies/movie' %>
+      </div>
+      <div class="admin-main__item ad-info">
+        <%= render 'admin_pages/home' %>
+      </div>
+      <div class="admin-main__item ad-article">
+        <%= render 'admin_pages/home' %>
+      </div>
+      <div class="admin-main__item">
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelector('.admin-main__item').onclick
+</script>

@@ -122,13 +122,27 @@ img {
   // @extend .content-width;
 }
 
-#admin-nav{
+.admin-nav{
   display: none;
+
+  .clicked {
+    pointer-events: none; 
+    background-color: #DDFFFF;
+  }
 }
 
-#admin-main {
+.admin-main {
   flex: 1;
-  // @extend .content-width;
-//   position: relative;
-//   z-index: 0;
+  background-color: #DDFFFF;
+
+  &__contents {
+    & .chosen {
+      display: block;
+    }
+  }
+
+  &__item {
+    display: none;
+  }
+  
 }
