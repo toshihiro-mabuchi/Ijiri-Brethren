@@ -1,19 +1,30 @@
+<% provide(:title, 'General Movies Page') %>
+
+<h2>一般動画一覧</h2>
 
 <div class="conteiner">
 
   <%= link_to "動画投稿", new_movie_url, class: "" %>
-  <% @movies.each do |movie|%>
-    <div class="movie__title">
-      <%= movie.title %>
-    </div>
-    <div class="content__movies">
-      <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-              frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen width="560" height="315" >
-      </iframe>
-    </div>
-    <div class="movie__text">
-      <%= movie.text %>
-    </div>
-  <% end %>
+
+ <section class="movie container" id="general-movie"> 
+    <% @movies.each do |movie|%>
+      <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
+        <div class="movie__item">
+          <div class="movie__title">
+            <%= movie.title %>
+          </div>
+          <div class="content__movies">
+            <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    <%# allowfullscreen width="560" height="315" > %>
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <div class="movie__text">
+            <%= movie.text %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </section>
 </div>

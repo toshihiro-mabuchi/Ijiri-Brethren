@@ -1,7 +1,8 @@
-<% provide(:title, 'All Members') %>
+<% provide(:title, 'Members Page') %>
 
 <h2>会員様一覧</h2>
 
+<%= "※グループ・名前順に表示" %>
 <div class="index-table col-md-offset-1 col-md-12">
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
@@ -23,10 +24,10 @@
             <td><%= user.email %></td>
             <td><%= user.phone_number %></td>
             <td class="center">
-              <%= link_to "編集", edit_other_user_registration_path(user), remote: true, class: "btn btn-success" %>
+              <%= link_to "編集", edit_other_user_registration_path(user), remote: true, class: "btn btn-sm btn-success" %>
               <%= link_to "削除", user, method: :delete,
                   data: { confirm: "削除してよろしいですか？" },
-                  class: "btn btn-danger" %>
+                  class: "btn btn-sm btn-danger" %>
             </td>
           </tr>
         </tbody>
