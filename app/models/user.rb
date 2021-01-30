@@ -18,7 +18,8 @@ class User < ApplicationRecord
                        message: "は半角6~12文字英文字・数字それぞれ１文字以上含む必要があります" },
                        allow_blank: true
   
-  validates :phone_number, format: { with: /\A[0-9-]{,14}\z/ }
+  validates :phone_number, format: { with: /\A[0-9-]{,14}\z/ },
+                           length: { minimum: 12, maximum: 13 }
 
   enum member_groups: { グループ１: "グループ１", グループ２: "グループ２" }
 

@@ -1,8 +1,12 @@
 <% provide(:title, 'お便り一覧') %>
 <h1>お便り一覧</h1>
-<div>
-  <%= link_to '新規登録', new_article_path, class: "btn btn-primary" %>
-</div>
+
+<% if current_user.admin? %>
+  <div>
+    <%= link_to '新規登録', new_article_path, class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -17,10 +21,12 @@
       <tr>
         <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) %></td>
         <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
-        <td><%= link_to '編集', edit_article_path(article), class: "btn btn-success" %></td>
-        <td><%= link_to '削除', article_path(article), class: "btn btn-danger",
-                                                  method: :delete,
-                                                  data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to '編集', edit_article_path(article), class: "btn btn-success" %></td>
+          <td><%= link_to '削除', article_path(article), class: "btn btn-danger",
+                                                    method: :delete,
+                                                    data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
