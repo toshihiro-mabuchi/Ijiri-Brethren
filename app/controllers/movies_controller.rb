@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   layout 'admin_page', except: [:members_view, :general_view]
 
   def index
-    @movies = Movie.all
+    @movies = Movie.all.order(:category)
   end
 
   def members_view

@@ -69,6 +69,14 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1200px;
 }
 
+/* alert */
+
+#alert {
+  width: 94%;
+  margin: 0 auto;
+  max-width: 1070px;
+}
+
 // 「ログインしました」などのフラッシュ用スタイル
 .alert-notice {
   @extend .alert-info;

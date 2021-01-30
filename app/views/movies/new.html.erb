@@ -1,12 +1,12 @@
-<h1>Movies#new</h1>
+<h1>動画投稿画面</h1>
 <p>Find me in app/views/movies/new.html.erb</p>
 <%= link_to "全動画一覧", movies_path, class: "" %><br>
-<%= link_to "メンバー動画一覧", members_view_movies_path, class: "" %><br>
+<%= link_to "会員様動画一覧", members_view_movies_path, class: "" %><br>
 <%= link_to "一般動画一覧", general_view_movies_path, class: "" %>
 <div class="conteiner">
   
   <div class="movies__member">
-    <h3>メンバー</h3>
+    <h3>会員様</h3>
     <div class="movies__form">
       <%= form_with(model: @movie, local: true) do |f| %>
         <div class="movies__input">

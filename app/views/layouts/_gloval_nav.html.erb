@@ -1,53 +1,43 @@
 <div id="menu-bar">
   <nav class="navbar navbar-expand navbar-light">
     <%= link_to "トップページ", root_path, class: 'navbar-brand' %>
+
     <div id="Navber">
       <ul class="navbar-nav">
+
         <% if user_signed_in? %>
-          <!--
-          <li class="nav-item active">
-            <% unless current_user.admin? %>
-              <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          -->
-          <li class="nav-item active">
-            <% if current_user.admin? %>
-              <%= link_to '管理者専用画面', admin_pages_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <% unless current_user.admin? %>
-              <%= link_to '会員様専用画面', member_page_index_path, class: 'nav-link' %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <% if current_user.admin? %>
+          <% if current_user.admin? %>
+            <li class="nav-item active">
+              <%= link_to '管理者専用画面', admin_page_index_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item active">
               <%= link_to '会員様一覧', users_path, class: 'nav-link' %>
-            <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to '会員様専用画面', member_page_index_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+          <li class="nav-item active">
+            <%= link_to "動画一覧", movies_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "毎月のお便り一覧", articles_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "お知らせ一覧", infos_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "#{current_user.name}", "#", class: "nav-link", style: "text-align: right" %>
           </li>
           <li class="nav-item active">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
         <% else %>
-          <!--
           <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          -->
-          <li class="nav-item active">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+            <%= link_to "会員様はこちらから", new_user_session_path, class: 'nav-link' %>
           </li>
         <% end %>
-        <li class="nav-item active">
-          <%= link_to "動画", movies_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "毎月のお便り投稿", articles_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "お知らせ投稿", infos_path, class: 'nav-link' %>
-        </li>
       </ul>
     </div>
   </nav>

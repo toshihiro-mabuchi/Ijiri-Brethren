@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
     if user = User.find_by(name: params[:user][:name])
       if user.valid_password?(params[:user][:password])
         sign_in user
-        flash[:notice] = "ログインに成功しました."
+        flash[:notice] = "ログインに成功しました。"
         # redirect_to root_path
         if user.admin?
           redirect_to admin_pages_path

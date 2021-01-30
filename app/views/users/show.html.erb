@@ -1,0 +1,29 @@
+<% provide(:title, 'Show Member') %>
+
+<h2>会員様情報</h2>
+
+<div class="index-table col-md-offset-1 col-md-12">
+  <table class="table table-condensed table-hover" id="table-users">
+    <thead>
+      <tr>
+        <th><%= User.human_attribute_name :member_groups %></th>
+        <th><%= User.human_attribute_name :name %></th>
+        <th><%= User.human_attribute_name :email %></th>
+        <th><%= User.human_attribute_name :phone_number %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @user.member_groups %></td>
+        <td><%= @user.name %></td>
+        <td><%= @user.email %></td>
+        <td><%= @user.phone_number %></td>
+        <td class="center">
+          <%= link_to "戻る", member_page_index_path, local: true, class: "btn btn-success" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
