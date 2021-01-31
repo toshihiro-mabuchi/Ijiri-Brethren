@@ -14,7 +14,7 @@
           <%= info.title %>
         </div>
         <div class="info__content" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-          <%= info.content %>
+          <%= info.content.html_safe %>
         </div>
         <% if current_user.admin? %>
           <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
@@ -25,44 +25,18 @@
                                     }, title: '削除確認' %>
         <% end %>
       </div>
-<<<<<<< HEAD
-      <div class="info__content">
-        <%= info.content.html_safe %>
-      </div>
-      <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
-      <%= link_to '削除', info_path(info.id), method: :delete, class: "btn btn-danger", remote: true,
-                          data: { confirm: "『#{info.title}』を削除してよろしいですか？",
-                                  cancel: 'やめる',
-                                  commit: '削除する'
-                                }, title: '削除確認' %>
-=======
->>>>>>> develop
     <% end %>
   </div>
 
   <h3>一般向けお知らせ</h3>
   <div class="info__contents">
     <% @general_infos.each do |info| %>
-<<<<<<< HEAD
-      <div class="info__title">
-        <%= info.title %>
-      </div>
-      <div class="info__content">
-        <%= info.content.html_safe %>
-      </div>
-      <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
-      <%= link_to '削除', info_path(info.id), method: :delete, class: "btn btn-danger", remote: true,
-                          data: { confirm: "『#{info.title}』を削除してよろしいですか？",
-                                  cancel: 'やめる',
-                                  commit: '削除する'
-                                }, title: '削除確認' %>
-=======
       <div style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
         <div class="info__title" style="border: #ccc solid 1px; border-left: #ccc solid 10px; padding: 5px; background: #fff; font-size: 100%; background-color: #eee;">
           <%= info.title %>
         </div>
         <div class="info__content" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-          <%= info.content %>
+          <%= info.content.html_safe %>
         </div>
         <% if current_user.admin? %>
           <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
@@ -73,7 +47,6 @@
                                     }, title: '削除確認' %>
         <% end %>
       </div>  
->>>>>>> develop
     <% end %>
   </div>
 </div>
