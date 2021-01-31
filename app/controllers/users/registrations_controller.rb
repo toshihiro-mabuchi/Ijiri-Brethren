@@ -63,42 +63,42 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # else
     #   redirect_to users_path, notice: '会員様情報の更新に失敗しました。'
     # end
-    if by_admin_user?(params)
-      self.resource = resource_class.to_adapter.get!(params[:id])
-    else
-      self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
-    end
+    # if by_admin_user?(params)
+    #   self.resource = resource_class.to_adapter.get!(params[:id])
+    # else
+    #   self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    # end
 
-    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+    # prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 
-    if by_admin_user?(params)
-      resource_updated = update_resource_without_password(resource, account_update_params)
-    else
-      resource_updated = update_resource(resource, account_update_params)
-    end
+    # if by_admin_user?(params)
+    #   resource_updated = update_resource_without_password(resource, account_update_params)
+    # else
+    #   resource_updated = update_resource(resource, account_update_params)
+    # end
 
-    yield resource if block_given?
-    if resource_updated
-      if is_flashing_format?
-        flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
-          :update_needs_confirmation : :updated
-        set_flash_message :notice, flash_key
-      end
-      if !by_admin_user?(params)
-        bypass_sign_in resource, scope: resource_name
-      end
+    # yield resource if block_given?
+    # if resource_updated
+    #   if is_flashing_format?
+    #     flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
+    #       :update_needs_confirmation : :updated
+    #     set_flash_message :notice, flash_key
+    #   end
+    #   if !by_admin_user?(params)
+    #     bypass_sign_in resource, scope: resource_name
+    #   end
       # respond_with resource, location: after_update_path_for(resource)
       @user = User.find(params[:user_id])
       if @user.update_attributes(user_params)
         redirect_to users_path, notice: '会員様の更新に成功しました。'
       else
-        redirect_to users_path, notice: '会員様情報の更新に失敗しました。'
+        redirect_to users_path, alert: '会員様情報の更新に失敗しました。'
       end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
-    end 
+    # else
+    #   clean_up_passwords resource
+    #   set_minimum_password_length
+    #   respond_with resource
+    # end 
   end
 
   # DELETE /resource

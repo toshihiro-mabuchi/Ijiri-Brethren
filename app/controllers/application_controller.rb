@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
     if current_user
-      flash[:notice] = "ログインに成功しました." 
+      flash[:notice] = "ログインに成功しました。" 
       root_path
     else
       flash[:danger] = "ログインに失敗しました。ログインをやり直して下さい。" 
