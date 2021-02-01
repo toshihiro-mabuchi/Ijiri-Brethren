@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "summernote-bs4";
+@import "summernote-custom-theme.min";
 
 @import 'modules/variables';
 @import 'modules/mixin';
@@ -37,6 +39,16 @@
 
 @media print {
   @import "breakpoints/print";
+}
+
+/* summernote-rails */
+
+.note-group-image-url {
+  display: none;
+}
+
+.note-image-btn {
+  display: none;
 }
 
 /* debug */
