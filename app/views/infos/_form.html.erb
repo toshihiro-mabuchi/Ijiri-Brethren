@@ -15,7 +15,7 @@
         <% if info.errors.include?(:content) %>
           <p class="text-danger"><%= info.errors.full_messages_for(:content).first %>
         <% end %>
-        <%= f.text_area :content, placeholder: '本文を入力してください。', class: "form-control", required: true %>
+        <%= f.text_area :content, 'data-provider': :summernote, placeholder: '本文を入力してください。', class: "form-control", required: true %>
       </div>
 
       <div class="form-group">

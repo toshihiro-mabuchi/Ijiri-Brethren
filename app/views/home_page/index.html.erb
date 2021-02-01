@@ -55,7 +55,7 @@
                   <U><%= info.title %></U>
                 </div>
                 <div class="info__content">
-                  <%= info.content %>
+                  <%= info.content.html_safe %>
                 </div>
               </div><br>
             <% end %>

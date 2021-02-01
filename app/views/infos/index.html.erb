@@ -14,7 +14,7 @@
           <%= info.title %>
         </div>
         <div class="info__content" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-          <%= info.content %>
+          <%= info.content.html_safe %>
         </div>
         <% if current_user.admin? %>
           <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
@@ -36,7 +36,7 @@
           <%= info.title %>
         </div>
         <div class="info__content" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-          <%= info.content %>
+          <%= info.content.html_safe %>
         </div>
         <% if current_user.admin? %>
           <%= link_to '編集', edit_info_path(info), class: "btn btn-success" %>
