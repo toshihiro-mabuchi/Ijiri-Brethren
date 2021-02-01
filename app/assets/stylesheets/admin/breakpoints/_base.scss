@@ -127,13 +127,13 @@ img {
 
   .clicked {
     pointer-events: none; 
-    background-color: #DDFFFF;
+    background-color: #FFFFEE;
   }
 }
 
 .admin-main {
   flex: 1;
-  background-color: #DDFFFF;
+  background-color: #FFFFEE;
 
   &__contents {
     & .chosen {

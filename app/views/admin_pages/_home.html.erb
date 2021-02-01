@@ -1,5 +1,10 @@
 <div class="">
   <h1>管理者ホーム</h1>
-  <%= controller.controller_name %><br>
-  <%= controller.action_name %>
+  <h3>メンバー数</h3>
+  <%= @users.length %>
+  <h3>投稿動画数</h3>
+  <h4>メンバー動画</h4>
+  <%= @member_movies.length %>
+  <h4>ホームページ動画</h4>
+  <%= @general_movies.length %>
 </div>

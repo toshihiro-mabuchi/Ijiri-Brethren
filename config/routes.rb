@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   resources :admin_pages, only: [:index] do
     collection do
       get :home
-      get :movie
+      # get :movie
     end
     # namespace :admin_pages do
       # resources :users, only: :index
     # end
   end
   namespace :admin_pages do
+    resources :users, only: [:index]
     resources :movies, only: [:index]
   end
 

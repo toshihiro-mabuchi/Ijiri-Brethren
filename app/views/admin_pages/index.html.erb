@@ -1,13 +1,12 @@
 <h1>管理者専用画面</h1>
 <div id="admin-contents">
   <div class="admin-nav">
-    <%= link_to 'ホーム（メンバー数、動画投稿数など）', home_admin_pages_path, class: 'nav-link ' %>
-    <%# ↑ホームボタンにクラス名　clicked　を追加 %>
+    <%= link_to 'ホーム（メンバー数、動画投稿数など）', home_admin_pages_path, remote: true, id: 'ad-home', class: 'nav-link clicked' %>
     <p>アプリ</p>    
-    <%= link_to 'メンバー', users_path, class: 'nav-link' %>
-    <%= link_to "動画", movie_admin_pages_path, class: 'nav-link' %>
-    <%= link_to "毎月のお便り", articles_path, class: 'nav-link' %>
-    <%= link_to "お知らせ", infos_path, class: 'nav-link' %>
+    <%= link_to 'メンバー', admin_pages_users_path, remote: true, id: 'ad-user', class: 'nav-link' %>
+    <%= link_to "動画", admin_pages_movies_path, remote: true, id: 'ad-movie', class: 'nav-link' %>
+    <%= link_to "毎月のお便り", articles_path, id: 'ad-article', class: 'nav-link' %>
+    <%= link_to "お知らせ", infos_path,  id: 'ad-info',class: 'nav-link' %>
     <p>ホームページ</p>
     <%= link_to "動画", movies_path, class: 'nav-link' %>
     <%= link_to "お知らせ", infos_path, class: 'nav-link' %>
@@ -19,16 +18,19 @@
     <div class="admin-main__contents">
       <%# 各コンテンツ(render) %>
       <div class="admin-main__item ad-home chosen">
-        <%= render 'admin_pages/home' %>
+        <div id="ad-home-content"><%= render 'admin_pages/home' %></div>
+      </div>
+      <div class="admin-main__item ad-user">
+        <div id="ad-user-content"><%= render 'admin_pages/users/index', users: @users %></div>
       </div>
       <div class="admin-main__item ad-movie">
-        <%= render 'admin_pages/movies/movie' %>
+        <div id="ad-movie-content"><%= render 'admin_pages/movies/index' %></div>
       </div>
       <div class="admin-main__item ad-info">
-        <%= render 'admin_pages/home' %>
+        <div id="ad-info-content"><%= render 'admin_pages/home' %></div>
       </div>
       <div class="admin-main__item ad-article">
-        <%= render 'admin_pages/home' %>
+        <div id="ad-article-content"><%= render 'admin_pages/home' %></div>
       </div>
       <div class="admin-main__item">
       
@@ -38,5 +40,14 @@
 </div>
 
 <script>
-  document.querySelector('.admin-main__item').onclick
+  // document.querySelector('.admin-nav a').onclick = function() {
+  //   document.querySelectorAll("admin-main__item").removeClass('chosen');
+  // };
+  $('.nav-link').on('click', function () {
+    var val = $(this).attr('id');
+    $('.admin-main__item').removeClass('chosen');
+    $('.' + val).addClass('chosen');
+    $('.nav-link').removeClass('clicked');
+    $(this).addClass('clicked');
+  });
 </script>
