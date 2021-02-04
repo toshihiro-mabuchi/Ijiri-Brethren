@@ -1,0 +1,28 @@
+<%= form_with model: @gallery, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: @gallery %>
+  <div class="col col-6">
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= f.text_field :category, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image, class: "form-control", required: true %>
+      
+      <% if gallery.image.attached? %>
+        <%= link_to gallery.image.filename, rails_blob_path(gallery.image), target: "_blank", rel: "noopener noreferrer"  %>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+      <%= link_to '戻る', galleries_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% end %>

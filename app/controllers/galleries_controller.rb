@@ -13,6 +13,13 @@ class GalleriesController < ApplicationController
   end
 
   def create
+    @gallery = Gallery.new(gallery_params)
+    if @gallery.save
+      flash[:success] = "画像を投稿しました。(#{@gallery.title})"
+      redirect_to galleries_url
+    else
+      render :new
+    end
   end
 
   def edit
@@ -31,6 +38,6 @@ class GalleriesController < ApplicationController
     end
 
     def gallery_params
-      params.require(:article).permit(:category, :title, :display, :image)
+      params.require(:gallery).permit(:category, :title, :display, :image)
     end
 end

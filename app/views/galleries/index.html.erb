@@ -1,0 +1,22 @@
+<% provide(:title, '画像一覧') %>
+
+<h1>画像一覧</h1>
+
+<div class="conteiner">
+
+  <% if current_user.admin? %>
+    <%= link_to "画像投稿画面へ", new_gallery_url, class: "" %>
+  <% end %>
+  <p>
+  <% @galleries.each do |gallery| %>
+        <%= link_to gallery.category, gallery_path(gallery) %>
+        <%# <%= link_to gallery.image.filename, rails_blob_path(gallery.gallery), target: "_blank", rel: "noopener noreferrer" %> %>
+        <% if current_user.admin? %>
+          <%= link_to '編集', edit_gallery_path(gallery), class: "btn btn-success" %>
+          <%= link_to '削除', gallery_path(gallery), class: "btn btn-danger",
+                                                    method: :delete,
+                                                    data: { confirm: "#{gallery.image.filename}を削除してよろしいですか？" } %>
+        <% end %>
+    <% end %>
+    </p>
+</div>

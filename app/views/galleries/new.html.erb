@@ -1,2 +1,7 @@
-<h1>Galleries#new</h1>
-<p>Find me in app/views/galleries/new.html.erb</p>
+<% provide(:title, '画像投稿') %>
+
+<h1>画像投稿画面</h1>
+<%= link_to "画像一覧ページへ", galleries_path %>
+<div class="content">
+  <%= render 'form', { gallery: @gallery } %>
+</div>

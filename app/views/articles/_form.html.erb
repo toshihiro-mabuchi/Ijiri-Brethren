@@ -1,4 +1,5 @@
 <%= form_with model: @article, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: @article %>
   <div class="col col-6">
     <div class="form-group">
       <%= f.label :issue_date %>
