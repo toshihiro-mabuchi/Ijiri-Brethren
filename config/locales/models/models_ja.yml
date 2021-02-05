@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 会員
+      bible: 御言葉
     attributes:
         user:
           id: ID
@@ -13,3 +14,8 @@ ja:
           password_confirmation: パスワード確認
           created_at: 作成日
           updated_at: 更新日
+        bible:
+          title: タイトル
+          subtitle: サブタイトル
+          text: 御言葉
+          display_flag: 表示
