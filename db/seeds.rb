@@ -26,7 +26,6 @@ end
 
 puts "会員様作成！"
 
-
 # お知らせサンプルデーター作成
 
 3.times do |i|
@@ -101,3 +100,30 @@ Movie.create!(title: "讃美歌461番「主われを愛す」",
               category: "一般")
 
 puts "動画サンプルデータ作成！"
+
+# お便りサンプルデータ作成
+
+24.times do |i|
+  n = i + 1
+  article = Article.new
+  article.issue_date = Date.current - 24.month + n.month
+  article.letter.attach(io: File.open("public/test.pdf"), filename: "test.pdf")
+  article.save
+end
+
+puts "お便りサンプル作成！"
+
+# 画像サンプルデータ作成
+
+array = [["test_1.png", "ねこ"], ["test_2.png", "ねこ"], ["test_3.jpg", "背景"], ["test_4.jpg", "背景"], ["test_5.jpeg", "アイコン"]]
+100.times do |i|
+  image_data = array[rand(5)]
+  n = i + 1
+  gallery = Gallery.new
+  gallery.category = image_data[1]
+  gallery.title = "タイトル#{n}"
+  gallery.image.attach(io: File.open("public/#{image_data[0]}"), filename: "#{image_data[0]}")
+  gallery.save
+end
+
+puts "画像サンプル作成！"
