@@ -1,5 +1,6 @@
 <% provide(:title, 'お知らせ一覧') %>
-<h1>お知らせ一覧</h1>
+
+<h2>✉	お知らせ一覧 ✉</h2>
 
 <% if current_user.admin? %>
   <%= link_to "お知らせ投稿ページへ", new_info_url, class: "" %>
@@ -26,7 +27,7 @@
         <% end %>
       </div>
     <% end %>
-  </div>
+  </div><br>
 
   <h3>一般向けお知らせ</h3>
   <div class="info__contents">
