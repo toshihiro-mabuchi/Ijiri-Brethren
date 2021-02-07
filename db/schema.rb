@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(version: 2021_02_01_144348) do
     t.text "subtitle"
     t.text "text"
     t.boolean "display_flag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-  
+
   create_table "galleries", force: :cascade do |t|
     t.string "category"
     t.string "title"

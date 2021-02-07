@@ -57,10 +57,7 @@
           <U><h2>お便り</h2></U>
           <div class="article__contents" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
             <% @articles.each do |article|%>
-              <!--
-              <object data="<%= rails_blob_path(article.letter) %>" type="application/pdf" width="100%" height="1120px"></object>
-              -->
-              <object data="<%= rails_blob_path(article.letter) %>" type="application/pdf" width="100%" height="1120px"></object>
+              <object data="<%= rails_blob_path(article.letter) %>" type="application/pdf" width="100%" height="1150px"></object>
             <% end %>
           </div>
         </section><br>
