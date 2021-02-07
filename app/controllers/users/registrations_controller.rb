@@ -87,18 +87,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #   if !by_admin_user?(params)
     #     bypass_sign_in resource, scope: resource_name
     #   end
-      # respond_with resource, location: after_update_path_for(resource)
-      @user = User.find(params[:user_id])
-      if @user.update_attributes(user_params)
-        redirect_to users_path, notice: '会員様の更新に成功しました。'
-      else
-        redirect_to users_path, alert: '会員様情報の更新に失敗しました。'
-      end
+    #   respond_with resource, location: after_update_path_for(resource)
     # else
     #   clean_up_passwords resource
     #   set_minimum_password_length
     #   respond_with resource
-    # end 
+    # end
+    @user = User.find(params[:user_id])
+    if @user.update_attributes(user_params)
+      redirect_to users_path, notice: '会員様の更新に成功しました。'
+    else
+      redirect_to users_path, alert: '会員様情報の更新に失敗しました。'
+    end
   end
 
   # DELETE /resource

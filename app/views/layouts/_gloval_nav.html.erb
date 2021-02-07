@@ -1,9 +1,9 @@
 <div id="menu-bar">
   <nav class="navbar navbar-expand navbar-light">
-    <%= link_to "トップページ", root_path, class: 'navbar-brand' %>
+    <%= link_to "HOME", root_path, class: 'navbar-brand' %>
 
     <div id="Navber">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav navbar-right">
 
         <% if user_signed_in? %>
           <% if current_user.admin? %>

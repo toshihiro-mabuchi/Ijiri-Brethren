@@ -13,7 +13,7 @@ class BiblesController < ApplicationController
     @bible = Bible.new(bible_params)
     if @bible.save
       flash[:success] = '御言葉の新規作成に成功しました。'
-      redirect_to @bible
+      redirect_to bibles_path
     else
       flash[:danger] = '御言葉の新規作成に失敗しました。'
       render :new
@@ -24,7 +24,7 @@ class BiblesController < ApplicationController
   end
 
   def update
-    if @bible.update_atributes(bible_params)
+    if @bible.update_attributes(bible_params)
       flash[:success] = "御言葉を更新しました。"
     else
       flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
