@@ -3,7 +3,7 @@ class AdminPages::UsersController < AdminPagesController
 
   def index
     if current_user.admin?
-      @users = User.all.order(:member_groups, :name)
+      @users = User.all.order(:member_groups)
     else
       flash[:danger] = "権限がありません。"
       redirect_to root_path

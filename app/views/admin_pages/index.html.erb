@@ -1,17 +1,20 @@
 <h1>管理者専用画面</h1>
 <div id="admin-contents">
   <div class="admin-nav">
-    <%= link_to 'ホーム（メンバー数、動画投稿数など）', home_admin_pages_path, remote: true, id: 'ad-home', class: 'nav-link clicked' %>
-    <p>アプリ</p>    
-    <%= link_to 'メンバー', admin_pages_users_path, remote: true, id: 'ad-user', class: 'nav-link' %>
-    <%= link_to "動画", admin_pages_movies_path, remote: true, id: 'ad-movie', class: 'nav-link' %>
-    <%= link_to "毎月のお便り", articles_path, id: 'ad-article', class: 'nav-link' %>
-    <%= link_to "お知らせ", infos_path,  id: 'ad-info',class: 'nav-link' %>
+  <%# home_admin_pages_path admin_pages_users_path admin_pages_movies_path %>
+    <%# <　%= link_to 'ホーム', '', remote: true, id: 'ad-home', class: 'nav-link clicked' %>
+    <p id= 'ad-home', class= 'admin-btn nav-link clicked'>ホーム</p>
+    <p>アプリ</p>
+    <p id= 'ad-user', class= 'admin-btn nav-link'>メンバー</p>
+    <p id= 'ad-movie', class= 'admin-btn nav-link'>動画</p>
+    <p id= 'ad-article', class= 'admin-btn nav-link'>毎月のお便り</p>
+    <p id= 'ad-info', class= 'admin-btn nav-link'>お知らせ</p>
+    <p id= 'ad-home', class= 'admin-btn nav-link'>ギャラリー</p>
     <p>ホームページ</p>
-    <%= link_to "動画", movies_path, class: 'nav-link' %>
-    <%= link_to "お知らせ", infos_path, class: 'nav-link' %>
+    <%= link_to "動画", movies_path, class: 'admin-btn nav-link' %>
+    <%= link_to "お知らせ", infos_path, class: 'admin-btn nav-link' %>
     <p>----------</p>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'admin-btn nav-link' %>
   </div>
 
   <div class="admin-main">
@@ -21,7 +24,7 @@
         <div id="ad-home-content"><%= render 'admin_pages/home' %></div>
       </div>
       <div class="admin-main__item ad-user">
-        <div id="ad-user-content"><%= render 'admin_pages/users/index', users: @users %></div>
+        <div id="ad-user-content"><%= render 'admin_pages/users/index' %></div>
       </div>
       <div class="admin-main__item ad-movie">
         <div id="ad-movie-content"><%= render 'admin_pages/movies/index' %></div>
@@ -35,6 +38,7 @@
       <div class="admin-main__item">
       
       </div>
+      <div class="box"></div>
     </div>
   </div>
 </div>
@@ -43,11 +47,11 @@
   // document.querySelector('.admin-nav a').onclick = function() {
   //   document.querySelectorAll("admin-main__item").removeClass('chosen');
   // };
-  $('.nav-link').on('click', function () {
+  $('.admin-btn').on('click', function () {
     var val = $(this).attr('id');
     $('.admin-main__item').removeClass('chosen');
     $('.' + val).addClass('chosen');
-    $('.nav-link').removeClass('clicked');
+    $('.admin-btn').removeClass('clicked');
     $(this).addClass('clicked');
   });
 </script>
