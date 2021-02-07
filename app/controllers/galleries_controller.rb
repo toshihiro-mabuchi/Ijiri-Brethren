@@ -2,7 +2,7 @@ class GalleriesController < ApplicationController
   before_action :set_gallery, only: %i(show edit update destroy)
 
   def index
-    @galleries = Gallery.all
+    @galleries = Gallery.with_attached_image
   end
 
   def show
@@ -15,7 +15,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     if @gallery.save
-      flash[:success] = "画像を投稿しました。(#{@gallery.title})"
+      flash[:success] = "画像を登録しました。(#{@gallery.title})"
       redirect_to galleries_url
     else
       render :new
@@ -26,9 +26,18 @@ class GalleriesController < ApplicationController
   end
 
   def update
+    if @gallery.update(gallery_params)
+      flash[:success] = "画像を更新しました。(#{@gallery.title})"
+      redirect_to galleries_url
+    else
+      render :new
+    end
   end
 
   def destroy
+    @gallery.destroy
+    flash[:danger] = "画像を削除しました。(#{@gallery.title})"
+    redirect_to galleries_url
   end
 
   private

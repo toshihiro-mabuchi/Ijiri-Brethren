@@ -13,11 +13,16 @@
 
     <div class="form-group">
       <%= f.label :image %>
-      <%= f.file_field :image, class: "form-control", required: true %>
-      
+    </div>
+
+    <div class="form-group">
       <% if gallery.image.attached? %>
-        <%= link_to gallery.image.filename, rails_blob_path(gallery.image), target: "_blank", rel: "noopener noreferrer"  %>
+        <%= image_tag gallery.image %>
       <% end %>
+    </div>
+
+    <div class="form-group">  
+      <%= f.file_field :image, class: "form-control-file" %>
     </div>
 
     <div class="form-group">
