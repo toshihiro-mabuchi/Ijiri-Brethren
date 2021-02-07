@@ -14,9 +14,6 @@
           <div class="sm_sidebar_title">お知らせ関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "お知らせ一覧", infos_path %></div>
-            <!--
-            <div class="tab-item"><%= link_to "お知らせ投稿", new_info_path %></div>
-            -->
           </div>
           <div class="sm_sidebar_title">お便り関連</div>
           <div class="col-xs-12 col-lg-12">
@@ -25,9 +22,6 @@
           <div class="sm_sidebar_title">動画関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "動画一覧", movies_path %></div>
-            <!--
-            <div class="tab-item"><%= link_to "動画投稿", new_movie_path %></div>
-            -->
           </div>
           <%# <div class="sm_sidebar_title">写真関連</div> %>
           <%# <div class="col-xs-12 col-lg-12">
@@ -66,7 +60,6 @@
 
         <h2>動画表示</h2>
         <section class="movie container" id="member-movie">
-          <%# <div class="mobie__contents" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;"> %>
           <% @movies.each do |movie|%>
             <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
               <div class="movie__item">
@@ -85,7 +78,6 @@
               </div>
             </div>
           <% end %>
-          <%# </div> %>
         </section>
       </div>
       <!-- content_end -->
