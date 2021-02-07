@@ -1,0 +1,166 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+body {
+  font-family: 'Kameron', 'Noto Sans JP', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.font-sm {
+  font-size: 14px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 17px;
+}
+.font-lg {
+  font-size: 25px;
+}
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+.pb-sm {
+  padding-bottom: 16px !important;
+}
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+// ---------------------------------------------
+
+.content-width {
+  width: 100%;
+  margin: 0 auto;
+  // max-width: $contentMaxWidth;
+}
+.main-title {
+  @extend .font-lg;
+  font-weight: 600;
+  margin-bottom: 0;
+  display: block;
+}
+.sub-title {
+  @extend .font-sm;
+  // color: $cSubTitle;
+  display: block;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+// .purple {
+//   color: $cWineRed;
+// }
+
+#container {
+  // background-color: $cWhite;
+  // position: relative;
+  z-index: 10;
+  transition: transform 0.5, box-shadow 0.5;
+}
+
+.admin-header {
+  // position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // height: $navHeight;
+  background-color: transparent;
+  box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  z-index: 100;
+
+  &__nav {
+    display: none;
+  }
+  
+  &__ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__li {
+    margin-left: 20px;
+
+    & > a {
+      // color: $cBlack;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  & .logo {
+    font-size: 32px;
+    justify-content: center;
+  }
+  
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @extend .content-width;
+  }
+}
+
+#admin-contents {
+  @extend .flex;
+  // background-color: $cBgGray;
+  // @extend .content-width;
+}
+
+.admin-nav{
+  // display: none;
+
+  .clicked {
+    pointer-events: none; 
+    background-color: #FFFFEE;
+  }
+
+  & .admin-btn {
+    color: #007bff;
+  }
+}
+
+.admin-main {
+  flex: 1;
+  background-color: #FFFFEE;
+
+  &__contents {
+    & .chosen {
+      display: block;
+      // z-index: 100;
+    }
+  }
+
+  &__item {
+    display: none;
+    // z-index: 10;
+  }
+  
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  transition: all 300ms 0s ease;
+}
+
+.box:hover {
+  background: #ccc;
+  width: 300px;
+}

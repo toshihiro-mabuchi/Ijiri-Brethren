@@ -1,0 +1,21 @@
+<h1>動画ページ(index)</h1>
+<%= controller.controller_name %><br>
+<%= controller.action_name %>
+<% @member_movies.each do |movie|%>
+  <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
+    <div class="movie__item">
+      <div class="movie__title">
+        <%= movie.title %>
+      </div>
+      <div class="movie__iframe">
+        <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <div class="movie__text">
+        <%= movie.text %>
+      </div>
+    </div>
+  </div>
+<% end %>
