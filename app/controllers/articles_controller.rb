@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i(show edit update destroy)
 
   def index
-    @articles = Article.all
+    @articles = Article.with_attached_letter
   end
 
   def show
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:success] = "お便りの投稿が完了しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+      flash[:success] = "お便りの登録が完了しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
       redirect_to articles_url
     else
       render :new
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:success] = "お便りの投稿を更新しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+      flash[:success] = "お便りを更新しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
       redirect_to articles_url
     else
       render :edit
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:danger] = "お便りの投稿を削除しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+    flash[:danger] = "お便りを削除しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
     redirect_to articles_url
   end
 

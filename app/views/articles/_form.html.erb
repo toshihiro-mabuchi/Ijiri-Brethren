@@ -1,4 +1,5 @@
 <%= form_with model: @article, local: true do |f| %>
+  <%= render 'layouts/error_messages', model: @article %>
   <div class="col col-6">
     <div class="form-group">
       <%= f.label :issue_date %>
@@ -7,7 +8,7 @@
 
     <div class="form-group">
       <%= f.label :letter %>
-      <%= f.file_field :letter, class: "form-control", required: true %>
+      <%= f.file_field :letter, class: "form-control-file", required: true %>
       
       <% if article.letter.attached? %>
         <%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer"  %>
