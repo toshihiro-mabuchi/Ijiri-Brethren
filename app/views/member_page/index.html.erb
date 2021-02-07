@@ -1,4 +1,6 @@
-<h1>会員様専用画面</h1>
+<% provide(:title, 'Movies Page') %>
+
+<h2>会員様専用画面</h2>
 
 <div id="content">
   <div id="member-main" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #eee;">
@@ -23,10 +25,12 @@
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "動画一覧", movies_path %></div>
           </div>
-          <%# <div class="sm_sidebar_title">写真関連</div> %>
-          <%# <div class="col-xs-12 col-lg-12">
+          <!--
+          <div class="sm_sidebar_title">写真関連</div>
+          <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><a href="#">写真一覧</a></div>
-          </div> %>
+          </div>
+          -->
         </div>
       </div>
       <!-- sidebar_end -->
@@ -34,7 +38,7 @@
       <!-- content_start -->
       <div class="col-sm-9 sm_member_content">
         <section class="info container" id="member-info">
-          <h2>お知らせ</h2>
+          <U><h2>お知らせ</h2></U>
           <div class="info__contents">
             <% @members_infos.each do |info| %>
               <div style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
@@ -50,15 +54,15 @@
         </section>
 
         <section class="article container" id="member-article">
-          <h2>お便り</h2>
+          <U><h2>お便り</h2></U>
           <div class="article__contents" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
             <% @articles.each do |article|%>
-              <object data="<%= rails_blob_path(article.letter) %>" type="application/pdf" width="100%" height="1200px"></object>
+              <object data="<%= rails_blob_path(article.letter) %>" type="application/pdf" width="100%" height="1150px"></object>
             <% end %>
           </div>
         </section><br>
 
-        <h2>動画表示</h2>
+        <U><h2>動画表示</h2></U>
         <section class="movie container" id="member-movie">
           <% @movies.each do |movie|%>
             <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
@@ -66,8 +70,8 @@
                 <div class="movie__title">
                   <%= movie.title %>
                 </div>
-                <div class="movie__iframe">
-                  <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                <div class="movie__iframe embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
                           frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                           allowfullscreen>
                   </iframe>

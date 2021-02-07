@@ -16,8 +16,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :remember_created_at
 
       ## Additional items（追加項目）
-      t.boolean  :admin,        default: false
-      t.string  :member_groups, default: "グループ１", null: false
+      t.boolean  :admin,         default: false
+      t.string   :member_groups, default: "グループ１", null: false
       t.string   :phone_number
 
       ## Trackable（追加可能）
