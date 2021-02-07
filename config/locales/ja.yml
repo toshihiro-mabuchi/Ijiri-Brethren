@@ -6,6 +6,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        content_type_invalid: "の拡張子が違います、［%{authorized_types}］の拡張子のみ使用できます"
     attributes:
       info:
         title: "お知らせタイトル"

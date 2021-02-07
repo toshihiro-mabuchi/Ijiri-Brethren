@@ -3,6 +3,9 @@ ja:
     models:
       user: 会員
       bible: 御言葉
+      active_storage_blob: BLOB
+      article: お便り
+      gallery: 画像
     attributes:
         user:
           id: ID
@@ -19,3 +22,18 @@ ja:
           subtitle: サブタイトル
           text: 御言葉
           display_flag: 表示
+        active_storage_blob:
+          content_type: 拡張子
+        article:
+          issue_date: 発行日
+          letter: お便り
+          created_at: 作成日
+          updated_at: 更新日
+        gallery:
+          category: カテゴリー
+          title: タイトル
+          display: 表示
+          image: 画像
+          created_at: 作成日
+          updated_at: 更新日
+          content_type: 拡張子

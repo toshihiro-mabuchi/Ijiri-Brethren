@@ -1,8 +1,23 @@
 Rails.application.routes.draw do
 
   root 'home_page#index'
-  get 'admin_page/index'
+  # get 'admin_page/index'
   get 'member_page/index'
+  resources :admin_pages, only: [:index] do
+    collection do
+      get :home
+      # get :movie
+    end
+    # namespace :admin_pages do
+      # resources :users, only: :index
+    # end
+  end
+  namespace :admin_pages do
+    resources :users, only: [:index]
+    resources :movies, only: [:index]
+  end
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   ### deviseのコントローラをusersコントローラーにする。
@@ -33,4 +48,5 @@ Rails.application.routes.draw do
 
   resources :bibles
   
+  resources :galleries
 end

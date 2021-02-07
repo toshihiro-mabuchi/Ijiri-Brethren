@@ -12,6 +12,7 @@ module IjiriBrethrenApp
     config.load_defaults 5.2
     config.i18n.default_locale = :ja
     config.time_zone = 'Asia/Tokyo'
+    config.active_storage.variant_processor = :mini_magick
 
     # i18nの複数ロケールファイルが読み込まれるようpathを通す
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
