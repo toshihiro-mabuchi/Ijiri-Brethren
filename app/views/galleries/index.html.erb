@@ -22,7 +22,7 @@
           </div>
 
           <div class="gallery___image">
-            <%= image_tag gallery.image %>
+            <%= image_tag gallery.image.variant(resize:'100x100') %>
           </div>
 
           <% if current_user.admin? %>
