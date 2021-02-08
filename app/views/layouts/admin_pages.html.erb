@@ -3,10 +3,11 @@
   <head>
     <meta charset='utf-8' />
     <title><%= full_title(yield(:title)) %></title>
-
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <title>IjiriBrethrenApp</title>
+    <%# ページローダー機能 %>
+    <%= stylesheet_link_tag 'admin/module/loader', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'vendors/pace', 'data-turbolinks-track': 'reload'%>
+    <%# ページローダーここまで %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&family=Noto+Sans+JP&display=swap" rel="stylesheet">
@@ -16,11 +17,11 @@
 
   </head>
 
-  <body>
+  <body data-turbolinks="false">
   レイアウト切り替え
     <div id="admin-global-container">
       <div id="admin-container">
-        <div class="admin-mobile-menu__cover"></div>
+        <%# <div class="admin-mobile-menu__cover"></div>
         <header>
           <div class="header__inner">
             <button class="mobile-menu__btn">
@@ -29,8 +30,8 @@
               <span></span>
             </button>
           </div>
-        </header>
-        <div class="nav-trigger"></div>
+        </header> %>
+        <%# <div class="nav-trigger"></div> %>
         <%# <%= render 'layouts/header' %> %>
         <%= render 'layouts/flash_messages' %>
         <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
@@ -41,9 +42,9 @@
         <%= debug(params) if Rails.env.development? %>
       </div>
       <%# モバイルメニュー %>
-      <nav class="admin-mobile-menu">
+      <%# <nav class="admin-mobile-menu">
 
-      </nav>
+      </nav> %>
     </div>
   </body>
 </html>

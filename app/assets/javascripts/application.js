@@ -18,6 +18,10 @@
 //= require summernote/lang/summernote-ja-JP
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require popper
 //= require bootstrap-sprockets
+
+document.addEventListener("turbolinks:load", function() {
+  // location.reload();
+})
+// 'page:restore'
