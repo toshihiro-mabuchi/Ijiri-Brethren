@@ -19,10 +19,9 @@
               <%= movie.title %>（一般向け）
             <% end %>
           </div>
-          <div class="content__movies">
+          <div class="content__movies embed-responsive embed-responsive-21by9">
             <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    <%# allowfullscreen width="560" height="315" > %>
                     allowfullscreen>
             </iframe>
           </div>

@@ -247,4 +247,18 @@ main {
   }
 }
 
+// お便り
+.article__contents {
+  padding: 5px 0px;
+  margin: auto 0;
+  text-align: center;
+  .article-item {
+    min-width: 50px;
+    width: auto !important;
+    // width: 100%;
+    min-height: 50px;
+    // height: auto !important;
+    height: 480px;
+  }
+}
 

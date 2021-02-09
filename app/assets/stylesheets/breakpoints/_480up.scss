@@ -3,3 +3,13 @@
 Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 
 ******************************************************************/
+
+// お便り
+.article-item {
+  // min-width: 50px;
+  // width: auto !important;
+  width: 100%;
+  // min-height: 50px;
+  // height: auto !important;
+  height: 560px;
+}
