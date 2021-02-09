@@ -17,7 +17,23 @@
 // load specific locale(ja-JP)
 //= require summernote/lang/summernote-ja-JP
 //= require activestorage
+// layout関連
+//= require libs/hero-slider
+//= require libs/mobile-menu
+//= require libs/scroll
+//= require libs/text-animation
+//= require main
+//= require vendors/scroll-polyfill
+//= require vendors/swiper.min
+//= require vendors/TweenMax.min
+// layout関連ここまで
 //= require turbolinks
-//= require_tree .
 //= require popper
 //= require bootstrap-sprockets
+// require_treeは無効にします。
+// require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+  // location.reload();
+})
+// 'page:restore'
