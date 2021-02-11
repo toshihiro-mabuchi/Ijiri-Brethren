@@ -1,21 +1,40 @@
-<h1>動画ページ(index)</h1>
+<h2>動画一覧</h2>
+
 <%= controller.controller_name %><br>
 <%= controller.action_name %>
-<% @member_movies.each do |movie|%>
-  <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-    <div class="movie__item">
+
+<h4>一般向け動画<h4>
+<div class="movie container" id="member-movie">
+  <% @general_movies.each do |movie|%>
+    <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
       <div class="movie__title">
         <%= movie.title %>
       </div>
-      <div class="movie__iframe">
-        <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+      <div class="movie__iframe embed-responsive embed-responsive-21by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>">
         </iframe>
       </div>
       <div class="movie__text">
         <%= movie.text %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
+
+<h4>会員様向け動画<h4>
+<div class="movie container" id="member-movie">
+  <% @member_movies.each do |movie|%>
+    <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
+      <div class="movie__title">
+        <%= movie.title %>
+      </div>
+      <div class="movie__iframe embed-responsive embed-responsive-21by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>">
+        </iframe>
+      </div>
+      <div class="movie__text">
+        <%= movie.text %>
+      </div>
+    </div>
+  <% end %>
+</div>

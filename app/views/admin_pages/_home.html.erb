@@ -1,10 +1,10 @@
 <div class="">
-  <h1>管理者ホーム</h1>
-  <h3>メンバー数</h3>
-  <%= @users_num %>
-  <h3>投稿動画数</h3>
-  <h4>メンバー動画</h4>
-  <%= @member_movies_num %>
-  <h4>ホームページ動画</h4>
-  <%= @general_movies_num %>
+  <u><h3 style="background: lime; margin-top: 20px; margin-bottom: 10px;">管理者ホーム</h3></u>
+  <h4 style="background: yellow; margin-bottom: 5px;">＜メンバー数＞</h4>
+  <b><p style="text-align: center;"><font size="5"><%= @users_num %>名</font></p></b>
+  <h4 style="background: yellow; margin-bottom: 5px;">＜投稿動画数＞</h4>
+  <h5 style="margin-bottom: 5px;"><font color="blue">メンバー動画数</font></h5>
+  <b><p style="text-align: center;"><font size="5"><%= @member_movies_num %>本</font></p></b>
+  <h5 style="margin-bottom: 5px;"><font color="blue">ホームページ動画数</font></h5>
+  <b><p style="text-align: center;"><font size="5"><%= @general_movies_num %>本</font></p></b>
 </div>

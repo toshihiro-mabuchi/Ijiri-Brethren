@@ -18,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
         if user.admin?
           redirect_to admin_pages_path
         else
-          redirect_to member_page_index_path
+          redirect_to member_pages_path
         end
       else
         flash[:danger] = "パスワードが違います。ログインをやり直して下さい。"

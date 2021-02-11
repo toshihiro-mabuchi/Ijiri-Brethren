@@ -1,12 +1,14 @@
 <% provide(:title, '画像一覧') %>
 
-<h1>画像一覧</h1>
+<h2>画像一覧</h2>
 
 <div class="container">
 
+  <!--
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to "画像投稿画面へ", new_gallery_url, class: "" %>
   <% end %>
+  -->
 
   <section class="gallery container">
     <% @galleries.each do |gallery| %>
@@ -25,6 +27,7 @@
             <%= image_tag gallery.image.variant(resize:'100x100') %>
           </div>
 
+          <!--
           <% if user_signed_in? && current_user.admin? %>
             <div class="galley__edit">
               <%= link_to '編集', edit_gallery_path(gallery), class: "btn btn-success" %>
@@ -33,6 +36,7 @@
                                                         data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
             </div>
           <% end %>
+          -->
 
         </div>
       </div>
