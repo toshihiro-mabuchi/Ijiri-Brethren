@@ -3,7 +3,7 @@
 
   <%# スライド表示 %>
   <div class="first-view">
-    <h1>スライド表示</h1>
+    <%# <h2>スライド表示</h2> %>
     <%# <div class="hero"> %>
       <!-- Slider main container -->
       <div class="swiper-container">
@@ -47,7 +47,7 @@
       <div id="home-content">
         <%# お知らせ %>
         <section class="info container" id="general-info">
-          <h2>お知らせ</h2>
+          <U><h2>お知らせ</h2></U>
           <div class="info__contents">
             <% @general_infos.each do |info| %>
               <div style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
@@ -63,24 +63,21 @@
         </section>
         
         <section class="event">
-          <%# 動画 %>
           <div class="event">
-            <%# <h1>イベント</h1> %>
+            <%# <U><h2>イベント</h2></U> %>
           </div>
         </section><br>
 
-        <h2>動画</h2>
+        <U><h2>動画</h2></U>
         <section class="movie container" id="general-movie">
-          <%# 動画 %>
-          
           <% @movies.each do |movie|%>
             <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
               <div class="movie__item">
                 <div class="movie__title">
                   <%= movie.title %>
                 </div>
-                <div class="movie__iframe">
-                  <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                <div class="movie__iframe embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"           
                           frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                           allowfullscreen>
                   </iframe>
@@ -97,7 +94,7 @@
         <%# アクセス情報 %>
         <div class="access">
           <div class="access__right access__info" >
-            <h2>アクセス情報</h2>
+            <U><h2>アクセス情報</h2></U>
           </div>
           <div class="access__left google_map" >
             <p>
@@ -114,11 +111,11 @@
         <p></p>
         <%# 聖書の御言葉 %>
         <div class="word-of-God">
-          <h1>御言葉</h1>
+          <h2>御言葉</h2>
           <!-- 御言葉<サンプル開始 -->
-          <p><BIG>「愛は忍耐強い。愛は情け深い。ねたまない。愛は自慢せず、高ぶらない。礼を失せず、自分の利益を求めず、いらだたず、恨みを抱かない。不義を喜ばず、真実を喜ぶ。すべてを忍び、すべてを信じ、すべてを望み、すべてに耐える。」 /（新約聖書・新共同訳）</BIG></p>
-          <U><p>コリント信徒への手紙 １</p></U>
-          <SUP><I><p><13章4節~7節></p></I></SUP>
+          <U><p><%= @bible.title %></p></U>
+          <SUP><I><p><%= "<#{@bible.subtitle}>" %></p></I></SUP>
+          <p><BIG><%= @bible.text %></BIG></p>
           <!-- 御言葉<サンプル終了 -->
         </div>
 

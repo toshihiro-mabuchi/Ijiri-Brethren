@@ -41,6 +41,23 @@
   @import "breakpoints/print";
 }
 
+
+/* Top Page */
+#menu-bar {
+  background-color: rgb(6, 165, 6);
+}
+
+.logo {
+  color: darkgreen;
+}
+
+#home-content {
+  background-color: rgb(194, 228, 188)
+}
+.local-nav {
+  background-color: rgb(24, 87, 24);
+}
+
 /* summernote-rails */
 
 .note-group-image-url {

@@ -1,12 +1,12 @@
 @import 'modules/variables';
 @import 'modules/mixin';
 
-.pace-done #global-container {
+.pace-done #admin-global-container {
   transition: opacity 1s;
   opacity: 1;
 }
 
-#global-container {
+#admin-global-container {
   opacity: 0;
 }
 
