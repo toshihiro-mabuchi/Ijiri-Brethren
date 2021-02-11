@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
 
   root 'home_page#index'
   # get 'admin_page/index'

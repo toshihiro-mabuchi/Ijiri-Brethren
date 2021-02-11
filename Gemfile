@@ -35,6 +35,9 @@ gem 'mini_magick'
 # リッチテキストエディタ
 gem 'summernote-rails', '~> 0.8.10.0'
 
+# PDF.js
+gem 'pdfjs_viewer-rails'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
