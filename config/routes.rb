@@ -47,5 +47,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resources :bibles
+  
   resources :galleries
 end

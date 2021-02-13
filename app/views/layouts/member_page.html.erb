@@ -5,8 +5,10 @@
     <title><%= full_title(yield(:title)) %></title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <title>IjiriBrethrenApp</title>
+    <%# ページローダー機能 %>
+    <%= stylesheet_link_tag 'loader' %>
+    <%= javascript_include_tag 'vendors/pace' %>
+    <%# ページローダーここまで %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&family=Noto+Sans+JP&display=swap" rel="stylesheet">
@@ -17,7 +19,7 @@
 
   </head>
 
-  <body>
+  <body data-turbolinks="false">
     <div id="global-container">
       <div id="container">
         <div class="mobile-menu__cover"></div>

@@ -1,0 +1,44 @@
+<% provide(:title, 'Bible Page') %>
+
+<h2>📖 御言葉一覧 📖</h2>
+
+<div class="index-table col-md-offset-1 col-md-12">
+  <table class="table table-condensed table-hover" id="table-bibles">
+    <thead>
+      <tr>
+        <th width="70"><%= Bible.human_attribute_name :display_flag %></th>
+        <th width="100"><%= Bible.human_attribute_name :title %></th>
+        <th width="120"><%= Bible.human_attribute_name :subtitle %></th>
+        <th width="400"><%= Bible.human_attribute_name :text %></th>
+        <th width="300"></th>
+      </tr>
+    </thead>
+
+    <% @bibles.each do |bible| %>
+      <tbody>
+        <tr>
+          <% if bible.display_flag == true %>
+            <td><%= "✅" %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <td><%= bible.title %></td>
+          <td><%= bible.subtitle %></td>
+          <td><%= bible.text %></td>
+            <td class="center">
+              <%= link_to "編集", edit_bible_path(bible), remote: true, class: "btn btn-sm btn-success" %>
+              <%= link_to "削除", bible_path(bible), method: :delete,
+                  data: { confirm: "削除してよろしいですか？" },
+                  class: "btn btn-sm btn-danger" %>
+            </td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to "新規登録", new_bible_path, remote: true, class: "btn btn-primary" %>
+
+<!--モーダルウインドウ表示-->
+<div id="edit" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="new" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
