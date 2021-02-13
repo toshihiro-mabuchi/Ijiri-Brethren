@@ -13,8 +13,8 @@
 
 @import "breakpoints/base";
 @import "home_page";
-@import "member_page";
-@import "admin_page";
+@import "member_pages";
+@import "admin_pages";
 
 @media (min-width: 480px) {
   @import "breakpoints/480up";

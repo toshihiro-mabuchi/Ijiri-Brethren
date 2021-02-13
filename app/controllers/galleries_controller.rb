@@ -2,7 +2,7 @@ class GalleriesController < ApplicationController
   before_action :set_gallery, only: %i(show edit update destroy)
 
   def index
-    @galleries = Gallery.with_attached_image
+    @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
   end
 
   def show

@@ -1,0 +1,15 @@
+<% provide(:title, 'お便り') %>
+
+<h2>📪 お便り 📪</h2>
+
+<% @articles.each do |article| %>
+  <div class="article__contents">
+    <% @articles.each do |article|%>
+      <iframe class="article-item" src="<%=  pdfjs.full_path(file: "#{rails_blob_path(article.letter)}") %>"></iframe>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= link_to "　会員様専用画面へ戻る　", member_pages_path, method: :get, class: "btn btn-default btn-primary" %>
+</div>
