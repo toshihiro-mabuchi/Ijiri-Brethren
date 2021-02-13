@@ -27,7 +27,7 @@
 
           <% if user_signed_in? %>
             <div class="galley__edit">
-              <%= link_to '編集', edit_gallery_path(gallery), class: "btn btn-success" %>
+              <%= link_to '編集', edit_gallery_path(gallery.id), remote: true, class: "btn btn-success" %>
               <%= link_to '削除', gallery_path(gallery), class: "btn btn-danger",
                                                         method: :delete,
                                                         data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
@@ -39,6 +39,8 @@
     <% end %>
   </section>
 </div>
+
+<div id="edit-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
 <style>
   .gallery__inner {

@@ -1,0 +1,32 @@
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">編集</h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-8 pr-0">
+          <div class="row">
+            <div class="gallery__form">
+              <%= render 'form', { gallery: @gallery } %>
+            </div>
+          </div>
+        </div>
+        <%# <div class="col-3">
+          <div class="">
+            
+          </div>
+        </div> %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1>画像投稿画面</h1>
+<%= link_to "画像一覧ページへ", galleries_path %>
+<div class="content">
+  <%= render 'form', { gallery: @gallery } %>
+</div>
