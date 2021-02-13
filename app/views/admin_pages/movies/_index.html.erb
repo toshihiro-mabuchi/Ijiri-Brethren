@@ -1,11 +1,13 @@
 <h2>動画一覧</h2>
 
+<!--
 <%= controller.controller_name %><br>
 <%= controller.action_name %>
+-->
 
-<h4>一般向け動画<h4>
+<h4>会員様向け動画<h4>
 <div class="movie container" id="member-movie">
-  <% @general_movies.each do |movie|%>
+  <% @member_movies.each do |movie|%>
     <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
       <div class="movie__title">
         <%= movie.title %>
@@ -21,9 +23,9 @@
   <% end %>
 </div>
 
-<h4>会員様向け動画<h4>
+<h4>一般向け動画<h4>
 <div class="movie container" id="member-movie">
-  <% @member_movies.each do |movie|%>
+  <% @general_movies.each do |movie|%>
     <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
       <div class="movie__title">
         <%= movie.title %>

@@ -11,40 +11,55 @@
   -->
 
   <section class="gallery container">
-    <% @galleries.each do |gallery| %>
-      <div class="gallery__inner">
-        <div class="gallery__item">
-        
-          <div class="gallery__category">
-            <%= gallery.category %>
-          </div>
+    <% @galleries.each do |category, galleries| %>
+
+      <div class="gallery__category">
+        <h4><%= category %></h4>
+      </div>
+
+      <% galleries.each do |gallery| %>
+
+        <div class="gallery__inner">
 
           <div class="gallery__title">
             <%= gallery.title %>
           </div>
 
-          <div class="gallery___image">
-            <%= image_tag gallery.image.variant(resize:'100x100') %>
-          </div>
+          <div class="gallery__item">
 
-          <!--
-          <% if user_signed_in? && current_user.admin? %>
-            <div class="galley__edit">
-              <%= link_to '編集', edit_gallery_path(gallery), class: "btn btn-success" %>
-              <%= link_to '削除', gallery_path(gallery), class: "btn btn-danger",
-                                                        method: :delete,
-                                                        data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
+            <div class="gallery___image">
+              <%= image_tag gallery.image.variant(resize:'200x200') %>
             </div>
-          <% end %>
-          -->
 
+            <!--
+            <% if user_signed_in? && current_user.admin? %>
+              <div class="galley__edit">
+                <%= link_to '編集', edit_gallery_path(gallery), class: "btn btn-success" %>
+                <%= link_to '削除', gallery_path(gallery), class: "btn btn-danger",
+                                                          method: :delete,
+                                                          data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
+              </div>
+            <% end %>
+            -->
+
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </section>
 </div>
 
 <style>
+  .gallery__title {
+    display: inline-block;
+    /* background: #fff; */
+    border: 1px #ccc solid;
+    box-shadow: 0 2px 3px 0 #ddd;
+    margin-left: 10px;
+    /* margin-bottom: 10px;
+    padding: 8px; */
+  }
+
   .gallery__inner {
     display: inline-block;
     background: #fff;

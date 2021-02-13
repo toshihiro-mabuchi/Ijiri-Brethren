@@ -22,7 +22,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) %></td>
+        <td><%= article.issue_date.strftime("%Y年%m月%d日") %></td>
         <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
         <!--
         <% if current_user.admin? %>

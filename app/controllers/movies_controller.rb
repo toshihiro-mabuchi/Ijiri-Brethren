@@ -2,7 +2,8 @@ class MoviesController < ApplicationController
   # layout 'admin_page', except: [:members_view, :general_view]
 
   def index
-    @movies = Movie.all.order(:category)
+    @member_movies = Movie.where(category: "メンバー")
+    @general_movies = Movie.where(category: "一般")
   end
 
   def members_view

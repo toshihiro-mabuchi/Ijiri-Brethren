@@ -1,4 +1,5 @@
 class AdminPages::UsersController < AdminPagesController
+  before_action :signed_in_user
   before_action :set_user, only: [:destroy]
 
   def index
