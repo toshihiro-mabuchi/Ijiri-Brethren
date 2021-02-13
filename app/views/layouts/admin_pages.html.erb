@@ -20,7 +20,8 @@
   <body data-turbolinks="false">
     <div id="admin-global-container">
       <div id="admin-container">
-        <%# <div class="admin-mobile-menu__cover"></div>
+        <!--
+        <div class="admin-mobile-menu__cover"></div>
         <header>
           <div class="header__inner">
             <button class="mobile-menu__btn">
@@ -32,6 +33,8 @@
         </header> %>
         <%# <div class="nav-trigger"></div> %>
         <%= render 'admin_pages/header' %>
+        -->
+
         <%= render 'layouts/flash_messages' %>
         <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
           <%= yield %>

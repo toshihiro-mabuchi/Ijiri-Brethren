@@ -1,6 +1,6 @@
 
 <div id="admin-contents">
-  <div class="admin-nav">
+  <div class="admin-nav" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
   <%# home_admin_pages_path admin_pages_users_path admin_pages_movies_path %>
     <%# <　%= link_to 'ホーム', '', remote: true, id: 'ad-home', class: 'nav-link clicked' %>
     <p id= 'ad-home', class= 'admin-btn nav-link clicked'>ホーム</p>
@@ -9,10 +9,15 @@
     <p id= 'ad-movie', class= 'admin-btn nav-link'>動画</p>
     <p id= 'ad-article', class= 'admin-btn nav-link'>毎月のお便り</p>
     <p id= 'ad-info', class= 'admin-btn nav-link'>お知らせ</p>
-    <p id= 'ad-home', class= 'admin-btn nav-link'>ギャラリー</p>
+    <p id= 'ad-gallery', class= 'admin-btn nav-link'>ギャラリー</p>
     <p>ホームページ</p>
+    <%= link_to "メンバー", users_path, class: 'admin-btn nav-link' %>
     <%= link_to "動画", movies_path, class: 'admin-btn nav-link' %>
+    <%= link_to "毎月のお便り", articles_path, class: 'admin-btn nav-link' %>
     <%= link_to "お知らせ", infos_path, class: 'admin-btn nav-link' %>
+    <%= link_to "ギャラリー", galleries_path, class: 'admin-btn nav-link' %>
+    <%= link_to "御言葉", bibles_path, class: 'admin-btn nav-link' %>
+    <%= link_to "会員様専用画面", member_pages_path, class: 'admin-btn nav-link' %>
     <p>----------</p>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'admin-btn nav-link' %>
   </div>
@@ -29,11 +34,14 @@
       <div class="admin-main__item ad-movie">
         <div id="ad-movie-content"><%= render 'admin_pages/movies/index' %></div>
       </div>
-      <div class="admin-main__item ad-info">
-        <div id="ad-info-content"><%= render 'admin_pages/home' %></div>
-      </div>
       <div class="admin-main__item ad-article">
-        <div id="ad-article-content"><%= render 'admin_pages/home' %></div>
+        <div id="ad-article-content"><%= render 'admin_pages/articles/index' %></div>
+      </div>
+      <div class="admin-main__item ad-info">
+        <div id="ad-info-content"><%= render 'admin_pages/infos/index' %></div>
+      </div>
+      <div class="admin-main__item ad-gallery">
+        <div id="ad-gallery-content"><%= render 'admin_pages/galleries/index' %></div>
       </div>
       <div class="admin-main__item">
       
