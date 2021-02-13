@@ -21,14 +21,14 @@ class ApplicationController < ActionController::Base
   # サインイン済みのユーザーか確認する。
   def signed_in_user
     unless user_signed_in?
-      # flash[:danger] = "権限がありません。"
+      flash[:danger] = "権限がありません。"
       redirect_to root_path
     end
   end
 
   # システム管理権限所有かどうか判定する。
   def admin_user
-    # flash[:danger] = "権限がありません。"
+    flash[:danger] = "権限がありません。"
     redirect_to root_path unless user_signed_in? && current_user.admin?
   end
 
