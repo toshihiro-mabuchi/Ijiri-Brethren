@@ -4,7 +4,7 @@
 
 <div class="container">
 
-  <% if current_user.admin? %>
+  <% if @admin_user %>
     <%= link_to "画像投稿画面へ", new_gallery_url, class: "" %>
   <% end %>
 
@@ -25,7 +25,7 @@
             <%= gallery.title %>
           </div>
 
-          <% if current_user.admin? %>
+          <% if user_signed_in? %>
             <div class="galley__edit">
               <%= link_to '編集', edit_gallery_path(gallery), class: "btn btn-success" %>
               <%= link_to '削除', gallery_path(gallery), class: "btn btn-danger",

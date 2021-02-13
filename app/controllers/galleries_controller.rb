@@ -1,8 +1,10 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: %i(show edit update destroy)
+  before_action :current_user_admin?
 
   def index
     @galleries = Gallery.with_attached_image
+    @current_user = current_user
   end
 
   def show

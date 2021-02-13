@@ -34,6 +34,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path unless user_signed_in?
     end
 
+    def current_user_admin?
+      @admin_user = current_user ? current_user.admin? : current_user
+    end
+
 
   protected
 
