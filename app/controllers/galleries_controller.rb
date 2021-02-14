@@ -3,9 +3,7 @@ class GalleriesController < ApplicationController
   before_action :current_user_admin?
 
   def index
-    @galleries = Gallery.with_attached_image.order(category: :ASC).order(created_at: :DESC)
-    @grouped_galleries = @galleries.group_by {|s| s.category}
-    @current_user = current_user
+    @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
   end
 
   def show

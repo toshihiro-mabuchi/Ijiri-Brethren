@@ -1,5 +1,6 @@
 class AdminPages::MoviesController < AdminPagesController
 # class AdminPages::Movies < AdminPagesController
+  before_action :signed_in_user
 
   def index
     # @movies = Movie.all

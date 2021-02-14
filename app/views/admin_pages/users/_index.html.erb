@@ -1,7 +1,21 @@
-<h1>ユーザーページ(index)</h1>
-<h2>ユーザー一覧</h2>
-<table>
-<% @users.each do |user| %>
+<% provide(:title, 'Adminis Page') %>
+
+<h2>メンバー一覧</h2>
+
+<%= "※グループ・名前順に表示" %>
+<div class="index-table col-md-offset-1 col-md-12">
+  <table class="table table-condensed table-hover" id="table-users">
+    <thead>
+      <tr>
+        <th><%= User.human_attribute_name :member_groups %></th>
+        <th><%= User.human_attribute_name :name %></th>
+        <th><%= User.human_attribute_name :email %></th>
+        <th><%= User.human_attribute_name :phone_number %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% @users.each do |user| %>
       <% unless user.admin? %>
         <tbody>
           <tr>
@@ -9,16 +23,27 @@
             <td><%= user.name %></td>
             <td><%= user.email %></td>
             <td><%= user.phone_number %></td>
+            <!--
             <td class="center">
               <%= link_to "編集", edit_other_user_registration_path(user), remote: true, class: "btn btn-sm btn-success" %>
               <%= link_to "削除", user, method: :delete,
                   data: { confirm: "削除してよろしいですか？" },
                   class: "btn btn-sm btn-danger" %>
             </td>
+            -->
           </tr>
         </tbody>
       <% end %>
     <% end %>
-</table>
+  </table>
+</div>
 
+<!--
+<%= link_to "新規登録", new_user_registration_path, remote: true, class: "btn btn-primary" %>
+-->
 
+<!--モーダルウインドウ表示-->
+<!--
+<div id="edit" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="new" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+-->

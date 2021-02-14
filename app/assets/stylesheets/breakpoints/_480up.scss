@@ -3,3 +3,19 @@
 Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 
 ******************************************************************/
+
+// お便り
+.article__contents {
+  padding: 5px 5px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.article-item {
+  // min-width: 50px;
+  // width: auto !important;
+  width: 75%;
+  // min-height: 50px;
+  // height: auto !important;
+  height:520px;
+}

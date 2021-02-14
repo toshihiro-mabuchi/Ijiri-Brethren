@@ -118,12 +118,12 @@ puts "お便りサンプル作成！"
 # 画像サンプルデータ作成
 
 array = [["test_1.png", "ねこ"], ["test_2.png", "ねこ"], ["test_3.jpg", "背景"], ["test_4.jpg", "背景"], ["test_5.jpeg", "アイコン"]]
-100.times do |i|
+10.times do |i|
   image_data = array[rand(5)]
   n = i + 1
   gallery = Gallery.new
   gallery.category = image_data[1]
-  gallery.title = "タイトル#{n}"
+  gallery.title = "ギャラリーアイテムタイトル#{n}"
   gallery.image.attach(io: File.open("public/#{image_data[0]}"), filename: "#{image_data[0]}")
   gallery.save
 end
