@@ -16,7 +16,7 @@ puts "管理者作成！"
   name_number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   group = "１"
   group = "２" if n > 3
-  User.create!(name: "会員様#{name_number}",
+  User.create!(name: "メンバー#{name_number}",
                email: "sample#{n}@gmail.com",
                password: "password#{n}",
                phone_number: "#{n*111}-#{n*1111}-#{n*1111}",
@@ -24,19 +24,19 @@ puts "管理者作成！"
                password_confirmation: "password#{n}")
 end
 
-puts "会員様作成！"
+puts "メンバー作成！"
 
 # お知らせサンプルデーター作成
 
 3.times do |i|
   n = i + 1 
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
-  Info.create!(title: "会員様向けお知らせタイトル#{number}",
-               content: "会員様向けお知らせ本文#{number}",
+  Info.create!(title: "メンバー向けお知らせタイトル#{number}",
+               content: "メンバー向けお知らせ本文#{number}",
                category: "メンバー")
 end
 
-puts "会員様向けお知らせ作成！"
+puts "メンバー向けお知らせ作成！"
 
 3.times do |i|
   n = i + 1 

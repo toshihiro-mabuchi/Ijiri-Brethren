@@ -1,5 +1,7 @@
 class BiblesController < ApplicationController
-  before_action :set_bible, only: [:edit, :update, :destroy]
+  before_action :logged_in_user, only: %i(index show)
+  before_action :admin_user, only: %i(new create edit update destroy)
+  before_action :set_bible, only: %i(edit update destroy)
 
   def index
     @bibles = Bible.all.order(:id)
@@ -24,6 +26,11 @@ class BiblesController < ApplicationController
   end
 
   def update
+    if params[:bible][:display_flag] = "1"
+      unless Bible.update(display_flag: false)
+        flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
+      end  
+    end
     if @bible.update_attributes(bible_params)
       flash[:success] = "御言葉を更新しました。"
     else

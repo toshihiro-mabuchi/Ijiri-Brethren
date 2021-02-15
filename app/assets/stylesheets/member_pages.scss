@@ -59,6 +59,15 @@ h4 {
 //   height:1200px;
 // }
 
+#mainContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 270px !important;
+}
+
 // 動画
 // #member_movie {
 //   margin-bottom: 10px !important;

@@ -1,8 +1,10 @@
 class InfosController < ApplicationController
-  before_action :set_info, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: %i(index show)
+  before_action :admin_user, only: %i(new create edit update destroy)
+  before_action :set_info, only: %i(show edit update destroy)
 
   def index
-    @members_infos = Info.where(category: "メンバー")
+    @member_infos = Info.where(category: "メンバー")
     @general_infos = Info.where(category: "一般")
   end
 

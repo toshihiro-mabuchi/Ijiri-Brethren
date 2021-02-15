@@ -1,6 +1,6 @@
 class AdminPages::UsersController < AdminPagesController
-  before_action :signed_in_user
-  before_action :set_user, only: [:destroy]
+  before_action :admin_user
+  before_action :set_user, only: :destroy
 
   def index
     if current_user.admin?

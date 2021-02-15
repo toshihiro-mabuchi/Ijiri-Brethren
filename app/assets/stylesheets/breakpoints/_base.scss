@@ -249,7 +249,7 @@ main {
 
 // お便り
 .article__contents {
-  padding: 5px 5px;
+  padding: 5px 0px;
   margin: 0 auto;
   text-align: center;
 }
@@ -260,5 +260,13 @@ main {
   width: 100%;
   // min-height: 50px;
   // height: auto !important;
-  height:1200px;
+  height:500px;
+}
+
+.container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
+  // width: 100%;
+  padding-right: 5px;
+  padding-left: 5px;
+  // margin-right: auto;
+  // margin-left: auto;
 }
