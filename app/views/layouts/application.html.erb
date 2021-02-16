@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%# ページローダー機能 %>
     <%= stylesheet_link_tag 'loader' %>
-    <%= javascript_include_tag 'vendors/pace' %>
+    <%= javascript_include_tag 'vendors/pace.min' %>
     <%# ページローダーここまで %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -25,13 +25,13 @@
         <div class="mobile-menu__cover"></div>
         <div class="nav-trigger"></div>
         <%= render 'layouts/header' %>
-        <%= render 'layouts/gloval_nav' %>
+        <div id="header-space"></div>
         <%= render 'layouts/flash_messages' %>
         <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
           <%= yield %>
         </div>
         <%= render 'layouts/footer' %>
-        < %=render 'layouts/mobile_menu' %>
+        <%= render 'layouts/mobile_menu' %>
         <%= debug(params) if Rails.env.development? %>
       </div>
     </div>

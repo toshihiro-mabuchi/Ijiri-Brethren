@@ -69,53 +69,53 @@ img {
   transition: transform 0.5, box-shadow 0.5;
 }
 
-.admin-header {
-  // position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  // height: $navHeight;
-  background-color: transparent;
-  box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  // z-index: 10;
+// .admin-header {
+//   // position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   // height: $navHeight;
+//   background-color: transparent;
+//   box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+//   display: flex;
+//   align-items: center;
+//   // z-index: 10;
 
-  &__nav {
-    // display: none;
-  }
+//   &__nav {
+//     // display: none;
+//   }
   
-  &__ul {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
+//   &__ul {
+//     display: flex;
+//     align-items: center;
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//   }
 
-  &__li {
-    margin-left: 20px;
+//   &__li {
+//     margin-left: 20px;
 
-    & > a {
-      // color: $cBlack;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-  }
+//     & > a {
+//       // color: $cBlack;
+//       text-decoration: none;
+//       text-transform: uppercase;
+//     }
+//   }
 
-  & .logo {
-    font-size: 32px;
-    justify-content: center;
-    z-index: 20;
-  }
+//   & .logo {
+//     font-size: 32px;
+//     justify-content: center;
+//     z-index: 20;
+//   }
   
-  &__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // @extend .content-width;
-  }
-}
+//   &__inner {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     // @extend .content-width;
+//   }
+// }
 
 #admin-contents {
   @extend .flex;
@@ -124,8 +124,8 @@ img {
 }
 
 .admin-nav{
-  // display: none;
-  height: 830px;
+  display: none;
+  height: 730px;
 
   .clicked {
     pointer-events: none; 
@@ -139,7 +139,7 @@ img {
 
 .admin-main {
   flex: 1;
-  background-color: #FFFFEE;
+  // background-color: #FFFFEE;
 
   &__contents {
     & .chosen {

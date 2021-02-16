@@ -5,47 +5,43 @@
     <%# <　%= link_to 'ホーム', '', remote: true, id: 'ad-home', class: 'nav-link clicked' %>
     <p id= 'ad-home', class= 'admin-btn nav-link clicked'>ホーム</p>
     <p>アプリ</p>
-    <p id= 'ad-user', class= 'admin-btn nav-link'>メンバー</p>
-    <p id= 'ad-movie', class= 'admin-btn nav-link'>動画</p>
-    <p id= 'ad-article', class= 'admin-btn nav-link'>毎月のお便り</p>
-    <p id= 'ad-info', class= 'admin-btn nav-link'>お知らせ</p>
-    <p id= 'ad-gallery', class= 'admin-btn nav-link'>ギャラリー</p>
+    <p id= 'ad-users', class= 'admin-btn'>メンバー</p>
+    <p id= 'ad-movies', class= 'admin-btn'>動画</p>
+    <p id= 'ad-articles', class= 'admin-btn'>毎月のお便り</p>
+    <p id= 'ad-infos', class= 'admin-btn'>お知らせ</p>
+    <p id= 'ad-gallerys', class= 'admin-btn'>ギャラリー</p>
     <p>ホームページ</p>
-    <%= link_to "メンバー", users_path, class: 'admin-btn nav-link' %>
+    <%# <%= link_to "メンバー", users_path, class: 'admin-btn nav-link' %>
     <%= link_to "動画", movies_path, class: 'admin-btn nav-link' %>
-    <%= link_to "毎月のお便り", articles_path, class: 'admin-btn nav-link' %>
+    <%# <%= link_to "毎月のお便り", articles_path, class: 'admin-btn nav-link' %>
     <%= link_to "お知らせ", infos_path, class: 'admin-btn nav-link' %>
-    <%= link_to "ギャラリー", galleries_path, class: 'admin-btn nav-link' %>
+    <%# <%= link_to "ギャラリー", galleries_path, class: 'admin-btn nav-link' %> 
     <%= link_to "御言葉", bibles_path, class: 'admin-btn nav-link' %>
-    <%= link_to "会員様専用画面", member_pages_path, class: 'admin-btn nav-link' %>
     <p>----------</p>
+    <%= link_to "会員様専用画面", member_pages_path, class: 'admin-btn nav-link' %>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'admin-btn nav-link' %>
   </div>
 
   <div class="admin-main">
     <div class="admin-main__contents">
       <%# 各コンテンツ(render) %>
-      <div class="admin-main__item ad-home chosen">
+      <div class="admin-main__item">
         <div id="ad-home-content"><%= render 'admin_pages/home' %></div>
       </div>
-      <div class="admin-main__item ad-user">
+      <div class="admin-main__item ad-users">
         <div id="ad-user-content"><%= render 'admin_pages/users/index' %></div>
       </div>
-      <div class="admin-main__item ad-movie">
+      <div class="admin-main__item ad-movies">
         <div id="ad-movie-content"><%= render 'admin_pages/movies/index' %></div>
       </div>
-      <div class="admin-main__item ad-article">
-        <div id="ad-article-content"><%= render 'admin_pages/articles/index' %></div>
-      </div>
-      <div class="admin-main__item ad-info">
+      <div class="admin-main__item ad-infos">
         <div id="ad-info-content"><%= render 'admin_pages/infos/index' %></div>
       </div>
-      <div class="admin-main__item ad-gallery">
-        <div id="ad-gallery-content"><%= render 'admin_pages/galleries/index' %></div>
+      <div class="admin-main__item ad-articles">
+        <div id="ad-article-content"><%= render 'admin_pages/articles/index' %></div>
       </div>
       <div class="admin-main__item">
-      
-      </div>
+
       <div class="box"></div>
     </div>
   </div>
@@ -55,6 +51,13 @@
   // document.querySelector('.admin-nav a').onclick = function() {
   //   document.querySelectorAll("admin-main__item").removeClass('chosen');
   // };
+  // $('.admin-btn').on('click', function () {
+  //   var val = $(this).attr('id');
+  //   $('.admin-main__item').removeClass('chosen');
+  //   $('.' + val).addClass('chosen');
+  //   $('.admin-btn').removeClass('clicked');
+  //   $(this).addClass('clicked');
+  // });
   $('.admin-btn').on('click', function () {
     var val = $(this).attr('id');
     $('.admin-main__item').removeClass('chosen');

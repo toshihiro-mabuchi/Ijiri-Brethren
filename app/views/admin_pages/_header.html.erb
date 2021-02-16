@@ -5,7 +5,12 @@
     </div>
     <nav class="header__nav">
       <ul class="header__ul">
-        <li class="header__li item"></li>
+        <li class="header__li item">
+          <%= link_to "メンバーページへ", member_pages_path, class: 'admin-btn nav-link' %>
+        </li>
+        <li class="header__li item">
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'admin-btn nav-link' %>
+        </li>
       </ul>
     </nav>
     <button class="mobile-menu__btn">

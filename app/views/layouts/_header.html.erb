@@ -6,12 +6,16 @@
     </div>
     <nav class="header__nav">
       <ul class="header__ul">
-        <li class="header__li item"><a href="#">ホーム</a></li>
+        <%# <li class="header__li item"><a href="#">ホーム</a></li>
         <li class="header__li item"><a href="#">定期集会</a></li>
-        <li class="header__li item"><a href="#">特別集会</a></li>
-        <li class="header__li item"><a href="<%= galleries_path %>">ギャラリー</a></li>
+        <li class="header__li item"><a href="#">特別集会</a></li> %>
+        <%# <li class="header__li item"><a href="< % = galleries_path">ギャラリー</a></li> %>
         <li class="header__li item">
-          <button class="btn float">Contact</button>
+          <% if user_signed_in?%>
+            <%= link_to 'メンバー専用画面', member_pages_path, class: 'nav-link' %>
+          <% else %>
+            <%= link_to "当集会の兄弟姉妹はこちら", new_user_session_path, class: 'nav-link' %>
+          <% end %>
         </li>
       </ul>
     </nav>

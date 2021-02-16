@@ -31,7 +31,6 @@
 //= require popper
 //= require bootstrap-sprockets
 // require_treeは無効にします。
-// require_tree .
 
 document.addEventListener("turbolinks:load", function() {
   // location.reload();
