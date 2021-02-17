@@ -4,6 +4,7 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
+    @gallery = Gallery.new
   end
 
   def show
