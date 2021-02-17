@@ -16,11 +16,11 @@ Rails.application.routes.draw do
     # end
   end
   namespace :admin_pages do
-    resources :users, only: :index
-    resources :movies, only: :index
-    resources :articles, only: :index
-    resources :infos, only: :index
-    resources :galleries, only: :index
+    resources :users
+    resources :movies
+    resources :articles
+    resources :infos
+    resources :galleries
   end
 
   ### メンバー専用画面 ###
