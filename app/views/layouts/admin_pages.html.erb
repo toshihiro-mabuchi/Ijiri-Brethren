@@ -5,7 +5,7 @@
     <title><%= full_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%# ページローダー機能 %>
-    <%= stylesheet_link_tag 'loader' %>
+    <%= stylesheet_link_tag 'admin/module/loader' %>
     <%= javascript_include_tag 'vendors/pace.min' %>
     <%# ページローダーここまで %>
     <%= csrf_meta_tags %>
@@ -21,25 +21,17 @@
   <body data-turbolinks="false">
     <div id="admin-global-container">
       <div id="admin-container">
-        <!--
-        <div class="admin-mobile-menu__cover"></div>
-        
-        <%# <div class="nav-trigger"></div> %>
-        
-        -->
-        <%= render 'admin_pages/header' %>
+        <div class="nav-trigger"></div>
+        <%# <%= render 'admin_pages/header' %>
+        <%= render 'layouts/header' %>
+        <div id="header-space"></div>
         <%= render 'layouts/flash_messages' %>
         <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
           <%= yield %>
         </div>
         <%= render 'layouts/footer' %>
-        < %= render 'layouts/mobile_menu' %>
         <%= debug(params) if Rails.env.development? %>
       </div>
-      <%# モバイルメニュー %>
-      <nav class="admin-mobile-menu">
-
-      </nav>
     </div>
   </body>
 </html>
