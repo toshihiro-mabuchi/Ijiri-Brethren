@@ -26,22 +26,22 @@
     </nav>
     <!-- ハンバーガーメニュー -->
     <div id="nav-area">
-      <nav class="hum-nav">
       <%# 中身 %>
+      <nav class="hum-nav">
         <div class="inner">
-          <ul>
-            <li><a href="#">Text</a></li>
-            <li><a href="#">Text</a></li>
-            <li><a href="#">Text</a></li>
-          </ul>
+          <%= render 'layouts/mobile_menu' %>
         </div>
       </nav>
 
-      <div class="toggle_btn">
-        <span></span>
-        <span></span>
-        <span></span>
+      <%#=メニューボタン%>
+      <div class="menu-icon">
+        <div class="toggle_btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
+      
 
       <div id="mask"></div>
     </div>

@@ -12,6 +12,15 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
   }
 }
 
+// ハンバーガボタン
+.toggle_btn {
+  margin-top: 6px;
+}
+
+.hum-nav {
+  width: 300px;
+}
+
 #header-space {
   height: $navHeight;
   // background-color: white;

@@ -1,6 +1,7 @@
 $(document).ready(function($) {
   var $nav   = $('#nav-area');
-  var $btn   = $('.toggle_btn');
+  // var $btn   = $('.toggle_btn');
+  var $btn   = $('.menu-icon');
   var $mask  = $('#mask');
   var open   = 'open'; // class
   // menu open close
