@@ -31,10 +31,43 @@ Stylesheet: 960px以上のモニタで適用
 //   }
 // }
 
+// ヘッダー
 .header {
+  height: $_980NavHeight;
+  
   &__nav {
     display: block;
   }
+
+  & .logo {
+    font-size: 32px;
+  }
+}
+
+// ハンバーガーメニュー
+#nav-area {
+  //非表示
+  display: none;
+}
+// ハンバーガーメニューボタン
+.toggle_btn {
+  height: 30px;
+}
+
+.open .toggle_btn span:nth-child(1) {
+  transform: translateY(10px) rotate(-315deg);
+}
+.open .toggle_btn span:nth-child(2) {
+  opacity: 0;
+}
+.open .toggle_btn span:nth-child(3) {
+  transform: translateY(-10px) rotate(315deg);
+}
+
+
+#header-space {
+  height: $_980NavHeight;
+  // background-color: white;
 }
 
 .mobile-menu {

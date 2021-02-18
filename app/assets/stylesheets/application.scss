@@ -10,6 +10,7 @@
 @import 'modules/text-animation';
 @import 'modules/image-slide';
 @import 'modules/mobile-menu';
+@import 'modules/hum-menu';
 
 @import "breakpoints/base";
 @import "home_page";
@@ -44,11 +45,11 @@
 
 /* Top Page */
 #menu-bar {
-  background-color: rgb(6, 165, 6);
+  // background-color: rgb(6, 165, 6);
 }
 
 .logo {
-  color: darkgreen;
+  // color: darkgreen;
 }
 
 #home-content {

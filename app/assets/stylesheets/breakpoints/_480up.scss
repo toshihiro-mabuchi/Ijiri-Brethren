@@ -3,6 +3,19 @@
 Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 
 ******************************************************************/
+// ヘッダー
+.header {
+  height: $navHeight;
+  
+  & .logo {
+    font-size: 32px;
+  }
+}
+
+#header-space {
+  height: $navHeight;
+  // background-color: white;
+}
 
 // お便り
 .article__contents {

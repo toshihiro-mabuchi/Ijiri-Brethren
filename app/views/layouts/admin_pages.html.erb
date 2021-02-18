@@ -5,8 +5,8 @@
     <title><%= full_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%# ページローダー機能 %>
-    <%= stylesheet_link_tag 'admin/module/loader', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'vendors/pace.min', 'data-turbolinks-track': 'reload'%>
+    <%= stylesheet_link_tag 'loader' %>
+    <%= javascript_include_tag 'vendors/pace.min' %>
     <%# ページローダーここまで %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

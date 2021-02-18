@@ -139,12 +139,17 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: $navHeight;
+  height: $baseNavHeight;
   background-color: transparent;
-  box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   z-index: 100;
+
+  box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+  // &.triggered {
+  //   background-color: rgba(255, 255, 255, 0.9);
+  //   box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+  // }
 
   &__nav {
     display: none;
@@ -169,7 +174,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   & .logo {
-    font-size: 32px;
+    font-size: 24px;
     justify-content: center;
   }
   
@@ -182,14 +187,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header-space {
-  height: $navHeight;
+  height: $baseNavHeight;
   // background-color: white;
 }
 
 #menu-bar {
   // padding-top: $navHeight;
   display: flex;
-  background-color: $cBgGray;
+  // background-color: $cBgGray;
   @extend .content-width;
 }
 
