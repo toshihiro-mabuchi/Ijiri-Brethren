@@ -15,6 +15,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( vendors/* )
 Rails.application.config.assets.precompile += %w( loader )
 Rails.application.config.assets.precompile += %w( admin/module/loader )
+Rails.application.config.assets.precompile += %w( admin_pages )
 # Rails.application.config.assets.precompile += %w( admin_page )
 
 # Rails.application.config.assets.precompile += %w( vendors/loader.js )
