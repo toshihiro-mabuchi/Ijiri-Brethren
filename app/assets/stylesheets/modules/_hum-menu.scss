@@ -1,0 +1,144 @@
+/*============
+.hum-nav
+=============*/
+// #nav-area {
+//   top: 30px;
+//   right: 30px;
+//   left: 30px;
+//   width: 30px;
+//   height: 30px;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.hum-nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  width: 300px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: all .5s;
+  z-index: 3;
+  opacity: 0;
+}
+.open .hum-nav {
+  left: 0;
+  opacity: 1;
+}
+.hum-nav .inner {
+  padding: 25px;
+}
+.hum-nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hum-nav .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+.hum-nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+.hum-nav .inner ul li a:hover {
+  background: #e4e4e4;
+}
+@media screen and (max-width: 767px) {
+  .hum-nav {
+    left: -220px;
+    width: 240px;
+  }
+}
+/*============
+.toggle_btn
+=============*/
+.menu-icon {
+  // display: block;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 3;
+}
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  // height: 30px;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 4;
+
+  & > span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all .5s;
+  }
+}
+
+.toggle_btn span:nth-child(1) {
+  top: 4px;
+}
+.toggle_btn span:nth-child(2) {
+  top: 14px;
+}
+.toggle_btn span:nth-child(3) {
+  bottom: 4px;
+}
+.open {
+
+  & .toggle_btn {
+    & span {
+      background-color: #fff;
+
+      &:nth-child(1) {
+        transform: translateY(-5px) rotate(315deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(5px) rotate(-315deg);
+      }
+    }
+  }
+}
+
+/*============
+#mask
+=============*/
+#mask {
+  display: none;
+  transition: all .5s;
+}
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 2;
+  cursor: pointer;
+}

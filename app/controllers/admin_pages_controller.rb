@@ -3,6 +3,7 @@ class AdminPagesController < ApplicationController
 
   def index
     # if !current_user.admin?
+    #   byebug
     #   flash[:danger] = "権限がありません。"
     #   redirect_to root_path
     # end

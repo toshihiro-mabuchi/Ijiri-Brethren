@@ -2,23 +2,48 @@
 <header class="header">
   <div class="header__inner appear up">
     <div class="logo item">
-      <span class="logo__stay">🏠 井尻キリスト集会</span>
+      <span class="logo__stay"> 井尻キリスト集会</span>
     </div>
     <nav class="header__nav">
       <ul class="header__ul">
-        <li class="header__li item"><a href="#">ホーム</a></li>
+        <%# <li class="header__li item"><a href="#">ホーム</a></li>
         <li class="header__li item"><a href="#">定期集会</a></li>
-        <li class="header__li item"><a href="#">特別集会</a></li>
-        <li class="header__li item"><a href="<%= galleries_path %>">ギャラリー</a></li>
-        <li class="header__li item">
-          <button class="btn float">Contact</button>
-        </li>
+        <li class="header__li item"><a href="#">特別集会</a></li> %>
+        <%# <li class="header__li item"><a href="< % = galleries_path">ギャラリー</a></li> %>
+        <% if user_signed_in?%>
+          <li class="header__li item">
+              <%= link_to 'メンバー専用画面', member_pages_path, class: 'nav-link' %>
+          </li>
+          <li class="header__li item">
+            <%= link_to '管理者専用画面', admin_pages_path, class: 'nav-link' if current_user.admin?%>
+          </li>
+        <% else %>
+          <li class="header__li item">
+            <%= link_to "当集会の兄弟姉妹はこちら", new_user_session_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       </ul>
     </nav>
-    <button class="mobile-menu__btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <!-- ハンバーガーメニュー -->
+    <div id="nav-area">
+      <%# 中身 %>
+      <nav class="hum-nav">
+        <div class="inner">
+          <%= render 'layouts/mobile_menu' %>
+        </div>
+      </nav>
+
+      <%#=メニューボタン%>
+      <div class="menu-icon">
+        <div class="toggle_btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="mask"></div>
+    </div>
+    <%#=ハンバーガーメニューここまで%> 
   </div>
 </header>
