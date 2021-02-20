@@ -8,7 +8,7 @@
     <div class="gallery__group">
       <div class="gallery__new">
         <% if user_signed_in? && current_user.admin? %>
-          <%= link_to "新規登録", new_gallery_url, class: "btn btn-primary" %>
+          <%= link_to "新規登録", new_gallery_url, remote: true, class: "btn btn-primary" %>
         <% end %>
       </div>
       <h4 class="title_tag"><i class="far fa-images"></i>&nbsp;ギャラリー</h4>
@@ -50,6 +50,7 @@
   </div>
 </div>
 
+<div id="new-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <div id="edit-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
 <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script>

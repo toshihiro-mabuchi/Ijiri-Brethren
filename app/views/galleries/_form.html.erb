@@ -20,17 +20,21 @@
       <%= f.label :image %>
     </div>
 
-    <div class="form-group">  
-      <%= f.file_field :image, class: "form-control-file" %>
+    <div class="form-group">
+      <% if controller.action_name == "new" %>
+        <%= f.file_field :image, required: true, class: "form-control-file" %>
+      <% elsif controller.action_name == "edit" %>
+        <%= f.file_field :image, class: "form-control-file" %>
+      <% end %>
     </div>
 
     <div class="form-group">
       <%= f.submit class: "btn btn-primary" %>
-      <% if controller.action_name == "new" %>
-        <%= link_to '戻る', galleries_path, class: "btn btn-secondary" %>
-      <% elsif controller.action_name == "edit" %>
+      <%# <% if controller.action_name == "new" %>
+        <%# <%= link_to '戻る', galleries_path, class: "btn btn-secondary" %>
+      <%# <% elsif controller.action_name == "edit" %>
         <button type="button" class="btn border btn-edit" data-dismiss="modal">キャンセル</button>
-      <% end %>
+      <%# <% end %>
     </div>
 
     <div class="form-group">

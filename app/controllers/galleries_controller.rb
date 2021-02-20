@@ -4,7 +4,6 @@ class GalleriesController < ApplicationController
 
   def index
     @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
-    @gallery = Gallery.new
   end
 
   def show
@@ -20,7 +19,8 @@ class GalleriesController < ApplicationController
       flash[:success] = "画像を登録しました。(#{@gallery.title})"
       redirect_to galleries_url
     else
-      render :new
+      flash[:alert] = @gallery.errors.full_messages
+      redirect_to galleries_url
     end
   end
 
@@ -32,7 +32,7 @@ class GalleriesController < ApplicationController
       flash[:success] = "画像を更新しました。(#{@gallery.title})"
       redirect_to galleries_url
     else
-      render :new
+      render :edit
     end
   end
 
