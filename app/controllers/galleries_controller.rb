@@ -1,10 +1,13 @@
 class GalleriesController < ApplicationController
+  include GalleriesHelper
+
   before_action :logged_in_user, only: %i(index show)
   before_action :admin_user, only: %i(new create edit update destroy)
   before_action :set_gallery, only: %i(show edit update destroy)
+  before_action :admin_user, only: %i(new create edit update destroy)
 
   def index
-    @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
+    gallery_list
   end
 
   def show
@@ -20,7 +23,8 @@ class GalleriesController < ApplicationController
       flash[:success] = "画像を登録しました。(#{@gallery.title})"
       redirect_to galleries_url
     else
-      render :new
+      flash[:alert] = @gallery.errors.full_messages
+      redirect_to galleries_url
     end
   end
 
@@ -32,7 +36,7 @@ class GalleriesController < ApplicationController
       flash[:success] = "画像を更新しました。(#{@gallery.title})"
       redirect_to galleries_url
     else
-      render :new
+      redirect_to galleries_url
     end
   end
 
