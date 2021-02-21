@@ -1,58 +1,56 @@
 <% provide(:title, 'ギャラリー') %>
 
-<h1>ギャラリー</h1>
+<h2><i class="fas fa-camera"></i>&nbsp;ギャラリー一覧</h2>
 
 <div class="container">
 
-  <div style="text-align: left;">
-    <% if user_signed_in? && current_user.admin? %>
-      <%= link_to "画像投稿画面へ", new_gallery_url, class: "" %>
-    <% end %>
-  </div>
-
-  <section class="gallery container">
-    <% @galleries.each do |category, galleries| %>
-      <div class="gallery__category">
-        <h4><%= category %></h4>
+  <div id="gallery">
+    <div class="gallery__group">
+      <div class="gallery__new">
+        <% if user_signed_in? && current_user.admin? %>
+          <%= link_to "新規登録", new_gallery_url, remote: true, class: "btn btn-primary" %>
+        <% end %>
       </div>
-      <% galleries.each do |gallery| %>
-        <div class="gallery__inner">
-          <div class="gallery__item">
+      <h4 class="title_tag"><i class="far fa-images"></i>&nbsp;ギャラリー</h4>
+      <% @galleries.each do |category, galleries| %>
+        <div class="gallery__category">
+          <h4 class="category_tag"><%= category %></h4>
+        </div>
 
-            <div class="gallery__title">
-              <%= gallery.title %>
-            </div>
+        <div class="gallery__outer">
+          <% galleries.each do |gallery| %>
+            <div class="<%= display_background_color(gallery) %>">  
+              <div class="gallery__item">
+              <div class="aaa">
+                <div class="gallery___image">
+                  <%= link_to gallery.image, "data-lightbox": gallery.image do %>
+                    <%= image_tag gallery.image.variant(resize:'150x150') %>
+                  <% end %>
+                </div>
+                </div>
 
-            <div class="gallery___image">
-              <%= image_tag gallery.image.variant(resize:'200x200') %>
-            </div>
+                <div class="gallery__title">
+                  <%= gallery.title %>
+                </div>
 
-            <% if user_signed_in? && current_user.admin? %>
-              <div class="galley__edit">
-                <%= link_to '編集', edit_gallery_path(gallery), class: "btn btn-success" %>
-                <%= link_to '削除', gallery_path(gallery), class: "btn btn-danger",
-                                                          method: :delete,
-                                                          data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
+                <% if user_signed_in? && current_user.admin? %>
+                  <div class="galley__edit">
+                    <%= link_to '編集', edit_gallery_path(gallery.id), remote: true, class: "btn btn-sm btn-success" %>
+                    <%= link_to '削除', gallery_path(gallery), class: "btn btn-sm btn-danger",
+                                                              method: :delete,
+                                                              data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
-
-          </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
-    <% end %>
-  </section>
+    </div>
+  </div>
 </div>
 
-<!--
-<style>
-  .gallery__inner {
-    display: inline-block;
-    background: #fff;
-    /* border: 1px #ccc solid; */
-    /* box-shadow: 0 2px 3px 0 #ddd; */
-    margin-left: 10px;
-    margin-bottom: 10px;
-    padding: 8px;
-  }
-</style>
--->
+<div id="new-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script>

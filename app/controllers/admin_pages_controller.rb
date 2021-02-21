@@ -8,7 +8,7 @@ class AdminPagesController < ApplicationController
     @articles = Article.order(updated_at: :desc)
     @member_infos = Info.where(category: "メンバー")
     @general_infos = Info.where(category: "一般")
-    @galleries = Gallery.all.order(:category, :id).group_by(&:category)
+    @galleries = Gallery.all.order(:category, "display desc", :id).group_by(&:category)
 
     # @users_num = @users.size
     @users_group1_num = User.where(member_groups: "グループ１").size

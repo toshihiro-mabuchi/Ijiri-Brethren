@@ -2,11 +2,77 @@
 
 <h2>📪 お便り一覧 📪</h2>
 
-<% if current_user.admin? %>
-  <div>
-    <%= link_to '新規登録', new_article_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="article container">
+    <div class="article__group">
+
+      <div class="article__new">
+        <% if current_user.admin? %>
+          <div>
+            <%= link_to '新規登録', new_article_path, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+
+      
+        <ul class="article__year_list">
+          <li>
+          <% @article_years.each do |issue_date, article| %>
+            <span><%= issue_date %></span>
+          <% end %>
+          </li>
+        </ul>
+      
+
+      <% @articles.each do |article| %>
+        <ul class="article__list">
+          <li>
+            <span><%= article.issue_date.strftime("%Y年%m月%d日") %></span>
+            <span><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></span>
+            <span class="article__edit"><%= link_to '編集', edit_article_path(article) %></span>
+            <span class="article__delete">
+              <%= link_to '削除', article_path(article), method: :delete,
+                                                        data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %>
+            </span>
+          </li>
+        </ul>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
+
+<style>
+.article__list {
+  padding-bottom: 10px;
+} 
+.article__list li {
+  font-size: large;
+  display: inline-block;
+  padding-right: 10px;
+  border-bottom: dotted 1px;
+}
+
+.article__list span {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.article__year_list li {
+  font-size: large;
+  display: inline-block;
+  padding-right: 10px;
+  /* border-bottom: dotted 1px; */
+}
+
+.article__year_list span {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+</style>
+
+
+
+
 
 <table class="table table-striped">
   <thead>
