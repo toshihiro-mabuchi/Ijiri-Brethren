@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
   # layout 'admin_page', except: [:members_view, :general_view]
+  before_action :logged_in_user, only: %i(index show)
+  before_action :admin_user, only: %i(new create edit update destroy)
 
   def index
     @member_movies = Movie.where(category: "メンバー")

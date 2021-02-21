@@ -1,12 +1,14 @@
-<% provide(:title, '画像一覧') %>
+<% provide(:title, 'ギャラリー') %>
 
-<h1>画像一覧</h1>
+<h1>ギャラリー</h1>
 
 <div class="container">
 
-  <% if user_signed_in? && current_user.admin? %>
-    <%= link_to "画像投稿画面へ", new_gallery_url, class: "" %>
-  <% end %>
+  <div style="text-align: left;">
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to "画像投稿画面へ", new_gallery_url, class: "" %>
+    <% end %>
+  </div>
 
   <section class="gallery container">
     <% @galleries.each do |category, galleries| %>
@@ -41,6 +43,7 @@
   </section>
 </div>
 
+<!--
 <style>
   .gallery__inner {
     display: inline-block;
@@ -52,3 +55,4 @@
     padding: 8px;
   }
 </style>
+-->

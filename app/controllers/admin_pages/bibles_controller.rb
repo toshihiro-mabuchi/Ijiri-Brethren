@@ -1,6 +1,6 @@
 class AdminPages::BiblesController < ApplicationController
-  before_action :signed_in_user
-  # before_action :set_bible, only: [:edit, :update, :destroy]
+  before_action :admin_user
+  # before_action :set_bible, only: %i(edit update destroy)
 
   def index
     @bibles = Bible.all.order(:id)

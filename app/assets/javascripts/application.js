@@ -38,5 +38,5 @@ document.addEventListener("turbolinks:load", function() {
 
 // flashメッセージをフェードアウトで消す。
 $(function(){
-  setTimeout("$('.alert').fadeOut('slow')", 5000);
+  setTimeout("$('.alert').fadeOut('slow')", 7000);
 });

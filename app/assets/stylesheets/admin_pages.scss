@@ -20,3 +20,7 @@ Stylesheet: 管理者ページスタイル
 @media (min-width: 1280px) {
   @import "admin/breakpoints/1280up";
 }
+
+.members-index {
+  padding-top: 20px;
+}

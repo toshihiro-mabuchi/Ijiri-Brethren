@@ -1,17 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:destroy]
+  before_action :set_user, only: %i(show destroy)
+  before_action :logged_in_user, only: %i(index show edit update destroy)
+  before_action :admin_or_correct_user, only: :show
+  before_action :admin_user, only: %i(index edit update destroy)
 
   def index
-    if current_user.admin?
+    # if current_user.admin?
       @users = User.all.order(:member_groups, :name)
-    else
-      flash[:danger] = "権限がありません。"
-      redirect_to root_path
-    end
+    # else
+    #   flash[:danger] = "権限がありません。"
+    #   redirect_to root_path
+    # end
   end
 
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
   
   # def new

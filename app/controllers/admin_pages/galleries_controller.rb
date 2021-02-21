@@ -1,5 +1,5 @@
 class AdminPages::GalleriesController < ApplicationController
-  before_action :signed_in_user
+  before_action :admin_user
   # before_action :set_gallery, only: %i(show edit update destroy)
 
   def index
