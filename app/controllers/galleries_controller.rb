@@ -2,8 +2,7 @@ class GalleriesController < ApplicationController
   include GalleriesHelper
 
   before_action :set_gallery, only: %i(show edit update destroy)
-  # before_action :current_user_admin?
-  before_action :admin_user
+  before_action :admin_user, only: %i(new create edit update destroy)
 
   def index
     gallery_list

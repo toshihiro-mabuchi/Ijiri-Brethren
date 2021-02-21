@@ -1,8 +1,13 @@
 module GalleriesHelper
   def gallery_list
     @galleries =
-      admin_user ? Gallery.with_attached_image.order(:category, "display desc", :id).group_by(&:category)
-                          : Gallery.with_attached_image.where(display: 1).order(:category, :id).group_by(&:category)
+    if user_signed_in? && current_user.admin?
+      Gallery.with_attached_image.order(:category, "display desc", :id).group_by(&:category)
+    elsif user_signed_in?
+      Gallery.with_attached_image.where(display: 1).order(:category, :id).group_by(&:category)
+    else
+      redirect_to root_url
+    end
   end
 
   def display_background_color(gallery)
