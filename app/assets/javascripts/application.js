@@ -19,7 +19,7 @@
 //= require activestorage
 // layout関連
 //= require libs/hero-slider
-//= require libs/mobile-menu
+//= require libs/hum-menu
 //= require libs/scroll
 //= require libs/text-animation
 //= require main
@@ -30,8 +30,6 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
-// require_treeは無効にします。
-// require_tree .
 
 document.addEventListener("turbolinks:load", function() {
   // location.reload();
@@ -40,5 +38,5 @@ document.addEventListener("turbolinks:load", function() {
 
 // flashメッセージをフェードアウトで消す。
 $(function(){
-  setTimeout("$('.alert').fadeOut('slow')", 5000);
+  setTimeout("$('.alert').fadeOut('slow')", 7000);
 });

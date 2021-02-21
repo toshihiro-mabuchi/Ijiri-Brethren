@@ -8,8 +8,11 @@ RSpec.describe User, type: :model do
     user = User.new(
       name: 'test',
       email: 'test@example.com',
-      password: 'foobar12A',
-      password_confirmation: 'foobar12A'
+      password: 'foobar12',
+      password_confirmation: 'foobar12',
+      phone_number: '090-1234-5678',
+      member_groups: 'グループ１',
+      admin: false
     )
     expect(user).to be_valid
   end

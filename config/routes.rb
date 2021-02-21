@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   ### 管理者画面 ###
   # get 'admin_page/index'
-  resources :admin_pages, only: [:index] do
+  resources :admin_pages, only: :index do
     collection do
       get :home
       # get :movie
@@ -16,16 +16,16 @@ Rails.application.routes.draw do
     # end
   end
   namespace :admin_pages do
-    resources :users, only: [:index]
-    resources :movies, only: [:index]
-    resources :articles, only: [:index]
-    resources :infos, only: [:index]
-    resources :galleries, only: [:index]
+    resources :users
+    resources :movies
+    resources :articles
+    resources :infos
+    resources :galleries
   end
 
-  ### 会員様専用画面 ###
+  ### メンバー専用画面 ###
   # get 'member_page/index'
-  resources :member_pages, only: [:index] do
+  resources :member_pages, only: :index do
     collection do
       get :articles
     end
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
       match 'users/:id', to: 'users/registrations#update', via: [:patch, :put], as: :other_user_registration
   end
 
-  resources :users, only: [:index, :show, :destroy]
+  resources :users, only: %i(index show destroy)
 
   ### お知らせ ###
   resources :infos

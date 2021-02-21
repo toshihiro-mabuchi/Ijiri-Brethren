@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  prepend_before_action :require_no_authentication, only: [:cancel]
-  prepend_before_action :authenticate_scope!, only: [:update, :destroy]
-  prepend_before_action :set_minimum_password_length, only: [:new, :edit]
-  before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
-  before_action :creatable?, only: [:new, :create]
-  before_action :editable?, only: [:edit, :update]
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  prepend_before_action :require_no_authentication, only: :cancel
+  prepend_before_action :authenticate_scope!, only: %i(update destroy)
+  prepend_before_action :set_minimum_password_length, only: %i(new edit)
+  before_action :configure_sign_up_params, only: :create
+  before_action :configure_account_update_params, only: :update
+  before_action :creatable?, only: %i(new create)
+  before_action :editable?, only: %i(edit update)
+  # before_action :configure_sign_up_params, only: :create
+  # before_action :configure_account_update_params, only: :update
 
   # GET /resource/sign_up
   def new
@@ -34,9 +34,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @user = User.new(user_params)
         if @user.save
           # sign_in @user
-          redirect_to users_path, notice: '会員様情報の作成に成功しました。'
+          redirect_to users_path, notice: 'メンバー情報の作成に成功しました。'
         else
-          redirect_to users_path, alert: '会員様情報の作成に失敗しました。'
+          redirect_to users_path, alert: 'メンバー情報の作成に失敗しました。'
         end
       end
     end
@@ -59,9 +59,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     # @user = User.find(params[:user_id])
     # if @user.update_attributes(user_params)
-    #   redirect_to users_path, notice: '会員様の更新に成功しました。'
+    #   redirect_to users_path, notice: 'メンバーの更新に成功しました。'
     # else
-    #   redirect_to users_path, notice: '会員様情報の更新に失敗しました。'
+    #   redirect_to users_path, notice: 'メンバー情報の更新に失敗しました。'
     # end
     # if by_admin_user?(params)
     #   self.resource = resource_class.to_adapter.get!(params[:id])
@@ -95,9 +95,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # end
     @user = User.find(params[:user_id])
     if @user.update_attributes(user_params)
-      redirect_to users_path, notice: '会員様の更新に成功しました。'
+      redirect_to users_path, notice: 'メンバーの更新に成功しました。'
     else
-      redirect_to users_path, alert: '会員様情報の更新に失敗しました。'
+      redirect_to users_path, alert: 'メンバー情報の更新に失敗しました。'
     end
   end
 

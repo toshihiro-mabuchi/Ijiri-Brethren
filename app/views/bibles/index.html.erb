@@ -10,7 +10,9 @@
         <th width="100"><%= Bible.human_attribute_name :title %></th>
         <th width="120"><%= Bible.human_attribute_name :subtitle %></th>
         <th width="400"><%= Bible.human_attribute_name :text %></th>
-        <th width="300"></th>
+        <% if current_user.admin? %>
+          <th width="300"></th>
+        <% end %>
       </tr>
     </thead>
 
@@ -25,12 +27,15 @@
           <td><%= bible.title %></td>
           <td><%= bible.subtitle %></td>
           <td><%= bible.text %></td>
+          <%# <% if user_signed_in? && current_user.admin? %>
+          <% if current_user.admin? %>
             <td class="center">
               <%= link_to "編集", edit_bible_path(bible), remote: true, class: "btn btn-sm btn-success" %>
               <%= link_to "削除", bible_path(bible), method: :delete,
                   data: { confirm: "削除してよろしいですか？" },
                   class: "btn btn-sm btn-danger" %>
             </td>
+          <% end %>
         </tr>
       </tbody>
     <% end %>

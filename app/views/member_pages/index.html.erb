@@ -1,6 +1,6 @@
 <% provide(:title, 'Movies Page') %>
 
-<h2>会員様専用画面</h2>
+<h2>メンバー専用画面</h2>
 
 <div id="content">
   <%# <div id="member-main" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #eee;"> %>
@@ -9,11 +9,11 @@
     <div class="row">
 
       <!-- sidebar_start -->
-      <div class="sm_sidebar col-sm-3" style="margin-top: 60px;">
-        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #ddd;">
+      <div class="sm_sidebar col-sm-3" style="margin-top: 75px;">
+        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 0 -7px; padding: 20px; background-color: #ddd;">
           <div class="sm_sidebar_title">ユーザー関連</div>
           <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "会員様アカウント情報", user_path(current_user) %></div>
+            <div class="tab-item"><%= link_to "メンバーアカウント情報", user_path(current_user) %></div>
           </div>
           <div class="sm_sidebar_title">お知らせ関連</div>
           <div class="col-xs-12 col-lg-12">
@@ -40,7 +40,7 @@
         <section class="info container" id="member-info">
           <U><h2>お知らせ</h2></U>
           <div class="info__contents">
-            <% @members_infos.each do |info| %>
+            <% @member_infos.each do |info| %>
               <div style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
                 <div class="info__title" style="border: #ccc solid 1px; border-left: #ccc solid 10px; padding: 5px; background: #fff; font-size: 100%; background-color: #eee;">
                   <%= info.title %>
@@ -116,6 +116,7 @@
   </div>
 </div>
 
+<!--
 <style>
   .gallery__title {
     display: inline-block;
@@ -137,3 +138,4 @@
     padding: 8px;
   }
 </style>
+-->

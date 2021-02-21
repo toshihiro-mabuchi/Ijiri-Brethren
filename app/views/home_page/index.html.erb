@@ -1,51 +1,50 @@
   
 <div id="content">
 
-  <%# スライド表示 %>
-  <div class="first-view">
-    <%# <h2>スライド表示</h2> %>
-    <%# <div class="hero"> %>
-      <!-- Slider main container -->
-      <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <!-- Slides -->
+  <!-- スライド表示 -->
+  <%# <div class="first-view"> %>
+    <!-- Slider main container -->
+    <%# <div class="swiper-container"> %>
+      <!-- Additional required wrapper -->
+      <%# <div class="swiper-wrapper"> %>
+        <!-- Slides -->
 
-          <section class="slider container" id="general-slider">
-            <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
-              <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample1.jpg">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample2.jpg">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample3.jpg">
-                </div>
+        <!--
+        <section class="slider container" id="general-slider">
+          <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel" data-slide-to="1"></li>
+              <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample1.jpg">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample2.jpg">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample3.jpg">
               </div>
             </div>
-          </section>
+          </div>
+        </section>
+        -->
 
-        </div>
-        <div class="hero__footer">
-        
-          <span class="hero__scrolltext">scroll</span>
-        </div>
+      <%# </div>
+      <div class="hero__footer">
+      
+        <span class="hero__scrolltext">scroll</span>
       </div>
-    <%# </div> %>
-  </div>
+    </div>
+  </div> %>
   
 
   <div id="main-content">
     <main>
       <div id="home-content">
-        <%# お知らせ %>
+
         <section class="info container" id="general-info">
           <U><h2>お知らせ</h2></U>
           <div class="info__contents">
@@ -89,39 +88,51 @@
             </div>
           <% end %>
         </section><br>
-        
 
-        <%# アクセス情報 %>
-        <div class="access">
-          <div class="access__right access__info" >
-            <U><h2>アクセス情報</h2></U>
-          </div>
-          <div class="access__left google_map" >
-            <p>
+        <!-- アクセス情報 -->
+        <section class="info container" id="general-info">
+          <U><h2>アクセス情報</h2></U>
+          <div class="access__left google_map">
+            <div class="col-lg-6 float-left">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.9851001102334!2d130.43827531528797!3d33.55376345128081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354190fab73648d3%3A0x1ba2ed539d874980!2z5LqV5bC744Kt44Oq44K544OI6ZuG5Lya!5e0!3m2!1sja!2sjp!4v1609940759232!5m2!1sja!2sjp"
-                      width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </p>
+                      width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col-lg-6 float-right" align="left" >
+              <img role="presentation" jstcache="200" src="//www.gstatic.com/images/icons/material/system_gm/1x/place_gm_blue_24dp.png" class="ugiz4pqJLAG__icon" jsan="7.ugiz4pqJLAG__icon,0.role,8.src">
+              <%= "〒811-1302" %><br>
+              <%= "　　福岡県福岡市南区" %><br>
+              <%= "　　井尻１丁目２７−２３ 井尻福音館" %><br>
+              <img role="presentation" jstcache="200" src="//www.gstatic.com/images/icons/material/system_gm/1x/phone_gm_blue_24dp.png" class="ugiz4pqJLAG__icon" jsan="7.ugiz4pqJLAG__icon,0.role,8.src">
+              <%= "090-572-7476" %><br>
+              <img id="section-directions-trip-travel-mode-0" aria-label="  徒歩  " jstcache="1316" src="//maps.gstatic.com/tactile/pane/travel-modes/1x/walk_black.png" class="section-directions-trip-travel-mode-icon" jsan="7.section-directions-trip-travel-mode-icon,0.id,8.src,0.aria-label">
+              <%= "西鉄天神大牟田線 井尻駅より" %><br>
+              <%= "　　徒歩７分（550m）" %><br>
+              <img id="section-directions-trip-travel-mode-0" aria-label="  徒歩  " jstcache="1316" src="//maps.gstatic.com/tactile/pane/travel-modes/1x/walk_black.png" class="section-directions-trip-travel-mode-icon" jsan="7.section-directions-trip-travel-mode-icon,0.id,8.src,0.aria-label">
+              <%= "鹿児島本線 笹原駅より" %><br>
+              <%= "　　徒歩21分（1.3km）" %>
+
+            </div>
           </div>
-        </div>
+        </section>
       </div>
       
 
       <div class="local-nav">
         <%# <p>ローカルナビゲーション</p> %>
         <p></p>
-        <%# 聖書の御言葉 %>
-        <div class="word-of-God">
+        <!-- 聖書の御言葉 -->
+        <div class="word-of-God container">
           <h2>御言葉</h2>
-          <!-- 御言葉<サンプル開始 -->
           <U><p><%= @bible.title %></p></U>
           <SUP><I><p><%= "<#{@bible.subtitle}>" %></p></I></SUP>
           <p><BIG><%= @bible.text %></BIG></p>
-          <!-- 御言葉<サンプル終了 -->
         </div>
 
-        <%# カテゴリー等 %>
+        <!-- カテゴリー等 -->
+
       </div>
     </main>
   </div>
 
 </div>
+

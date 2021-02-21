@@ -1,6 +1,8 @@
 class GalleriesController < ApplicationController
   include GalleriesHelper
 
+  before_action :logged_in_user, only: %i(index show)
+  before_action :admin_user, only: %i(new create edit update destroy)
   before_action :set_gallery, only: %i(show edit update destroy)
   before_action :admin_user, only: %i(new create edit update destroy)
 
