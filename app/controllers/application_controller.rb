@@ -28,8 +28,12 @@ class ApplicationController < ActionController::Base
 
   # システム管理権限所有かどうか判定する。
   def admin_user
-    flash[:danger] = "権限がありません。"
-    redirect_to root_path unless user_signed_in? && current_user.admin?
+    # flash[:danger] = "権限がありません。"
+    # redirect_to root_path unless user_signed_in? && current_user.admin?
+    unless user_signed_in? && current_user.admin?
+      flash[:danger] = "権限がありません。"
+      redirect_to root_path
+    end
   end
 
 

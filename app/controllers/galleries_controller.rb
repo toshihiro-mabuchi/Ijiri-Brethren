@@ -1,9 +1,12 @@
 class GalleriesController < ApplicationController
+  include GalleriesHelper
+
   before_action :set_gallery, only: %i(show edit update destroy)
-  before_action :current_user_admin?
+  # before_action :current_user_admin?
+  before_action :admin_user
 
   def index
-    @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
+    gallery_list
   end
 
   def show
@@ -32,7 +35,7 @@ class GalleriesController < ApplicationController
       flash[:success] = "画像を更新しました。(#{@gallery.title})"
       redirect_to galleries_url
     else
-      render :edit
+      redirect_to galleries_url
     end
   end
 
