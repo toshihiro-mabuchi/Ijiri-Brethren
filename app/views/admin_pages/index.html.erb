@@ -4,12 +4,13 @@
   <%# home_admin_pages_path admin_pages_users_path admin_pages_movies_path %>
     <%# <　%= link_to 'ホーム', '', remote: true, id: 'ad-home', class: 'nav-link clicked' %>
     <p id= 'ad-home', class= 'admin-btn nav-link clicked'>ホーム</p>
-    <p>アプリ</p>
+    <%# <p>アプリ</p> %>
+    <p>メンバーページ</p>
     <p id= 'ad-users', class= 'admin-btn'>メンバー</p>
     <p id= 'ad-movies', class= 'admin-btn'>動画</p>
     <p id= 'ad-articles', class= 'admin-btn'>毎月のお便り</p>
     <p id= 'ad-infos', class= 'admin-btn'>お知らせ</p>
-    <p id= 'ad-gallerys', class= 'admin-btn'>ギャラリー</p>
+    <p id= 'ad-galleries', class= 'admin-btn'>ギャラリー</p>
     <p>ホームページ</p>
     <%# <%= link_to "メンバー", users_path, class: 'admin-btn nav-link' %>
     <%= link_to "動画", movies_path, class: 'admin-btn nav-link' %>
@@ -18,7 +19,7 @@
     <%# <%= link_to "ギャラリー", galleries_path, class: 'admin-btn nav-link' %>
     <%= link_to "御言葉", bibles_path, class: 'admin-btn nav-link' %>
     <p>----------</p>
-    <%= link_to "メンバー専用画面", member_pages_path, class: 'admin-btn nav-link' %>
+    <%# <%= link_to "メンバー専用画面", member_pages_path, class: 'admin-btn nav-link' %>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'admin-btn nav-link' %>
   </div>
 
@@ -39,6 +40,9 @@
       </div>
       <div class="admin-main__item ad-articles">
         <div id="ad-article-content"><%= render 'admin_pages/articles/index' %></div>
+      </div>
+      <div class="admin-main__item ad-galleries">
+        <div id="ad-galleryies"><%= render 'admin_pages/galleries/index' %></div>
       </div>
       <div class="admin-main__item">
 
