@@ -11,7 +11,7 @@ class AdminPagesController < ApplicationController
     @galleries = Gallery.all.order(:category, :id).group_by(&:category)
 
     # @users_num = @users.size
-    @users_group1_num = User.where(member_groups: "グループ１").size
+    @users_group1_num = User.where(member_groups: "グループ１").where.not(name: "管理者").size
     @users_group2_num = User.where(member_groups: "グループ２").size 
     @member_movies_num = @member_movies.size
     @general_movies_num = @general_movies.size
