@@ -103,6 +103,12 @@
   border-color: black;
 }
 
+/* checkbox */
+
+input[type=checkbox] {
+  transform: scale(1.5);
+}
+
 /* Top Page */
 // #menu-bar {
 //   // background-color: rgb(6, 165, 6);

@@ -329,13 +329,30 @@ main {
 }
 
 .gallery__inner_display_off {
+  position: relative;
   display: inline-block;
   text-align: center;
   border: 1px #fafaeb solid;
   margin: 0 5px 0 0;
   margin-bottom: 10px;
   padding: 8px;
-  background-color: #ccc;
+  background-color: #f2f2f2;
+  opacity: 0.5;
+  .display-off-text:before {
+    position: absolute;
+    content: "非表示";
+    top: 75px;
+    left: 75px;
+    color: #fff;
+    font-size: xx-large;
+    text-shadow: 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00;
+    opacity: 1;
+  }
 }
 
 .gallery___image {
@@ -360,4 +377,19 @@ main {
   padding: 6px 0;
   text-align: left;
   border-bottom: solid 2px #06a506; 
+}
+
+.gallery__form-group {
+  margin-bottom: 35px;
+  btn-outline-secondary {
+    background-color: #ccc;
+  }
+}
+
+.gallery__modal-header {
+  background-color: #eee;
+}
+
+.gallery__modal-body {
+  background-color: #c2e4bc;
 }

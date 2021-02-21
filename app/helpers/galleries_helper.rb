@@ -13,5 +13,12 @@ module GalleriesHelper
   def display_background_color(gallery)
     gallery.display == 1 ? "gallery__inner" : "gallery__inner_display_off"
   end
-  
+
+  def modal_form_focus
+    if controller.action_name == "new"
+      "modal-new-foucus"
+    elsif controller.action_name == "edit"
+      "modal-edit-foucus"
+    end
+  end
 end

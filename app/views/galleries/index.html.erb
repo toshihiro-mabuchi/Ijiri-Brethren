@@ -21,15 +21,15 @@
           <% galleries.each do |gallery| %>
             <div class="<%= display_background_color(gallery) %>">  
               <div class="gallery__item">
-              <div class="aaa">
                 <div class="gallery___image">
                   <%= link_to gallery.image, "data-lightbox": gallery.image do %>
-                    <%= image_tag gallery.image.variant(resize:'150x150') %>
+                    <%= image_tag gallery.image.variant(resize:'150x150')%>
+                    <div class="display-off-text"></div>
                   <% end %>
-                </div>
                 </div>
 
                 <div class="gallery__title">
+                  <p></p>
                   <%= gallery.title %>
                 </div>
 
