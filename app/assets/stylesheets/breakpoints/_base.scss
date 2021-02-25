@@ -86,6 +86,11 @@ h1, h2, h3, h4, h5, h6 {
   @extend .alert-danger;
 }
 
+// ajax(非同期)アクション時のフラッシュ表示位置
+#flash_msg_js {
+  margin: -24px 0 20px 0;
+}
+
 /* モーダルウインドウの位置調整 */
 
 // .modal-dialog-center {

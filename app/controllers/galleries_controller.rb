@@ -41,9 +41,16 @@ class GalleriesController < ApplicationController
   end
 
   def destroy
-    @gallery.destroy
-    flash[:danger] = "画像を削除しました。(#{@gallery.title})"
-    redirect_to galleries_url
+    @category = @gallery.category
+    if @gallery.destroy
+      @gallery_id = @gallery.id
+      @category_id = Gallery.where(category: @category).exists? ? nil : @category
+
+      respond_to do |format|
+        # format.jsとして、flashメッセージをブロック内に記述。 
+        format.js { flash.now[:danger] = "画像を削除しました。(#{@gallery.title})" } 
+      end
+    end
   end
 
   private

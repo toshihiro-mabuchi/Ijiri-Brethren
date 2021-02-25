@@ -1,6 +1,6 @@
 $("#edit-gallery").html("<%= escape_javascript(render 'edit') %>");
 $("#edit-gallery").modal("show");
 
-$('#edit-gallery').on('shown.bs.modal', function () {
+$('#edit-gallery').on('shown.bs.modal', function() {
     $('#modal-edit-foucus').focus();
 });
