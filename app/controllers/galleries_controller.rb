@@ -19,12 +19,13 @@ class GalleriesController < ApplicationController
 
   def create
     @gallery = Gallery.new(gallery_params)
-    if @gallery.save
-      flash[:success] = "画像を登録しました。(#{@gallery.title})"
-      redirect_to galleries_url
-    else
-      flash[:alert] = @gallery.errors.full_messages
-      redirect_to galleries_url
+    respond_to do |format|
+      if @gallery.save
+        gallery_list
+        format.js { flash.now[:success] = "画像を登録しました。(#{@gallery.title})" }
+      else
+        render :index
+      end
     end
   end
 
@@ -33,17 +34,23 @@ class GalleriesController < ApplicationController
 
   def update
     if @gallery.update(gallery_params)
-      flash[:success] = "画像を更新しました。(#{@gallery.title})"
-      redirect_to galleries_url
+      respond_to do |format|
+        gallery_list
+        format.js { flash.now[:success] = "画像情報を編集しました。(#{@gallery.title})" }
+      end
     else
-      redirect_to galleries_url
+      render :index
     end
   end
 
   def destroy
-    @gallery.destroy
-    flash[:danger] = "画像を削除しました。(#{@gallery.title})"
-    redirect_to galleries_url
+    @category = @gallery.category
+    if @gallery.destroy
+      gallery_list
+      respond_to do |format|
+        format.js { flash.now[:danger] = "画像を削除しました。(#{@gallery.title})" }
+      end
+    end
   end
 
   private
