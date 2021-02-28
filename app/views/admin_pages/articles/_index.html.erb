@@ -1,12 +1,10 @@
 <% provide(:title, 'お便り一覧') %>
 
+<div class="members-index" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
+
 <h2><i class="far fa-file-alt"></i>&nbsp;お便り一覧</h2>
 
-<% if current_user.admin? %>
-  <div>
-    <%= link_to '新規登録', new_admin_pages_article_path, class: "btn btn-primary" %>
-  </div>
-<% end %>
+<div><%= link_to '新規登録', new_admin_pages_article_path, class: "btn btn-primary" %></div>
 
 <table class="table table-striped">
   <thead>
@@ -19,9 +17,7 @@
         <%# </ul> %>
       </th>
       <th>添付ファイル</th>
-      <% if current_user.admin? %>
-        <th></th>
-      <% end %>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -29,17 +25,15 @@
       <tr>
         <td><%= article.issue_date.strftime("%Y年%m月%d日") %></td>
         <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
-        <% if current_user.admin? %>
-          <td>
-            <%= link_to '編集', edit_admin_pages_article_path(article), class: "btn btn-success" %>
-            <%= link_to '削除', admin_pages_article_path(article), class: "btn btn-danger",
-                                                       method: :delete,
-                                                       data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %>
-          </td>
-        <% end %>
+        <td>
+          <%= link_to '編集', edit_admin_pages_article_path(article), class: "btn btn-success" %>
+          <%= link_to '削除', admin_pages_article_path(article), class: "btn btn-danger",
+              method: :delete,
+              data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%# <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script> %>
+</div>
