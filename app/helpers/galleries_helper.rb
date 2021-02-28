@@ -13,5 +13,12 @@ module GalleriesHelper
   def display_background_color(gallery)
     gallery.display == 1 ? "gallery__inner" : "gallery__inner_display_off"
   end
-  
+
+  def modal_form_class
+    if controller.action_name == "new"
+      "new"
+    elsif controller.action_name == "edit"
+      "edit"
+    end
+  end
 end
