@@ -17,9 +17,13 @@ Rails.application.routes.draw do
   end
   namespace :admin_pages do
     resources :users
-    resources :movies
+    resources :movies do
+      resources :general_movies
+    end
     resources :articles
-    resources :infos
+    resources :infos do
+      resources :general_infos
+    end
     resources :galleries
   end
 

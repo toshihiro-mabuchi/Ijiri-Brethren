@@ -5,19 +5,21 @@
     <%# <　%= link_to 'ホーム', '', remote: true, id: 'ad-home', class: 'nav-link clicked' %>
     <p id= 'ad-home', class= 'admin-btn nav-link clicked'>ホーム</p>
     <%# <p>アプリ</p> %>
-    <p>メンバーページ</p>
-    <p id= 'ad-users', class= 'admin-btn'>メンバー</p>
-    <p id= 'ad-movies', class= 'admin-btn'>動画</p>
-    <p id= 'ad-articles', class= 'admin-btn'>毎月のお便り</p>
-    <p id= 'ad-infos', class= 'admin-btn'>お知らせ</p>
-    <p id= 'ad-galleries', class= 'admin-btn'>ギャラリー</p>
-    <p>ホームページ</p>
-    <%# <%= link_to "メンバー", users_path, class: 'admin-btn nav-link' %>
-    <%= link_to "動画", movies_path, class: 'admin-btn nav-link' %>
-    <%# <%= link_to "毎月のお便り", articles_path, class: 'admin-btn nav-link' %>
-    <%= link_to "お知らせ", infos_path, class: 'admin-btn nav-link' %>
-    <%# <%= link_to "ギャラリー", galleries_path, class: 'admin-btn nav-link' %>
-    <%= link_to "御言葉", bibles_path, class: 'admin-btn nav-link' %>
+    <b><p>メンバーページ</p></b>
+      <p id= 'ad-users', class= 'admin-btn' style='padding: 0 1rem;'>メンバー</p>
+      <p id= 'ad-movies', class= 'admin-btn' style='padding: 0 1rem;'>動画</p>
+      <p id= 'ad-articles', class= 'admin-btn' style='padding: 0 1rem;'>毎月のお便り</p>
+      <p id= 'ad-infos', class= 'admin-btn' style='padding: 0 1rem;'>お知らせ</p>
+      <p id= 'ad-galleries', class= 'admin-btn' style='padding: 0 1rem;'>ギャラリー</p>
+    <b><p>ホームページ</p></b>
+      <!--
+      <%= link_to "動画", movies_path, class: 'admin-btn nav-link' %>
+      <%= link_to "お知らせ", infos_path, class: 'admin-btn nav-link' %>
+      <%= link_to "御言葉", bibles_path, class: 'admin-btn nav-link' %>
+      -->
+      <p id= 'ad-general-movies', class= 'admin-btn' style='padding: 0 1rem;'>動画</p>
+      <p id= 'ad-general-infos', class= 'admin-btn' style='padding: 0 1rem;'>お知らせ</p>
+      <p id= 'ad-bibles', class= 'admin-btn' style='padding: 0 1rem;'>御言葉</p>
     <p>----------</p>
     <%# <%= link_to "メンバー専用画面", member_pages_path, class: 'admin-btn nav-link' %>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'admin-btn nav-link' %>
@@ -43,6 +45,16 @@
       </div>
       <div class="admin-main__item ad-galleries">
         <div id="ad-galleryies"><%= render 'admin_pages/galleries/index' %></div>
+      </div>
+
+      <div class="admin-main__item ad-general-movies">
+        <div id="ad-general-movies"><%= render 'admin_pages/general_movies/index' %></div>
+      </div>
+      <div class="admin-main__item ad-general-infos">
+        <div id="ad-general-infos"><%= render 'admin_pages/general_infos/index' %></div>
+      </div>
+      <div class="admin-main__item ad-bibles">
+        <div id="ad-bibles"><%= render 'admin_pages/bibles/index' %></div>
       </div>
       <div class="admin-main__item">
 

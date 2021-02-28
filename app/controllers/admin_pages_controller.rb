@@ -6,10 +6,11 @@ class AdminPagesController < ApplicationController
     @member_movies = Movie.where(category: "メンバー")
     @general_movies = Movie.where(category: "一般")
     @articles = Article.order(updated_at: :desc)
+    @article_years = Article.with_attached_letter.order(issue_date: :DESC).group_by { |year| year.issue_date.strftime("%Y") }
     @member_infos = Info.where(category: "メンバー")
     @general_infos = Info.where(category: "一般")
     @galleries = Gallery.all.order(:category, "display desc", :id).group_by(&:category)
-
+    @bibles = Bible.all.order(:id)
     # @users_num = @users.size
     @users_group1_num = User.where(member_groups: "グループ１").where.not(name: "管理者").size
     @users_group2_num = User.where(member_groups: "グループ２").size 

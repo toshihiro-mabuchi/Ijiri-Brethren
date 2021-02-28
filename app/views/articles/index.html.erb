@@ -1,6 +1,6 @@
 <% provide(:title, 'お便り一覧') %>
 
-<h2>📪 お便り一覧 📪</h2>
+<h2><i class="far fa-file-alt"></i>&nbsp;お便り一覧</h2>
 
 <div class="container">
   <div class="article container">
@@ -13,8 +13,7 @@
           </div>
         <% end %>
       </div>
-
-      
+     
         <ul class="article__year_list">
           <li>
           <% @article_years.each do |issue_date, article| %>
@@ -23,7 +22,6 @@
           </li>
         </ul>
       
-
       <% @articles.each do |article| %>
         <ul class="article__list">
           <li>
@@ -71,9 +69,6 @@
 </style>
 
 
-
-
-
 <table class="table table-striped">
   <thead>
     <tr>
@@ -98,3 +93,6 @@
     <% end %>
   </tbody>
 </table>
+
+<%# <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script> %>
+
