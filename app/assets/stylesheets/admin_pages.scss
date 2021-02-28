@@ -5,6 +5,10 @@ Stylesheet: 管理者ページスタイル
 ******************************************************************/
 @import "admin/breakpoints/base";
 
+@media (min-width: 350px) {
+  @import "breakpoints/350up";
+}
+
 @media (min-width: 480px) {
   @import "admin/breakpoints/480up";
 }

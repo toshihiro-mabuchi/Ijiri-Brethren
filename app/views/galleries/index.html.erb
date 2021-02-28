@@ -21,13 +21,13 @@
           <% galleries.each do |gallery| %>
             <div class="<%= display_background_color(gallery) %>">  
               <div class="gallery__item">
-              <div class="aaa">
-                <div class="gallery___image">
-                  <%= link_to gallery.image, "data-lightbox": gallery.image do %>
-                    <%= image_tag gallery.image.variant(resize:'150x150') %>
-                  <% end %>
-                </div>
-                </div>
+                <%# <div class="aaa"> %>
+                  <div class="gallery___image">
+                    <%= link_to gallery.image, "data-lightbox": gallery.image do %>
+                      <%= image_tag gallery.image.variant(resize:'150x150') %>
+                    <% end %>
+                  </div>
+                <%# </div> %>
 
                 <div class="gallery__title">
                   <%= gallery.title %>
@@ -53,4 +53,4 @@
 <div id="new-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <div id="edit-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
-<script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script>
+<%# <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script> %>
