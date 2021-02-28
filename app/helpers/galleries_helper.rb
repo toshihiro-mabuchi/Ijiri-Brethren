@@ -14,11 +14,11 @@ module GalleriesHelper
     gallery.display == 1 ? "gallery__inner" : "gallery__inner_display_off"
   end
 
-  def modal_form_focus
+  def modal_form_class
     if controller.action_name == "new"
-      "modal-new-foucus"
+      "new"
     elsif controller.action_name == "edit"
-      "modal-edit-foucus"
+      "edit"
     end
   end
 end

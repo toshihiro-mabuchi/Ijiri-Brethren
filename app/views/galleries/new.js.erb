@@ -1,6 +1,10 @@
-$("#new-gallery").html("<%= escape_javascript(render 'new') %>");
-$("#new-gallery").modal("show");
+$('#new-gallery').html("<%= escape_javascript(render 'new') %>");
+$('#new-gallery').modal('show');
 
 $('#new-gallery').on('shown.bs.modal', function() {
     $('#modal-new-foucus').focus();
+});
+
+$('form').submit(function() {
+  $("#submit-<%= modal_form_class %>-gallery").click();
 });

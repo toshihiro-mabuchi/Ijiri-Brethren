@@ -1,9 +1,9 @@
-<%= form_with model: @gallery, local: true do |f| %>
+<%= form_with model: @gallery, remote: true do |f| %>
   <%= render 'layouts/error_messages', model: @gallery %>
   <div class="col col-12">
     <div class="gallery__form-group">
       <%= f.label :category %>
-      <%= f.text_field :category, id: "#{modal_form_focus}",
+      <%= f.text_field :category, id: "modal-#{modal_form_class}-foucus",
                                   class: "form-control",
                                   placeholder: '30文字以内で入力してください',
                                   required: true,
@@ -33,7 +33,7 @@
 
     <div class="gallery__form-group">
       <%= f.submit class: "btn btn-primary" %>
-      <button type="button" class="btn btn-outline-dark bg-light" data-dismiss="modal">キャンセル</button>
+      <button id="submit-<%= modal_form_class %>-gallery" type="button" class="btn btn-outline-dark bg-light" data-dismiss="modal">キャンセル</button>
     </div>
 
     <div class="gallery__form-group">

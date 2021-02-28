@@ -12,41 +12,9 @@
         <% end %>
       </div>
       <h4 class="title_tag"><i class="far fa-images"></i>&nbsp;ギャラリー</h4>
-      <% @galleries.each do |category, galleries| %>
-        <div id="<%= category %>" class="gallery__category">
-          <h4 class="category_tag"><%= category %></h4>
-        </div>
-
-        <div class="gallery__outer">
-          <% galleries.each do |gallery| %>
-            <div id="gallery-<%= gallery.id %>" class="<%= display_background_color(gallery) %>">  
-              <div class="gallery__item">
-                <div class="gallery___image">
-                  <%= link_to gallery.image, "data-lightbox": gallery.image do %>
-                    <%= image_tag gallery.image.variant(resize:'150x150')%>
-                    <div class="display-off-text"></div>
-                  <% end %>
-                </div>
-
-                <div class="gallery__title">
-                  <p></p>
-                  <%= gallery.title %>
-                </div>
-
-                <% if user_signed_in? && current_user.admin? %>
-                  <div class="galley__edit">
-                    <%= link_to '編集', edit_gallery_path(gallery.id), remote: true, class: "btn btn-sm btn-success" %>
-                    <%= link_to '削除', gallery_path(gallery), remote: true,
-                                                              class: "btn btn-sm btn-danger",
-                                                              method: :delete,
-                                                              data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      <div id="gallery__index">
+        <%= render 'index', galleries: @galleries %>
+      </div>
     </div>
   </div>
 </div>
