@@ -25,7 +25,7 @@
 
             <div class="form-group">
               <%= f.label :member_groups, class: "label-#{yield(:class_text)}" %>
-              <%= f.select :member_groups, options_for_select(User.member_groups),
+              <%= f.select :member_groups, options_for_select(User.member_groups, @user.member_groups),
                                            autocomplete: 'member_groups',
                                            class: 'form-control' %>
             </div>
@@ -41,13 +41,10 @@
             
             <div class="form-group">
               <%= f.label :email, class: "label-#{yield(:class_text)}" %>：
-              <%= @user.email %>
-              <!--
               <%= f.email_field :email, autocomplete: 'email',
                                         required: true,
                                         maxlength: '100',
                                         class: 'form-control' %>
-              -->
             </div>
 
             <!--

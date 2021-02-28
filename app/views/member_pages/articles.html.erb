@@ -1,6 +1,6 @@
 <% provide(:title, 'お便り') %>
 
-<h2>📪 お便り 📪</h2>
+<h2><i class="far fa-file-alt"></i>&nbsp;お便り</h2>
 
 <% @articles.each do |article| %>
   <div class="article__contents">
@@ -13,3 +13,6 @@
 <div class="text-center">
   <%= link_to "　メンバー専用画面へ戻る　", member_pages_path, method: :get, class: "btn btn-default btn-primary" %>
 </div>
+
+<%# <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script> %>
+

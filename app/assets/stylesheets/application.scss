@@ -45,7 +45,38 @@
 }
 
 
+/* debug */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.428571429;
+  color: #333333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
 /* table */
+
+.table {
+  background-color: rgb(200, 241, 205);
+}
 
 .table th,
 .table td {
@@ -53,6 +84,15 @@
   vertical-align: middle;
   border-top: 1px solid #dee2e6;
 }
+
+table#table-bibles {
+  background-color: azure;
+}
+
+table.table.table-striped {
+  background-color: azure;
+}
+
 
 /* row */
 
@@ -63,13 +103,8 @@
   margin-left: 0px;
 }
 
-/* botton */
 
-// element.style {
-// }
-// .btn:not(:disabled):not(.disabled) {
-//     cursor: pointer;
-// }
+/* botton */
 
 .btn {
     position: relative;
@@ -114,9 +149,12 @@ input[type=checkbox] {
 //   // background-color: rgb(6, 165, 6);
 // }
 
-// .logo {
-//   // color: darkgreen;
-// }
+.logo__stay {
+  a {
+    margin-left: 10px;
+    color: black;
+  }
+}
 
 #home-content {
   background-color: rgb(194, 228, 188)
@@ -125,23 +163,6 @@ input[type=checkbox] {
   background-color: rgb(24, 87, 24);
 }
 
-/* container */
-
-.container {
-  // padding: 15px 15px;
-  // margin: 0 0;
-  text-align: center;
-  // .gallery__inner {
-    // display: inline-block;
-    // background: #fff;
-    // border: 1px #ccc solid;
-    // box-shadow: 0 2px 3px 0 #ddd;
-    // margin-left: 0;
-    // margin-bottom: 10px;
-    // padding: 8px;
-  //   text-align: center !important;
-  // }
-}
 
 /* summernote-rails */
 
@@ -153,31 +174,6 @@ input[type=checkbox] {
   display: none;
 }
 
-/* debug */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
-
-pre {
-  display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.428571429;
-  color: #333333;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
 /* 動画 */
 
@@ -190,6 +186,7 @@ pre {
   // overflow: hidden;
 // }
 
+
 /* ギャラリー */
 .gallery__container {
   margin: 0;
@@ -201,24 +198,3 @@ pre {
   text-align: center;
   background-color: #fff;
 }
-
-// .gallery__title {
-  // display: inline-block;
-  /* background: #fff; */
-  // border: 1px #ccc solid;
-  // box-shadow: 0 2px 3px 0 #ddd;
-  // margin-left: 10px;
-  /* margin-bottom: 10px;
-  padding: 8px; */
-// }
-
-// .gallery__inner {
-//   display: inline-block;
-//   background: #fff;
-//   border: 1px #ccc solid;
-//   box-shadow: 0 2px 3px 0 #ddd;
-//   margin-left: 0;
-//   margin-bottom: 10px;
-//   padding: 8px;
-//   text-align: center;
-// }

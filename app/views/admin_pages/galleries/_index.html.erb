@@ -1,9 +1,19 @@
+<% provide(:title, 'ギャラリー') %>
+
+<div class="members-index" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
+
 <h2><i class="fas fa-camera"></i>&nbsp;ギャラリー一覧</h2>
 
 <div class="container">
 
-  <div class="gallery container">
+  <div id="gallery">
     <div class="gallery__group">
+      <div class="gallery__new">
+        <% if user_signed_in? && current_user.admin? %>
+          <%= link_to "新規登録", new_gallery_url, remote: true, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <h4 class="title_tag"><i class="far fa-images"></i>&nbsp;ギャラリー</h4>
       <% @galleries.each do |category, galleries| %>
         <div class="gallery__category">
           <h4 class="category_tag"><%= category %></h4>
@@ -22,6 +32,15 @@
                 <div class="gallery__title">
                   <%= gallery.title %>
                 </div>
+
+                <% if user_signed_in? && current_user.admin? %>
+                  <div class="galley__edit">
+                    <%= link_to '編集', edit_gallery_path(gallery.id), remote: true, class: "btn btn-sm btn-success" %>
+                    <%= link_to '削除', gallery_path(gallery), class: "btn btn-sm btn-danger",
+                                                              method: :delete,
+                                                              data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -30,3 +49,10 @@
     </div>
   </div>
 </div>
+
+</div>
+
+<div id="new-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-gallery" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<%# <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script> %>

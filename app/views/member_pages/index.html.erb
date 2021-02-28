@@ -71,6 +71,7 @@
 
         <U><h2>ギャラリー</h2></U>
         <section class="gallery container" id="member-gallery">
+          <!--
           <% @galleries.each do |category, galleries| %>
             <div class="gallery__category">
               <h4><%= category %></h4>
@@ -87,6 +88,33 @@
                 </div>
               </div>
             <% end %>
+          <% end %>
+          -->
+          <% @galleries.each do |category, galleries| %>
+            <div class="gallery__category">
+              <h4 class="category_tag"><%= category %></h4>
+            </div>
+
+            <div class="gallery__outer">
+              <% galleries.each do |gallery| %>
+                <div class="<%= display_background_color(gallery) %>">  
+                  <div class="gallery__item">
+                    <%# <div class="aaa"> %>
+                      <div class="gallery___image">
+                        <%= link_to gallery.image, "data-lightbox": gallery.image do %>
+                          <%= image_tag gallery.image.variant(resize:'150x150') %>
+                        <% end %>
+                      </div>
+                    <%# </div> %>
+
+                    <div class="gallery__title">
+                      <%= gallery.title %>
+                    </div>
+
+                  </div>
+                </div>
+              <% end %>
+            </div>
           <% end %>
         </section>
 

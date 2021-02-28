@@ -1,6 +1,6 @@
 class AdminPages::UsersController < AdminPagesController
   before_action :admin_user
-  before_action :set_user, only: %i[edit destroy]
+  before_action :set_user, only: %i[edit update destroy]
 
   def index
     # if current_user.admin?
@@ -19,12 +19,12 @@ class AdminPages::UsersController < AdminPagesController
   end
   
   def create
-    @user = User.new(user_params)
+    debugger
+    @user = User.new(user_create_params)
     if @user.save
-      log_in @user
-      flash[:success] = '新規作成に成功しました。'
+      flash[:success] = 'メンバーの新規作成に成功しました。'
     else
-      flash[:success] = '新規作成に失敗しました。'
+      flash[:success] = 'メンバーの新規作成に失敗しました。'
     end
     redirect_to admin_pages_path
   end
@@ -34,7 +34,7 @@ class AdminPages::UsersController < AdminPagesController
   end
   
   def update
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(user_update_params)
       flash[:success] = "#{@user.name}の情報を更新しました。"
     else
       flash[:danger] = "#{@user.name}の情報の更新に失敗しました。"
@@ -51,8 +51,12 @@ class AdminPages::UsersController < AdminPagesController
 
   private
 
-    def user_params
-      params.require(:user).permit(:member_groups, :phone_number)
+    def user_create_params
+      params.require(:user).permit(:name, :member_groups, :phone_number, :email, :password, :password_confirmation)
+    end
+
+    def user_update_params
+      params.require(:user).permit(:name, :member_groups, :phone_number, :email)
     end
 
   # beforフィルター

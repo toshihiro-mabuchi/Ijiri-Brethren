@@ -40,7 +40,9 @@
           <li class="nav-item active">
             <%= link_to "御言葉一覧", bibles_path, class: 'nav-link' %>
           </li>
-          <li class="header__li item"><a href="< % = galleries_path">ギャラリー</a></li>
+          <li class="header__li item">
+            <%= link_to "ギャラリー", galleries_path, class: 'nav-link' %>
+          </li>
           <li class="nav-item active">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>

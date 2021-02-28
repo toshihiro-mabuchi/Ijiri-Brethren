@@ -1,8 +1,10 @@
-<div id="admin-home" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
+<div id="admin-home" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #FFFFCC; height: 617px;">
   <u><h3 style="color: green; margin-top: 20px; margin-bottom: 15x;">管理者ホーム</h3></u>
+
+  <!--
   <h5 style="margin-bottom: 7px;">＜メンバー数＞</h4>
   <h6 style="margin-bottom: 5px;"><font color="blue">グループ１</font></h5>
-  <b><p style="text-align: center;"><font size="4"><%= @users_group1_num %>名</font></p></b>
+  <b><p style="text-align: center;"><font size="4"><%= @users_group1_num %>名</font></b>
   <h6 style="margin-bottom: 5px;"><font color="blue">グループ２</font></h5>
   <b><p style="text-align: center;"><font size="4"><%= @users_group2_num %>名</font></p></b>
   <h5 style="margin-bottom: 7px;">＜投稿動画数＞</h4>
@@ -17,4 +19,70 @@
   <b><p style="text-align: center;"><font size="4"><%= @general_infos_num %>通</font></p></b>
   <h5 style="margin-bottom: 7px;">＜ギャラリー数＞</h4>
   <b><p style="text-align: center;"><font size="4"><%= @galleries_num %>枚</font></p></b>
+  -->
+
+  <table class="table home-table">
+    <tr>
+      <th><font color="black">メンバー数</font></th>
+      <td><font color="black">グループ１</font></td>
+      <td><b style="text-align: center;"><font color="black" size="4"><%= @users_group1_num %>名</font></b></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><font color="black">グループ２</font></td>
+      <td><b style="text-align: center;"><font color="black" size="4"><%= @users_group2_num %>名</font></b></td>
+    </tr>
+    <tr>
+      <th><font color="black">投稿動画数</font></th>
+      <td><font color="black">メンバー動画数</font></td>
+      <td><b style="text-align: center;"><font color="black" size="4"><%= @member_movies_num %>本</font></b></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><font color="black">ホームページ動画数</font></td>
+      <td><b style="text-align: center;"><font color="black" size="4"><%= @general_movies_num %>本</font></b></td>
+    </tr>
+    <tr>
+      <th><font color="black">お知らせ数</font></th>
+      <td><font color="black">メンバーお知らせ数</font></td>
+      <td><b style="text-align: center;"><font color="black" size="4"><%= @member_infos_num %>通</font></b></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><font color="black">ホームページお知らせ数</font></td>
+      <td><b style="text-align: center;"><font color="black" size="4"><%= @general_infos_num %>通</font></b></td>
+    </tr>
+    <tr>
+      <td><font color="black">ギャラリー数</font></td>
+      <td></td>
+      <td><b style="text-align: center;"><font color="black" size="4"><%= @galleries_num %>枚</font></b></td>
+    </tr>
+  </table>
+
 </div>
+
+
+<style>
+  .home-table {
+    /* width: 95% !important;
+    margin-bottom: 1rem;
+    color: #212529;
+    margin: 10px 20px !important; */
+    margin-top: 50px !important;
+  }
+
+  .home-table tr{
+    background-image: linear-gradient(40deg, #fce043 0%, #fb7ba2 74%);
+  }
+
+  .home-table tr:last-child *{
+    border-bottom: none;
+  }
+
+  .home-table th,table td{
+    text-align: center;
+    border: solid 2px #fff;
+    /* color: white; */
+    padding: 10px 0;
+  }
+</style>
