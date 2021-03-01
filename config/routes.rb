@@ -17,14 +17,13 @@ Rails.application.routes.draw do
   end
   namespace :admin_pages do
     resources :users
-    resources :movies do
-      resources :general_movies
-    end
+    resources :movies
     resources :articles
-    resources :infos do
-      resources :general_infos
-    end
+    resources :infos
     resources :galleries
+    resources :general_movies
+    resources :general_infos
+    resources :bibles
   end
 
   ### メンバー専用画面 ###

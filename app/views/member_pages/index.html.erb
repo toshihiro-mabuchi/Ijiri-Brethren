@@ -9,8 +9,8 @@
     <div class="row">
 
       <!-- sidebar_start -->
-      <div class="sm_sidebar col-sm-3" style="margin-top: 75px;">
-        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 0 -7px; padding: 20px; background-color: #ddd;">
+      <div class="sm_sidebar col-sm-3" style="margin-top: 10px;">
+        <div class="container col-sm-3" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 0 -7px; padding: 20px; background-color: #ddd; position: fixed;">
           <div class="sm_sidebar_title">ユーザー関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "メンバーアカウント情報", user_path(current_user) %></div>
@@ -36,9 +36,10 @@
       <!-- sidebar_end -->
 
       <!-- content_start -->
-      <div class="col-sm-9 sm_member_content">
+      <div class="col-sm-9 col-sm-offset-3 sm_member_content">
         <section class="info container" id="member-info">
-          <U><h2>お知らせ</h2></U>
+          <%# <U><h2>お知らせ</h2></U> %>
+          <U><%= link_to "お知らせ", infos_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
           <div class="info__contents">
             <% @member_infos.each do |info| %>
               <div style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
@@ -54,7 +55,8 @@
         </section>
 
         <section class="article container" id="member-article">
-          <U><h2>お便り</h2></U>
+          <%# <U><h2>お便り</h2></U> %>
+          <U><%= link_to "お便り", articles_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
           <%# <div class="article__contents" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;"> %>
           <!--
           <div class="article__contents">
@@ -69,7 +71,8 @@
         </section>
         <br>
 
-        <U><h2>ギャラリー</h2></U>
+        <%# <U><h2>ギャラリー</h2></U> %>
+        <U><%= link_to "ギャラリー", galleries_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
         <section class="gallery container" id="member-gallery">
           <!--
           <% @galleries.each do |category, galleries| %>
@@ -118,7 +121,8 @@
           <% end %>
         </section>
 
-        <U><h2>動画表示</h2></U>
+        <%# <U><h2>動画表示</h2></U> %>
+        <U><%= link_to "動画一覧", movies_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
         <section class="movie container" id="member-movie">
           <% @movies.each do |movie|%>
             <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">

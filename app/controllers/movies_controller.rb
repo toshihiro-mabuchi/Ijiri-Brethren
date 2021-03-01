@@ -58,7 +58,7 @@ class MoviesController < ApplicationController
   def update
     movie = Movie.find(params[:id])
     movie.update(movie_params)
-    flash[:success] = "更新しました。"
+    flash[:success] = "#{movie.title}を更新しました。"
     redirect_to movies_path
   end
 

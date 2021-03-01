@@ -4,7 +4,7 @@ class AdminPages::UsersController < AdminPagesController
 
   def index
     # if current_user.admin?
-      @users = User.all.order(:member_groups)
+      @users = User.where.not(name: "管理者").order(:member_groups, :name)
     # else
     #   flash[:danger] = "権限がありません。"
     #   redirect_to admin_pages_path
@@ -19,7 +19,6 @@ class AdminPages::UsersController < AdminPagesController
   end
   
   def create
-    debugger
     @user = User.new(user_create_params)
     if @user.save
       flash[:success] = 'メンバーの新規作成に成功しました。'

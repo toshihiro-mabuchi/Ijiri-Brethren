@@ -2,7 +2,7 @@ class AdminPagesController < ApplicationController
   before_action :admin_user
 
   def index
-    @users = User.all.order(:member_groups, :name)
+    @users = User.where.not(name: "管理者").order(:member_groups, :name)
     @member_movies = Movie.where(category: "メンバー")
     @general_movies = Movie.where(category: "一般")
     @articles = Article.order(updated_at: :desc)
