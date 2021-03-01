@@ -3,10 +3,12 @@
 <h2><i class="fas fa-video"></i>&nbsp;動画一覧</h2>
 
 <div class="conteiner">
-
   <% if current_user.admin? %>
-    <%= link_to "動画投稿画面へ", new_movie_url, class: "" %>
+    <%= link_to "動画投稿画面へ", new_movie_url, remote: true, class: "movie__link" %>
   <% end %>
+  <%= link_to "全動画一覧", movies_path, class: "movie__link" %>
+  <%= link_to "メンバー動画一覧", members_view_movies_path, class: "movie__link" %>
+  <%= link_to "一般動画一覧", general_view_movies_path, class: "movie__link" %>
 
   <h4>メンバー向け動画<h4>
   <section class="movie container" id="member-movie">
@@ -86,5 +88,22 @@
 </div>
 
 <div id="edit-movie" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="new-movie" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
-<%# <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script> %>
+<style>
+  .movie__link {
+    display: inline-block;
+  }
+
+  .modal__title {
+    text-align: center;
+  }
+
+  .movie__modal-header {
+    background-color: #eee;
+  }
+
+  .movie__modal-body {
+    background-color: #c2e4bc;
+  }
+</style>
