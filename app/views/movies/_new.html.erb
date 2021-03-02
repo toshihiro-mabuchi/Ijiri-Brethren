@@ -19,19 +19,19 @@
               <%= form_with(model: @movie, local: true) do |f| %>
                 <div class="movies__input">
                   <%= f.label :youtube_url, "YouTubeのURL"%><br>
-                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%><br>
+                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control" %><br>
 
                   <%= f.label :text, "メッセージ" %><br>
                   <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
                                         size: "20x7", class: "form-control memo"
                   %>
 
-                </div>
+                </div><br>
                 <%= f.hidden_field :category, value: "メンバー" %>
-                <%= f.submit '投稿する', class: "btn btn-primary" %><br><br>
+                <%= f.submit '投稿する', class: "btn btn-primary" %>
               <% end %>
             </div>
-          </div>
+          </div><br>
 
           <div class="movies__no_member">
             <h3>一般</h3>
@@ -39,14 +39,14 @@
               <%= form_with(model: @movie, local: true) do |f| %>
                 <div class="movies__input">
                   <%= f.label :youtube_url, "YouTubeのURL"%><br>
-                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%><br>
+                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control" %><br>
 
                   <%= f.label :text, "メッセージ" %><br>
                   <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
                                         size: "20x7", class: "form-control memo"
                   %>
 
-                </div>
+                </div><br>
                 <%= f.hidden_field :category, value: "一般" %>
                 <%= f.submit '投稿する', class: "btn btn-primary" %>
               <% end %>
@@ -59,17 +59,3 @@
 
   </div>
 </div>
-
-<style>
-  .modal-title {
-    text-align: center;
-  }
-
-  .movie__modal-header {
-    background-color: #eee;
-  }
-
-  .movie__modal-body {
-    background-color: #c2e4bc;
-  }
-</style>

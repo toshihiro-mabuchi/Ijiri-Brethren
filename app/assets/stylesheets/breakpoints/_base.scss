@@ -37,6 +37,10 @@ img {
   padding-bottom: 80px !important;
 }
 
+.modal-content {
+  border-radius: 15px 15px 15px 15px;
+}
+
 // --ここから-------------------------------------------
 /* universal */
 
@@ -314,6 +318,36 @@ main {
   // overflow: hidden;
 }
 
+.modal-title {
+  text-align: center;
+}
+
+.movie__modal-header {
+  background: rgba(238, 238, 238, 1);
+  border-radius: 15px 15px 0 0;
+}
+
+.movie__modal-body {
+  background-color: #c2e4bc;
+  border-radius: 0 0 15px 15px;
+} 
+
+.movie__link {
+  display: inline-block;
+}
+
+.movies__member {
+  padding: 40px 40px 40px 40px;
+  border: solid 3px #eee;
+  border-radius: 15px;
+}
+
+.movies__no_member {
+  padding: 40px 40px 40px 40px;
+  border: solid 3px #eee;
+  border-radius: 15px;
+}
+
 /* ギャラリー */
 
 #gallery {
@@ -394,8 +428,10 @@ main {
 
 .gallery__modal-header {
   background-color: #eee;
+  border-radius: 15px 15px 0 0;
 }
 
 .gallery__modal-body {
   background-color: #c2e4bc;
+  border-radius: 0 0 15px 15px;
 }
