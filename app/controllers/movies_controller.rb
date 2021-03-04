@@ -21,6 +21,8 @@ class MoviesController < ApplicationController
   end
 
   def create
+    @member_movies = Movie.where(category: "メンバー")
+    @general_movies = Movie.where(category: "一般")
     @movie = Movie.new(movie_params)
     youtube_url = params[:movie][:youtube_url]
     youtube_mid = youtube_url.last(11)
@@ -38,16 +40,21 @@ class MoviesController < ApplicationController
         youtube_url: "https://youtu.be/#{youtube_mid}",
         author_name: movie_json["author_name"],
         category: params[:movie][:category],
+        text: params[:movie][:text]
       })
       if movie.save
-        flash[:success] ="#{params[:movie][:category]}動画を追加しました。"
-        redirect_to movies_path
-      else
-
+        respond_to do |format|
+          format.js { flash.now[:success] = "#{params[:movie][:category]}動画を追加しました。" }
+        end
+        # flash[:success] ="#{params[:movie][:category]}動画を追加しました。"
+        # redirect_to movies_path
       end
     else
-      flash[:danger] = "URLが正しくありません。"
-      render :new
+      respond_to do |format|
+        format.js { flash.now[:danger] = "URLが正しくありません。" }
+      end
+    #   flash[:danger] = "URLが正しくありません。"
+    #   render :new
     end
   end
 
