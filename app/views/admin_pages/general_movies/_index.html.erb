@@ -10,9 +10,9 @@
 
     <section class="movie container" id="general-movie">
       <% @general_movies.each do |movie|%>
-        <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
+        <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 80%; padding: 20px;">
           <div class="movie__item">
-            <div class="movie__title">
+            <div class="movie__title" style="height: 50px;">
               <%= movie.title %>
             </div>
             <%# <div class="content__movies embed-responsive embed-responsive-21by9"> %>
@@ -26,7 +26,7 @@
             <div class="movie__text">
               <%= movie.text %>
             </div>
-            <div class="movie__edit">
+            <div class="movie__edit" style="text-align: center;">
               <%= link_to "編集", edit_admin_pages_general_movie_path(movie.id), remote: true, class: "btn btn-success" %>
               <%= link_to '削除', admin_pages_general_movie_path(movie.id), method: :delete,
                   class: "btn btn-danger",
@@ -46,4 +46,4 @@
 
 </div>
 
-<div id="edit-movie" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-general-movie" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

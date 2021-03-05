@@ -1,4 +1,4 @@
-<% provide(:title, 'Movies Page') %>
+<% provide(:title, 'Member Page') %>
 
 <h2>メンバー専用画面</h2>
 
@@ -10,20 +10,21 @@
 
       <!-- sidebar_start -->
       <div class="sm_sidebar col-sm-3" style="margin-top: 10px;">
-        <div class="container col-sm-3" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 0 -7px; padding: 20px; background-color: #ddd; position: fixed;">
+        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 55px -7px; padding: 20px; background-color: #ddd;">
+        <%# <div class="container col-sm-3" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 54px -7px; padding: 20px; background-color: #ddd; position: fixed;"> %>
           <div class="sm_sidebar_title">ユーザー関連</div>
           <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "メンバーアカウント情報", user_path(current_user) %></div>
+            <div class="tab-item"><%= link_to "アカウント情報", user_path(current_user) %></div>
           </div>
-          <div class="sm_sidebar_title">お知らせ関連</div>
+            <div class="sm_sidebar_title">お知らせ関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "お知らせ一覧", infos_path %></div>
           </div>
-          <div class="sm_sidebar_title">お便り関連</div>
+            <div class="sm_sidebar_title">お便り関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "お便り一覧", articles_path %></div>
           </div>
-           <div class="sm_sidebar_title">写真関連</div>
+            <div class="sm_sidebar_title">写真関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "ギャラリー", galleries_path %></div>
           </div>
@@ -126,7 +127,7 @@
         <section class="movie container" id="member-movie">
           <% @movies.each do |movie|%>
             <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-              <div class="movie__title">
+              <div class="movie__title" style="height: 50px;">
                 <%= movie.title %>
               </div>
               <div class="movie__iframe embed-responsive embed-responsive-21by9">

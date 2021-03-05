@@ -4,7 +4,7 @@ class MemberPagesController < ApplicationController
 
   def index
     # if !user_signed_in?
-    #   flash[:danger] = "権限がありません。"
+    #   flash[:danger] = "ログインして下さい。"
     #   redirect_to root_path
     # end
     @member_infos = Info.where(category: "メンバー")

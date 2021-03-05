@@ -1,0 +1,41 @@
+<% provide(:title, 'お知らせ編集') %>
+<% provide(:class_text, 'info-edit') %>
+<% provide(:button_text, '更新') %>
+
+<h1>メンバー向けお知らせ編集</h1>
+
+<div class="content">
+
+  <div class="info__form">
+
+    <%= form_with model: @info, url: admin_pages_info_path(@info), local: true do |f| %>
+      <div class="col col-6">
+        <div class="form-group">
+          <%= f.label :title, "お知らせタイトル" %>
+          <% if @info.errors.include?(:title) %>
+            <p class="text-danger"><%= @info.errors.full_messages_for(:title).first %>
+          <% end %>
+          <%= f.text_field :title, placeholder: 'タイトルを入力してください。', class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :content, "本文" %>
+          <% if @info.errors.include?(:content) %>
+            <p class="text-danger"><%= @info.errors.full_messages_for(:content).first %>
+          <% end %>
+          <%= f.text_area :content, 'data-provider': :summernote, placeholder: '本文を入力してください。', class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.hidden_field :category, value: "メンバー" %>
+          <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+          <%= link_to '戻る', admin_pages_path, class: "btn btn-secondary" %>
+        </div>
+     </div>
+    <% end %>
+
+  </div>
+
+</div>
+
+  

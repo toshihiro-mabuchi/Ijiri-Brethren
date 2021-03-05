@@ -39,12 +39,12 @@
       </div>
     </div>
   </div> %>
-  
 
   <div id="main-content">
-    <main>
+    <main>   
       <div id="home-content">
 
+        <!-- お知らせ -->
         <section class="info container" id="general-info">
           <U><h2>お知らせ</h2></U>
           <div class="info__contents">
@@ -61,18 +61,22 @@
           </div>
         </section>
         
+        <!-- イベント情報 -->
+        <!--
         <section class="event">
           <div class="event">
-            <%# <U><h2>イベント</h2></U> %>
+            <U><h2>イベント</h2></U>
           </div>
         </section><br>
+        -->
 
+        <!-- 動画 -->
         <U><h2>動画</h2></U>
         <section class="movie container" id="general-movie">
           <% @movies.each do |movie|%>
-            <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
+            <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px; margin-bottom: 20px;">
               <div class="movie__item">
-                <div class="movie__title">
+                <div class="movie__title" style="height: 50px;">
                   <%= movie.title %>
                 </div>
                 <div class="movie__iframe embed-responsive embed-responsive-21by9">
@@ -116,10 +120,8 @@
         </section>
       </div>
       
-
       <div class="local-nav">
         <%# <p>ローカルナビゲーション</p> %>
-        <p></p>
         <!-- 聖書の御言葉 -->
         <div class="word-of-God container">
           <h2>御言葉</h2>

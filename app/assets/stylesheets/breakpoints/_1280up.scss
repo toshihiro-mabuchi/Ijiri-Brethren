@@ -39,3 +39,15 @@ Stylesheet: 1280px以上のモニタで適用
   height:1200px;
 }
 
+
+/* 動画 */
+
+.movie__inner {
+  flex-direction: row;
+  flex-basis: 33%;
+  margin-bottom: 40px;
+}
+
+.movie_title {
+  height: 50px;
+}

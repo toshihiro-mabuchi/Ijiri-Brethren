@@ -6,6 +6,7 @@ module GalleriesHelper
     elsif user_signed_in?
       Gallery.with_attached_image.where(display: 1).order(:category, :id).group_by(&:category)
     else
+      flash[:danger] = "ログインして下さい。"
       redirect_to root_url
     end
   end

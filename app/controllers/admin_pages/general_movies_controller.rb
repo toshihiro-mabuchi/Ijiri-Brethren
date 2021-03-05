@@ -1,4 +1,4 @@
-class AdminPages::MoviesController < ApplicationController
+class AdminPages::GeneralMoviesController < ApplicationController
   # layout 'admin_page', except: [:members_view, :general_view]
   before_action :logged_in_user, only: %i(index show)
   before_action :admin_user

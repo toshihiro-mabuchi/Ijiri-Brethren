@@ -67,7 +67,9 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   }
 }
 
-// お便り
+
+/* お便り */
+
 .article__contents {
   padding: 5px 5px;
   margin: 0 auto;
@@ -83,3 +85,18 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   height:800px;
 }
 
+/* ギャラリー */
+
+.gallery__outer {
+  // text-align: center;
+  text-align: left;
+  margin-left: 35px;
+}
+
+/* 動画 */
+
+.movie__inner {
+  // flex-direction: row;
+  flex-basis: 33%;
+  // margin-bottom: 40px;
+}

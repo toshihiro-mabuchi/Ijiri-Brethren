@@ -86,7 +86,7 @@ Movie.create!(title: "賛美歌３１２番（いつくしみ深き）",
               author_name: "backbone777",
               category: "一般")
                 
-Movie.create!(title: "賛美歌３２０番」主よみもとに近づかん",
+Movie.create!(title: "「賛美歌３２０番」主よみもとに近づかん",
               thumbnail_url: "https://i.ytimg.com/vi/yX2iv6q-tME/hqdefault.jpg",
               youtube_mid: "yX2iv6q-tME",
               youtube_url: "https://youtu.be/yX2iv6q-tME",

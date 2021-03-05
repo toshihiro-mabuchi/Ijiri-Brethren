@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2021_02_01_144348) do
   create_table "infos", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "color"
     t.integer "category", default: 0
+    t.boolean "display_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

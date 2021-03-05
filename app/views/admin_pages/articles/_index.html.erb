@@ -2,38 +2,38 @@
 
 <div class="members-index" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
 
-<h2><i class="far fa-file-alt"></i>&nbsp;お便り一覧</h2>
+  <h2><i class="far fa-file-alt"></i>&nbsp;お便り一覧</h2>
 
-<div><%= link_to '新規登録', new_admin_pages_article_path, class: "btn btn-primary" %></div>
+  <%= link_to '新規登録', new_admin_pages_article_path, class: "btn btn-primary" %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>
-        <%# <ul class="article__year_list"> %>
-          <% @article_years.each do |issue_date, article| %>
-            <span><%= issue_date %></span>
-          <% end %>
-        <%# </ul> %>
-      </th>
-      <th>添付ファイル</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @articles.each do |article| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= article.issue_date.strftime("%Y年%m月%d日") %></td>
-        <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
-        <td>
-          <%= link_to '編集', edit_admin_pages_article_path(article), class: "btn btn-success" %>
-          <%= link_to '削除', admin_pages_article_path(article), class: "btn btn-danger",
-              method: :delete,
-              data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %>
-        </td>
+        <th>
+          <%# <ul class="article__year_list"> %>
+            <% @article_years.each do |issue_date, article| %>
+              <span><%= issue_date %></span>
+            <% end %>
+          <%# </ul> %>
+        </th>
+        <th>添付ファイル</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.issue_date.strftime("%Y年%m月%d日") %></td>
+          <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
+          <td>
+            <%= link_to '編集', edit_admin_pages_article_path(article), class: "btn btn-success" %>
+            <%= link_to '削除', admin_pages_article_path(article), class: "btn btn-danger",
+                method: :delete,
+                data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>
