@@ -44,7 +44,6 @@ class GalleriesController < ApplicationController
   end
 
   def destroy
-    @category = @gallery.category
     if @gallery.destroy
       gallery_list
       respond_to do |format|

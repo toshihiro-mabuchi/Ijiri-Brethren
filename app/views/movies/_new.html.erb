@@ -19,7 +19,7 @@
               <%= form_with model: @movie, remote: true do |f| %>
                 <div class="movies__input">
                   <%= f.label :youtube_url, "YouTubeのURL"%><br>
-                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control" %><br>
+                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control", required: true %><br>
 
                   <%= f.label :text, "メッセージ" %><br>
                   <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
@@ -39,7 +39,7 @@
               <%= form_with model: @movie, remote: true do |f| %>
                 <div class="movies__input">
                   <%= f.label :youtube_url, "YouTubeのURL"%><br>
-                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control" %><br>
+                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control", required: true %><br>
 
                   <%= f.label :text, "メッセージ" %><br>
                   <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
