@@ -348,6 +348,35 @@ main {
   border-radius: 15px;
 }
 
+/* お便りページ */
+
+.article__list {
+  padding-bottom: 10px;
+} 
+.article__list li {
+  font-size: large;
+  display: inline-block;
+  padding-right: 10px;
+  border-bottom: dotted 1px;
+}
+
+.article__list span {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.article__year_list li {
+  font-size: large;
+  display: inline-block;
+  padding-right: 10px;
+  /* border-bottom: dotted 1px; */
+}
+
+.article__year_list span {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 /* ギャラリー */
 
 #gallery {
