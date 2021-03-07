@@ -3,7 +3,7 @@ class AdminPages::GeneralMoviesController < AdminPagesController
   before_action :admin_user
   
     def index
-      # @movies = Movie.all
+      @general_movies = Movie.where(category: "一般")
     end
   
     def movie

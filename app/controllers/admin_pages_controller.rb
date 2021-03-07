@@ -2,6 +2,10 @@ class AdminPagesController < ApplicationController
   before_action :admin_user
 
   def index
+    
+  end
+
+  def home
     @users = User.all.order(:member_groups, :name)
     @member_movies = Movie.where(category: "メンバー")
     @general_movies = Movie.where(category: "一般")
@@ -20,9 +24,6 @@ class AdminPagesController < ApplicationController
     @member_infos_num = @member_infos.size
     @general_infos_num = @general_infos.size
     @galleries_num = Gallery.all.size
-  end
-
-  def home
   end
 
 end

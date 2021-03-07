@@ -2,24 +2,33 @@
 <div id="admin-contents">
   <div class="admin-nav" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
   <%# home_admin_pages_path admin_pages_users_path admin_pages_movies_path %>
-    <%# <　%= link_to 'ホーム', '', remote: true, id: 'ad-home', class: 'nav-link clicked' %>
-    <p id= 'ad-home', class= 'admin-btn nav-link clicked'>ホーム</p>
+    <%= link_to 'ホーム', home_admin_pages_path, remote: true, id: 'ad-home', class: 'nav-link admin-btn clicked' %>
+    <%# <p id= 'ad-home', class= 'admin-btn nav-link clicked'>ホーム</p> %>
     <%# <p>アプリ</p> %>
     <b><p>メンバーページ</p></b>
-      <p id= 'ad-users', class= 'admin-btn' style='padding: 0 1rem;'>メンバー</p>
+    <%= link_to 'メンバー', admin_pages_users_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+    <%= link_to '動画', admin_pages_movies_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+    <%= link_to '毎月のお便り', admin_pages_articles_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+    <%= link_to 'お知らせ', admin_pages_infos_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+    <%= link_to 'ギャラリー', admin_pages_galleries_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+
+      <%# <p id= 'ad-users', class= 'admin-btn' style='padding: 0 1rem;'>メンバー</p>
       <p id= 'ad-movies', class= 'admin-btn' style='padding: 0 1rem;'>動画</p>
       <p id= 'ad-articles', class= 'admin-btn' style='padding: 0 1rem;'>毎月のお便り</p>
       <p id= 'ad-infos', class= 'admin-btn' style='padding: 0 1rem;'>お知らせ</p>
-      <p id= 'ad-galleries', class= 'admin-btn' style='padding: 0 1rem;'>ギャラリー</p>
+      <p id= 'ad-galleries', class= 'admin-btn' style='padding: 0 1rem;'>ギャラリー</p> %>
     <b><p>ホームページ</p></b>
       <!--
       <%= link_to "動画", movies_path, class: 'admin-btn nav-link' %>
       <%= link_to "お知らせ", infos_path, class: 'admin-btn nav-link' %>
       <%= link_to "御言葉", bibles_path, class: 'admin-btn nav-link' %>
       -->
-      <p id= 'ad-general-movies', class= 'admin-btn' style='padding: 0 1rem;'>動画</p>
+    <%= link_to '動画', admin_pages_general_movies_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+    <%= link_to 'お知らせ', admin_pages_general_infos_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+    <%= link_to '御言葉', admin_pages_bibles_path, remote: true, id: 'ad-users', class: 'nav-link admin-btn' %>
+      <%# <p id= 'ad-general-movies', class= 'admin-btn' style='padding: 0 1rem;'>動画</p>
       <p id= 'ad-general-infos', class= 'admin-btn' style='padding: 0 1rem;'>お知らせ</p>
-      <p id= 'ad-bibles', class= 'admin-btn' style='padding: 0 1rem;'>御言葉</p>
+      <p id= 'ad-bibles', class= 'admin-btn' style='padding: 0 1rem;'>御言葉</p> %>
     <p>----------</p>
     <%# <%= link_to "メンバー専用画面", member_pages_path, class: 'admin-btn nav-link' %>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'admin-btn nav-link' %>
@@ -28,37 +37,9 @@
   <div class="admin-main">
     <div class="admin-main__contents">
       <%# 各コンテンツ(render) %>
-      <div class="admin-main__item ad-home chosen">
-        <div id="ad-home-content"><%= render 'admin_pages/home' %></div>
+      <div class="admin-main__item chosen">
+        <div id="admin-main__content"><%= render 'admin_pages/home' %></div>
       </div>
-      <div class="admin-main__item ad-users">
-        <div id="ad-user-content"><%= render 'admin_pages/users/index' %></div>
-      </div>
-      <div class="admin-main__item ad-movies">
-        <div id="ad-movie-content"><%= render 'admin_pages/movies/index' %></div>
-      </div>
-      <div class="admin-main__item ad-infos">
-        <div id="ad-info-content"><%= render 'admin_pages/infos/index' %></div>
-      </div>
-      <div class="admin-main__item ad-articles">
-        <div id="ad-article-content"><%= render 'admin_pages/articles/index' %></div>
-      </div>
-      <div class="admin-main__item ad-galleries">
-        <div id="ad-galleryies"><%= render 'admin_pages/galleries/index' %></div>
-      </div>
-
-      <div class="admin-main__item ad-general-movies">
-        <div id="ad-general-movies"><%= render 'admin_pages/general_movies/index' %></div>
-      </div>
-      <div class="admin-main__item ad-general-infos">
-        <div id="ad-general-infos"><%= render 'admin_pages/general_infos/index' %></div>
-      </div>
-      <div class="admin-main__item ad-bibles">
-        <div id="ad-bibles"><%= render 'admin_pages/bibles/index' %></div>
-      </div>
-      <div class="admin-main__item">
-
-      <div class="box"></div>
     </div>
   </div>
 </div>
@@ -74,10 +55,11 @@
   //   $('.admin-btn').removeClass('clicked');
   //   $(this).addClass('clicked');
   // });
+  // -------
   $('.admin-btn').on('click', function () {
     var val = $(this).attr('id');
-    $('.admin-main__item').removeClass('chosen');
-    $('.' + val).addClass('chosen');
+    // $('.admin-main__item').removeClass('chosen');
+    // $('.' + val).addClass('chosen');
     $('.admin-btn').removeClass('clicked');
     $(this).addClass('clicked');
   });

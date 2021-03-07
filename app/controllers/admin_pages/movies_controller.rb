@@ -4,6 +4,8 @@ before_action :admin_user
 
   def index
     # @movies = Movie.all
+    @member_movies = Movie.where(category: "メンバー")
+    @general_movies = Movie.where(category: "一般")
   end
 
   def movie
