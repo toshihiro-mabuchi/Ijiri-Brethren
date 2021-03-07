@@ -71,5 +71,5 @@ Rails.application.routes.draw do
   resources :bibles
   
   ### ギャラリー ###
-  resources :galleries
+  resources :galleries, except: :show
 end

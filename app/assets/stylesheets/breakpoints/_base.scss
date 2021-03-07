@@ -37,6 +37,10 @@ img {
   padding-bottom: 80px !important;
 }
 
+.modal-content {
+  border-radius: 15px 15px 15px 15px;
+}
+
 // --ここから-------------------------------------------
 /* universal */
 
@@ -322,6 +326,65 @@ main {
   // overflow: hidden;
 }
 
+.modal-title {
+  text-align: center;
+}
+
+.movie__modal-header {
+  background: rgba(238, 238, 238, 1);
+  border-radius: 15px 15px 0 0;
+}
+
+.movie__modal-body {
+  background-color: #c2e4bc;
+  border-radius: 0 0 15px 15px;
+} 
+
+.movie__link {
+  display: inline-block;
+}
+
+.movies__member {
+  padding: 40px 40px 40px 40px;
+  border: solid 3px #eee;
+  border-radius: 15px;
+}
+
+.movies__no_member {
+  padding: 40px 40px 40px 40px;
+  border: solid 3px #eee;
+  border-radius: 15px;
+}
+
+/* お便りページ */
+
+.article__list {
+  padding-bottom: 10px;
+} 
+.article__list li {
+  font-size: large;
+  display: inline-block;
+  padding-right: 10px;
+  border-bottom: dotted 1px;
+}
+
+.article__list span {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.article__year_list li {
+  font-size: large;
+  display: inline-block;
+  padding-right: 10px;
+  /* border-bottom: dotted 1px; */
+}
+
+.article__year_list span {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 /* ギャラリー */
 
 #gallery {
@@ -402,8 +465,10 @@ main {
 
 .gallery__modal-header {
   background-color: #eee;
+  border-radius: 15px 15px 0 0;
 }
 
 .gallery__modal-body {
   background-color: #c2e4bc;
+  border-radius: 0 0 15px 15px;
 }

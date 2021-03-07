@@ -13,14 +13,40 @@
           </div>
         <% end %>
       </div>
-     
-        <ul class="article__year_list">
-          <li>
-          <% @article_years.each do |issue_date, article| %>
-            <span><%= issue_date %></span>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= "#{Article.human_attribute_name :issue_date}" %></th>
+            <th>添付ファイル</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @articles.each do |article| %>
+            <tr>
+              <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) %></td>
+              <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
+              <% if current_user.admin? %>
+                <td><%= link_to '編集', edit_article_path(article), class: "btn btn-success" %></td>
+                <td><%= link_to '削除', article_path(article), class: "btn btn-danger",
+                                                          method: :delete,
+                                                          data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %></td>
+              <% end %>
+            </tr>
           <% end %>
-          </li>
-        </ul>
+        </tbody>
+      </table>
+
+     <!--
+      <ul class="article__year_list">
+        <li>
+        <% @article_years.each do |issue_date, article| %>
+          <span><%= issue_date %></span>
+        <% end %>
+        </li>
+      </ul>
       
       <% @articles.each do |article| %>
         <ul class="article__list">
@@ -35,64 +61,7 @@
           </li>
         </ul>
       <% end %>
+      -->
     </div>
   </div>
 </div>
-
-<style>
-.article__list {
-  padding-bottom: 10px;
-} 
-.article__list li {
-  font-size: large;
-  display: inline-block;
-  padding-right: 10px;
-  border-bottom: dotted 1px;
-}
-
-.article__list span {
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.article__year_list li {
-  font-size: large;
-  display: inline-block;
-  padding-right: 10px;
-  /* border-bottom: dotted 1px; */
-}
-
-.article__year_list span {
-  padding-right: 10px;
-  padding-left: 10px;
-}
-</style>
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= "#{Article.human_attribute_name :issue_date}" %></th>
-      <th>添付ファイル</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) %></td>
-        <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
-        <% if current_user.admin? %>
-          <td><%= link_to '編集', edit_article_path(article), class: "btn btn-success" %></td>
-          <td><%= link_to '削除', article_path(article), class: "btn btn-danger",
-                                                    method: :delete,
-                                                    data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%# <script src="https://kit.fontawesome.com/c5b3926114.js" crossorigin="anonymous"></script> %>
-
