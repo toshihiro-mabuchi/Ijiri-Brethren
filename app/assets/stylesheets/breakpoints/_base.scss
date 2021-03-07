@@ -186,6 +186,10 @@ h1, h2, h3, h4, h5, h6 {
   & .logo {
     font-size: 24px;
     justify-content: center;
+
+    & a:hover {
+      text-decoration: none;
+    }
   }
   
   &__inner {
@@ -269,6 +273,10 @@ main {
   & .logo {
     font-size: 24px;
     justify-content: center;
+
+    & a:hover {
+      text-decoration: none;
+    }
   }
 }
 

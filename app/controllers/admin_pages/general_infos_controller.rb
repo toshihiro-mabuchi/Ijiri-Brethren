@@ -3,7 +3,6 @@ class AdminPages::GeneralInfosController < ApplicationController
   # before_action :set_info, only: %i(show edit update destroy)
 
   def index
-    @member_infos = Info.where(category: "メンバー")
     @general_infos = Info.where(category: "一般")
   end
 

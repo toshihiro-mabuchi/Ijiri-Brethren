@@ -3,12 +3,7 @@ class AdminPages::UsersController < AdminPagesController
   before_action :set_user, only: %i[edit update destroy]
 
   def index
-    # if current_user.admin?
-      @users = User.all.order(:member_groups)
-    # else
-    #   flash[:danger] = "権限がありません。"
-    #   redirect_to admin_pages_path
-    # end
+    @users = User.all.order(:member_groups)
   end
 
   # def show
