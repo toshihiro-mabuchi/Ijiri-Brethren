@@ -80,7 +80,8 @@ class MoviesController < ApplicationController
           youtube_url: "https://youtu.be/#{youtube_mid}",
           author_name: movie_json["author_name"],
           category: params[:movie][:category],
-          text: params[:movie][:text]
+          text: params[:movie][:text],
+          display: params[:movie][:display]
         })
       end
       respond_to do |format|
@@ -120,7 +121,7 @@ class MoviesController < ApplicationController
 
   private
     def movie_params
-      params.require(:movie).permit(:title, :text, :youtube_url, :category)
+      params.require(:movie).permit(:title, :text, :youtube_url, :category, :display)
     end
 
     def valid_json?(json)
