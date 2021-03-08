@@ -3,9 +3,9 @@ class CreateInfos < ActiveRecord::Migration[5.2]
     create_table :infos do |t|
       t.string :title
       t.text :content
-      # t.string :color
+      t.string :color
       t.integer :category, default: 0
-      t.boolean :display_flag, defauit: true
+      t.boolean :display_flag, default: false
 
       t.timestamps
     end

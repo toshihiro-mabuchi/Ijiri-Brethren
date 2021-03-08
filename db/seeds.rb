@@ -33,7 +33,8 @@ puts "メンバー作成！"
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "メンバー向けお知らせタイトル#{number}",
                content: "メンバー向けお知らせ本文#{number}",
-               category: "メンバー")
+               category: "メンバー",
+               display_flag: true)
 end
 
 puts "メンバー向けお知らせ作成！"
@@ -43,7 +44,8 @@ puts "メンバー向けお知らせ作成！"
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "一般向けお知らせタイトル#{number}",
                content: "一般向けお知らせ本文#{number}",
-               category: "一般")
+               category: "一般",
+               display_flag: true)
 end
 
 puts "一般向けお知らせ作成！"

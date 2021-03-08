@@ -2,9 +2,10 @@
 <% provide(:class_text, 'info-edit') %>
 <% provide(:button_text, '更新') %>
 
-<h1>お知らせ編集</h1>
-<%= link_to "お知らせ一覧ページへ", infos_path, class: "" %>
-<div class="content">
+<h2>お知らせ編集</h2>
+<div class="container">
+  <%= link_to "お知らせ一覧ページへ", infos_path, class: "" %>
+<%# <div class="content"> %>
   <h3><%= @info.category %></h3>
   <%= render 'form', info: @info %>
 </div>

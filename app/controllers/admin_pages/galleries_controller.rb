@@ -3,7 +3,8 @@ class AdminPages::GalleriesController < ApplicationController
   # before_action :set_gallery, only: %i(show edit update destroy)
 
   def index
-    @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
+    # @galleries = Gallery.with_attached_image.order(:category, :id).group_by(&:category)
+    gallery_list
   end
 
   # def show

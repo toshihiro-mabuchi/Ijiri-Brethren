@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_144348) do
     t.text "title"
     t.text "subtitle"
     t.text "text"
-    t.boolean "display_flag"
+    t.boolean "display_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_144348) do
     t.string "title"
     t.text "content"
     t.integer "category", default: 0
-    t.boolean "display_flag"
+    t.boolean "display_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

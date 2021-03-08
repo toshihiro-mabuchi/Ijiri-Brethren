@@ -1,5 +1,5 @@
 <% provide(:title, 'お便り編集') %>
-<h1>お便り編集</h1>
+<h2>お便り編集</h2>
 
 <%= form_with model: @article, url: admin_pages_article_path(@article), local: true do |f| %>
   <%= render 'layouts/error_messages', model: @article %>

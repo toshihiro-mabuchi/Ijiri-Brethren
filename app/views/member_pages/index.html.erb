@@ -40,7 +40,7 @@
       <div class="col-sm-9 col-sm-offset-3 sm_member_content">
         <section class="info container" id="member-info">
           <%# <U><h2>お知らせ</h2></U> %>
-          <U><%= link_to "お知らせ", infos_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
+          <U><%= link_to "お知らせ", infos_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
           <div class="info__contents">
             <% @member_infos.each do |info| %>
               <div style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
@@ -57,7 +57,7 @@
 
         <section class="article container" id="member-article">
           <%# <U><h2>お便り</h2></U> %>
-          <U><%= link_to "お便り", articles_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
+          <U><%= link_to "お便り", articles_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
           <%# <div class="article__contents" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;"> %>
           <!--
           <div class="article__contents">
@@ -73,7 +73,7 @@
         <br>
 
         <%# <U><h2>ギャラリー</h2></U> %>
-        <U><%= link_to "ギャラリー", galleries_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
+        <U><%= link_to "ギャラリー", galleries_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
         <section class="gallery container" id="member-gallery">
           <!--
           <% @galleries.each do |category, galleries| %>
@@ -95,23 +95,23 @@
           <% end %>
           -->
           <% @galleries.each do |category, galleries| %>
-            <div class="gallery__category">
+            <div id="<%= category %>" class="gallery__category">
               <h4 class="category_tag"><%= category %></h4>
             </div>
 
             <div class="gallery__outer">
               <% galleries.each do |gallery| %>
-                <div class="<%= display_background_color(gallery) %>">  
+                <div id="gallery-<%= gallery.id %>" class="<%= display_background_color(gallery) %>">  
                   <div class="gallery__item">
-                    <%# <div class="aaa"> %>
-                      <div class="gallery___image">
-                        <%= link_to gallery.image, "data-lightbox": gallery.image do %>
-                          <%= image_tag gallery.image.variant(resize:'150x150') %>
-                        <% end %>
-                      </div>
-                    <%# </div> %>
+                    <div class="gallery___image">
+                      <%= link_to gallery.image, "data-lightbox": gallery.image do %>
+                        <%= image_tag gallery.image.variant(resize:'150x150')%>
+                        <div class="display-off-text"></div>
+                      <% end %>
+                    </div>
 
                     <div class="gallery__title">
+                      <p></p>
                       <%= gallery.title %>
                     </div>
 
@@ -123,7 +123,7 @@
         </section>
 
         <%# <U><h2>動画表示</h2></U> %>
-        <U><%= link_to "動画一覧", movies_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %><U>
+        <U><%= link_to "動画一覧", movies_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
         <section class="movie container" id="member-movie">
           <% @movies.each do |movie|%>
             <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">

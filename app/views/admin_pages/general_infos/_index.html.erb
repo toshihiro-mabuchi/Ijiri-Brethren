@@ -17,6 +17,13 @@
           <div class="info__content" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
             <%= info.content.html_safe %>
           </div>
+          <div class="info__display_flag" style="margin-top: 10px">
+            <% if info.display_flag == true %>
+              <%= "表示　✅" %>
+            <% else %>
+              <%= "表示　⬜" %>
+            <% end %>
+          </div>
           <%= link_to '編集', edit_admin_pages_general_info_path(info), class: "btn btn-success" %>
           <%= link_to '削除', admin_pages_general_info_path(info.id), method: :delete, class: "btn btn-danger", remote: true,
                               data: { confirm: "『#{info.title}』を削除してよろしいですか？",

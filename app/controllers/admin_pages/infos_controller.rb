@@ -3,8 +3,7 @@ class AdminPages::InfosController < ApplicationController
   before_action :set_info, only: %i(show edit update destroy)
 
   def index
-    @member_infos = Info.where(category: "メンバー")
-    # @general_infos = Info.where(category: "一般")
+    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, updated_at: :DESC)
   end
 
   def show
@@ -48,7 +47,7 @@ class AdminPages::InfosController < ApplicationController
     end
 
     def info_params
-      params.require("info").permit(:title, :content, :category, :color)
+      params.require("info").permit(:title, :content, :category, :color, :display_flag)
     end
 
 end
