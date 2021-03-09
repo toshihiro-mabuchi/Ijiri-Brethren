@@ -5,15 +5,10 @@ Rails.application.routes.draw do
   root 'home_page#index'
 
   ### 管理者画面 ###
-  # get 'admin_page/index'
   resources :admin_pages, only: :index do
     collection do
       get :home
-      # get :movie
     end
-    # namespace :admin_pages do
-      # resources :users, only: :index
-    # end
   end
   namespace :admin_pages do
     resources :users
@@ -27,7 +22,6 @@ Rails.application.routes.draw do
   end
 
   ### メンバー専用画面 ###
-  # get 'member_page/index'
   resources :member_pages, only: :index do
     collection do
       get :articles
@@ -67,5 +61,5 @@ Rails.application.routes.draw do
   resources :bibles
   
   ### ギャラリー ###
-  resources :galleries
+  resources :galleries, except: :show
 end

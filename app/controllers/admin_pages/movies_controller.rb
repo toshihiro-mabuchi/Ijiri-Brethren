@@ -5,16 +5,7 @@ class AdminPages::MoviesController < ApplicationController
 
   def index
     @member_movies = Movie.where(category: "メンバー")
-    # @general_movies = Movie.where(category: "一般")
   end
-
-  # def members_view
-  #   @movies = Movie.where(category: "メンバー")
-  # end
-
-  # def general_view
-  #   @movies = Movie.where(category: "一般")
-  # end
 
   def new
     @movie = Movie.new

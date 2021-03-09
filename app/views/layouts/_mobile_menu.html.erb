@@ -28,24 +28,29 @@
             </li>
           <% else %>
           <% end %>
-          <li class="nav-item active">
-            <%= link_to "動画一覧", movies_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "毎月のお便り一覧", articles_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "お知らせ一覧", infos_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "御言葉一覧", bibles_path, class: 'nav-link' %>
-          </li>
-          <li class="header__li item">
-            <%= link_to "ギャラリー", galleries_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
+          <% if current_user.admin? %>
+
+          <% else %>
+          
+          <% end %>
+            <li class="nav-item active">
+              <%= link_to "動画一覧", movies_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "毎月のお便り一覧", articles_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "お知らせ一覧", infos_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "御言葉一覧", bibles_path, class: 'nav-link' %>
+            </li>
+            <li class="header__li item">
+              <%= link_to "ギャラリー", galleries_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
         <% else %>
         <% end %>
       </ul>
