@@ -92,12 +92,6 @@ class MoviesController < ApplicationController
         format.js { flash.now[:danger] = "URLが正しくありません。" }
       end
     end
-
-
-
-
-
-
     # movie = Movie.find(params[:id])
     # if movie.update(movie_params)
     #   respond_to do |format|
@@ -132,11 +126,11 @@ class MoviesController < ApplicationController
     end
 
     def set_member_movies
-      @member_movies = Movie.where(category: "メンバー")
+      @member_movies = Movie.where(category: "メンバー").order(display: :desc)
     end
 
     def set_general_movies
-      @general_movies = Movie.where(category: "一般")
+      @general_movies = Movie.where(category: "一般").order(display: :desc)
     end
 
 end
