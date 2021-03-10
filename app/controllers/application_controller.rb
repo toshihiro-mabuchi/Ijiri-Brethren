@@ -56,6 +56,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def gallery_list
+    @galleries =
+    if user_signed_in? && current_user.admin?
+      Gallery.with_attached_image.order(:category, "display desc", :id).group_by(&:category)
+    elsif user_signed_in?
+      Gallery.with_attached_image.where(display: 1).order(:category, :id).group_by(&:category)
+    else
+      flash[:danger] = "ログインして下さい。"
+      redirect_to root_url
+    end
+  end
 
   private
 

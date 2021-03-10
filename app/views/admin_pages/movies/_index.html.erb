@@ -10,9 +10,9 @@
 
     <section class="movie container" id="member-movie">
       <% @member_movies.each do |movie|%>
-        <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 80%; padding: 20px;">
+        <div class="movie__inner">
           <div class="movie__item">
-            <div class="movie__title" style="height: 50px;">
+            <div class="movie__title">
               <%= movie.title %>
             </div>
             <%# <div class="content__movies embed-responsive embed-responsive-21by9"> %>

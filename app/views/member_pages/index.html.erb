@@ -126,8 +126,8 @@
         <U><%= link_to "動画一覧", movies_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
         <section class="movie container" id="member-movie">
           <% @movies.each do |movie|%>
-            <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-              <div class="movie__title" style="height: 50px;">
+            <div class="movie__inner">
+              <div class="movie__title">
                 <%= movie.title %>
               </div>
               <div class="movie__iframe embed-responsive embed-responsive-21by9">

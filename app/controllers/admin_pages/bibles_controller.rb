@@ -12,7 +12,7 @@ class AdminPages::BiblesController < ApplicationController
   end
   
   def create
-    if params[:bible][:display_flag] = "1"
+    if params[:bible][:display_flag] == "1"
       unless Bible.update(display_flag: false)
         flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
       end  

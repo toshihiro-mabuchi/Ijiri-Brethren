@@ -1,9 +1,9 @@
 class MoviesController < ApplicationController
   # layout 'admin_page', except: [:members_view, :general_view]
-  before_action :set_member_movies, only: %i(index create update destroy)
-  before_action :set_general_movies, only: %i(index create update destroy)
   before_action :logged_in_user, only: %i(index show)
   before_action :admin_user, only: %i(new create edit update destroy)
+  before_action :set_member_movies, only: %i(index create update destroy)
+  before_action :set_general_movies, only: %i(index create update destroy)
 
   def index
     # @member_movies = Movie.where(category: "メンバー")
@@ -114,15 +114,9 @@ class MoviesController < ApplicationController
   end
 
   private
+
     def movie_params
       params.require(:movie).permit(:title, :text, :youtube_url, :category)
-    end
-
-    def valid_json?(json)
-        JSON.parse(json)
-        return true
-      rescue JSON::ParserError => e
-        return false
     end
 
     def set_member_movies
@@ -132,5 +126,12 @@ class MoviesController < ApplicationController
     def set_general_movies
       @general_movies = Movie.where(category: "一般")
     end
+
+    def valid_json?(json)
+      JSON.parse(json)
+      return true
+    rescue JSON::ParserError => e
+      return false
+  end
 
 end

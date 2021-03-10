@@ -18,7 +18,7 @@
           <div class="movies__member">
             <h3><%= @movie.category if @movie.category.present? %>動画</h3>
             <div class="movies__form">
-              <%= form_with(model: @movie, url: admin_pages_general_movies_url(@movie), local: true) do |f| %>
+              <%= form_with(model: @movie, url: admin_pages_general_movie_url(@movie), local: true) do |f| %>
                 <div class="movies__input">
                   <%= f.label :youtube_url, "YouTubeのURL"%>
                   <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
