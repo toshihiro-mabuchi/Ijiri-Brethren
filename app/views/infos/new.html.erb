@@ -2,15 +2,22 @@
 <% provide(:class_text, 'info-new') %>
 <% provide(:button_text, '新規作成') %>
 
-<h1>お知らせ投稿</h1>
-<%= link_to "お知らせ一覧ページへ", infos_path, class: "" %>
-<div class="content">
-  <h3>メンバー</h3>
-  <%= render 'form', { info: @info, cate: 'メンバー' } %>
-</div>
 
-<div class="content">
-  <h3>一般</h3>
-  <%= render 'form', { info: @info, cate: '一般' } %>
+
+<h2>お知らせ投稿</h2>
+
+<div class="container">
+
+  <%= link_to "お知らせ一覧ページへ", infos_path, class: "" %>
+  <div class="content">
+    <h3>メンバー</h3>
+    <%= render 'form', { info: @info, cate: 'メンバー' } %>
+  </div>
+
+  <div class="content">
+    <h3>一般</h3>
+    <%= render 'form', { info: @info, cate: '一般' } %>
+  </div>
+
 </div>
   

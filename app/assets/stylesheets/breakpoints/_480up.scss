@@ -30,7 +30,9 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
   // background-color: white;
 }
 
-// お便り
+
+/* お便り */
+
 .article__contents {
   padding: 5px 5px;
   margin: 0 auto;
@@ -44,4 +46,17 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
   // min-height: 50px;
   // height: auto !important;
   height:520px;
+}
+
+/* 動画 */
+
+.movie__inner {
+  // flex-direction: row;
+  flex-basis: 50%;
+  // margin-bottom: 40px;
+}
+
+.movie {
+  width: 50%;
+  // margin: 0 auto;
 }

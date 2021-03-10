@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.admin?
       @user = User.new
     else
-      flash[:danger] = "権限がありません。"
+      flash[:danger] = "ログインして下さい。"
       redirect_to root_path
     end
   end
@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       # authenticate_scope!
       # super
-      flash[:danger] = "権限がありません。"
+      flash[:danger] = "ログインして下さい。"
       redirect_to root_path
     end
   end
@@ -172,7 +172,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         flash[:danger] = "ログインされていません。"
         redirect_to root_path
       elsif !current_user_is_admin?
-        flash[:danger] = "権限がありません。"
+        flash[:danger] = "ログインして下さい。"
         redirect_to root_path
       end
     end
@@ -187,7 +187,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         flash[:danger] = "ログインされていません。"
         redirect_to root_path
       elsif params[:id].present? && !current_user_is_admin?
-        flash[:danger] = "権限がありません。"
+        flash[:danger] = "ログインして下さい。"
         redirect_to root_path
       end
     end

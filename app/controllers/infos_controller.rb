@@ -4,8 +4,8 @@ class InfosController < ApplicationController
   before_action :set_info, only: %i(show edit update destroy)
 
   def index
-    @member_infos = Info.where(category: "メンバー")
-    @general_infos = Info.where(category: "一般")
+    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, updated_at: :DESC)
+    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, updated_at: :DESC)
   end
 
   def show
@@ -18,7 +18,7 @@ class InfosController < ApplicationController
   def create
     @info = Info.new(info_params)
     if @info.save
-      flash[:success] = "お知らせの投稿が完了しました。"
+      flash[:success] = "お知らせ「#{@info.title}」を投稿しました。"
       redirect_to infos_url
     else
       render :new
@@ -30,7 +30,7 @@ class InfosController < ApplicationController
 
   def update
     if @info.update(info_params)
-      flash[:success] = "お知らせの編集が完了しました。"
+      flash[:success] = "お知らせ「#{@info.title}」を編集しました。"
       redirect_to infos_url
     else
       render :edit
@@ -39,7 +39,7 @@ class InfosController < ApplicationController
 
   def destroy
     @info.destroy
-    flash[:danger] = "お便りの投稿を削除しました。"
+    flash[:danger] = "お知らせ「#{@info.title}」を削除しました。"
     redirect_to infos_url
   end
 
@@ -49,6 +49,6 @@ class InfosController < ApplicationController
     end
 
     def info_params
-      params.require("info").permit(:title, :content, :category, :color)
+      params.require("info").permit(:title, :content, :category, :color, :display_flag)
     end
 end

@@ -3,18 +3,14 @@ class AdminPages::UsersController < AdminPagesController
   before_action :set_user, only: %i[edit update destroy]
 
   def index
-    @users = User.all.order(:member_groups)
+    @users = User.where.not(name: "管理者").order(:member_groups, :name)
   end
-
-  # def show
-  # end
   
   def new
     @user = User.new
   end
   
   def create
-    debugger
     @user = User.new(user_create_params)
     if @user.save
       flash[:success] = 'メンバーの新規作成に成功しました。'

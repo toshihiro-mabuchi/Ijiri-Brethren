@@ -1,7 +1,8 @@
 <div class="info__form">
   <%= form_with model: info, local: true do |f| %>
 
-    <div class="col col-6">
+    <%# <div class="col col-6"> %>
+    <div>
       <div class="form-group">
         <%= f.label :title, "お知らせタイトル" %>
         <% if info.errors.include?(:title) %>
@@ -20,9 +21,20 @@
 
       <div class="form-group">
         <div class="category">
-          <%= f.label :category, "公開設定" if yield(:class_text) == 'info-edit' %>
+          <%= f.label :category, "公開設定　" if yield(:class_text) == 'info-edit' %>
           <%= f.check_box :category, {}, "メンバー", "一般" if yield(:class_text) == 'info-edit' %>
+          <a style="font-size: 90%; color: red;">
+            <%= "　※一般公開する場合は、チェックを外して下さい。" %>
+          </a>
         </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :display_glag, "表示フラグ　" %>
+        <% if @info.errors.include?(:display_flag) %>
+          <p class="text-danger"><%= @info.errors.full_messages_for(:display_flag).first %>
+        <% end %>
+        <%= f.check_box :display_flag %>
       </div>
 
       <div class="form-group">

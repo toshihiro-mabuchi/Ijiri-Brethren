@@ -292,6 +292,7 @@ main {
 }
 
 /* お便り */
+
 .article__contents {
   padding: 5px 0px;
   margin: 0 auto;
@@ -317,13 +318,33 @@ main {
 
 /* 動画 */
 
+.movie__inner {
+  background: #fff;
+  border: 1px #ccc solid;
+  box-shadow: 0 2px 3px 0 #ddd;
+  font-size: 80%; 
+  padding: 20px;
+  flex-direction: row;
+  flex-basis: 100%;
+  margin-bottom: 40px;
+}
+
+.movie__title {
+  height: 50px;
+}
+
+.movie {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .embed-responsive {
-  // position: relative;
-  // display: block;
-  // width: 100%;
-  height: auto;
-  // padding: 0;
-  // overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  /* overflow: hidden; */
+  height: 120px;
 }
 
 .modal-title {
@@ -393,6 +414,7 @@ main {
 
 .gallery__outer {
   text-align: center;
+  margin-left: 0;
   // margin-left: 35px;
 }
 

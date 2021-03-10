@@ -1,8 +1,7 @@
 <% provide(:title, 'お便り編集') %>
-<h1>お便り編集</h1>
-<%# <%= render 'form', article: @article %>
+<h2>お便り編集</h2>
 
-<%= form_with model: @article, url: admin_pages_articles_path, local: true do |f| %>
+<%= form_with model: @article, url: admin_pages_article_path(@article), local: true do |f| %>
   <%= render 'layouts/error_messages', model: @article %>
   <div class="col col-6">
     <div class="form-group">

@@ -2,8 +2,33 @@
   width: 280px;
 }
 
-.gallery__outer {
-  // text-align: center;
-  text-align: left;
-  margin-left: 35px;
+
+/* お便り */
+
+.article__contents {
+  padding: 5px 5px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.article-item {
+  // min-width: 50px;
+  // width: auto !important;
+  width: 75%;
+  // min-height: 50px;
+  // height: auto !important;
+  height:520px;
+}
+
+/* 動画 */
+
+// .movie__inner {
+//   flex-direction: row;
+//   flex-basis: 100%;
+//   margin-bottom: 40px;
+// }
+
+.movie {
+  width: 70%;
+  // margin: 0 auto;
 }
