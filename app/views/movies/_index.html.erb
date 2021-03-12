@@ -6,12 +6,10 @@
         <div class="movie__title">
           <%= movie.title %>
         </div>
-        <%# <div class="content__movies embed-responsive embed-responsive-21by9"> %>
         <div class="movie__iframe embed-responsive embed-responsive-21by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-                  <%# frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  %>
-                  <%# allowfullscreen> %>
-                  >
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
           </iframe>
         </div>
         <div class="movie__text">
@@ -39,16 +37,14 @@
 <section class="movie container" id="general-movie">
   <% @general_movies.each do |movie|%>
     <div class="movie__inner" style="font-size: 70%;">
-      <%# <div class="movie__item"> %>
+      <div class="movie__item">
         <div class="movie__title">
           <%= movie.title %>
         </div>
-        <%# <div class="content__movies embed-responsive embed-responsive-21by9"> %>
         <div class="movie__iframe embed-responsive embed-responsive-21by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-                  <%# frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen> %>
-          >
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
           </iframe>
         </div>
         <div class="movie__text">
@@ -67,7 +63,7 @@
             %>
           </div>
         <% end %>
-      <%# </div> %>
+      </div>
     </div>
   <% end %>
 

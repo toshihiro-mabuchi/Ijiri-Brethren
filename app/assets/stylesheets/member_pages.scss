@@ -32,6 +32,69 @@ h4 {
   margin-bottom: 10px;
 }
 
+/* gloval nav */
+.navbar {
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar-expand {
+  background-color: rgb(245, 245, 89);
+  border-color: rgb(245, 245, 89);
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.navbar-right {
+  float: right !important;
+  // margin-right: -15px;
+}
+
+.navbar-brand {
+  margin-top: 5px;
+}
+
+.dropdown-toggle {
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  position: relative;
+  display: block;
+}
+
+.dropdown-menu {
+  // color: rgba(0, 0, 0, 0.5);
+  // margin-top: 0;
+  // border-top-left-radius: 0;
+  // border-top-right-radius: 0;
+  // padding: 0.5rem 1rem;
+  min-width: 7rem;
+  right: 0;
+  left: auto;
+  position: absolute;
+  margin: 13px;
+  padding: 0 0;
+  background-color: silver;
+}
+
+.navbar-item {
+  // display: inline-block;
+  // padding-top: 0.3125rem;
+  // padding-bottom: 0.3125rem;
+  // margin-right: 1rem;
+  // font-size: 1.25rem;
+  // line-height: inherit;
+  // white-space: nowrap;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  position: relative;
+  display: block;
+  color: black;
+  font-size: 17px;
+}
+
 /* sudbar */
 .sm_sidebar {
   // padding: 2em 0 0 1.5em;
