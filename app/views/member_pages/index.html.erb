@@ -9,8 +9,9 @@
     <div class="row">
 
       <!-- sidebar_start -->
-      <div class="sm_sidebar col-sm-3" style="margin-top: 10px;">
-        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 55px -7px; padding: 20px; background-color: #ddd;">
+      <%# <div class="sm_sidebar col-sm-3" style="margin-top: 10px;"> %>
+      <div class="sm_sidebar" style="margin-top: 10px;">
+        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 55px 10px; padding: 20px; background-color: #ddd;">
           <div class="sm_sidebar_title">ユーザー関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "アカウント情報", user_path(current_user) %></div>
@@ -38,7 +39,8 @@
       <!-- sidebar_end -->
 
       <!-- content_start -->
-      <div class="col-sm-9 col-sm-offset-3 sm_member_content">
+      <%# <div class="col-sm-9 col-sm-offset-3 sm_member_content"> %>
+      <div class="sm_member_content">
         <section class="info container" id="member-info">
           <%# <U><h2>お知らせ</h2></U> %>
           <U><%= link_to "お知らせ", infos_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
