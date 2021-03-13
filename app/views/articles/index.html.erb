@@ -14,6 +14,19 @@
         <% end %>
       </div>
 
+      <ul class="article__year_list">
+        <li>
+          <div class="article-wrap">
+            <div id="all-articles" class="article-year selected-article">全て</div>
+          </div>
+          <% @article_years.each do |issue_date, article| %>
+          <div class="article-wrap">
+            <div class="article-year"><%= issue_date %></div>
+          </div>
+          <% end %>
+        </li>
+      </ul>
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -25,7 +38,7 @@
         </thead>
         <tbody>
           <% @articles.each do |article| %>
-            <tr>
+            <tr id="article-<%= article.id %>">
               <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) %></td>
               <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
               <% if current_user.admin? %>
@@ -38,30 +51,27 @@
           <% end %>
         </tbody>
       </table>
-
-     <!--
-      <ul class="article__year_list">
-        <li>
-        <% @article_years.each do |issue_date, article| %>
-          <span><%= issue_date %></span>
-        <% end %>
-        </li>
-      </ul>
-      
-      <% @articles.each do |article| %>
-        <ul class="article__list">
-          <li>
-            <span><%= article.issue_date.strftime("%Y年%m月%d日") %></span>
-            <span><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></span>
-            <span class="article__edit"><%= link_to '編集', edit_article_path(article) %></span>
-            <span class="article__delete">
-              <%= link_to '削除', article_path(article), method: :delete,
-                                                        data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %>
-            </span>
-          </li>
-        </ul>
-      <% end %>
-      -->
     </div>
   </div>
 </div>
+
+<script>
+// お便り表示切替
+  $('.article-year').on('click', function() {
+    var year = $(this).text();
+    '<% @articles.each do |article| %>'
+      if (year == '<%= article.issue_date.year.to_s %>') {
+        $("#article-<%= article.id %>").show();
+      } else if (year == '全て'){
+        $("#article-<%= article.id %>").show();
+      } else {
+        $("#article-<%= article.id %>").hide();
+      }
+    '<% end %>'
+  });
+// ボタンの下線切替
+  $('.article-year').on('click', function () {
+    $('.article-year').removeClass('selected-article');
+    $(this).addClass('selected-article');
+  });
+</script>
