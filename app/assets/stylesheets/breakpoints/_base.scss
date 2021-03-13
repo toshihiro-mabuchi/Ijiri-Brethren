@@ -474,8 +474,12 @@ main {
 }
 
 .gallery__title {
-  font-size: 1rem;
-  color: #303030;
+  p {
+    font-size: 0.7rem;
+    width: 200px;
+    word-wrap: break-word;
+    line-height: 1em;
+  }
 }
 
 .title_tag {
