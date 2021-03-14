@@ -453,6 +453,36 @@ main {
   border-radius: 15px;
 }
 
+.movie__form-group {
+  margin-bottom: 35px;
+}
+
+.edit-movies__member {
+  padding: 20px 20px 20px 20px;
+  background-color: #c2e4bc;
+}
+
+.movie_display_off {
+  position: relative;
+  display: inline-block;
+  opacity: 0.5;
+  .display-off-text:before {
+    position: absolute;
+    content: "非表示";
+      top: 20px;
+      left: 1px;
+    color: #fff;
+    font-size: large;
+    text-shadow: 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00;
+    opacity: 1;
+  }
+}
+
 /* お便りページ */
 
 .article__list {
@@ -536,8 +566,12 @@ main {
 }
 
 .gallery__title {
-  font-size: 1rem;
-  color: #303030;
+  p {
+    font-size: 0.7rem;
+    width: 200px;
+    word-wrap: break-word;
+    line-height: 1em;
+  }
 }
 
 .title_tag {

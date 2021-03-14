@@ -8,6 +8,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :youtube_url
       t.string :author_name
       t.integer :category, defauit: 0
+      t.integer :display, default: 1, null: false
 
       t.timestamps
     end
