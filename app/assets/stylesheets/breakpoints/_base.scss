@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: $baseNavHeight;
   // background-color: transparent;
-  background-color: green;
+  background-color: white;
   display: flex;
   align-items: center;
   z-index: 100;
@@ -305,6 +305,68 @@ main {
 
 
 /* お便り */
+
+// 年ボタン
+#all-articles {
+  margin-left: 10px;
+  @extend .font-sm;
+}
+.article__year_list {
+  display: flex;
+	flex-flow: row;
+  list-style-type: none;
+
+  margin-top: 7.7px;
+  margin-bottom: 7px;
+  padding-left: 0;
+
+  & > li {
+    display: block;
+
+    & > .article-wrap {
+      padding-left: 0px;
+      padding-right: 0px;
+      // color: rgb(112, 122, 138);
+      display: inline-block;
+    }
+  }
+}
+
+.article-year {
+  padding-left: 0px;
+  padding-right: 0px;
+  // color: rgb(112, 122, 138);
+  
+  // クリックされる前、初期状態
+  box-sizing: border-box;
+  margin: 0px 16px 3px 0px;
+  cursor: pointer;
+  min-width: auto;
+  // color: rgb(132, 142, 156);
+  
+  // クリックされた後 
+  &:hover {
+    border-bottom: 3px solid $cLoader;
+    border-top-color: $cLoader;
+    border-right-color: $cLoader;
+    border-left-color: $cLoader;
+    color: $cLoader;
+  }  
+}
+
+// 表示中のもの
+.selected-article {
+  border-bottom: 3px solid $cLoader;
+  border-top-color: $cLoader;
+  border-right-color: $cLoader;
+  border-left-color: $cLoader;
+}
+// 年ボタンここまで
+// 年ボタン、新規登録ボタン左右に
+.article__new {
+  // display: inline-block;
+  margin-left: auto; 
+}
 
 .article__contents {
   padding: 5px 0px;
