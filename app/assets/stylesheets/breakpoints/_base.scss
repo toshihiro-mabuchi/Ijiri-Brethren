@@ -207,9 +207,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #menu-bar {
   // padding-top: $navHeight;
-  display: flex;
+  // display: flex;
   // background-color: $cBgGray;
-  @extend .content-width;
+  // @extend .content-width;
+  display: none;
 }
 
 #main-content {
@@ -290,6 +291,18 @@ main {
     background-size: contain;
   }
 }
+
+/* member page */
+.sm_sidebar {
+  // padding: 2em 0 0 1.5em;
+  display: none;
+}
+
+.sm_member_content {
+  flex: 1;
+  margin: 0 10px;
+}
+
 
 /* お便り */
 
@@ -398,6 +411,7 @@ main {
 .movie {
   width: 100%;
   margin: 0 auto;
+  // margin: 0 5px 0 -5px;
 }
 
 .embed-responsive {
@@ -437,6 +451,36 @@ main {
   padding: 40px 40px 40px 40px;
   border: solid 3px #eee;
   border-radius: 15px;
+}
+
+.movie__form-group {
+  margin-bottom: 35px;
+}
+
+.edit-movies__member {
+  padding: 20px 20px 20px 20px;
+  background-color: #c2e4bc;
+}
+
+.movie_display_off {
+  position: relative;
+  display: inline-block;
+  opacity: 0.5;
+  .display-off-text:before {
+    position: absolute;
+    content: "非表示";
+      top: 20px;
+      left: 1px;
+    color: #fff;
+    font-size: large;
+    text-shadow: 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00;
+    opacity: 1;
+  }
 }
 
 /* お便りページ */
@@ -522,8 +566,12 @@ main {
 }
 
 .gallery__title {
-  font-size: 1rem;
-  color: #303030;
+  p {
+    font-size: 0.7rem;
+    width: 200px;
+    word-wrap: break-word;
+    line-height: 1em;
+  }
 }
 
 .title_tag {

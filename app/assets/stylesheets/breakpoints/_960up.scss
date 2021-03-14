@@ -103,12 +103,27 @@ main{
   min-height: 100vh;
   margin: 10px 0 10px 0;
 }
+
 #home-content{
   flex: 1;
   flex-flow: column;
   background-color: #eee;
   text-align: center;
   margin-right: 15px;
+}
+
+#menu-bar {
+  display: flex;
+  // @extend .content-width;
+}
+
+
+/* member page */
+.sm_sidebar {
+  // display: flex;
+  display: inline-block;
+  text-align: center;
+  width: 230px;
 }
 
 // .info {
@@ -144,9 +159,9 @@ main{
 /* 動画 */
 
 .movie__inner {
-//   flex-direction: row;
+  // flex-direction: row;
   flex-basis: 25%;
-//   margin-bottom: 40px;
+  // margin-bottom: 40px;
 }
 
 // .movie__title {

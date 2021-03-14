@@ -1,11 +1,17 @@
 class MoviesController < ApplicationController
+  include MoviesHelper
+
   # layout 'admin_page', except: [:members_view, :general_view]
-  before_action :logged_in_user, only: %i(index show)
-  before_action :admin_user, only: %i(new create edit update destroy)
+  before_action :set_member_movies, only: %i(create update destroy)
+  before_action :set_general_movies, only: %i(create update destroy)
+  before_action :logged_in_user, only: %i(index show members_view general_view)
+  before_action :admin_user, only: %i(index new create edit update destroy general_view)
   before_action :set_member_movies, only: %i(index create update destroy)
   before_action :set_general_movies, only: %i(index create update destroy)
 
   def index
+    member_movie_list
+    general_movie_list
     # @member_movies = Movie.where(category: "メンバー")
     # @general_movies = Movie.where(category: "一般")
   end
@@ -80,7 +86,8 @@ class MoviesController < ApplicationController
           youtube_url: "https://youtu.be/#{youtube_mid}",
           author_name: movie_json["author_name"],
           category: params[:movie][:category],
-          text: params[:movie][:text]
+          text: params[:movie][:text],
+          display: params[:movie][:display]
         })
       end
       respond_to do |format|
@@ -91,7 +98,6 @@ class MoviesController < ApplicationController
         format.js { flash.now[:danger] = "URLが正しくありません。" }
       end
     end
-
     # movie = Movie.find(params[:id])
     # if movie.update(movie_params)
     #   respond_to do |format|
@@ -116,15 +122,15 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:movie).permit(:title, :text, :youtube_url, :category)
+      params.require(:movie).permit(:title, :text, :youtube_url, :category, :display)
     end
 
     def set_member_movies
-      @member_movies = Movie.where(category: "メンバー")
+      @member_movies = Movie.where(category: "メンバー").order(display: :desc)
     end
 
     def set_general_movies
-      @general_movies = Movie.where(category: "一般")
+      @general_movies = Movie.where(category: "一般").order(display: :desc)
     end
 
     def valid_json?(json)

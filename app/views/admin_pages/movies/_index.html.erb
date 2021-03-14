@@ -2,7 +2,7 @@
 
 <div class="members-index" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
 
-  <h2><i class="fas fa-video"></i>&nbsp;メンバー向け動画一覧</h2>
+  <h2><i class="fas fa-video"></i>&nbsp;メンバー動画一覧</h2>
 
   <div class="conteiner">
 
@@ -15,12 +15,10 @@
             <div class="movie__title">
               <%= movie.title %>
             </div>
-            <%# <div class="content__movies embed-responsive embed-responsive-21by9"> %>
             <div class="movie__iframe embed-responsive embed-responsive-21by9">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-                      <%# frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                      allowfullscreen> %>
-              >
+                      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
               </iframe>
             </div>
             <div class="movie__text">
