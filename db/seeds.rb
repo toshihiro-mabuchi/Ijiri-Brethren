@@ -11,11 +11,11 @@ User.create!(name: "管理者",
 
 puts "管理者作成！"
 
-6.times do |i|
+30.times do |i|
   n = i + 1 
   name_number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   group = "１"
-  group = "２" if n > 3
+  group = "２" if n > 15
   User.create!(name: "メンバー#{name_number}",
                email: "sample#{n}@gmail.com",
                password: "password#{n}",
