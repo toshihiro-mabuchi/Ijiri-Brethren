@@ -11,7 +11,7 @@ User.create!(name: "管理者",
 
 puts "管理者作成！"
 
-6.times do |i|
+50.times do |i|
   n = i + 1 
   name_number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   group = "１"
@@ -19,7 +19,7 @@ puts "管理者作成！"
   User.create!(name: "メンバー#{name_number}",
                email: "sample#{n}@gmail.com",
                password: "password#{n}",
-               phone_number: "#{n*111}-#{n*1111}-#{n*1111}",
+               phone_number: "012-3456-7890",
                member_groups: "グループ#{group}",
                password_confirmation: "password#{n}")
 end
@@ -53,11 +53,11 @@ puts "一般向けお知らせ作成！"
 
 # 動画サンプルデーター作成
 
-Movie.create!(title: "クリスマス曲　きよしこの夜",
-              thumbnail_url: "https://i.ytimg.com/vi/97Ur9G0EFzM/hqdefault.jpg",
-              youtube_mid: "97Ur9G0EFzM",
-              youtube_url: "https://youtu.be/97Ur9G0EFzM",
-              author_name: "doyokayo",
+Movie.create!(title: "賛美歌３１２番（いつくしみ深き）",
+              thumbnail_url: "https://i.ytimg.com/vi/Bo-Cmd3JM4c/hqdefault.jpg",
+              youtube_mid: "Bo-Cmd3JM4c",
+              youtube_url: "https://youtu.be/Bo-Cmd3JM4c",
+              author_name: "backbone777",
               category: "メンバー")
 
 Movie.create!(title: "【讃美歌320番】主よ御許に近づかん Nearer,My God,to Thee",
@@ -66,12 +66,33 @@ Movie.create!(title: "【讃美歌320番】主よ御許に近づかん Nearer,My
               youtube_url: "https://youtu.be/VHLVDYQ9n5g",
               author_name: "S K",
               category: "メンバー")
-
+  
 Movie.create!(title: "讃美歌461番「主われを愛す」",
               thumbnail_url: "https://i.ytimg.com/vi/xJ0cJ5DQeIs/hqdefault.jpg",
               youtube_mid: "xJ0cJ5DQeIs",
               youtube_url: "https://youtu.be/xJ0cJ5DQeIs",
               author_name: "meijigakuin",
+              category: "メンバー")
+    
+Movie.create!(title: "主の愛に生かされて",
+              thumbnail_url: "https://i.ytimg.com/vi/zI2GcNhvovg/hqdefault.jpg",
+              youtube_mid: "zI2GcNhvovg",
+              youtube_url: "https://youtu.be/zI2GcNhvovg",
+              author_name: "mickey71066",
+              category: "メンバー")
+
+Movie.create!(title: "輝く日を仰ぐとき",
+              thumbnail_url: "https://i.ytimg.com/vi/y3Mia_nTRgc/hqdefault.jpg",
+              youtube_mid: "y3Mia_nTRgc",
+              youtube_url: "https://youtu.be/y3Mia_nTRgc",
+              author_name: "ANNIALIVE1112",
+              category: "メンバー")
+
+Movie.create!(title: "小さな祈り",
+              thumbnail_url: "https://i.ytimg.com/vi/yTyLafZeWX4/hqdefault.jpg",
+              youtube_mid: "yTyLafZeWX4",
+              youtube_url: "https://youtu.be/yTyLafZeWX4",
+              author_name: "mickey71066",
               category: "メンバー")
 
 Movie.create!(title: "クリスマス曲　きよしこの夜",
@@ -79,6 +100,13 @@ Movie.create!(title: "クリスマス曲　きよしこの夜",
               youtube_mid: "97Ur9G0EFzM",
               youtube_url: "https://youtu.be/97Ur9G0EFzM",
               author_name: "doyokayo",
+              category: "メンバー")
+
+Movie.create!(title: "「賛美歌３１０番」しずけきいのり",
+              thumbnail_url: "https://i.ytimg.com/vi/d9IqHInaQMA/hqdefault.jpg",
+              youtube_mid: "d9IqHInaQMA",
+              youtube_url: "https://youtu.be/d9IqHInaQMA",
+              author_name: "sabukiti1",
               category: "一般")
 
 Movie.create!(title: "賛美歌３１２番（いつくしみ深き）",
@@ -100,6 +128,13 @@ Movie.create!(title: "讃美歌461番「主われを愛す」",
               youtube_mid: "xJ0cJ5DQeIs",
               youtube_url: "https://youtu.be/xJ0cJ5DQeIs",
               author_name: "meijigakuin",
+              category: "一般")
+
+Movie.create!(title: "クリスマス曲　きよしこの夜",
+              thumbnail_url: "https://i.ytimg.com/vi/97Ur9G0EFzM/hqdefault.jpg",
+              youtube_mid: "97Ur9G0EFzM",
+              youtube_url: "https://youtu.be/97Ur9G0EFzM",
+              author_name: "doyokayo",
               category: "一般")
 
 puts "動画サンプルデータ作成！"

@@ -50,13 +50,13 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 
 /* 動画 */
 
+.movie {
+  width: 50%;
+  // margin: 0 auto;
+}
+
 .movie__inner {
   // flex-direction: row;
   flex-basis: 50%;
   // margin-bottom: 40px;
-}
-
-.movie {
-  width: 50%;
-  // margin: 0 auto;
 }

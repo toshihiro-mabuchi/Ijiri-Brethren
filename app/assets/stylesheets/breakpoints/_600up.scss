@@ -51,15 +51,8 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   }
 }
 
-.movie {
-  width: 100%;
-  
-  &__inner {
-    flex-direction: row;
-    flex-basis: 50%;
-    margin-bottom: 40px;
-  }
-}
+
+/* アクセス情報 */
 
 .access {
   & .google_map {
@@ -85,6 +78,7 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   height:800px;
 }
 
+
 /* ギャラリー */
 
 .gallery__outer {
@@ -93,10 +87,16 @@ Stylesheet: 600px以上のタブレットやモニタで適用
   margin-left: 35px;
 }
 
+
 /* 動画 */
 
-.movie__inner {
-  // flex-direction: row;
-  flex-basis: 33%;
-  // margin-bottom: 40px;
+.movie {
+  width: 100%;
+  margin: 0 5px 0 -5px;
+  
+  &__inner {
+    // flex-direction: row;
+    flex-basis: 50%;
+    // margin-bottom: 40px;
+  }
 }
