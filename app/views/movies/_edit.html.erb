@@ -1,14 +1,9 @@
 <div class="modal-dialog modal-lg modal-dialog-center">
   <div class="modal-content">
-<<<<<<< HEAD
     <div class="modal-header movie__modal-header">
       <div class="col-10 offset-1">
         <h3 class="modal-title">編集</h3>
       </div>
-=======
-    <div class="modal-header">
-      <h3 class="modal-title">動画編集</h3>
->>>>>>> develop
       <button id="submit-edit-movie" type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -29,7 +24,6 @@
             <div class="movies__form">
               <%= form_with(model: @movie, remote: true) do |f| %>
                 <div class="movies__input">
-<<<<<<< HEAD
                   <div class="movie__form-group">
                     <%= f.label :youtube_url, "YouTubeのURL" %>
                     <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control" %>
@@ -48,21 +42,6 @@
                     <%= f.label :display, "公開する" %>
                     <%= f.check_box :display %>
                   </div>
-=======
-                  <%= f.label :youtube_url, "YouTubeのURL"%>
-                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
-
-                  <%= f.label :text, "説明"%>
-                  <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
-                                         size: "8x4", class: "form-control memo"
-                  %>
-
-                  <%= f.label :category, "公開設定　"%>
-                  <%= f.check_box :category, {}, "メンバー", "一般"%>
-                  <a style="font-size: 90%; color: red;">
-                    <%= "　※一般公開する場合は、チェックを外して下さい。" %>
-                  </a>
->>>>>>> develop
                 </div>
 
                 <div class="movie__form-group">

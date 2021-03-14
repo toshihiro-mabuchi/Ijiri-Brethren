@@ -3,15 +3,15 @@
 <h2>メンバー専用画面</h2>
 
 <div id="content">
-  <%# <div id="member-main" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #eee;"> %>
+
   <div id="member-main" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
 
     <div class="row">
 
       <!-- sidebar_start -->
-      <div class="sm_sidebar col-sm-3" style="margin-top: 10px;">
-        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 55px -7px; padding: 20px; background-color: #ddd;">
-        <%# <div class="container col-sm-3" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 54px -7px; padding: 20px; background-color: #ddd; position: fixed;"> %>
+      <%# <div class="sm_sidebar col-sm-3" style="margin-top: 10px;"> %>
+      <div class="sm_sidebar" style="margin-top: 10px;">
+        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 55px 10px; padding: 20px; background-color: #ddd;">
           <div class="sm_sidebar_title">ユーザー関連</div>
           <div class="col-xs-12 col-lg-12">
             <div class="tab-item"><%= link_to "アカウント情報", user_path(current_user) %></div>
@@ -22,7 +22,7 @@
           </div>
             <div class="sm_sidebar_title">お便り関連</div>
           <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "お便り一覧", articles_path %></div>
+            <div class="tab-item"><%= link_to "毎月のお便り一覧", articles_path %></div>
           </div>
             <div class="sm_sidebar_title">写真関連</div>
           <div class="col-xs-12 col-lg-12">
@@ -30,14 +30,17 @@
           </div>
           <div class="sm_sidebar_title">動画関連</div>
           <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "動画一覧", movies_path %></div>
+            <div class="tab-item"><%= link_to "動画一覧", members_view_movies_path %></div>
           </div>
+          <div>----------</div>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
         </div>
       </div>
       <!-- sidebar_end -->
 
       <!-- content_start -->
-      <div class="col-sm-9 col-sm-offset-3 sm_member_content">
+      <%# <div class="col-sm-9 col-sm-offset-3 sm_member_content"> %>
+      <div class="sm_member_content">
         <section class="info container" id="member-info">
           <%# <U><h2>お知らせ</h2></U> %>
           <U><%= link_to "お知らせ", infos_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
@@ -132,9 +135,8 @@
               </div>
               <div class="movie__iframe embed-responsive embed-responsive-21by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-                        <%# frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  %>
-                        <%# allowfullscreen> %>
-                >
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
                 </iframe>
               </div>
               <div class="movie__text">

@@ -1,45 +1,70 @@
-<div id="menu-bar">
-  <nav class="navbar navbar-expand navbar-light">
-  <!--
-    < %= link_to "HOME", root_path, class: 'navbar-brand' %>
-  -->
+<div id="menu-bar" class="default-nav">
+  <%# <div class="container"> %>
+    <nav class="navbar navbar-expand navbar-light">
+      <!--%= link_to "HOME", root_path, class: 'navbar-brand' %-->
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <i class="fa fa-home" aria-hidden="true" style="font-size: 15px;"></i>&nbsp;HOME</a>
+      <% end %>
 
-    <div id="Navber">
-      <ul class="navbar-nav navbar-right">
+      <div id="Navber">
+        <ul class="nav navbar-nav navbar-right">
 
-        <% if user_signed_in? %>
-          <% if current_user.admin? %>
-          <!--
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <li class="nav-item active">
+                <!--%= link_to 'メンバー一覧', users_path, class: 'nav-link' %-->
+                <%= link_to users_path, class: 'navbar-item' do %>
+                  <i class="fa fa-user-friends" aria-hidden="true" style="font-size: 15px;"></i>&nbsp;メンバー一覧</a>
+                <% end %>
+              </li>
+            <% end %>
             <li class="nav-item active">
-              <%= link_to 'メンバー一覧', users_path, class: 'nav-link' %>
+              <!--%= link_to "お知らせ一覧", infos_path, class: 'nav-link' %-->
+              <%= link_to infos_path, class: 'navbar-item' do %>
+                <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 15px;"></i>&nbsp;お知らせ一覧</a>
+              <% end %>
             </li>
-          -->
+            <li class="nav-item active">
+              <!--%= link_to "毎月のお便り一覧", articles_path, class: 'nav-link' %-->
+              <%= link_to articles_path, class: 'navbar-item' do %>
+                <i class="fa fa-file-alt" aria-hidden="true" style="font-size: 15px;"></i>&nbsp;毎月のお便り一覧</a>
+              <% end %>
+            </li>
+            <li class="nav-item active">
+              <!--%= link_to "動画一覧", members_view_movies_path, class: 'nav-link' %-->
+              <%= link_to members_view_movies_path, class: 'navbar-item' do %>
+                <i class="fa fa-video" aria-hidden="true" style="font-size: 15px;"></i>&nbsp;動画一覧</a>
+              <% end %>
+            </li>
+            <!--
+            <li class="nav-item active">
+              <%= link_to "御言葉一覧", bibles_path, class: 'nav-link' %>
+            </li>
+            -->
+            <!--
+            <li class="nav-item active">
+              <%= link_to "#{current_user.name}", "#", class: "nav-link", style: "text-align: right" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+            -->
+            <li class="nav-item active dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.name %><b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+              </ul>
+            </li>
+
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to "メンバーはこちらから", new_user_session_path, class: 'nav-link' %>
+            </li>
           <% end %>
-          <li class="nav-item active">
-            <%= link_to "動画一覧", movies_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "お便り一覧", articles_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "お知らせ一覧", infos_path, class: 'nav-link' %>
-          </li>
-          <!--
-          <li class="nav-item active">
-            <%= link_to "御言葉一覧", bibles_path, class: 'nav-link' %>
-          </li>
-          -->
-          <li class="nav-item active">
-            <%= link_to "#{current_user.name}", "#", class: "nav-link", style: "text-align: right" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-        <% else %>
-
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+        </ul>
+      </div>
+    </nav>
+  <%# </div> %>
 </div>
-

@@ -4,8 +4,8 @@ class MoviesController < ApplicationController
   # layout 'admin_page', except: [:members_view, :general_view]
   before_action :set_member_movies, only: %i(create update destroy)
   before_action :set_general_movies, only: %i(create update destroy)
-  before_action :logged_in_user, only: %i(index show)
-  before_action :admin_user, only: %i(new create edit update destroy)
+  before_action :logged_in_user, only: %i(index show members_view general_view)
+  before_action :admin_user, only: %i(index new create edit update destroy general_view)
   before_action :set_member_movies, only: %i(index create update destroy)
   before_action :set_general_movies, only: %i(index create update destroy)
 
@@ -98,10 +98,6 @@ class MoviesController < ApplicationController
         format.js { flash.now[:danger] = "URLが正しくありません。" }
       end
     end
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
     # movie = Movie.find(params[:id])
     # if movie.update(movie_params)
     #   respond_to do |format|
