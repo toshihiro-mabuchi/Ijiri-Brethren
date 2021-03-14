@@ -69,7 +69,9 @@ body {
   // background-color: #fff;
 }
 
-// お便り
+
+/* お便り */
+
 // .article__contents {
 //   padding: 5px 5px;
 //   margin: 0 auto;
@@ -94,10 +96,18 @@ body {
   min-width: 270px !important;
 }
 
-// 動画
-// #member_movie {
-//   margin-bottom: 10px !important;
+/* 動画 */
+
+// div .movie__inner {
+//   flex-direction: row;
+//   flex-basis: 33%;
+//   margin-bottom: 40px;
 // }
+
+// div .movie__title {
+//   height: 50px;
+// }
+
 
 /* ギャラリー */
 
@@ -105,10 +115,10 @@ body {
   text-align: left;
 }
 
-.gallery__outer {
-  margin-left: 35px;
+// .gallery__outer {
+  // margin-left: 35px;
   // text-align: center;
-}
+// }
 
 .gallery__inner {
   display: inline-block;

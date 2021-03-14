@@ -5,33 +5,23 @@ Rails.application.routes.draw do
   root 'home_page#index'
 
   ### 管理者画面 ###
-  # get 'admin_page/index'
   resources :admin_pages, only: :index do
     collection do
       get :home
-      # get :movie
     end
-    # namespace :admin_pages do
-      # resources :users, only: :index
-    # end
   end
   namespace :admin_pages do
     resources :users
-    resources :movies do
-      # resources :general_movies
-    end
-    resources :general_movies
+    resources :movies
     resources :articles
-    resources :infos do
-      # resources :general_infos
-    end
-    resources :general_infos
+    resources :infos
     resources :galleries
+    resources :general_movies
+    resources :general_infos
     resources :bibles
   end
 
   ### メンバー専用画面 ###
-  # get 'member_page/index'
   resources :member_pages, only: :index do
     collection do
       get :articles

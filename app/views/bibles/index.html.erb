@@ -4,7 +4,7 @@
 
 <div class="index-table col-md-offset-1 col-md-12">
   <table class="table table-striped" id="table-bibles">
-    <thead>
+    <thead style="text-align: center;">
       <tr>
         <th width="70"><%= Bible.human_attribute_name :display_flag %></th>
         <th width="100"><%= Bible.human_attribute_name :title %></th>
@@ -20,7 +20,7 @@
       <tbody>
         <tr>
           <% if bible.display_flag == true %>
-            <td><%= "✅" %></td>
+            <td style="text-align: center;"><%= "✅" %></td>
           <% else %>
             <td></td>
           <% end %>

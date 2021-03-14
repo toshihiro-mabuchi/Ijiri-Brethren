@@ -1,0 +1,37 @@
+<!-- 御言葉編集モーダルウィンドウ -->
+<% provide(:title, "Bible Edit") %>
+<% provide(:class_text, 'blble-edit') %>
+
+
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header", style=border:none>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h4 class="modal-title", style="text-align:center">御言葉編集</h4>
+    <div class="modal-body">
+      <%= form_with(model: @bible, url: admin_pages_bible_path(@bible), method: :patch, local: true) do |f| %>
+        <%= render 'layouts/error_messages', model: @bible %>
+        <!-- 引用（書名） -->
+        <%= f.label :title, "引用（書名）" %>
+        <%= f.text_field :title, class: 'form-control' %><br>
+        <!-- 引用（章・節） -->
+        <%= f.label :title, "引用（章・節）" %>
+        <%= f.text_field :subtitle, class: 'form-control' %><br>
+        <!-- 御言葉 -->
+        <%= f.label :text, "御言葉" %>
+        <%= f.text_area :text, rows: 5, class: 'form-control' %><br>
+        <!-- 表示フラグ -->
+        <%= f.label :display_flg, "表示" %>
+        <%= f.check_box :display_flag %>
+        <a style="font-size: 90%; color: red;">
+          <%= "　※表示フラグを外す事はできません。" %>
+        </a>
+        <!-- 送信ボタン -->
+        <%= submit_tag "変更する", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>

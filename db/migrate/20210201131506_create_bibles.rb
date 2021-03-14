@@ -4,7 +4,7 @@ class CreateBibles < ActiveRecord::Migration[5.2]
       t.text :title
       t.text :subtitle
       t.text :text
-      t.boolean :display_flag, defauit: false
+      t.boolean :display_flag, default: false
 
       t.timestamps
     end

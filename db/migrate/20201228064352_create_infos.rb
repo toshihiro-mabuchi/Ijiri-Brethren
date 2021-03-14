@@ -5,6 +5,7 @@ class CreateInfos < ActiveRecord::Migration[5.2]
       t.text :content
       t.string :color
       t.integer :category, default: 0
+      t.boolean :display_flag, default: false
 
       t.timestamps
     end

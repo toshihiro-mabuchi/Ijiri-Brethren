@@ -33,7 +33,8 @@ puts "メンバー作成！"
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "メンバー向けお知らせタイトル#{number}",
                content: "メンバー向けお知らせ本文#{number}",
-               category: "メンバー")
+               category: "メンバー",
+               display_flag: true)
 end
 
 puts "メンバー向けお知らせ作成！"
@@ -43,7 +44,8 @@ puts "メンバー向けお知らせ作成！"
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "一般向けお知らせタイトル#{number}",
                content: "一般向けお知らせ本文#{number}",
-               category: "一般")
+               category: "一般",
+               display_flag: true)
 end
 
 puts "一般向けお知らせ作成！"
@@ -86,7 +88,7 @@ Movie.create!(title: "賛美歌３１２番（いつくしみ深き）",
               author_name: "backbone777",
               category: "一般")
                 
-Movie.create!(title: "賛美歌３２０番」主よみもとに近づかん",
+Movie.create!(title: "「賛美歌３２０番」主よみもとに近づかん",
               thumbnail_url: "https://i.ytimg.com/vi/yX2iv6q-tME/hqdefault.jpg",
               youtube_mid: "yX2iv6q-tME",
               youtube_url: "https://youtu.be/yX2iv6q-tME",

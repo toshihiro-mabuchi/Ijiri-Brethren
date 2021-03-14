@@ -2,29 +2,44 @@
 
 <h2><i class="fas fa-video"></i>&nbsp;一般動画一覧</h2>
 
-<div class="conteiner">
+<%# <div class="conteiner"> %>
 
   <%= link_to "動画投稿", new_movie_url, class: "" %>
 
- <section class="movie container" id="general-movie"> 
+  <section class="movie container" id="general-movie">
     <% @movies.each do |movie|%>
-      <div class="movie__inner" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-        <div class="movie__item">
+      <div class="movie__inner" style="font-size: 70%;">
+        <%# <div class="movie__item"> %>
           <div class="movie__title">
             <%= movie.title %>
           </div>
-          <div class="content__movies">
-            <iframe src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    <%# allowfullscreen width="560" height="315" > %>
-                    allowfullscreen>
+          <%# <div class="content__movies embed-responsive embed-responsive-21by9"> %>
+          <div class="movie__iframe embed-responsive embed-responsive-21by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                    <%# frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen> %>
+            >
             </iframe>
           </div>
           <div class="movie__text">
             <%= movie.text %>
           </div>
-        </div>
+          <% if current_user.admin? %>
+            <div class="movie__edit">
+              <%= link_to "編集", edit_movie_path(movie.id), remote: true, class: "btn btn-success" %>
+              <%= link_to '削除', movie_path(movie.id), method: :delete,
+                  class: "btn btn-danger",
+                  remote: true,
+                  data: { confirm: "#{movie.category}動画『#{movie.title}』を削除してよろしいですか？",
+                          cancel: 'やめる',
+                          commit: '削除する'
+                        }, title: '削除確認' 
+              %>
+            </div>
+          <% end %>
+        <%# </div> %>
       </div>
     <% end %>
+
   </section>
-</div>
+<%# </div> %>

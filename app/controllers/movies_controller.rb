@@ -6,6 +6,8 @@ class MoviesController < ApplicationController
   before_action :set_general_movies, only: %i(create update destroy)
   before_action :logged_in_user, only: %i(index show)
   before_action :admin_user, only: %i(new create edit update destroy)
+  before_action :set_member_movies, only: %i(index create update destroy)
+  before_action :set_general_movies, only: %i(index create update destroy)
 
   def index
     member_movie_list
@@ -96,6 +98,10 @@ class MoviesController < ApplicationController
         format.js { flash.now[:danger] = "URLが正しくありません。" }
       end
     end
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
     # movie = Movie.find(params[:id])
     # if movie.update(movie_params)
     #   respond_to do |format|
@@ -118,15 +124,9 @@ class MoviesController < ApplicationController
   end
 
   private
+
     def movie_params
       params.require(:movie).permit(:title, :text, :youtube_url, :category, :display)
-    end
-
-    def valid_json?(json)
-        JSON.parse(json)
-        return true
-      rescue JSON::ParserError => e
-        return false
     end
 
     def set_member_movies
@@ -136,5 +136,12 @@ class MoviesController < ApplicationController
     def set_general_movies
       @general_movies = Movie.where(category: "一般").order(display: :desc)
     end
+
+    def valid_json?(json)
+      JSON.parse(json)
+      return true
+    rescue JSON::ParserError => e
+      return false
+  end
 
 end

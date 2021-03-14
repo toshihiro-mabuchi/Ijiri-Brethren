@@ -18,7 +18,7 @@ class AdminPages::ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:success] = "お便りの登録が完了しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+      flash[:success] = "お便りを登録しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
       redirect_to admin_pages_path
     else
       render :new
