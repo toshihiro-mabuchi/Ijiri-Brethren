@@ -19,7 +19,7 @@ puts "管理者作成！"
   User.create!(name: "メンバー#{name_number}",
                email: "sample#{n}@gmail.com",
                password: "password#{n}",
-               phone_number: "#{n*111}-#{n*1111}-#{n*1111}",
+               phone_number: "012-3456-7890",
                member_groups: "グループ#{group}",
                password_confirmation: "password#{n}")
 end

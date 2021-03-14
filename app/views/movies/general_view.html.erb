@@ -9,7 +9,7 @@
   <section class="movie container" id="general-movie">
     <% @movies.each do |movie|%>
       <div class="movie__inner" style="font-size: 70%;">
-        <%# <div class="movie__item"> %>
+        <div class="movie__item">
           <div class="movie__title">
             <%= movie.title %>
           </div>
@@ -37,7 +37,7 @@
               %>
             </div>
           <% end %>
-        <%# </div> %>
+        </div>
       </div>
     <% end %>
 
