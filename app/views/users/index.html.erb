@@ -18,9 +18,9 @@
         </tr>
       </thead>
 
-      <% @users.each do |user| %>
-        <% unless user.admin? %>
-          <tbody>
+      <tbody>
+        <% @users.each do |user| %>
+          <% unless user.admin? %>
             <tr>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
@@ -33,9 +33,9 @@
                     class: "btn btn-sm btn-danger" %>
               </td>
             </tr>
-          </tbody>
+          <% end %>
         <% end %>
-      <% end %>
+      </tbody>
     </table>
     <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
   </div>

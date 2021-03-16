@@ -4,8 +4,8 @@ class InfosController < ApplicationController
   before_action :set_info, only: %i(show edit update destroy)
 
   def index
-    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, updated_at: :DESC)
-    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, updated_at: :DESC)
+    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, id: :DESC)
+    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, id: :DESC)
   end
 
   def show
