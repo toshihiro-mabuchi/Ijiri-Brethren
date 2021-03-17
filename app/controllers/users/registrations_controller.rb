@@ -25,7 +25,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     if params[:user][:password] != params[:user][:password_confirmation]
-      flash
       redirect_to users_path, alert: 'パスワードが一致していません。'
     else
       if @user = User.find_by(name: params[:user][:name])

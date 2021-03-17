@@ -46,7 +46,7 @@ class GalleriesController < ApplicationController
     if @gallery.destroy
       gallery_list
       respond_to do |format|
-        format.js { flash.now[:danger] = "画像を削除しました。(#{@gallery.title})" }
+        format.js { flash.now[:success] = "画像を削除しました。(#{@gallery.title})" }
       end
     end
   end

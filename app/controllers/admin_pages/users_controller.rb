@@ -15,7 +15,7 @@ class AdminPages::UsersController < AdminPagesController
     if @user.save
       flash[:success] = 'メンバーの新規作成に成功しました。'
     else
-      flash[:success] = 'メンバーの新規作成に失敗しました。'
+      flash[:danger] = 'メンバーの新規作成に失敗しました。'
     end
     redirect_to admin_pages_path
   end

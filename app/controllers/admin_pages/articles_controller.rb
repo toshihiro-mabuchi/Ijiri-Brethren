@@ -39,7 +39,7 @@ class AdminPages::ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:danger] = "お便りを削除しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
+    flash[:success] = "お便りを削除しました。(#{@article.issue_date.strftime("%Y/%m/%d")})"
     redirect_to admin_pages_path
   end
 
