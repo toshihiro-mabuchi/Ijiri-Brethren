@@ -18,7 +18,7 @@
             <%= info.content.html_safe %>
           </div>
           <div class="info__display_flag" style="margin-top: 10px">
-            <% if info.display_flag == true %>
+            <% if info.display_flag? %>
               <%= "表示　✅" %>
             <% else %>
               <%= "表示　⬜" %>

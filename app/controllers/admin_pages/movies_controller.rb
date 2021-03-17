@@ -4,7 +4,7 @@ class AdminPages::MoviesController < ApplicationController
   before_action :admin_user
 
   def index
-    @member_movies = Movie.where(category: "メンバー")
+    @member_movies = Movie.member_movie_list_all
   end
 
   def new
@@ -49,14 +49,14 @@ class AdminPages::MoviesController < ApplicationController
   def update
     movie = Movie.find(params[:id])
     movie.update(movie_params)
-    flash[:success] = "#{movie.title}を更新しました。"
+    flash[:success] = "動画『#{movie.title}』を更新しました。"
     redirect_to admin_pages_path
   end
 
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    flash[:success] = "#{@movie.title}を削除しました。"
+    flash[:success] = "動画『#{@movie.title}』を削除しました。"
     redirect_to admin_pages_path
   end
 

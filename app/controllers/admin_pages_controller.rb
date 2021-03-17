@@ -3,12 +3,12 @@ class AdminPagesController < ApplicationController
 
   def index
     @users = User.where.not(name: "管理者").order(:member_groups, :name)
-    @member_movies = Movie.where(category: "メンバー")
-    @general_movies = Movie.where(category: "一般")
-    @articles = Article.order(updated_at: :DESC)
+    @member_movies = Movie.member_movie_list_all
+    @general_movies = Movie.general_movie_list_all
+    @articles = Article.order(id: :DESC)
     @article_years = Article.with_attached_letter.order(issue_date: :DESC).group_by { |year| year.issue_date.strftime("%Y") }
-    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, updated_at: :DESC)
-    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, updated_at: :DESC)
+    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, id: :DESC)
+    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, id: :DESC)
     @galleries = Gallery.all.order(:category, "display desc", :id).group_by(&:category)
     @bibles = Bible.all.order(:id)
     # @users_num = @users.size
@@ -24,12 +24,12 @@ class AdminPagesController < ApplicationController
 
   def home
     @users = User.where.not(name: "管理者").order(:member_groups, :name)
-    @member_movies = Movie.where(category: "メンバー")
-    @general_movies = Movie.where(category: "一般")
-    @articles = Article.order(updated_at: :DESC)
+    @member_movies = Movie.member_movie_list_all
+    @general_movies = Movie.general_movie_list_all
+    @articles = Article.order(id: :DESC)
     @article_years = Article.with_attached_letter.order(issue_date: :DESC).group_by { |year| year.issue_date.strftime("%Y") }
-    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, updated_at: :DESC)
-    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, updated_at: :DESC)
+    @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, id: :DESC)
+    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, id: :DESC)
     @galleries = Gallery.all.order(:category, "display desc", :id).group_by(&:category)
     @bibles = Bible.all.order(:id)
     # @users_num = @users.size
