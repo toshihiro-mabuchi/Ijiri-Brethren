@@ -4,7 +4,7 @@ class AdminPages::GeneralMoviesController < ApplicationController
   before_action :admin_user
 
   def index
-    @general_movies = Movie.where(category: "一般")
+    @general_movies = Movie.general_movie_list_all
   end
 
   def new
@@ -49,7 +49,7 @@ class AdminPages::GeneralMoviesController < ApplicationController
   def update
     movie = Movie.find(params[:id])
     movie.update(movie_params)
-    flash[:success] = "#{movie.title}を更新しました。"
+    flash[:success] = "動画『#{movie.title}』を更新しました。"
     redirect_to admin_pages_path
   end
 

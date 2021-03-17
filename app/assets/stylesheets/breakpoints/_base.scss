@@ -397,7 +397,7 @@ main {
   background: #fff;
   border: 1px #ccc solid;
   box-shadow: 0 2px 3px 0 #ddd;
-  font-size: 80%; 
+  // font-size: 80%; 
   padding: 20px;
   flex-direction: row;
   flex-basis: 100%;
@@ -406,6 +406,10 @@ main {
 
 .movie__title {
   height: 50px;
+}
+
+.movie__edit {
+  text-align: center;
 }
 
 .movie {

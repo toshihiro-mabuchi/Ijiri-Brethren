@@ -4,9 +4,10 @@
 
   <h2><i class="fas fa-user-friends"></i>&nbsp;メンバー一覧</h2>
 
-  <div style="font-size: 90%; color: red;"><%= "　※グループ・名前順" %></div>
   <div class="index-table col-md-offset-1 col-md-12">
-    <table class="table table-condensed table-hover" id="table-users">
+    <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    <div style="font-size: 90%; color: red;"><%= "※グループ・名前順" %></div>
+    <table class="table table-striped" id="table-users">
       <thead>
         <tr>
           <th><%= User.human_attribute_name :name %></th>
@@ -17,9 +18,9 @@
         </tr>
       </thead>
 
-      <% @users.each do |user| %>
-        <% unless user.admin? %>
-          <tbody>
+      <tbody>
+        <% @users.each do |user| %>
+          <% unless user.admin? %>
             <tr>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
@@ -32,10 +33,11 @@
                     class: "btn btn-sm btn-danger" %>
               </td>
             </tr>
-          </tbody>
+          <% end %>
         <% end %>
-      <% end %>
+      </tbody>
     </table>
+    <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
   </div>
 
   <div>
