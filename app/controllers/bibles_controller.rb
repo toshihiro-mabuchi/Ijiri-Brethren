@@ -22,8 +22,8 @@ class BiblesController < ApplicationController
       flash[:success] = '御言葉の新規作成に成功しました。'
       redirect_to bibles_path
     else
-      flash[:danger] = '御言葉の新規作成に失敗しました。'
-      render :new
+      flash[:danger] = '御言葉の新規作成に失敗しました。<br>' + @bible.errors.full_messages.join("<br>")
+      redirect_to bibles_path
     end   
   end
 
