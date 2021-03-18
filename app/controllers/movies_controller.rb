@@ -59,8 +59,6 @@ class MoviesController < ApplicationController
       respond_to do |format|
         format.js { flash.now[:danger] = "URLが正しくありません。" }
       end
-    #   flash[:danger] = "URLが正しくありません。"
-    #   render :new
     end
   end
 

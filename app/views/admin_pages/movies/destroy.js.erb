@@ -1,0 +1,8 @@
+$('#admin-main__content').html("<%= escape_javascript(render 'admin_pages/movies/index') %>");
+
+<% flash.each do |msg_type, msg| %>
+  $('#flash_msg_js').html(
+    '<div class="alert alert-<%= msg_type %> flash_msg_js" role="alert" id="alert"> \
+      <a href="#" class="close" data-dismiss="alert">×</a><%= msg %>　\
+    </div>');
+<% end %>
