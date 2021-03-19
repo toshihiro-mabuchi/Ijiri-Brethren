@@ -8,21 +8,14 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+
     <div class="modal-body movie__modal-body ">
       <div class="">
-        <!--
-        <div class="col-8 pr-0">
-          <div class="row">
-            <img src="<%= @movie.thumbnail_url %>" 
-              class="bd-placeholder-img thumbnail align-items-center img-center" alt="サムネイル"><br>
-          </div>
-        </div>
-        -->
         <div class="col col-md-10 offset-1">
           <div class="edit-movies__member">
             <h3><%= @movie.category if @movie.category.present? %>動画</h3>
             <div class="movies__form">
-              <%= form_with(model: @movie, remote: true) do |f| %>
+              <%= form_with model: @movie, url: admin_pages_movie_path(@movie), remote: true do |f| %>
                 <div class="movies__input">
                   <div class="movie__form-group">
                     <%= f.label :youtube_url, "YouTubeのURL" %>
@@ -68,50 +61,3 @@
     </div>
   </div>
 </div>
-
-<%# <div class="modal-dialog modal-lg modal-dialog-center">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3 class="modal-title">メンバー動画編集</h3>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-8 pr-0">
-          <div class="row">
-            <img src="<%= @movie.thumbnail_url %>" 
-              class="bd-placeholder-img thumbnail align-items-center img-center" alt="サムネイル"><br>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="movies__member">
-            <h3><%= @movie.category if @movie.category.present? %>動画</h3>
-            <div class="movies__form">
-              <%= form_with(model: @movie, url: admin_pages_movie_url(@movie), local: true) do |f| %>
-                <div class="movies__input">
-                  <%= f.label :youtube_url, "YouTubeのURL"%>
-                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
-
-                  <%= f.label :youtube_url, "YouTubeのURL"%>
-                  <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
-                                         size: "8x4", class: "form-control memo"
-                  %>
-                </div>
-                <div class="btn-sub-can">
-                  <%= f.hidden_field :category, value: "メンバー" %>
-                  <%= f.submit "更新", name: nil, class: "btn btn-success btn-edit" %>
-                  <button type="button" class="btn border btn-edit" data-dismiss="modal">
-                    キャンセル
-                  </button>
-                </div>
-              <% end %>
-            </div>
-          </div>
-  
-        </div>
-      </div>
-    </div>
-  </div>
-</div> %>

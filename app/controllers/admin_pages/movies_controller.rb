@@ -51,6 +51,7 @@ class AdminPages::MoviesController < ApplicationController
   end
 
   def update
+    member_movie_list
     @movie = Movie.find(params[:id])
     youtube_url = params[:movie][:youtube_url]
     youtube_mid = youtube_url.last(11)
