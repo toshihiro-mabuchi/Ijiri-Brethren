@@ -1,7 +1,5 @@
 <!-- 御言葉編集モーダルウィンドウ -->
-<% provide(:title, "Bible Edit") %>
 <% provide(:class_text, 'blble-edit') %>
-
 
 <div class="modal-dialog modal-lg modal-dialog-center">
   <div class="modal-content">
@@ -16,16 +14,24 @@
         <%= render 'layouts/error_messages', model: @bible %>
         <!-- 引用（書名） -->
         <%= f.label :title, "引用（書名）" %>
-        <%= f.text_field :title, class: 'form-control' %><br>
+        <%= f.text_field :title, autofocus: true,
+                                 required: true,
+                                 class: 'form-control' %><br>
         <!-- 引用（章・節） -->
         <%= f.label :subtitle, "引用（章・節）" %>
-        <%= f.text_field :subtitle, class: 'form-control' %><br>
+        <%= f.text_field :subtitle, required: true,
+                                    class: 'form-control' %><br>
         <!-- 御言葉 -->
         <%= f.label :text, "御言葉" %>
-        <%= f.text_area :text, rows: 5, class: 'form-control' %><br>
+        <%= f.text_area :text, rows: 5, required: true,
+                                        class: 'form-control' %><br>
         <!-- 表示フラグ -->
         <%= f.label :display_flg, "表示" %>
-        <%= f.check_box :display_flag %>
+        <% if @bible.display_flag == true %>
+          <td style="text-align: center;"><%= "✅" %></td>
+        <% else %>
+          <%= f.check_box :display_flag %>
+        <% end %>
         <a style="color: red;">
           <%= "　※表示フラグを外す事はできません。" %>
         </a>

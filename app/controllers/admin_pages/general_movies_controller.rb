@@ -34,7 +34,8 @@ class AdminPages::GeneralMoviesController < ApplicationController
         flash[:success] ="#{params[:movie][:category]}動画を追加しました。"
         redirect_to admin_pages_path
       else
-
+        flash[:danger] ="#{params[:movie][:category]}動画の追加に失敗しました。"
+        redirect_to admin_pages_path
       end
     else
       flash[:danger] = "URLが正しくありません。"
