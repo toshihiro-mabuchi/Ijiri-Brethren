@@ -27,16 +27,20 @@ class AdminPages::UsersController < AdminPagesController
   def update
     if @user.update_attributes(user_update_params)
       flash[:success] = "#{@user.name}の情報を更新しました。"
+      respond_to do |format|
+        format.js { flash.now[:success] = "#{@user.name}の情報を更新しました。" }
+      end
     else
       flash[:danger] = "#{@user.name}の情報の更新に失敗しました。"
     end
-    redirect_to admin_pages_path
+    # redirect_to admin_pages_path
+    @users = User.where.not(name: "管理者").order(:member_groups, :name)
   end
   
   def destroy
     @user.destroy
     flash[:success] = "#{@user.name}の情報を削除しました。"
-    redirect_to admin_pages_path
+    # redirect_to admin_pages_path
   end
 
 
