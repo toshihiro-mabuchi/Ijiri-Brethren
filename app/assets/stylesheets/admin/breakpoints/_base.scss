@@ -166,3 +166,26 @@ img {
   background: #ccc;
   width: 300px;
 }
+
+/* 動画 */
+
+.movie_display_off {
+  position: relative;
+  display: inline-block;
+  opacity: 0.5;
+  .display-off-text:before {
+    position: absolute;
+    content: "非表示";
+      top: 20px;
+      left: 1px;
+    color: #fff;
+    font-size: large;
+    text-shadow: 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00, 0 0 3px #f00, 0 0 3px #f00,
+                 0 0 3px #f00;
+    opacity: 1;
+  }
+}

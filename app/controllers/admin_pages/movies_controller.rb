@@ -85,7 +85,6 @@ class AdminPages::MoviesController < ApplicationController
 
   def destroy
     member_movie_list
-    general_movie_list
     @movie = Movie.find(params[:id])
     if @movie.destroy
       respond_to do |format|
