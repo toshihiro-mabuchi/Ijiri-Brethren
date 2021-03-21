@@ -21,11 +21,11 @@ class AdminPages::BiblesController < ApplicationController
       end
       @bible = Bible.new(bible_params)
       @bible.save!
-      flash[:success] = '御言葉の新規作成に成功しました。'
+      flash[:success] = '御言葉の新規登録に成功しました。'
       redirect_to admin_pages_path
     end
   rescue ActiveRecord::RecordInvalid
-    flash[:danger] = '御言葉の新規作成に失敗しました。<br>' + @bible.errors.full_messages.join("<br>")
+    flash[:danger] = '御言葉の新規登録に失敗しました。<br>' + @bible.errors.full_messages.join("<br>")
     redirect_to bibles_path
   end
 

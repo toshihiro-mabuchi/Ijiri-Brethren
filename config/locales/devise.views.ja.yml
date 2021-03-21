@@ -100,10 +100,10 @@ ja:
         unhappy: 気に入りません
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
-        back: 戻る
+        back: キャンセル
       new:
-        sign_up: アカウント登録
-        back: 戻る
+        sign_up: メンバー登録
+        back: キャンセル
       signed_up: アカウントを登録しました。
       signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
       signed_up_but_locked: アカウントが凍結されているためログインできません。
@@ -119,13 +119,13 @@ ja:
       signed_out: ログアウトしました。
     shared:
       links:
-        back: 戻る
+        back: キャンセル
         didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか?
         didn_t_receive_unlock_instructions: アカウントの凍結解除方法のメールを受け取っていませんか?
         forgot_your_password: パスワードの再設定
         sign_in: ログイン
         sign_in_with_provider: "%{provider}でログイン"
-        sign_up: アカウント登録
+        sign_up: メンバー登録
       minimum_password_length: "（%{count}字以上）"
     unlocks:
       new:

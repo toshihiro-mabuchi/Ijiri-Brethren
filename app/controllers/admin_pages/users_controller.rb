@@ -13,9 +13,9 @@ class AdminPages::UsersController < AdminPagesController
   def create
     @user = User.new(user_create_params)
     if @user.save
-      flash[:success] = 'メンバーの新規作成に成功しました。'
+      flash[:success] = 'メンバーの新規登録に成功しました。'
     else
-      flash[:danger] = 'メンバーの新規作成に失敗しました。'
+      flash[:danger] = 'メンバーの新規登録に失敗しました。'
     end
     redirect_to admin_pages_path
   end
