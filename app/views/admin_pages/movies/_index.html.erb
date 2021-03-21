@@ -6,34 +6,37 @@
 
   <div class="conteiner">
 
-    <div><%= "　" %><%= link_to "動画投稿画面へ", new_admin_pages_movie_path, class: "" %></div>
+    <div><%= "　" %><%= link_to "動画投稿画面へ", new_admin_pages_movie_path, remote: true, class: "" %></div>
 
     <section class="movie container" id="member-movie">
       <% @member_movies.each do |movie|%>
         <div class="movie__inner">
-          <div class="movie__item">
-            <div class="movie__title">
-              <%= movie.title.truncate(24) %>
-            </div>
-            <div class="movie__iframe embed-responsive embed-responsive-21by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
-                      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                      allowfullscreen>
-              </iframe>
-            </div>
-            <div class="movie__text">
-              <%= movie.text %>
-            </div>
-            <div class="movie__edit" style="text-align: center;">
-              <%= link_to "編集", edit_admin_pages_movie_path(movie.id), remote: true, class: "btn btn-success" %>
-              <%= link_to '削除', admin_pages_movie_path(movie.id), method: :delete,
-                  class: "btn btn-danger",
-                  remote: true,
-                  data: { confirm: "#{movie.category}動画『#{movie.title}』を削除してよろしいですか？",
-                          cancel: 'やめる',
-                          commit: '削除する'
-                        }, title: '削除確認' 
-              %>
+          <div class="<%= display_on_or_off(movie) %>">
+            <div class="movie__item">
+              <div class="movie__title">
+                <%= movie.title.truncate(24) %>
+                <div class="display-off-text"></div>
+              </div>
+              <div class="movie__iframe embed-responsive embed-responsive-21by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+              </div>
+              <div class="movie__text">
+                <%= movie.text %>
+              </div>
+              <div class="movie__edit" style="text-align: center;">
+                <%= link_to "編集", edit_admin_pages_movie_path(movie.id), remote: true, class: "btn btn-success" %>
+                <%= link_to '削除', admin_pages_movie_path(movie.id), method: :delete,
+                    class: "btn btn-danger",
+                    remote: true,
+                    data: { confirm: "#{movie.category}動画『#{movie.title}』を削除してよろしいですか？",
+                            cancel: 'やめる',
+                            commit: '削除する'
+                          }, title: '削除確認' 
+                %>
+              </div>
             </div>
           </div>
         </div>
@@ -45,3 +48,4 @@
 </div>
 
 <div id="edit-movie" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="new-movie" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
