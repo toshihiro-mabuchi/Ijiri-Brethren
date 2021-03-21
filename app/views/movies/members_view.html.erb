@@ -9,11 +9,11 @@
   <% end %>
 
   <section class="movie container" id="members-movie"> 
-    <% @movies.each do |movie|%>
+    <% @member_movies.each do |movie|%>
       <div class="movie__inner">
         <div class="movie__item">
           <div class="movie__title">
-            <%= movie.title %>
+            <%= movie.title.truncate(24) %>
           </div>
           <div class="movie__iframe embed-responsive embed-responsive-21by9">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= movie.youtube_mid %>"

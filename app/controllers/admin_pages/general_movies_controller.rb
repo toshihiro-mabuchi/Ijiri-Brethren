@@ -5,8 +5,13 @@ class AdminPages::GeneralMoviesController < ApplicationController
   before_action :admin_user
 
   def index
-    general_movie_list
-    # @general_movies = Movie.where(category: "一般")
+    if current_user.admin?
+      @member_movies = Movie.member_movie_list_all
+      @general_movies = Movie.general_movie_list_all
+    else
+      @member_movies = Movie.member_movie_list
+      @general_movies = Movie.general_movie_list
+    end
   end
 
   def new
@@ -14,7 +19,7 @@ class AdminPages::GeneralMoviesController < ApplicationController
   end
 
   def create
-    general_movie_list
+    @general_movies = Movie.general_movie_list_all
     @movie = Movie.new(movie_params)
     youtube_url = params[:movie][:youtube_url]
     youtube_mid = youtube_url.last(11)
@@ -32,6 +37,7 @@ class AdminPages::GeneralMoviesController < ApplicationController
         youtube_url: "https://youtu.be/#{youtube_mid}",
         author_name: movie_json["author_name"],
         category: params[:movie][:category],
+        text: params[:movie][:text]
       })
       if movie.save
         respond_to do |format|
@@ -50,7 +56,7 @@ class AdminPages::GeneralMoviesController < ApplicationController
   end
 
   def update
-    general_movie_list
+    @general_movies = Movie.general_movie_list_all
     @movie = Movie.find(params[:id])
     youtube_url = params[:movie][:youtube_url]
     youtube_mid = youtube_url.last(11)
@@ -83,7 +89,7 @@ class AdminPages::GeneralMoviesController < ApplicationController
   end
 
   def destroy
-    general_movie_list
+    @general_movies = Movie.general_movie_list_all
     @movie = Movie.find(params[:id])
     if @movie.destroy
       respond_to do |format|

@@ -14,7 +14,7 @@
           <div class="<%= display_on_or_off(movie) %>">
             <div class="movie__item">
               <div class="movie__title">
-                <%= movie.title %>
+                <%= movie.title.truncate(24) %>
                 <div class="display-off-text"></div>
               </div>
               <div class="movie__iframe embed-responsive embed-responsive-21by9">

@@ -1,27 +1,41 @@
 class MoviesController < ApplicationController
-  include MoviesHelper
+  # include MoviesHelper
 
-  # layout 'admin_page', except: [:members_view, :general_view]
-  before_action :set_member_movies, only: %i(create update destroy)
-  before_action :set_general_movies, only: %i(create update destroy)
   before_action :logged_in_user, only: %i(index show members_view general_view)
-  before_action :admin_user, only: %i(index new create edit update destroy general_view)
-  before_action :set_member_movies, only: %i(index create update destroy)
-  before_action :set_general_movies, only: %i(index create update destroy)
+  before_action :admin_user, only: %i(new create edit update destroy general_view)
+  # before_action :set_member_movies, only: %i(create update destroy)
+  # before_action :set_general_movies, only: %i(create update destroy)
 
   def index
-    member_movie_list
-    general_movie_list
+    # member_movie_list
+    # general_movie_list
     # @member_movies = Movie.where(category: "メンバー")
     # @general_movies = Movie.where(category: "一般")
+    if current_user.admin?
+      @member_movies = Movie.member_movie_list_all
+      @general_movies = Movie.general_movie_list_all
+    else
+      @member_movies = Movie.member_movie_list
+      @general_movies = Movie.general_movie_list
+    end
   end
 
   def members_view
-    @movies = Movie.where(category: "メンバー")
+    # @movies = Movie.where(category: "メンバー")
+    if current_user.admin?
+      @member_movies = Movie.member_movie_list_all
+    else
+      @member_movies = Movie.member_movie_list
+    end
   end
 
   def general_view
-    @movies = Movie.where(category: "一般")
+    # @movies = Movie.where(category: "一般")
+    if current_user.admin?
+      @general_movies = Movie.general_movie_list_all
+    else
+      @general_movies = Movie.general_movie_list
+    end
   end
 
   def new
@@ -108,7 +122,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     if @movie.destroy
       respond_to do |format|
-        format.js { flash.now[:danger] = "#{@movie.title}を削除しました。" }
+        format.js { flash.now[:danger] = "動画『#{@movie.title}』を削除しました。" }
       end
     end
     # flash[:success] = "#{@movie.title}を削除しました。"
@@ -121,13 +135,13 @@ class MoviesController < ApplicationController
       params.require(:movie).permit(:title, :text, :youtube_url, :category, :display)
     end
 
-    def set_member_movies
-      @member_movies = Movie.where(category: "メンバー").order(display: :desc)
-    end
+    # def set_member_movies
+    #   @member_movies = Movie.where(category: "メンバー").order(display: :DESC, id: :DESC)
+    # end
 
-    def set_general_movies
-      @general_movies = Movie.where(category: "一般").order(display: :desc)
-    end
+    # def set_general_movies
+    #   @general_movies = Movie.where(category: "一般").order(display: :DESC, id: :DESC)
+    # end
 
     def valid_json?(json)
       JSON.parse(json)
