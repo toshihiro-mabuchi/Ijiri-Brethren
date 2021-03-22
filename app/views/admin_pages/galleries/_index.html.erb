@@ -36,7 +36,8 @@
                 <% if user_signed_in? && current_user.admin? %>
                   <div class="galley__edit">
                     <%= link_to '編集', edit_gallery_path(gallery.id), remote: true, class: "btn btn-sm btn-success" %>
-                    <%= link_to '削除', gallery_path(gallery), class: "btn btn-sm btn-danger",
+                    <%= link_to '削除', admin_pages_gallery_path(gallery), class: "btn btn-sm btn-danger",
+                                                              remote: true,
                                                               method: :delete,
                                                               data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
                   </div>
