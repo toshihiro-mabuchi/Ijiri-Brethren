@@ -205,6 +205,26 @@ h1, h2, h3, h4, h5, h6 {
   // background-color: white;
 }
 
+// フラッシュメッセージ
+.flash-wrap {
+  position: fixed;
+  top: 110px;
+  left: 7%;
+  width: 84%;
+  border-radius: 10%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  z-index: 500;
+
+    & #flash_messages {
+        z-index: 510;
+        position: absolute;
+        display: block;
+        width: 100%;
+    }
+}
+
 #menu-bar {
   // padding-top: $navHeight;
   // display: flex;
