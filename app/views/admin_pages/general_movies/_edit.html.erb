@@ -1,44 +1,61 @@
 <div class="modal-dialog modal-lg modal-dialog-center">
   <div class="modal-content">
-    <div class="modal-header">
-      <h3 class="modal-title">一般動画編集</h3>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-header movie__modal-header">
+      <div class="col-10 offset-1">
+        <h3 class="modal-title">編集</h3>
+      </div>
+      <button id="submit-edit-movie" type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-8 pr-0">
-          <div class="row">
-            <img src="<%= @movie.thumbnail_url %>" 
-              class="bd-placeholder-img thumbnail align-items-center img-center" alt="サムネイル"><br>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="movies__member">
+
+    <div class="modal-body movie__modal-body ">
+      <div class="">
+        <div class="col col-md-10 offset-1">
+          <div class="edit-movies__member">
             <h3><%= @movie.category if @movie.category.present? %>動画</h3>
             <div class="movies__form">
-              <%= form_with(model: @movie, url: admin_pages_general_movie_url(@movie), local: true) do |f| %>
+              <%= form_with model: @movie, url: admin_pages_general_movie_url(@movie), remote: true do |f| %>
                 <div class="movies__input">
-                  <%= f.label :youtube_url, "YouTubeのURL"%>
-                  <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。'%>
+                  <div class="movie__form-group">
+                    <%= f.label :youtube_url, "YouTubeのURL" %>
+                    <%= f.text_field :youtube_url, placeholder: 'URLを入力してください。', class: "form-control" %>
+                  </div>
 
-                  <%= f.label :youtube_url, "YouTubeのURL"%>
-                  <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
-                                         size: "8x4", class: "form-control memo"
-                  %>
+                  <div class="movie__form-group">
+                    <%= f.label :text, "メッセージ" %>
+                    <%= f.text_area :text, placeholder: '動画説明やメッセージを入力できます。（300文字以内）',
+                                           size: "8x4", class: "form-control memo" %>
+                  </div>
+
+                  <div class="movie__form-group">
+                    <%= f.label :category, "メンバー専用動画にする" %>
+                    <%= f.check_box :category, {}, "メンバー", "一般" %>
+                    &emsp;
+                    <%= f.label :display, "公開する" %>
+                    <%= f.check_box :display %>
+                  </div>
                 </div>
-                <div class="btn-sub-can">
-                  <%= f.hidden_field :category, value: "一般" %>
-                  <%= f.submit "更新", name: nil, class: "btn btn-success btn-edit" %>
-                  <button type="button" class="btn border btn-edit" data-dismiss="modal">
-                    キャンセル
-                  </button>
+
+                <div class="movie__form-group">
+                  <div class="btn-sub-can">
+                    <%= f.submit "更新", name: nil, class: "btn btn-success btn-edit" %>
+                    <button type="button" class="btn btn-outline-dark bg-light btn-edit" data-dismiss="modal">
+                      キャンセル
+                    </button>
+                  </div>
                 </div>
               <% end %>
             </div>
+            
+            <div class="col-8 pr-0">
+              <div class="row">
+                <img src="<%= @movie.thumbnail_url %>" 
+                  class="bd-placeholder-img thumbnail align-items-center img-center" alt="サムネイル"><br>
+              </div>
+            </div>
+
           </div>
-  
         </div>
       </div>
     </div>

@@ -66,15 +66,11 @@ class MoviesController < ApplicationController
         respond_to do |format|
           format.js { flash.now[:success] = "#{params[:movie][:category]}動画を追加しました。" }
         end
-        # flash[:success] ="#{params[:movie][:category]}動画を追加しました。"
-        # redirect_to movies_path
       end
     else
       respond_to do |format|
         format.js { flash.now[:danger] = "URLが正しくありません。" }
       end
-    #   flash[:danger] = "URLが正しくありません。"
-    #   render :new
     end
   end
 
