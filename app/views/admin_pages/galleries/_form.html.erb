@@ -1,0 +1,45 @@
+<%= form_with model: @gallery, url: admin_pages_galleries_path, remote: true do |f| %>
+  <%= render 'layouts/error_messages', model: @gallery %>
+  <div class="col col-12">
+    <div class="gallery__form-group">
+      <%= f.label :category %>
+      <%= f.text_field :category, id: "modal-#{modal_form_class}-foucus",
+                                  class: "form-control",
+                                  placeholder: '30文字以内で入力してください',
+                                  required: true,
+                                  maxlength: 30 %>
+    </div>
+
+    <div class="gallery__form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control",
+                               placeholder: '30文字以内で入力してください',
+                               required: true,
+                               maxlength: 30 %>
+    </div>
+
+    <div class="gallery__form-group">
+      <%= f.label "画像を公開する" %>
+      <%= f.check_box :display %>
+    </div>
+
+    <div class="gallery__form-group">
+      <% if controller.action_name == "new" %>
+        <%= f.file_field :image, required: true, class: "form-control-file", accept: "image/png, image/jpg, image/jpeg" %>
+      <% elsif controller.action_name == "edit" %>
+        <%= f.file_field :image, class: "form-control-file", accept: "image/png, image/jpg, image/jpeg" %>
+      <% end %>
+    </div>
+
+    <div class="gallery__form-group">
+      <%= f.submit class: "btn btn-primary" %>
+      <button id="submit-<%= modal_form_class %>-gallery" type="button" class="btn btn-outline-dark bg-light" data-dismiss="modal">キャンセル</button>
+    </div>
+
+    <div class="gallery__form-group">
+      <% if gallery.image.attached? %>
+        <%= image_tag gallery.image %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
