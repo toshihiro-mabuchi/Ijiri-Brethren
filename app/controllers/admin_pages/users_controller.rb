@@ -12,31 +12,42 @@ class AdminPages::UsersController < AdminPagesController
   
   def create
     @user = User.new(user_create_params)
+    # byebug
     if @user.save
-      flash[:success] = 'メンバーの新規登録に成功しました。'
+      respond_to do |format|
+        format.js { flash.now[:success] = "メンバーの新規作成に成功しました。" }
+      end
     else
-      flash[:danger] = 'メンバーの新規登録に失敗しました。'
+      respond_to do |format|
+        format.js { flash.now[:danger] = "メンバーの新規作成に失敗しました。" }
+      end
     end
-    redirect_to admin_pages_path
+    @users = User.where.not(name: "管理者").order(:member_groups, :name)
   end
   
   def edit
-
+    
   end
   
   def update
     if @user.update_attributes(user_update_params)
-      flash[:success] = "#{@user.name}の情報を更新しました。"
+      respond_to do |format|
+        format.js { flash.now[:success] = "#{@user.name}の情報を更新しました。" }
+      end
     else
-      flash[:danger] = "#{@user.name}の情報の更新に失敗しました。"
+      respond_to do |format|
+        format.js { flash.now[:danger] = "#{@user.name}の情報の更新に失敗しました。" }
+      end
     end
-    redirect_to admin_pages_path
+    @users = User.where.not(name: "管理者").order(:member_groups, :name)
   end
   
   def destroy
     @user.destroy
-    flash[:success] = "#{@user.name}の情報を削除しました。"
-    redirect_to admin_pages_path
+    @users = User.where.not(name: "管理者").order(:member_groups, :name)
+    respond_to do |format|
+      format.js { flash.now[:success] = "#{@user.name}の情報を削除しました。" }
+    end
   end
 
 

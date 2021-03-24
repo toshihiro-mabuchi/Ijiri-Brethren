@@ -24,6 +24,7 @@ gem 'devise-i18n'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'data-confirm-modal'
 
 # ActiveStorageバリデーション
 gem 'active_storage_validations', '~> 0.8.8'

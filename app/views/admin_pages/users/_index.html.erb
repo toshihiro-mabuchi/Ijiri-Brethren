@@ -1,39 +1,41 @@
 <%# provide(:title, 'メンバー一覧') %>
 
-<div class="members-index" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
+<div class="members-index" style="border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
 
   <h2><i class="fas fa-user-friends"></i>&nbsp;メンバー一覧</h2>
 
-  <div class="index-table col-md-offset-1 col-md-12">
-    <div style="font-size: 90%; color: red;"><%= "※グループ・名前順" %></div>
-    <table class="table table-striped" id="table-users">
-      <thead>
-        <tr>
-          <th><%= User.human_attribute_name :name %></th>
-          <th><%= User.human_attribute_name :email %></th>
-          <th><%= User.human_attribute_name :phone_number %></th>
-          <th><%= User.human_attribute_name :member_groups %></th>
-          <th></th>
-        </tr>
-      </thead>
+  <div class="container">
+    <div class="row">
+      <div class="index-table col-md-offset-1 col-md-12">
+        <div style="font-size: 90%; color: red;"><%= "※グループ・名前順" %></div>
+        <table class="table table-striped" id="table-users">
+          <thead>
+            <tr>
+              <th><%= User.human_attribute_name :name %></th>
+              <th><%= User.human_attribute_name :email %></th>
+              <th><%= User.human_attribute_name :phone_number %></th>
+              <th><%= User.human_attribute_name :member_groups %></th>
+              <th></th>
+            </tr>
+          </thead>
 
-      <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td><%= user.phone_number %></td>
-            <td><%= user.member_groups %></td>
-            <td class="center">
-              <%= link_to "編集", edit_admin_pages_user_path(user), remote: true, class: "btn btn-sm btn-success" %>
-              <%= link_to "削除", admin_pages_user_path(user), method: :delete,
-                  data: { confirm: "削除してよろしいですか？" },
-                  class: "btn btn-sm btn-danger" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.phone_number %></td>
+                <td><%= user.member_groups %></td>
+                <td class="center">
+                  <%= link_to "編集", edit_admin_pages_user_path(user), remote: true, class: "btn btn-sm btn-success" %>
+                  <%= link_to "削除", admin_pages_user_path(user), method: :delete, remote: :true,                      data: { confirm: "削除してよろしいですか？" },
+                      class: "btn btn-sm btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     <%= link_to "新規登録", new_admin_pages_user_path, remote: true, class: "btn btn-primary" %>
   </div>
 
