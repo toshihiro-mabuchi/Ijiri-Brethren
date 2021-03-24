@@ -33,6 +33,7 @@
         <div id="header-space"></div>
         <%= render 'layouts/flash_messages' %>
         <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
+        <%#= render 'layouts/flash_messages' %>
           <%= yield %>
         </div>
         <%= render 'layouts/footer' %>
