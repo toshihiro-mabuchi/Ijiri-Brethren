@@ -15,14 +15,22 @@ class AdminPages::BiblesController < ApplicationController
     ActiveRecord::Base.transaction do
       if params[:bible][:display_flag] == "1"
         unless Bible.update(display_flag: false)
-          flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
-          render :new
+          respond_to do |format|
+            format.js { flash.now[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>") }
+          end
         end  
       end
       @bible = Bible.new(bible_params)
-      @bible.save!
-      flash[:success] = '御言葉の新規登録に成功しました。'
-      redirect_to admin_pages_path
+      if @bible.save
+        respond_to do |format|
+          format.js { flash.now[:success] = '御言葉の新規作成に成功しました。' }
+        end
+      else
+        respond_to do |format|
+          format.js { flash.now[:danger] = '御言葉の新規作成に失敗しました。' + @bible.errors.full_messages.join("<br>")  }
+        end
+      end
+      @bibles = Bible.all.order(:id)
     end
   rescue ActiveRecord::RecordInvalid
     flash[:danger] = '御言葉の新規登録に失敗しました。<br>' + @bible.errors.full_messages.join("<br>")
@@ -35,33 +43,51 @@ class AdminPages::BiblesController < ApplicationController
   def update
     ActiveRecord::Base.transaction do
       if (@bible.display_flag == true) && (params[:bible][:display_flag] == "0")
-        flash[:danger] = "表示フラグは、外せません。"
+        respond_to do |format|
+          format.js { flash.now[:danger] = "表示フラグは、外せません。" }
+        end
       else
         if params[:bible][:display_flag] == "1"
           unless Bible.update(display_flag: false)
-            flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
+            respond_to do |format|
+              format.js { flash.now[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>") }
+            end
           end  
         end
         if @bible.update_attributes(bible_params)
-          flash[:success] = "御言葉を更新しました。"
+          respond_to do |format|
+            format.js { flash.now[:success] = "御言葉を更新しました。" }
+          end
         else
-          flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
+          respond_to do |format|
+            format.js { flash.now[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>") }
+          end
         end
       end
+      @bibles = Bible.all.order(:id)
     end
-    redirect_to admin_pages_path
   rescue ActiveRecord::RecordInvalid
     flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
     redirect_to bibles_path
   end
 
   def destroy
-    if @bible.destroy
-      flash[:success] = "御言葉を削除しました。"
+    if @bible.display_flag == true
+      respond_to do |format|
+        format.js { flash.now[:danger] = "表示中の御言葉は削除出来ません。" }
+      end
     else
-      flash[:danger] = "御言葉の削除に失敗しました。"
+      if @bible.destroy
+        respond_to do |format|
+          format.js { flash.now[:success] = "御言葉を削除しました。" }
+        end
+      else
+        respond_to do |format|
+          format.js { flash.now[:danger] = "御言葉の削除に失敗しました。" }
+        end
+      end
     end
-    redirect_to admin_pages_path
+    @bibles = Bible.all.order(:id)
   end
   
   private

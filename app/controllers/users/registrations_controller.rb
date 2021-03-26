@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           # sign_in @user
           redirect_to users_path, notice: 'メンバー情報の作成に成功しました。'
         else
-          redirect_to users_path, alert: 'メンバー情報の作成に失敗しました。'
+          redirect_to users_path, alert: 'メンバー情報の作成に失敗しました。' + @user.errors.full_messages.join("<br>")
         end
       end
     end
@@ -96,7 +96,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.update_attributes(user_params)
       redirect_to users_path, notice: 'メンバーの更新に成功しました。'
     else
-      redirect_to users_path, alert: 'メンバー情報の更新に失敗しました。'
+      redirect_to users_path, alert: "メンバー情報の更新に失敗しました。<br>" + @user.errors.full_messages.join("<br>")
     end
   end
 
