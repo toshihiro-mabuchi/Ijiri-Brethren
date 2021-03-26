@@ -1,12 +1,14 @@
 <%# $("#edit").modal("hide"); %>
 <%# $('.modal-backdrop').remove(); %>
 <%# $('body').removeClass('modal-open'); %>
+
 $("#admin-main__content").html("<%= j(render 'index') %>");
 
+$("#flash_messages").removeClass();
 <% flash.each do |msg_type, msg| %>
-  $("#flash_messages").html("<a href="#" class="close" data-dismiss="alert">×</a><%= msg %>");
-  $("#flash_messages").addClass("time-limit alert alert-<%= msg_type %>");
-  $("#flash_messages").show();
+  $('#flash_messages').html('<a href="#" class="close" data-dismiss="alert">×</a><%= msg %>');
+  $('#flash_messages').addClass('alert alert-<%= msg_type %>');
+  $('#flash_messages').show();
 <% end %>
 
 setTimeout("$('#flash_messages').fadeOut('slow')", 4000);
