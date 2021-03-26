@@ -12,7 +12,7 @@
     </div>
     <h4 class="modal-title", style="text-align:center">御言葉編集</h4>
     <div class="modal-body">
-      <%= form_with(model: @bible, url: admin_pages_bible_path(@bible), method: :patch, local: true) do |f| %>
+      <%= form_with(model: @bible, url: admin_pages_bible_path(@bible), method: :patch ) do |f| %>
         <%= render 'layouts/error_messages', model: @bible %>
         <!-- 引用（書名） -->
         <%= f.label :title, "引用（書名）" %>
