@@ -30,6 +30,8 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
+// 削除モーダル用
+//= require data-confirm-modal
 
 document.addEventListener("turbolinks:load", function() {
   // location.reload();

@@ -10,7 +10,9 @@
     <div class="gallery__group">
       <div class="gallery__new">
         <% if user_signed_in? && current_user.admin? %>
-          <%= link_to "新規登録", new_gallery_url, remote: true, class: "btn btn-primary" %>
+          <div class="text-right">
+            <%= link_to "新規登録", new_gallery_url, remote: true, class: "btn btn-primary" %>
+          </div>
         <% end %>
       </div>
       <h4 class="title_tag"><i class="far fa-images"></i>&nbsp;ギャラリー</h4>
@@ -36,9 +38,15 @@
                 <% if user_signed_in? && current_user.admin? %>
                   <div class="galley__edit">
                     <%= link_to '編集', edit_gallery_path(gallery.id), remote: true, class: "btn btn-sm btn-success" %>
-                    <%= link_to '削除', gallery_path(gallery), class: "btn btn-sm btn-danger",
-                                                              method: :delete,
-                                                              data: { confirm: "#{gallery.title}を削除してよろしいですか？" } %>
+                    <%= link_to '削除', gallery_path(gallery),
+                        class: "btn btn-sm btn-danger",
+                        method: :delete,
+                        remote: true,
+                        data: { confirm: "#{gallery.title}を削除してよろしいですか？",
+                                cancel: 'やめる',
+                                commit: '削除する'
+                              }, title: '削除確認'
+                    %>
                   </div>
                 <% end %>
               </div>

@@ -46,9 +46,17 @@
               <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
               <% if current_user.admin? %>
                 <td><%= link_to '編集', edit_article_path(article), class: "btn btn-success" %></td>
-                <td><%= link_to '削除', article_path(article), class: "btn btn-danger",
-                                                          method: :delete,
-                                                          data: { confirm: "#{article.letter.filename}を削除してよろしいですか？" } %></td>
+                <td>
+                  <%= link_to '削除', article_path(article),
+                      class: "btn btn-danger",
+                      method: :delete,
+                      remote: true,
+                      data: { confirm: "#{article.letter.filename}を削除してよろしいですか？",
+                              cancel: 'やめる',
+                              commit: '削除する'
+                            }, title: '削除確認'
+                  %>
+                </td>
               <% end %>
             </tr>
           <% end %>
