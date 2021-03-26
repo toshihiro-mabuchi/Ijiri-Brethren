@@ -6,12 +6,10 @@
   <nav class="footer__nav">
     <ul class="footer__ul">
       <% if user_signed_in? %>
-        <li class="footer__li item"><a href="<%= root_path %>">ホーム</a></li>
-        <%# <li class="footer__li item"><a href="#">定期集会</a></li>
-        <li class="footer__li item"><a href="#">特別集会</a></li> %>
-        <li class="footer__li item"><a href="<%= galleries_path %>">ギャラリー</a></li>
+        <li class="footer__li item"><a href="#">定期集会</a></li>
+        <li class="footer__li item"><a href="#">特別集会</a></li>
       <% else %>
-        <li class="footer__li item"><a href="#">ホーム</a></li>
+        <%# <li class="footer__li item"><a href="#">ホーム</a></li> %>
       <% end %>
     </ul>
     <p class="footer__copyright item page_top"><a href="#">ページの先頭に戻る</a></p>

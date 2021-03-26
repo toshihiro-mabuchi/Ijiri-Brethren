@@ -1,4 +1,8 @@
-$("#admin-main__content").html("<%= j(render 'index') %>");
+$('#bible-edit').modal('hide');
+$('.modal-backdrop').remove();
+$('body').removeClass('modal-open');
+$('body').css('padding-right', '0');
+$('#admin-main__content').html('<%= j(render 'index') %>');
 
 $("#flash_messages").removeClass();
 <% flash.each do |msg_type, msg| %>
