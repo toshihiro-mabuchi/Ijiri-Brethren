@@ -6,6 +6,7 @@ $('#new-gallery').on('shown.bs.modal', function() {
 });
 
 $('form').submit(function() {
-  $("#submit-<%= modal_form_class %>-gallery").click();
-  $ ("modal-backdrop").removeClass("modal-backdrop");
+  $('#submit-new-gallery').click();
+  $('.modal-backdrop').remove();
+  $('.modal-backdrop').removeClass("modal-backdrop");
 });
