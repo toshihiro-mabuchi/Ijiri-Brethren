@@ -29,7 +29,7 @@
             <td><%= bible.text %></td>
             <td class="center">
               <%= link_to "編集", edit_admin_pages_bible_path(bible), remote: true, class: "btn btn-sm btn-success" %>
-              <%= link_to "削除", admin_pages_bible_path(bible), method: :delete,
+              <%= link_to "削除", admin_pages_bible_path(bible), method: :delete, remote: true,
                   data: { confirm: "削除してよろしいですか？" },
                   class: "btn btn-sm btn-danger" %>
             </td>
