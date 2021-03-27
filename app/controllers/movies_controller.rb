@@ -7,10 +7,6 @@ class MoviesController < ApplicationController
   # before_action :set_general_movies, only: %i(create update destroy)
 
   def index
-    # member_movie_list
-    # general_movie_list
-    # @member_movies = Movie.where(category: "メンバー")
-    # @general_movies = Movie.where(category: "一般")
     if current_user.admin?
       @member_movies = Movie.member_movie_list_all
       @general_movies = Movie.general_movie_list_all
@@ -43,6 +39,8 @@ class MoviesController < ApplicationController
   end
 
   def create
+    @member_movies = Movie.member_movie_list_all
+    @general_movies = Movie.general_movie_list_all
     @movie = Movie.new(movie_params)
     youtube_url = params[:movie][:youtube_url]
     youtube_mid = youtube_url.last(11)
@@ -79,6 +77,8 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @member_movies = Movie.member_movie_list_all
+    @general_movies = Movie.general_movie_list_all
     @movie = Movie.find(params[:id])
     youtube_url = params[:movie][:youtube_url]
     youtube_mid = youtube_url.last(11)
@@ -119,6 +119,8 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    @member_movies = Movie.member_movie_list_all
+    @general_movies = Movie.general_movie_list_all
     @movie = Movie.find(params[:id])
     if @movie.destroy
       respond_to do |format|
