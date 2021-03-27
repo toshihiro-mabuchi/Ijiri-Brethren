@@ -1,6 +1,6 @@
 $("#new-general-movie").html("<%= escape_javascript(render 'new') %>");
 $("#new-general-movie").modal("show");
 
-$('form').submit(function() {
-  $("#submit-new-movie").click();
+$('#new-general-movie').on('shown.bs.modal', function() {
+  $('#modal-new-foucus').focus();
 });

@@ -1,8 +1,2 @@
 $('#edit-gallery').html("<%= escape_javascript(render 'edit') %>");
 $('#edit-gallery').modal('show');
-
-$('form').submit(function() {
-  $('#submit-edit-gallery').click();
-  $('.modal-backdrop').remove();
-  $('.modal-backdrop').removeClass("modal-backdrop");
-});
