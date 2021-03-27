@@ -11,7 +11,7 @@
       <div class="gallery__new">
         <% if user_signed_in? && current_user.admin? %>
           <div class="text-right">
-            <%= link_to "新規登録", new_gallery_url, remote: true, class: "btn btn-primary" %>
+            <%= link_to "新規登録", new_admin_pages_gallery_path, remote: true, class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
@@ -37,8 +37,8 @@
 
                 <% if user_signed_in? && current_user.admin? %>
                   <div class="galley__edit">
-                    <%= link_to '編集', edit_gallery_path(gallery.id), remote: true, class: "btn btn-sm btn-success" %>
-                    <%= link_to '削除', gallery_path(gallery),
+                    <%= link_to '編集', edit_admin_pages_gallery_path(gallery.id), remote: true, class: "btn btn-sm btn-success" %>
+                    <%= link_to '削除', admin_pages_gallery_path(gallery),
                         class: "btn btn-sm btn-danger",
                         method: :delete,
                         remote: true,

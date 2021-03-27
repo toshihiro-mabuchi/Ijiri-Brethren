@@ -10,7 +10,7 @@
       <div class="gallery__new">
         <% if user_signed_in? && current_user.admin? %>
           <div class="text-right">
-            <%= link_to "新規登録", new_gallery_url, remote: true, class: "btn btn-primary" %>
+            <%= link_to "新規登録", new_gallery_path, remote: true, class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>

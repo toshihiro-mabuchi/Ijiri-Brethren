@@ -1,4 +1,4 @@
-<%= form_with model: @gallery, remote: true do |f| %>
+<%= form_with model: @gallery, url: url, remote: true do |f| %>
   <%= render 'layouts/error_messages', model: @gallery %>
   <div class="col col-12">
     <div class="gallery__form-group">
