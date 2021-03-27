@@ -1,11 +1,10 @@
-$('#gallery__index').html("<%= escape_javascript(render 'index') %>");
+$('#gallery__index').html('<%= j(render 'index') %>');
 
+$("#flash_messages").removeClass();
 <% flash.each do |msg_type, msg| %>
-  $('#flash_msg_js').html(
-    '<div class="alert alert-<%= msg_type %> flash_msg_js" role="alert" id="alert"> \
-      <a href="#" class="close" data-dismiss="alert">×</a><%= msg %>　\
-    </div>');
-  $(function(){
-    setTimeout("$('#alert').fadeOut('slow')", 5000);
-  });
+  $('#flash_messages').html('<a href="#" class="close" data-dismiss="alert">×</a><%= msg %>');
+  $('#flash_messages').addClass('alert alert-<%= msg_type %>');
+  $('#flash_messages').show();
 <% end %>
+
+setTimeout("$('#flash_messages').fadeOut('slow')", 4000);

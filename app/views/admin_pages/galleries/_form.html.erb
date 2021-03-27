@@ -32,7 +32,7 @@
     </div>
 
     <div class="gallery__form-group">
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-primary", data: { disable_with: '送信中' } %>
       <button id="submit-<%= modal_form_class %>-gallery" type="button" class="btn btn-outline-dark bg-light" data-dismiss="modal">キャンセル</button>
     </div>
 

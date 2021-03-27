@@ -28,7 +28,7 @@
 
                 </div><br>
                 <%= f.hidden_field :category, value: "メンバー" %>
-                <%= f.submit '投稿する', class: "btn btn-primary" %>
+                <%= f.submit class: "btn btn-primary", data: { disable_with: '送信中' } %>
               <% end %>
             </div>
           </div>

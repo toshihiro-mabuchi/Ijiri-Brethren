@@ -25,7 +25,7 @@
                                         size: "20x7", class: "form-control memo" %>
                 </div><br>
                 <%= f.hidden_field :category, value: "一般" %>
-                <%= f.submit '投稿する', class: "btn btn-primary" %>
+                <%= f.submit class: "btn btn-primary", data: { disable_with: '送信中' } %>
               <% end %>
             </div>
           </div>

@@ -39,7 +39,7 @@
 
                 <div class="movie__form-group">
                   <div class="btn-sub-can">
-                    <%= f.submit "更新", name: nil, class: "btn btn-success btn-edit" %>
+                    <%= f.submit "更新", name: nil, class: "btn btn-success btn-edit", data: { disable_with: '送信中' } %>
                     <button type="button" class="btn btn-outline-dark bg-light btn-edit" data-dismiss="modal">
                       キャンセル
                     </button>
