@@ -24,29 +24,30 @@
                 <%= link_to '新規登録', new_article_path, class: "btn btn-primary" %>
               </div>
             <% end %>
-          </div>
+          </div>  
         </li>
       </ul>
 
       <table class="table table-striped">
         <thead>
-          <tr>
+          <tr class="table-light">
             <th><%= "#{Article.human_attribute_name :issue_date}" %></th>
             <th>添付ファイル</th>
             <% if current_user.admin? %>
-              <th></th>
               <th></th>
             <% end %>
           </tr>
         </thead>
         <tbody>
           <% @articles.each do |article| %>
-            <tr id="article-<%= article.id %>">
-              <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) %></td>
-              <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
+            <tr id="article-<%= article.id %>" class="table-light">
+              <%# <td><%= link_to article.issue_date.strftime("%Y年%m月%d日"), article_path(article) ></td> %>
+              <%# <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" ></td> %>
+              <td><%= article.issue_date.strftime("%Y/%m/%d") %></td>
+              <td><%= link_to file_name(article), article_path(article) %>&nbsp;(<%= file_size(article) %>)</td>
               <% if current_user.admin? %>
-                <td><%= link_to '編集', edit_article_path(article), class: "btn btn-success" %></td>
-                <td>
+                <td align="right">
+                  <%= link_to '編集', edit_article_path(article), class: "btn btn-success" %>
                   <%= link_to '削除', article_path(article),
                       class: "btn btn-danger",
                       method: :delete,
