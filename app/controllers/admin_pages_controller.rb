@@ -19,7 +19,7 @@ class AdminPagesController < ApplicationController
     # @articles_num = @articles.size
     @member_infos_num = @member_infos.size
     @general_infos_num = @general_infos.size
-    @galleries_num = Gallery.all.size   
+    @galleries_num = Gallery.all.size
   end
 
   def home

@@ -1,12 +1,17 @@
 class GalleriesController < ApplicationController
-  include GalleriesHelper
+  # include GalleriesHelper
 
   before_action :logged_in_user, only: %i(index show)
   before_action :admin_user, only: %i(new create edit update destroy)
   before_action :set_gallery, only: %i(show edit update destroy)
 
   def index
-    gallery_list
+    # gallery_list
+    if user_signed_in? && current_user.admin?
+      @galleries = Gallery.gallery_list_all
+    elsif user_signed_in?
+      @galleries = Gallery.gallery_list
+    end
   end
 
   def show
@@ -46,7 +51,7 @@ class GalleriesController < ApplicationController
     if @gallery.destroy
       gallery_list
       respond_to do |format|
-        format.js { flash.now[:danger] = "画像を削除しました。(#{@gallery.title})" }
+        format.js { flash.now[:success] = "画像を削除しました。(#{@gallery.title})" }
       end
     end
   end

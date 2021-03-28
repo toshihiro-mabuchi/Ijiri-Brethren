@@ -38,7 +38,7 @@ class AdminPages::GeneralInfosController < ApplicationController
 
   def destroy
     @info.destroy
-    flash[:danger] = "お知らせ「#{@info.title}」を削除しました。"
+    flash[:success] = "お知らせ「#{@info.title}」を削除しました。"
     redirect_to admin_pages_path
   end
 

@@ -2,13 +2,13 @@
 <% provide(:class_text, 'info-edit') %>
 <% provide(:button_text, '更新') %>
 
-<h2>一般向けお知らせ編集</h2>
+<h2>メンバー向けお知らせ編集</h2>
 
 <div class="container">
 
   <div class="info__form">
 
-    <%= form_with model: @info, url: admin_pages_general_info_path(@info), local: true do |f| %>
+    <%= form_with model: @info, url: admin_pages_info_path(@info), local: true do |f| %>
       <div>
         <div class="form-group">
           <%= f.label :title, "お知らせタイトル" %>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.hidden_field :category, value: "一般" %>
+          <%= f.hidden_field :category, value: "メンバー" %>
           <%= f.submit yield(:button_text), class: "btn btn-primary" %>
           <%= link_to 'キャンセル', admin_pages_path, class: "btn btn-secondary" %>
         </div>

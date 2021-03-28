@@ -13,4 +13,12 @@ class Gallery < ApplicationRecord
       errors.add(:image, 'のファイルを添付してください')
     end
   end
+
+  def self.gallery_list_all
+    with_attached_image.order(:category, "display desc", :id).group_by(&:category)
+  end
+
+  def self.gallery_list
+    with_attached_image.where(display: 1).order(:category, :id).group_by(&:category)
+  end
 end

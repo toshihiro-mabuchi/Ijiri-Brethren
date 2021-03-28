@@ -38,10 +38,15 @@ class AdminPages::InfosController < ApplicationController
 
   def destroy
     @info.destroy
+<<<<<<< HEAD
     @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, id: :DESC)
     respond_to do |format|
       format.js { flash.now[:danger] = "お便りの投稿を削除しました。" }
     end
+=======
+    flash[:success] = "お便りの投稿を削除しました。"
+    redirect_to admin_pages_path
+>>>>>>> develop
   end
 
 

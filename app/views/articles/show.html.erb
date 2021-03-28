@@ -2,7 +2,7 @@
 <div>
   <%= @article.issue_date.strftime("%Y年%m月%d日") %><br>
   <%= link_to '別タブで開く', rails_blob_path(@article.letter), target: "_blank", rel: "noopener noreferrer", class: "btn btn-sm btn-primary" %>
-  <%= link_to '一覧へ戻る', articles_path, class: "btn btn-sm btn-secondary" %>
+  <%= link_to '一覧へ戻る', articles_path, class: "btn btn-sm btn-primary" %>
 </div>
 <div>
   <iframe class="article-item" src="<%= pdfjs.full_path(file: "#{rails_blob_path(@article.letter)}") %>"></iframe>

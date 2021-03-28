@@ -1,12 +1,14 @@
 class AdminPages::GalleriesController < ApplicationController
-  include GalleriesHelper
-
   before_action :admin_user
   before_action :set_gallery, only: %i(show edit update destroy)
   before_action :set_gallery, only: %i(show edit update destroy)
 
   def index
-    gallery_list
+    if user_signed_in? && current_user.admin?
+      @galleries = Gallery.gallery_list_all
+    elsif user_signed_in?
+      @galleries = Gallery.gallery_list
+    end
   end
 
   def show
@@ -23,7 +25,7 @@ class AdminPages::GalleriesController < ApplicationController
         gallery_list
         format.js { flash.now[:success] = "画像を登録しました。(#{@gallery.title})" }
       else
-        render :index
+        format.js { flash.now[:danger] = @gallery.errors.full_messages.join("、") }
       end
     end
   end
@@ -38,7 +40,7 @@ class AdminPages::GalleriesController < ApplicationController
         format.js { flash.now[:success] = "画像情報を編集しました。(#{@gallery.title})" }
       end
     else
-      render :index
+      format.js { flash.now[:danger] = @gallery.errors.full_messages.join("、") }
     end
   end
 
@@ -46,7 +48,7 @@ class AdminPages::GalleriesController < ApplicationController
     if @gallery.destroy
       gallery_list
       respond_to do |format|
-        format.js { flash.now[:danger] = "画像を削除しました。(#{@gallery.title})" }
+        format.js { flash.now[:success] = "画像を削除しました。(#{@gallery.title})" }
       end
     end
   end

@@ -43,7 +43,7 @@ class InfosController < ApplicationController
 
   def destroy
     @info.destroy
-    flash[:danger] = "お知らせ「#{@info.title}」を削除しました。"
+    flash[:success] = "お知らせ「#{@info.title}」を削除しました。"
     redirect_to infos_url
   end
 

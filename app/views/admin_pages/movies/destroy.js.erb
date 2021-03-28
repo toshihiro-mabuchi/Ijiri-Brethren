@@ -1,8 +1,10 @@
-$('#admin-main__content').html("<%= escape_javascript(render 'admin_pages/movies/index') %>");
+$('#admin-main__content').html('<%= j(render 'index') %>');
 
+$("#flash_messages").removeClass();
 <% flash.each do |msg_type, msg| %>
-  $('#flash_msg_js').html(
-    '<div class="alert alert-<%= msg_type %> flash_msg_js" role="alert" id="alert"> \
-      <a href="#" class="close" data-dismiss="alert">×</a><%= msg %>　\
-    </div>');
+  $('#flash_messages').html('<a href="#" class="close" data-dismiss="alert">×</a><%= msg %>');
+  $('#flash_messages').addClass('alert alert-<%= msg_type %>');
+  $('#flash_messages').show();
 <% end %>
+
+setTimeout("$('#flash_messages').fadeOut('slow')", 4000);

@@ -20,9 +20,9 @@ class UsersController < ApplicationController
   #   @user = User.new(user_params)
   #   if @user.save
   #     log_in @user
-  #     flash[:success] = '新規作成に成功しました。'
+  #     flash[:success] = '新規登録に成功しました。'
   #   else
-  #     flash[:success] = '新規作成に失敗しました。'
+  #     flash[:success] = '新規登録に失敗しました。'
   #   end
   #   redirect_to users_path
   # end
