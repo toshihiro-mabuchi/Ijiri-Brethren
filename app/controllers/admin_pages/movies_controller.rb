@@ -93,7 +93,7 @@ class AdminPages::MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     if @movie.destroy
       respond_to do |format|
-        format.js { flash.now[:danger] = "#{@movie.title}を削除しました。" }
+        format.js { flash.now[:success] = "#{@movie.title}を削除しました。" }
       end
     end
   end

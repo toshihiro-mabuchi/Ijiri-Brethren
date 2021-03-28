@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   # include MoviesHelper
 
   before_action :logged_in_user, only: %i(index show members_view general_view)
-  before_action :admin_user, only: %i(new create edit update destroy general_view)
+  before_action :admin_user, only: %i(new create edit update destroy)
   # before_action :set_member_movies, only: %i(create update destroy)
   # before_action :set_general_movies, only: %i(create update destroy)
 
@@ -124,7 +124,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     if @movie.destroy
       respond_to do |format|
-        format.js { flash.now[:danger] = "動画『#{@movie.title}』を削除しました。" }
+        format.js { flash.now[:success] = "動画『#{@movie.title}』を削除しました。" }
       end
     end
     # flash[:success] = "#{@movie.title}を削除しました。"

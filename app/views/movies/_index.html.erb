@@ -21,13 +21,14 @@
           <% if current_user.admin? %>
             <div class="movie__edit">
               <%= link_to "編集", edit_movie_path(movie.id), remote: true, class: "btn btn-success" %>
-              <%= link_to '削除', movie_path(movie.id), method: :delete,
+              <%= link_to '削除', movie_path(movie.id),
                   class: "btn btn-danger",
+                  method: :delete,
                   remote: true,
                   data: { confirm: "#{movie.category}動画『#{movie.title}』を削除してよろしいですか？",
-                          cancel: 'やめる',
+                          cancel: 'キャンセル',
                           commit: '削除する'
-                        }, title: '削除確認' 
+                        }, title: '削除確認'
               %>
             </div>
           <% end %>
@@ -60,11 +61,12 @@
           <% if current_user.admin? %>
             <div class="movie__edit">
               <%= link_to "編集", edit_movie_path(movie.id), remote: true, class: "btn btn-success" %>
-              <%= link_to '削除', movie_path(movie.id), method: :delete,
+              <%= link_to '削除', movie_path(movie.id),
                   class: "btn btn-danger",
+                  method: :delete,
                   remote: true,
                   data: { confirm: "#{movie.category}動画『#{movie.title}』を削除してよろしいですか？",
-                          cancel: 'やめる',
+                          cancel: 'キャンセル',
                           commit: '削除する'
                         }, title: '削除確認' 
               %>

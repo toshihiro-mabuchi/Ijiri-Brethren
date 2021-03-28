@@ -2,7 +2,9 @@
   <div class="alert alert-warning">
     <ul>
       <% model.errors.full_messages.each do |message| %>
-        <li><%= message %></li> 
+        <!--<li><%= message %></li>-->
+        <% message2 = message.gsub(",","<br>") %>
+        <%= message2.html_safe %> 
       <% end %>
     </ul>
   </div>

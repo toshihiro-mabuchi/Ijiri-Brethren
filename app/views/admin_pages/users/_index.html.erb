@@ -1,4 +1,4 @@
-<% provide(:title, 'Members Page') %>
+<%# provide(:title, 'メンバー一覧') %>
 
 <div class="members-index" style="border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
 
@@ -7,6 +7,9 @@
   <div class="container">
     <div class="row">
       <div class="index-table col-md-offset-1 col-md-12">
+        <div class="text-right">
+          <%= link_to "新規登録", new_admin_pages_user_path, remote: true, class: "btn btn-primary" %>
+        </div>
         <div style="font-size: 90%; color: red;"><%= "※グループ・名前順" %></div>
         <table class="table table-striped" id="table-users">
           <thead>
@@ -28,8 +31,15 @@
                 <td><%= user.member_groups %></td>
                 <td class="center">
                   <%= link_to "編集", edit_admin_pages_user_path(user), remote: true, class: "btn btn-sm btn-success" %>
-                  <%= link_to "削除", admin_pages_user_path(user), method: :delete, remote: :true,                      data: { confirm: "削除してよろしいですか？" },
-                      class: "btn btn-sm btn-danger" %>
+                  <%= link_to "削除", admin_pages_user_path(user),
+                      class: "btn btn-sm btn-danger",
+                      method: :delete,
+                      remote: :true,
+                      data: { confirm: "#{user.name}を削除してよろしいですか？",
+                              cancel: 'キャンセル',
+                              commit: '削除する'                      
+                            }, title: '削除確認'
+                  %>
                 </td>
               </tr>
             <% end %>
@@ -37,11 +47,6 @@
         </table>
       </div>
     </div>
-  </div>
-
-  <div>
-    <%= "　" %>
-    <%= link_to "新規登録", new_admin_pages_user_path, remote: true, class: "btn btn-primary" %>
   </div>
 
 </div>

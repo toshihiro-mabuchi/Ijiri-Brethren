@@ -3,7 +3,8 @@
     <% flash.each do |msg_type, msg| %>
       <div class="alert alert-<%= msg_type %>" role="alert" id="alert">
         <a href="#" class="close" data-dismiss="alert">×</a>
-        <%= msg %>
+        <% message2 = msg.gsub(",","<br>") %>
+        <%= message2.html_safe %>
       </div>
     <% end %>
   </div>

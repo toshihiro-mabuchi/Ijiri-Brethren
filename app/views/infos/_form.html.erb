@@ -43,7 +43,7 @@
           <%= f.hidden_field :category, value: "一般" if cate == '一般' %>
         <% end %>
         <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-        <%= link_to '戻る', infos_path, class: "btn btn-secondary" %>
+        <%= link_to 'キャンセル', infos_path, class: "btn btn-secondary" %>
       </div>
     </div>
   <% end %>

@@ -1,6 +1,6 @@
 <% provide(:title, 'お知らせ投稿') %>
 <% provide(:class_text, 'info-new') %>
-<% provide(:button_text, '新規作成') %>
+<% provide(:button_text, '新規登録') %>
 
 
 
@@ -8,7 +8,7 @@
 
 <div class="container">
 
-  <%= link_to "お知らせ一覧ページへ", infos_path, class: "" %>
+  <%= link_to "お知らせ一覧ページへ", infos_path, class: "btn btn-success" %>
   <div class="content">
     <h3>メンバー</h3>
     <%= render 'form', { info: @info, cate: 'メンバー' } %>

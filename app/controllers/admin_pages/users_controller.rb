@@ -12,14 +12,13 @@ class AdminPages::UsersController < AdminPagesController
   
   def create
     @user = User.new(user_create_params)
-    # byebug
     if @user.save
       respond_to do |format|
         format.js { flash.now[:success] = "メンバーの新規作成に成功しました。" }
       end
     else
       respond_to do |format|
-        format.js { flash.now[:danger] = "メンバーの新規作成に失敗しました。" }
+        format.js { flash.now[:danger] = "メンバーの新規作成に失敗しました。<br>" + @user.errors.full_messages.join("<br>") }
       end
     end
     @users = User.where.not(name: "管理者").order(:member_groups, :name)

@@ -6,7 +6,7 @@ $('#admin-main__content').html('<%= j(render 'index') %>');
 
 $("#flash_messages").removeClass();
 <% flash.each do |msg_type, msg| %>
-  $('#flash_messages').html('<a href="#" class="close" data-dismiss="alert">×</a><%= msg %>');
+  $('#flash_messages').html('<a href="#" class="close" data-dismiss="alert">×</a><% msg2 = msg.gsub(",","<br>") %><%= msg2.html_safe %>');
   $('#flash_messages').addClass('alert alert-<%= msg_type %>');
   $('#flash_messages').show();
 <% end %>

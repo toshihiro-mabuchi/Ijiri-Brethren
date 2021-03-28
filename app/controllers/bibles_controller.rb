@@ -12,39 +12,43 @@ class BiblesController < ApplicationController
   end
   
   def create
-    if params[:bible][:display_flag] == "1"
-      unless Bible.update(display_flag: false)
-        flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
+    ActiveRecord::Base.transaction do
+      if params[:bible][:display_flag] == "1"
+        unless Bible.update(display_flag: false)
+          flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
+          redirect_to bibles_path
+        end
       end
-    end
-    @bible = Bible.new(bible_params)
-    if @bible.save
-      flash[:success] = '御言葉の新規作成に成功しました。'
+      @bible = Bible.new(bible_params)
+      @bible.save!
+      flash[:success] = '御言葉の新規登録に成功しました。'
       redirect_to bibles_path
-    else
-      flash[:danger] = '御言葉の新規作成に失敗しました。'
-      render :new
-    end   
+    end
+  rescue ActiveRecord::RecordInvalid
+    flash[:danger] = '御言葉の新規登録に失敗しました。<br>' + @bible.errors.full_messages.join("<br>")
+    redirect_to bibles_path
   end
 
   def edit
   end
 
   def update
-    if (@bible.display_flag == true) && (params[:bible][:display_flag] == "0")
-      flash[:danger] = "表示フラグは、外せません。"
-    else
-      if params[:bible][:display_flag] == "1"
-        unless Bible.update(display_flag: false)
-          flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
-        end
-      end
-      if @bible.update_attributes(bible_params)
-        flash[:success] = "御言葉を更新しました。"
+    ActiveRecord::Base.transaction do
+      if (@bible.display_flag == true) && (params[:bible][:display_flag] == "0")
+        flash[:danger] = "表示フラグは、外せません。"
       else
-        flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
+        if params[:bible][:display_flag] == "1"
+          unless Bible.update(display_flag: false)
+            flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
+          end
+        end
+        @bible.update_attributes!(bible_params)
+        flash[:success] = "御言葉を更新しました。"
       end
     end
+    redirect_to bibles_path
+  rescue ActiveRecord::RecordInvalid
+    flash[:danger] = "御言葉の更新に失敗しました。<br>" + @bible.errors.full_messages.join("<br>")
     redirect_to bibles_path
   end
 
