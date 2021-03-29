@@ -17,11 +17,15 @@ class AdminPages::GeneralInfosController < ApplicationController
   def create
     @info = Info.new(info_params)
     if @info.save
-      flash[:success] = "お知らせ「#{@info.title}」を投稿しました。"
-      redirect_to admin_pages_path
+      respond_to do |format|
+        format.js { flash.now[:success] = "お知らせ「#{@info.title}」の投稿が完了しました。" }
+      end
     else
-      render :new
+      respond_to do |format|
+        format.js { flash.now[:danger] = "お知らせの投稿に失敗しました。" }
+      end
     end
+    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, id: :DESC)
   end
 
   def edit
@@ -29,17 +33,23 @@ class AdminPages::GeneralInfosController < ApplicationController
 
   def update
     if @info.update(info_params)
-      flash[:success] = "お知らせ「#{@info.title}」を編集しました。"
-      redirect_to admin_pages_path
+      respond_to do |format|
+        format.js { flash.now[:success] = "お知らせ「#{@info.title}」の編集が完了しました。" }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.js { flash.now[:danger] = "お知らせ「#{@info.title}」の編集に失敗しました。" }
+      end
     end
+    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, id: :DESC)
   end
 
   def destroy
     @info.destroy
-    flash[:success] = "お知らせ「#{@info.title}」を削除しました。"
-    redirect_to admin_pages_path
+    @general_infos = Info.where(category: "一般").order(display_flag: :DESC, id: :DESC)
+    respond_to do |format|
+      format.js { flash.now[:danger] = "お知らせ「#{@info.title}」を削除しました。" }
+    end
   end
 
   private

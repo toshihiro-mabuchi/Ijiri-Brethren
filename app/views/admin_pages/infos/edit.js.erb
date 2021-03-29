@@ -1,0 +1,5 @@
+$("#edit").html("<%= escape_javascript(render 'edit') %>");
+$('#edit').on('shown.bs.modal', function() {
+  $('#summernote').summernote();
+});
+$("#edit").modal("show");
