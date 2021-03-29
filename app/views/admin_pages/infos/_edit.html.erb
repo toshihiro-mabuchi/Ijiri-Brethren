@@ -3,12 +3,6 @@
 <% provide(:button_text, '更新') %>
 
 <h2>メンバー向けお知らせ編集</h2>
-<div class="container">
-
-  <div class="info__form">
-    
-  </div>
-</div>
 
 
 <!-- お知らせ編集モーダルウィンドウ -->
@@ -40,7 +34,7 @@
             <% if @info.errors.include?(:content) %>
               <p class="text-danger"><%= @info.errors.full_messages_for(:content).first %>
             <% end %>
-            <%= f.text_area :content, 'data-provider': :summernote, placeholder: '本文を入力してください。', class: "form-control", required: true %>
+            <%= f.text_area :content, 'data-provider': :summernote, placeholder: '本文を入力してください。', class: "form-control", id: "summernote", required: true %>
           </div>
           <div class="form-group">
             <%= f.label :display_glag, "表示フラグ　" %>
@@ -60,5 +54,3 @@
     </div>
   </div>
 </div>
-
-  
