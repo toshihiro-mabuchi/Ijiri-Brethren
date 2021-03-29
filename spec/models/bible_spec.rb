@@ -1,29 +1,32 @@
 require 'rails_helper'
 
-# RSpec.describe Bible, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-
 RSpec.describe Bible, type: :model do
 
   before do
     @bible = Bible.new(
-      title: "お知らせ",
-      content: "お知らせの本文--------------------"
+      title: "御言葉",
+      subtitle: "御言葉サブタイトル",
+      text: "御言葉のの本文--------------------"
     )
   end
 
-  it 'タイトルと本文があれば有効な状態であること' do
-    expect(@info_presence).to be_valid
+  it 'タイトルとサブタイトルと本文があれば有効な状態であること' do
+    expect(@bible).to be_valid
   end
 
-  it "タイトルが５１文字以上の場合は登録できない" do
-    info = Info.new(title: "a" * 51)
-    expect(info).to be_invalid
+  it "タイトルが３１文字以上の場合は登録できない" do
+    bible = Bible.new(title: "a" * 31)
+    expect(bible).to be_invalid
   end
 
-  it "本文が５００文字以上の場合は登録できない" do
-    info = Info.new(content: "a" * 500)
-    expect(info).to be_invalid
+  it "サブタイトルが５０文字以上の場合は登録できない" do
+    bible = Bible.new(subtitle: "a" * 51)
+    expect(bible).to be_invalid
+  end
+
+  it "本文が空の場合は登録できない" do
+    bible = Bible.new(text: "")
+    expect(bible).to be_invalid
   end
 
 end
