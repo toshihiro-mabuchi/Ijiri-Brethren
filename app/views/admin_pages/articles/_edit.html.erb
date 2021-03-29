@@ -2,7 +2,7 @@
   <div class="modal-content">
     <div class="modal-header article__modal-header">
       <div class="col-10 offset-1">
-        <h3 class="modal-title">お便り新規登録</h3>
+        <h3 class="modal-title">お便り編集</h3>
       </div>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -10,7 +10,7 @@
     </div>
 
     <div class="modal-body article__modal-body">
-      <%= form_with model: @article, url: admin_pages_articles_path, remote: true do |f| %>
+      <%= form_with model: @article, url: admin_pages_article_path(@article), remote: true do |f| %>
         <%= render 'layouts/error_messages', model: @article %>
         <div>
           <div class="form-group">
@@ -20,15 +20,14 @@
 
           <div class="form-group">
             <%= f.label :letter %>
-            <%= f.file_field :letter, class: "form-control-file", required: true, accept: "application/pdf" %>
-            
+            <%= f.file_field :letter, class: "form-control-file" %>
             <% if @article.letter.attached? %>
-              <%= link_to @article.letter.filename, rails_blob_path(@article.letter), target: "_blank", rel: "noopener noreferrer"  %>
+              <%= @article.letter.filename %>&nbsp;(<%= file_size(@article) %>)
             <% end %>
           </div>
 
           <div class="form-group">
-            <%= f.submit class: "btn btn-primary", data: { disable_with: '送信中' } %>
+            <%= f.submit class: "btn btn-primary" %>
             <button  class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
           </div>
         </div>

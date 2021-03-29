@@ -10,24 +10,11 @@
     <% end %>
   </div>
 
-  <ul class="article__year_list">
-    <li>
-      <div class="article-wrap">
-        <div id="all-articles" class="article-year selected-article">全て</div>
-      </div>
-      <% @article_years.each do |issue_date, article| %>
-      <div class="article-wrap">
-        <div class="article-year"><%= issue_date %></div>
-      </div>
-      <% end %>
-    </li>
-  </ul>
-
   <table class="table table-striped">
     <thead>
       <tr class="table-light">
+        <th>日付</th>
         <th>添付ファイル</th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -40,7 +27,7 @@
             &nbsp;(<%= file_size(article) %>)
           </td>
           <td align="right">
-            <%= link_to '編集', edit_admin_pages_article_path(article), class: "btn btn-success" %>
+            <%= link_to '編集', edit_admin_pages_article_path(article), remote: true, class: "btn btn-success" %>
             <%= link_to '削除', admin_pages_article_path(article),
                 class: "btn btn-danger",
                 method: :delete,
@@ -58,25 +45,4 @@
 </div>
 
 <div id="new-article" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-<div id="edit-articles" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-
-<script>
-// お便り表示切替
-  $('.article-year').on('click', function() {
-    var year = $(this).text();
-    '<% @articles.each do |article| %>'
-      if (year == '<%= article.issue_date.year.to_s %>') {
-        $("#article-<%= article.id %>").show();
-      } else if (year == '全て'){
-        $("#article-<%= article.id %>").show();
-      } else {
-        $("#article-<%= article.id %>").hide();
-      }
-    '<% end %>'
-  });
-// ボタンの下線切替
-  $('.article-year').on('click', function () {
-    $('.article-year').removeClass('selected-article');
-    $(this).addClass('selected-article');
-  });
-</script>
+<div id="edit-article" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

@@ -7,6 +7,6 @@ module ArticlesHelper
   end
 
   def file_size(article)
-    (article.letter.blob.byte_size / 1000).to_s + 'KB'
+    (article.letter.blob.byte_size / 1000).to_s + ' KB'
   end
 end
