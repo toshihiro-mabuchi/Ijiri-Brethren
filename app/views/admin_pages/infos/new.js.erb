@@ -1,0 +1,6 @@
+$("#new").html("<%= escape_javascript(render 'new') %>");
+$('#new').on('shown.bs.modal', function() {
+  $('#summernote').summernote();
+});
+$("#new").modal("show");
+

@@ -1,15 +1,13 @@
-<% provide(:title, 'お知らせ編集') %>
-<% provide(:class_text, 'info-edit') %>
-<% provide(:button_text, '更新') %>
-
-<h2>一般向けお知らせ編集</h2>
-
-<div class="container">
-
-  <div class="info__form">
-
-    <%= form_with model: @info, url: admin_pages_general_info_path(@info), local: true do |f| %>
-      <div>
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header", style=border:none>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h4 class="modal-title", style="text-align:center">メンバーお知らせ登録</h4>
+    <div class="modal-body">
+      <%= form_with model: @info, url: admin_pages_infos_path(@info) do |f| %>
         <div class="form-group">
           <%= f.label :title, "お知らせタイトル" %>
           <% if @info.errors.include?(:title) %>
@@ -23,7 +21,7 @@
           <% if @info.errors.include?(:content) %>
             <p class="text-danger"><%= @info.errors.full_messages_for(:content).first %>
           <% end %>
-          <%= f.text_area :content, 'data-provider': :summernote, placeholder: '本文を入力してください。', class: "form-control", required: true %>
+          <%= f.text_area :content, 'data-provider': :summernote, placeholder: '本文を入力してください。', class: "form-control", required: true, id: "summernote" %>
         </div>
 
         <div class="form-group">
@@ -35,15 +33,11 @@
         </div>
 
         <div class="form-group">
-          <%= f.hidden_field :category, value: "一般" %>
-          <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-          <%= link_to 'キャンセル', admin_pages_path, class: "btn btn-secondary" %>
+          <%= f.hidden_field :category, value: "メンバー" %>
+          <%= f.submit "新規作成", class: 'btn btn-primary' %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
         </div>
-     </div>
-    <% end %>
-
+      <% end %>
+    </div>
   </div>
-
 </div>
-
-  

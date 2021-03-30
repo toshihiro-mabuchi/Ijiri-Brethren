@@ -225,6 +225,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+// モーダル表示時にスクロールバー分ずれる対策
+.modal-open {
+  padding-right: 0px !important;
+  overflow: auto;
+}
+.modal {
+  padding-right: 0px !important;
+}
+
 #menu-bar {
   // padding-top: $navHeight;
   // display: flex;
