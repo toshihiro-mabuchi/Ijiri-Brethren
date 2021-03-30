@@ -4,17 +4,17 @@
 
   <div class="article__new text-right">
     <% if current_user.admin? %>
-      <div>
+      <div class="mr-1 mb-1">
         <%= link_to '新規登録', new_admin_pages_article_path, remote: true, class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
 
-  <table class="table table-striped">
+  <table class="table table-sm">
     <thead>
       <tr class="table-light">
         <th>日付</th>
-        <th>添付ファイル</th>
+        <th>お便り</th>
         <th></th>
       </tr>
     </thead>

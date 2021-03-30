@@ -20,7 +20,7 @@
 
           <div class="form-group">
             <%= f.label :letter %>
-            <%= f.file_field :letter, class: "form-control-file" %>
+            <%= f.file_field :letter, class: "form-control-file", required: true, accept: "application/pdf" %>
             <% if @article.letter.attached? %>
               <%= @article.letter.filename %>&nbsp;(<%= file_size(@article) %>)
             <% end %>
