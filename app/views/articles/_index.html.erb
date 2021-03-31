@@ -1,0 +1,33 @@
+<table class="table table-sm">
+  <thead>
+    <tr class="table-light">
+      <th><%= "#{Article.human_attribute_name :issue_date}" %></th>
+      <th>お便り</th>
+      <% if current_user.admin? %>
+        <th></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr id="article-<%= article.id %>" class="table-light">
+        <td><%= article.issue_date.strftime("%Y/%m/%d") %></td>
+        <td><%= link_to file_name(article), article_path(article) %>&nbsp;(<%= file_size(article) %>)</td>
+        <% if current_user.admin? %>
+          <td align="right">
+            <%= link_to '編集', edit_article_path(article), remote: true, class: "btn btn-success" %>
+            <%= link_to '削除', article_path(article),
+                class: "btn btn-danger",
+                method: :delete,
+                remote: true,
+                data: { confirm: "#{article.letter.filename}を削除してよろしいですか？",
+                        cancel: 'キャンセル',
+                        commit: '削除する'
+                      }, title: '削除確認'
+            %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,34 +1,33 @@
-<%# provide(:title, '毎月のお便り一覧') %>
-
 <div class="members-index" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
 
   <h2><i class="far fa-file-alt"></i>&nbsp;毎月のお便り一覧</h2>
 
-  <div class="text-right">
-    <%= link_to '新規登録', new_admin_pages_article_path, class: "btn btn-primary" %>
+  <div class="article__new text-right">
+    <% if current_user.admin? %>
+      <div class="mr-1 mb-1">
+        <%= link_to '新規登録', new_admin_pages_article_path, remote: true, class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 
-  <table class="table table-striped">
+  <table class="table table-sm">
     <thead>
-      <tr>
-        <th>
-          <%# <ul class="article__year_list"> %>
-            <% @article_years.each do |issue_date, article| %>
-              <span><%= issue_date %></span>
-            <% end %>
-          <%# </ul> %>
-        </th>
-        <th>添付ファイル</th>
+      <tr class="table-light">
+        <th>日付</th>
+        <th>お便り</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <% @articles.each do |article| %>
-        <tr>
-          <td><%= article.issue_date.strftime("%Y年%m月%d日") %></td>
-          <td><%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %></td>
+        <tr class="table-light">
+          <td><%= article.issue_date.strftime("%Y/%m/%d") %></td>
           <td>
-            <%= link_to '編集', edit_admin_pages_article_path(article), class: "btn btn-success" %>
+            <%= link_to file_name(article), rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %>
+            &nbsp;(<%= file_size(article) %>)
+          </td>
+          <td align="right">
+            <%= link_to '編集', edit_admin_pages_article_path(article), remote: true, class: "btn btn-success" %>
             <%= link_to '削除', admin_pages_article_path(article),
                 class: "btn btn-danger",
                 method: :delete,
@@ -43,5 +42,7 @@
       <% end %>
     </tbody>
   </table>
-
 </div>
+
+<div id="new-article" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-article" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

@@ -1,6 +1,6 @@
-<%= form_with model: @article, local: true do |f| %>
+<%= form_with model: @article, remote: true do |f| %>
   <%= render 'layouts/error_messages', model: @article %>
-  <div class="col col-6">
+  <div>
     <div class="form-group">
       <%= f.label :issue_date %>
       <%= f.date_field :issue_date, value: Date.current, class: "form-control", required: true %>
@@ -8,16 +8,20 @@
 
     <div class="form-group">
       <%= f.label :letter %>
-      <%= f.file_field :letter, class: "form-control-file", required: true, accept: "application/pdf" %>
+      <% if controller.action_name == "new" %>
+        <%= f.file_field :letter, class: "form-control-file", required: true, accept: "application/pdf" %>
+      <% elsif controller.action_name == "edit" %>
+        <%= f.file_field :letter, class: "form-control-file", accept: "application/pdf" %>
+      <% end %>
       
       <% if article.letter.attached? %>
-        <%= link_to article.letter.filename, rails_blob_path(article.letter), target: "_blank", rel: "noopener noreferrer" %>
+        <%= article.letter.filename %>
       <% end %>
     </div>
 
     <div class="form-group">
       <%= f.submit class: "btn btn-primary" %>
-      <%= link_to 'キャンセル', articles_path, class: "btn btn-secondary" %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
     </div>
   </div>
 <% end %>
