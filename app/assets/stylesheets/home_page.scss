@@ -79,3 +79,160 @@ Stylesheet: ホームページスタイル
   background-color: #888;
   color: #fff;
 }
+
+
+
+
+
+
+
+// // fukudainews
+.c-page-home{
+	// @media screen and (max-width: 575px)まで
+	font-size: 3.75vw;
+
+	&__topics{
+		padding: 0;
+
+
+		// トップ部分
+		&-heading {
+			position: relative;
+			overflow: hidden;
+			// background: url(/img/bg-home-title-topics.jpg) no-repeat 50% 50% / cover;
+		}
+
+		// @media screen and (max-width: 575px)
+		&-body {
+			padding: 30px 0 50px;
+		}
+
+		// @media screen and (max-width: 575px)
+		&-panel {
+			padding: 0 15px;
+		}
+
+		// &-panel {
+		// 	max-width: 1160px;
+		// 	padding-left: 30px;
+		// 	padding-right: 30px;
+		// 	-webkit-box-sizing: border-box;
+		// 	box-sizing: border-box;
+		// }
+
+		// &-panel {
+		// 	max-width: 1100px;
+		// 	width: 100%;
+		// 	margin: 0 auto;
+		// }
+
+		&-list {
+			margin-bottom: 2rem;
+
+			& .c-page-home__topics-item {
+				border-bottom: 1px solid #ddd;
+			}
+		}
+
+		&-item {
+			position: relative;
+			margin: 0;
+
+			// @media screen and (max-width: 575px)
+			& a {
+				padding: 1em 0;
+			}
+		}
+
+		// @media screen and (max-width: 767px)
+		&-is-new {
+			margin-left: 0;
+			margin-right: 0;
+			background: #fff600;
+			display: inline-block;
+		}
+
+		// @media screen and (max-width: 767px)
+		&-meta {
+			flex-basis: auto;
+			max-width: calc(100% - 4em);
+		}
+
+		&-category {
+			color: #666;
+			font-size: .875em;
+			position: relative;
+			padding-left: .71429em;
+			margin-top: .21429em;
+			margin-left: .57143em;
+			line-height: 1.2;
+
+			&:before {
+				content: "|";
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+	}
+
+
+	&__datetime {
+		color: #b10000;
+		font-weight: 700;
+		line-height: 1;
+		font-size: 1.125em;
+		white-space: nowrap;
+		margin-top: .16667em;
+	}
+}
+
+
+
+a {
+  background-color: transparent;
+}
+
+
+
+// 
+
+
+
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+section {
+  display: block;
+}
+
+
+body {
+  color: rgb(0, 0, 0);
+  font-family: icons, メイリオ, Meiryo, sans-serif;
+  font-weight: 500;
+  font-feature-settings: "palt";
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin: 0px;
+  padding: 0px;
+}
+:root {
+  font-size: 62.5%;
+}
+html {
+  line-height: 1.15;
+}
+*, :before, :after {
+  box-sizing: border-box;
+}
+*, :before, :after {
+  box-sizing: border-box;
+}
+::selection {
+  background-color: #c13333;
+}
+
+
+

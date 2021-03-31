@@ -1,0 +1,26 @@
+.c-page-home {
+  font-size: 1.6rem;
+}
+
+.c-page-home__topics-body {
+  background: #fff;
+  padding: 70px 0 60px;
+}
+
+// @media (max-width: 1160px)
+.c-page-home__topics-panel {
+  max-width: 1160px;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.c-page-home__topics-list {
+  margin: 0 0 5rem;
+}
+
+// @media screen and (max-width: 767px)
+.c-page-home__topics-item a {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}

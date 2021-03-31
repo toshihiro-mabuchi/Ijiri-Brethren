@@ -1,0 +1,31 @@
+
+.c-page-home__topics-item a {
+  color: currentColor;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: 1.375em 1.625em;
+}
+
+// それ以外
+.c-page-home__topics-is-new {
+  background: #fff600;
+  font-family: Quicksand,sans-serif;
+  font-size: .875em;
+  line-height: 1;
+  margin: .14286em 2.57143em 0 0;
+  padding: .42857em .85714em;
+}
+
+.c-page-home__topics-meta {
+  flex: 0 0 18em;
+  max-width: 18em;
+  margin-top: .1875em;
+  margin-right: .375em;
+  order: -2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-start;
+}
