@@ -1,0 +1,6 @@
+$('#new-article').html("<%= j(render 'new') %>");
+$('#new-article').modal('show');
+
+$('#new-article').on('shown.bs.modal', function() {
+  $('#modal-new-foucus').focus();
+});
