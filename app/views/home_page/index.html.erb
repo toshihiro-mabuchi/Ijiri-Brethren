@@ -44,159 +44,80 @@
     <main>   
       <div id="home-content">
 
-      <section class="c-page-home__topics ui-tabs ui-corner-all ui-widget ui-widget-content" data-interaction-root="">
-		<div class="c-page-home__topics-heading">
-			<div class="c-page-home__topics-heading-base">
-				<h2>
-					<span lang="en">INFOMTION</span><span lang="ja">お知らせ</span>
-				</h2>
-				<div class="c-page-home__topics-tabs" data-interaction-tabs="">
-					<ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-						<li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-state-hover ui-tabs-active ui-state-active" aria-controls="tab-panel-topic01" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true">
-							<a href="#tab-panel-topic01" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1">お知らせ</a>
-						</li>
-						<li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tab-panel-topic02" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
-							<a href="#tab-panel-topic02" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">イベント</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="c-page-home__topics-body">
-			<div class="c-page-home__topics-panel ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-panel-topic01" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false" style="">
-				<div class="c-page-home__topics-list">
-					<%# eachここから %>
-          <% @general_infos.each do |info| %>
-            <div class="c-page-home__topics-item">
-              <a href="/news/21/03/12083816.html">
-                <div class="c-page-home__topics-is-new">NEW</div>
-                <div class="c-page-home__topics-meta">
-                  <div class="c-page-home__datetime">
-                    <span class="c-page-home__datetime-year"><%= l info.created_at, format: :ymd %></span>
-                  </div>
-                  <div class="c-page-home__topics-category">お知らせ</div>
-                </div>
-                <div class="c-page-home__topics-title"><%= info.title %></div>
-              </a>
+        <section class="info-layout__topics ui-tabs ui-corner-all ui-widget ui-widget-content" >
+          <div class="info-layout__topics-heading">
+            <div class="info-layout__topics-heading-base">
+              <h2>
+                <span lang="en">INFOMTION</span><span lang="ja">お知らせ</span>
+              </h2>
+              <div class="info-layout__topics-tabs" >
+                <ul class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+                  <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-state-hover ui-tabs-active ui-state-active  clicked" >
+                    <a href="" class="ui-tabs-anchor" id="ui-id-1">お知らせ</a>
+                  </li>
+                  <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
+                    <a href="" class="ui-tabs-anchor" id="ui-id-2">イベント</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          <% end %>
-					<%# eachここまで %>
-				</div>
-				<div class="c-page-home__link-to-index">
-					<a href="/news/">
-						<span>一覧を見る</span>
-					</a>
-				</div>
-			</div>
-			<%# <div class="c-page-home__topics-panel ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-panel-topic02" aria-labelledby="ui-id-2" role="tabpanel" aria-hidden="true" style="display: none;">
-				<div class="c-page-home__topics-list">
-					<div class="c-page-home__topics-item">
-						<a href="/admissions/news/21/03/15123758.html">
-                       		<div class="c-page-home__topics-meta">
-								<div class="c-page-home__datetime">
-									<span class="c-page-home__datetime-year">2021</span>
-									<span class="c-page-home__datetime-year-unit">年</span>
-									<span class="c-page-home__datetime-month">03</span>
-									<span class="c-page-home__datetime-month-unit">月</span>
-									<span class="c-page-home__datetime-date">15</span>
-									<span class="c-page-home__datetime-date-unit">日</span>
-								</div>
-								<div class="c-page-home__topics-category">入試関連ニュース</div>
-							</div>
-							<div class="c-page-home__topics-title">一般選抜（後期日程）・共通テスト利用型Ⅲ期・スポーツ科学部特別募集の合格発表について</div>
-						</a>
-					</div>
-					<div class="c-page-home__topics-item">
-						<a href="/admissions/news/21/02/19120433.html">
-                       		<div class="c-page-home__topics-meta">
-								<div class="c-page-home__datetime">
-									<span class="c-page-home__datetime-year">2021</span>
-									<span class="c-page-home__datetime-year-unit">年</span>
-									<span class="c-page-home__datetime-month">02</span>
-									<span class="c-page-home__datetime-month-unit">月</span>
-									<span class="c-page-home__datetime-date">22</span>
-									<span class="c-page-home__datetime-date-unit">日</span>
-								</div>
-								<div class="c-page-home__topics-category">入試関連ニュース</div>
-							</div>
-							<div class="c-page-home__topics-title">14,172人に一足早い春、令和3年度福岡大学入学試験（一般選抜等）の合格発表を行いました</div>
-						</a>
-					</div>
-					<div class="c-page-home__topics-item">
-						<a href="/admissions/news/21/02/15160850.html">
-                       		<div class="c-page-home__topics-meta">
-								<div class="c-page-home__datetime">
-									<span class="c-page-home__datetime-year">2021</span>
-									<span class="c-page-home__datetime-year-unit">年</span>
-									<span class="c-page-home__datetime-month">02</span>
-									<span class="c-page-home__datetime-month-unit">月</span>
-									<span class="c-page-home__datetime-date">17</span>
-									<span class="c-page-home__datetime-date-unit">日</span>
-								</div>
-								<div class="c-page-home__topics-category">入試関連ニュース</div>
-							</div>
-							<div class="c-page-home__topics-title">令和3年度 福岡大学入学者選抜試験における出題ミス等について（お詫び）</div>
-						</a>
-					</div>
-					<div class="c-page-home__topics-item">
-						<a href="/admissions/news/21/02/16084342.html">
-                       		<div class="c-page-home__topics-meta">
-								<div class="c-page-home__datetime">
-									<span class="c-page-home__datetime-year">2021</span>
-									<span class="c-page-home__datetime-year-unit">年</span>
-									<span class="c-page-home__datetime-month">02</span>
-									<span class="c-page-home__datetime-month-unit">月</span>
-									<span class="c-page-home__datetime-date">16</span>
-									<span class="c-page-home__datetime-date-unit">日</span>
-								</div>
-								<div class="c-page-home__topics-category">入試関連ニュース</div>
-							</div>
-							<div class="c-page-home__topics-title">一般選抜〔後期日程、共通テスト利用型（Ⅲ期）〕および特別選抜（スポーツ科学部特別募集）の出願受付中です</div>
-						</a>
-					</div>
-					<div class="c-page-home__topics-item">
-						<a href="/admissions/news/21/02/15134530.html">
-                       		<div class="c-page-home__topics-meta">
-								<div class="c-page-home__datetime">
-									<span class="c-page-home__datetime-year">2021</span>
-									<span class="c-page-home__datetime-year-unit">年</span>
-									<span class="c-page-home__datetime-month">02</span>
-									<span class="c-page-home__datetime-month-unit">月</span>
-									<span class="c-page-home__datetime-date">15</span>
-									<span class="c-page-home__datetime-date-unit">日</span>
-								</div>
-								<div class="c-page-home__topics-category">入試関連ニュース</div>
-							</div>
-							<div class="c-page-home__topics-title"> 一般選抜〔系統別日程、前期日程、前期日程・共通テスト併用型、共通テスト利用型（Ⅰ期・Ⅱ期）〕、学部留学生選抜の合格発表について</div>
-						</a>
-					</div>
-					<div class="c-page-home__topics-item">
-						<a href="/admissions/news/21/02/01112603.html">
-                       		<div class="c-page-home__topics-meta">
-								<div class="c-page-home__datetime">
-									<span class="c-page-home__datetime-year">2021</span>
-									<span class="c-page-home__datetime-year-unit">年</span>
-									<span class="c-page-home__datetime-month">02</span>
-									<span class="c-page-home__datetime-month-unit">月</span>
-									<span class="c-page-home__datetime-date">01</span>
-									<span class="c-page-home__datetime-date-unit">日</span>
-								</div>
-								<div class="c-page-home__topics-category">入試関連ニュース</div>
-							</div>
-							<div class="c-page-home__topics-title">共通テスト利用型（Ⅱ期）の志願者が確定</div>
-						</a>
-					</div>
-				</div>
-				<div class="c-page-home__link-to-index">
-					<a href="/news/admissions.html">
-						<span>一覧を見る</span>
-					</a>
-				</div>
-			</div> %>
-		</div>
-	</section>
+          </div>
+          <div class="info-layout__topics-body">
+            <div class="info-layout__topics-panel ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-panel-topic01" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false" style="">
+              <div class="info-layout__topics-list">
+                <%# eachここから %>
+                <% @general_infos.each do |info| %>
+                  <div class="info-layout__topics-item">
+                    <a href="">
+                      <div class="info-layout__topics-is-new">NEW</div>
+                      <div class="info-layout__topics-meta">
+                        <div class="info-layout__datetime">
+                          <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
+                        </div>
+                        <div class="info-layout__topics-category">お知らせ</div>
+                      </div>
+                      <div class="info-layout__topics-title"><%= info.title %></div>
+                    </a>
+                  </div>
+                <% end %>
+                <%# eachここまで %>
+              </div>
+              <div class="info-layout__link-to-index">
+                <a href="">
+                  <span>一覧を見る</span>
+                </a>
+              </div>
+            </div>
+            <%# <div class="info-layout__topics-panel ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-panel-topic02" aria-labelledby="ui-id-2" role="tabpanel" aria-hidden="true" style="display: none;">
+              <div class="info-layout__topics-list">
+                <div class="info-layout__topics-item">
+                  <a href="/admissions/news/21/03/15123758.html">
+                                <div class="info-layout__topics-meta">
+                      <div class="info-layout__datetime">
+                        <span class="info-layout__datetime-year">2021</span>
+                        <span class="info-layout__datetime-year-unit">年</span>
+                        <span class="info-layout__datetime-month">03</span>
+                        <span class="info-layout__datetime-month-unit">月</span>
+                        <span class="info-layout__datetime-date">15</span>
+                        <span class="info-layout__datetime-date-unit">日</span>
+                      </div>
+                      <div class="info-layout__topics-category">入試関連ニュース</div>
+                    </div>
+                    <div class="info-layout__topics-title">一般選抜（後期日程）・共通テスト利用型Ⅲ期・スポーツ科学部特別募集の合格発表について</div>
+                  </a>
+                </div>
+              </div>
+              <div class="info-layout__link-to-index">
+                <a href="/news/admissions.html">
+                  <span>一覧を見る</span>
+                </a>
+              </div>
+            </div> %>
+          </div>
+        </section>
 
         <!-- お知らせ -->
+        <!--
         <section class="info container" id="general-info">
           <U><h2>お知らせ</h2></U>
           <div class="info__contents">
@@ -212,14 +133,10 @@
             <% end %>
           </div>
         </section>
+        -->
         
         <!-- イベント情報 -->
         <!--
-        <section class="event">
-          <div class="event">
-            <U><h2>イベント</h2></U>
-          </div>
-        </section><br>
         -->
 
         <!-- 動画 -->

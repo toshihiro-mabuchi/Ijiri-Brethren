@@ -87,18 +87,18 @@ Stylesheet: ホームページスタイル
 
 
 // // fukudainews
-.c-page-home{
+.info-layout{
 	// @media screen and (max-width: 575px)まで
 	font-size: 3.75vw;
 
 	&__topics{
 		padding: 0;
 
-
 		// トップ部分
 		&-heading {
 			position: relative;
 			overflow: hidden;
+			border-bottom: 1px solid #666;
 			// background: url(/img/bg-home-title-topics.jpg) no-repeat 50% 50% / cover;
 		}
 
@@ -126,10 +126,48 @@ Stylesheet: ホームページスタイル
 		// 	margin: 0 auto;
 		// }
 
+		&-tabs {
+			margin-top: 30px;
+
+			ul {
+				display: flex;
+				justify-content: center;
+				margin: 0;
+				padding: 0;
+			}
+
+			a {
+				border-top: 4px solid transparent;
+				color: currentColor;
+				display: block;
+				height: 100%;
+				padding: 1em 3px;
+				text-decoration: none;
+				width: 100%;
+		  }
+
+			li {
+				background: #2b2b2b;
+				border-left: 1px solid #666;
+				color: #fff;
+				display: block;
+				flex: 0 1 150px;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				transition: background .3s ease-in;
+			}
+			.clicked {
+				background: #fff;
+				border-left: none;
+				color: #2b2b2b;
+			}
+		}
+
 		&-list {
 			margin-bottom: 2rem;
 
-			& .c-page-home__topics-item {
+			& .info-layout__topics-item {
 				border-bottom: 1px solid #ddd;
 			}
 		}
@@ -141,21 +179,35 @@ Stylesheet: ホームページスタイル
 			// @media screen and (max-width: 575px)
 			& a {
 				padding: 1em 0;
+				color: currentColor;
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+				text-decoration: none;
 			}
+
 		}
 
 		// @media screen and (max-width: 767px)
 		&-is-new {
-			margin-left: 0;
-			margin-right: 0;
 			background: #fff600;
-			display: inline-block;
+			font-size: .875em;
+			line-height: 1;
+			margin: .14286em 2.57143em 0 0;
+			padding: .42857em .85714em;
 		}
 
 		// @media screen and (max-width: 767px)
 		&-meta {
 			flex-basis: auto;
 			max-width: calc(100% - 4em);
+			flex: 0 0 18em;
+			max-width: 18em;
+			margin-top: .1875em;
+			margin-right: .375em;
+			order: -2;
+			display: flex;
+			align-items: flex-start;
 		}
 
 		&-category {
@@ -176,7 +228,6 @@ Stylesheet: ホームページスタイル
 		}
 	}
 
-
 	&__datetime {
 		color: #b10000;
 		font-weight: 700;
@@ -185,6 +236,19 @@ Stylesheet: ホームページスタイル
 		white-space: nowrap;
 		margin-top: .16667em;
 	}
+
+	&__link-to-index a {
+    background: #000;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    margin: 0 auto;
+    max-width: 10em;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    transition: all .15s ease-in;
+  }
 }
 
 
@@ -195,44 +259,21 @@ a {
 
 
 
-// 
-
-
-
-*, :before, :after {
-  box-sizing: border-box;
-}
-
-section {
-  display: block;
-}
-
-
-body {
-  color: rgb(0, 0, 0);
-  font-family: icons, メイリオ, Meiryo, sans-serif;
-  font-weight: 500;
-  font-feature-settings: "palt";
-  font-size: 1.6rem;
-  line-height: 1.8;
-  margin: 0px;
-  padding: 0px;
-}
-:root {
-  font-size: 62.5%;
-}
-html {
-  line-height: 1.15;
-}
-*, :before, :after {
-  box-sizing: border-box;
-}
-*, :before, :after {
-  box-sizing: border-box;
-}
-::selection {
-  background-color: #c13333;
-}
+// :root {
+//   font-size: 62.5%;
+// }
+// html {
+//   line-height: 1.15;
+// }
+// *, :before, :after {
+//   box-sizing: border-box;
+// }
+// *, :before, :after {
+//   box-sizing: border-box;
+// }
+// ::selection {
+//   background-color: #c13333;
+// }
 
 
 
