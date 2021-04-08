@@ -214,4 +214,5 @@ ja:
       custom_time: "%-H:%M"
       hour: "%H"
       min: "%M"
+      ymd: "%Y年%m月%d日"
     pm: 午後

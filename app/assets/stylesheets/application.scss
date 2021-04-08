@@ -23,6 +23,10 @@
   @import "breakpoints/480up";
 }
 
+@media (min-width: 575px) {
+  @import "breakpoints/575up";
+}
+
 @media (min-width: 600px) {
   @import "breakpoints/600up";
 }
@@ -31,8 +35,12 @@
   @import "breakpoints/700up";
 }
 
-@media (min-width: 960px) {
-  @import "breakpoints/960up";
+@media (min-width: 765px) {
+  @import "breakpoints/765up";
+}
+
+@media (min-width: 990px) {
+  @import "breakpoints/990up";
 }
 
 @media (min-width: 1280px) {
@@ -159,10 +167,6 @@ input[type=checkbox] {
     margin-left: 10px;
     color: black;
   }
-}
-
-#home-content {
-  background-color: rgb(194, 228, 188)
 }
 
 
