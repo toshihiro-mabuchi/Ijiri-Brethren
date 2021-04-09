@@ -1,46 +1,47 @@
   
 <div id="content">
+  <div id="main-content">
 
-  <!-- スライド表示 -->
-  <%# <div class="first-view"> %>
-    <!-- Slider main container -->
-    <%# <div class="swiper-container"> %>
-      <!-- Additional required wrapper -->
-      <%# <div class="swiper-wrapper"> %>
-        <!-- Slides -->
+      <%# スライド表示 %>
+      <div class="first-view">
+        <%# <h2>スライド表示</h2> %>
+        <%# <div class="hero"> %>
+          <!-- Slider main container -->
+          <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <section class="slider container" id="general-slider">
+                <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel" data-slide-to="1"></li>
+                    <li data-target="#carousel" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample1.jpg">
+                    </div>
+                    <%# <div class="carousel-item">
+                      <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample2.jpg">
+                    </div> %>
+                    <div class="carousel-item">
+                      <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample3.jpg">
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-        <!--
-        <section class="slider container" id="general-slider">
-          <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-            <ol class="carousel-indicators">
-              <li data-target="#carousel" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel" data-slide-to="1"></li>
-              <li data-target="#carousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample1.jpg">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample2.jpg">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block width: '80%', height: '80%'" style="margin : 0 auto;" src="sample3.jpg">
-              </div>
+            </div>
+            <div class="hero__footer">
+            
+              <span class="hero__scrolltext">scroll</span>
             </div>
           </div>
-        </section>
-        -->
-
-      <%# </div>
-      <div class="hero__footer">
-      
-        <span class="hero__scrolltext">scroll</span>
+        <%# </div> %>
       </div>
-    </div>
-  </div> %>
 
-  <div id="main-content">
+
     <main>   
       <div id="home-content">
 
@@ -48,18 +49,9 @@
           <div class="info-layout__topics-heading">
             <div class="info-layout__topics-heading-base">
               <h2>
-                <span lang="en">INFOMTION</span><span lang="ja">お知らせ</span>
+                <span lang="ja">お知らせ</span>
               </h2>
-              <div class="info-layout__topics-tabs" >
-                <ul class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-                  <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-state-hover ui-tabs-active ui-state-active  clicked" >
-                    <a href="" class="ui-tabs-anchor" id="ui-id-1">お知らせ</a>
-                  </li>
-                  <li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab">
-                    <a href="" class="ui-tabs-anchor" id="ui-id-2">イベント</a>
-                  </li>
-                </ul>
-              </div>
+              
             </div>
           </div>
           <div class="info-layout__topics-body">
@@ -88,56 +80,8 @@
                 </a>
               </div>
             </div>
-            <%# <div class="info-layout__topics-panel ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-panel-topic02" aria-labelledby="ui-id-2" role="tabpanel" aria-hidden="true" style="display: none;">
-              <div class="info-layout__topics-list">
-                <div class="info-layout__topics-item">
-                  <a href="/admissions/news/21/03/15123758.html">
-                                <div class="info-layout__topics-meta">
-                      <div class="info-layout__datetime">
-                        <span class="info-layout__datetime-year">2021</span>
-                        <span class="info-layout__datetime-year-unit">年</span>
-                        <span class="info-layout__datetime-month">03</span>
-                        <span class="info-layout__datetime-month-unit">月</span>
-                        <span class="info-layout__datetime-date">15</span>
-                        <span class="info-layout__datetime-date-unit">日</span>
-                      </div>
-                      <div class="info-layout__topics-category">入試関連ニュース</div>
-                    </div>
-                    <div class="info-layout__topics-title">一般選抜（後期日程）・共通テスト利用型Ⅲ期・スポーツ科学部特別募集の合格発表について</div>
-                  </a>
-                </div>
-              </div>
-              <div class="info-layout__link-to-index">
-                <a href="/news/admissions.html">
-                  <span>一覧を見る</span>
-                </a>
-              </div>
-            </div> %>
           </div>
         </section>
-
-        <!-- お知らせ -->
-        <!--
-        <section class="info container" id="general-info">
-          <U><h2>お知らせ</h2></U>
-          <div class="info__contents">
-            <% @general_infos.each do |info| %>
-              <div style="border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
-                <div class="info__title" style="border: #ccc solid 1px; border-left: #ccc solid 10px; padding: 5px; background: #fff; font-size: 100%; background-color: #eee;">
-                  <U><%= info.title %></U>
-                </div>
-                <div class="info__content">
-                  <%= info.content.html_safe %>
-                </div>
-              </div><br>
-            <% end %>
-          </div>
-        </section>
-        -->
-        
-        <!-- イベント情報 -->
-        <!--
-        -->
 
         <!-- 動画 -->
         <U><h2>動画</h2></U>
@@ -189,6 +133,7 @@
         </section>
       </div>
       
+
       <div class="local-nav">
         <%# <p>ローカルナビゲーション</p> %>
         <!-- 聖書の御言葉 -->
