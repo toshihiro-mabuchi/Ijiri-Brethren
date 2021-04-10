@@ -47,9 +47,9 @@ Stylesheet: ホームページスタイル
 .access {
   @extend .content-width;
 
-  &__right {
-    // display: inline-block;
-  }
+  // &__right {
+  //   // display: inline-block;
+  // }
 
   &__left {
     display: inline-block;
@@ -156,7 +156,7 @@ Stylesheet: ホームページスタイル
 			background: #fff600;
 			font-size: .875em;
 			line-height: 1;
-			margin: .14286em 2.57143em 0 0;
+			margin: 0 3em 0 0;
 			padding: .42857em .85714em;
 		}
 
@@ -174,7 +174,7 @@ Stylesheet: ホームページスタイル
 			max-width: 18em;
 			margin-top: .1875em;
 			margin-right: .375em;
-			// order: -2;
+			order: -2;
 			display: flex;
 			align-items: flex-start;
 		}
@@ -191,7 +191,7 @@ Stylesheet: ホームページスタイル
 			&:before {
 				content: "|";
 				position: absolute;
-				top: 0;
+				top: -0.1em;
 				left: 0;
 			}
 		}

@@ -25,8 +25,65 @@
   margin-top: .1875em;
   margin-right: .375em;
   order: -2;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   align-items: flex-start;
+}
+
+
+// // fukudainews
+.info-layout{
+
+  &__topics {
+
+    &-item {
+      position: relative;
+      margin: 0;
+
+      // @media screen and (max-width: 575px)
+      & a {
+        padding: 1em 0;
+        color: currentColor;
+        display: flex;
+        align-items: flex-start;
+        // justify-content: space-between;
+        flex-direction: row;
+        text-decoration: none;
+        padding: 1.375em 1.625em;
+      }
+
+    }
+
+    &-meta {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    &-date-category {
+      flex-basis: auto;
+      max-width: calc(100% - 4em);
+      // flex: 0 0 18em;
+      flex: 0 0 14em;
+      max-width: 18em;
+      margin-top: .1875em;
+      margin-right: .375em;
+      // order: -2;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &-category {
+      color: #666;
+      font-size: .875em;
+      position: relative;
+      padding-left: .71429em;
+      margin-top: .21429em;
+      margin-left: .57143em;
+      line-height: 1.2;
+    }
+
+    &-title {
+      margin-top: 0.2em;
+    }
+
+  }
 }
