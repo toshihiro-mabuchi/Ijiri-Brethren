@@ -4,7 +4,6 @@
 
       <%# スライド表示 %>
       <div class="first-view">
-        <%# <h2>スライド表示</h2> %>
         <%# <div class="hero"> %>
           <!-- Slider main container -->
           <div class="swiper-container">
@@ -61,12 +60,14 @@
                 <% @general_infos.each do |info| %>
                   <div class="info-layout__topics-item">
                     <a href="">
-                      <div class="info-layout__topics-is-new">NEW</div>
                       <div class="info-layout__topics-meta">
-                        <div class="info-layout__datetime">
-                          <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
+                        <div class="info-layout__topics-date-category">
+                          <div class="info-layout__datetime">
+                            <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
+                          </div>
+                          <div class="info-layout__topics-category">お知らせ</div>
                         </div>
-                        <div class="info-layout__topics-category">お知らせ</div>
+                        <div class="info-layout__topics-is-new">NEW</div>
                       </div>
                       <div class="info-layout__topics-title"><%= info.title %></div>
                     </a>
