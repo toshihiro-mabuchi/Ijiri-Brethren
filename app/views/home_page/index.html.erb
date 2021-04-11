@@ -61,7 +61,7 @@
                   <div class="info-layout__topics-item">
                     <a href="">
                       <div class="info-layout__topics-meta">
-                        <div class="info-layout__topics-is-new">NEW</div>
+                        <div class="info-layout__topics-is-new info-layout__topics-is-new-hide">NEW</div>
                         <div class="info-layout__topics-date-category">
                           <div class="info-layout__datetime">
                             <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
@@ -153,3 +153,9 @@
 
 </div>
 
+<script>
+//  info-layout__topics-is-new-hide　（非表示タグ）
+// お知らせが31日以内に投稿されたものには「NEW」（デフォルト）
+// それ以外は非表示（幅は残したいのでhideは使わない）
+$(".info-layout__topics-is-new-hide").html("");
+</script>

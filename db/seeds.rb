@@ -28,7 +28,7 @@ puts "メンバー作成！"
 
 # お知らせサンプルデーター作成
 
-3.times do |i|
+8.times do |i|
   n = i + 1 
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "メンバー向けお知らせタイトル#{number}",
@@ -152,7 +152,7 @@ puts "動画サンプルデータ作成！"
 
 # お便りサンプルデータ作成
 
-24.times do |i|
+14.times do |i|
   n = i + 1
   article = Article.new
   article.issue_date = Date.current - 24.month + n.month
