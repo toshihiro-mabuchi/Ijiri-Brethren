@@ -56,12 +56,11 @@
           <div class="info-layout__topics-body">
             <div class="info-layout__topics-panel ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-panel-topic01" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false" style="">
               <div class="info-layout__topics-list">
-                <%# eachここから %>
                 <% @general_infos.each do |info| %>
                   <div class="info-layout__topics-item">
                     <a href="">
                       <div class="info-layout__topics-meta">
-                        <div class="info-layout__topics-is-new info-layout__topics-is-new-hide">NEW</div>
+                        <div class="info-layout__topics-is-new <%= new_hide?(info.created_at) %>"><%= new_topics?(info.created_at) %></div>
                         <div class="info-layout__topics-date-category">
                           <div class="info-layout__datetime">
                             <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
@@ -73,10 +72,9 @@
                     </a>
                   </div>
                 <% end %>
-                <%# eachここまで %>
               </div>
               <div class="info-layout__link-to-index">
-                <a href="">
+                <a href="home_page/infos">
                   <span>一覧を見る</span>
                 </a>
               </div>
@@ -152,10 +150,3 @@
   </div>
 
 </div>
-
-<script>
-//  info-layout__topics-is-new-hide　（非表示タグ）
-// お知らせが31日以内に投稿されたものには「NEW」（デフォルト）
-// それ以外は非表示（幅は残したいのでhideは使わない）
-$(".info-layout__topics-is-new-hide").html("");
-</script>

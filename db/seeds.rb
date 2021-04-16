@@ -52,7 +52,7 @@ Info.create!(title: "メンバー向けお知らせタイトル９",
 
 puts "メンバー向けお知らせ作成！"
 
-3.times do |i|
+12.times do |i|
   n = i + 1 
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "一般向けお知らせタイトル#{number}",

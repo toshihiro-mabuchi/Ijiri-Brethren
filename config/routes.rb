@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   ### ホームページ ###
   root 'home_page#index'
+  get  'home_page/infos'  => 'home_page#infos'
 
   ### 管理者画面 ###
   resources :admin_pages, only: :index do

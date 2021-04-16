@@ -9,4 +9,12 @@ module ApplicationHelper
     end
   end
 
+  def new_topics?(created_at)
+    return "NEW" if created_at > @now.prev_month
+  end
+
+  def new_hide?(created_at)
+    return "info-layout__topics-is-new-hide"  if created_at <= @now.prev_month
+  end
+
 end
