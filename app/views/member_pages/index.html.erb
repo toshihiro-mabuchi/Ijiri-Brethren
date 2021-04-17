@@ -1,11 +1,9 @@
-<% provide(:title, 'メンバー') %>
+<% provide(:title, 'メンバーページ') %>
 
 <h2>メンバー専用画面</h2>
 
 <div id="content">
-
   <div id="member-main">
-
     <div class="row">
 
       <div class="sm_member_content">
@@ -24,7 +22,7 @@
               <div class="info-layout__topics-list">
                 <% @member_infos.each do |info| %>
                   <div class="info-layout__topics-item">
-                    <a href="home_page/infos/<%= info.id %>">
+                    <a href="infos/<%= info.id %>">
                       <div class="info-layout__topics-meta">
                         <div class="info-layout__topics-is-new <%= new_hide?(info.created_at) %>"><%= new_topics?(info.created_at) %></div>
                         <div class="info-layout__topics-date-category">
