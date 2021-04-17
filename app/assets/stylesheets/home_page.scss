@@ -203,6 +203,10 @@ Stylesheet: ホームページスタイル
 
 		&-title {
 			margin-top: 0.4em;
+
+			&:hover {
+				color: #c13333;
+			}
 		}
 	}
 

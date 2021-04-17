@@ -12,4 +12,8 @@ class HomePageController < ApplicationController
                          .paginate(page: params[:page], per_page: 12)
     @now = Time.current
   end
+
+  def infos_show
+    @info = Info.find(params[:id])
+  end
 end
