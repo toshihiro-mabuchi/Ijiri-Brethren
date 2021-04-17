@@ -197,7 +197,7 @@ array = [["test_1.png", "ねこ"], ["test_2.png", "ねこ"], ["test_3.jpg", "背
   n = i + 1
   gallery = Gallery.new
   gallery.category = image_data[1]
-  gallery.title = "ギャラリーアイテムタイトル#{n}"
+  gallery.title = "アルバムアイテムタイトル#{n}"
   gallery.image.attach(io: File.open("public/#{image_data[0]}"), filename: "#{image_data[0]}")
   gallery.save
 end

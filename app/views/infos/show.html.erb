@@ -1,0 +1,21 @@
+<% provide(:title, 'お知らせ') %>
+
+<div class="info-layout__topics" >
+  <div class="info-layout__topics-heading">
+    <div class="info-layout__topics-heading-base">
+      <h2>
+        <span lang="ja">お知らせ</span>
+      </h2>
+      
+    </div>
+  </div>
+  <div class="info-layout__topics-body">
+    <div class="info-layout__topics-panel">
+      <div class="info-layout__topics-list">
+        <%= @info.title %>
+        <%= @info.content %>
+        
+      </div>
+    </div>
+  </div>
+</section>

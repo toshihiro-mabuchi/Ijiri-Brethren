@@ -4,48 +4,49 @@
 
 <div id="content">
 
-  <div id="member-main" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
+  <div id="member-main">
 
     <div class="row">
 
       <div class="sm_member_content">
       <!-- content_start -->
-      <section class="info-layout__topics ui-tabs ui-corner-all ui-widget ui-widget-content" >
-        <div class="info-layout__topics-heading">
-          <div class="info-layout__topics-heading-base">
-            <h2>
-              <span lang="ja">お知らせ</span>
-            </h2>
+        <section class="info-layout__topics" >
+          <div class="info-layout__topics-heading">
+            <div class="info-layout__topics-heading-base">
+              <h2>
+                <span lang="ja">お知らせ</span>
+              </h2>
+              
+            </div>
           </div>
-        </div>
-        <div class="info-layout__topics-body">
-          <div class="info-layout__topics-panel ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-panel-topic01" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false" style="">
-            <div class="info-layout__topics-list">
-              <%# eachここから %>
-              <% @member_infos.each do |info| %>
-                <div class="info-layout__topics-item">
-                  <a href="">
-                    <div class="info-layout__topics-is-new">NEW</div>
-                    <div class="info-layout__topics-meta">
-                      <div class="info-layout__datetime">
-                        <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
+          <div class="info-layout__topics-body">
+            <div class="info-layout__topics-panel">
+              <div class="info-layout__topics-list">
+                <% @member_infos.each do |info| %>
+                  <div class="info-layout__topics-item">
+                    <a href="home_page/infos/<%= info.id %>">
+                      <div class="info-layout__topics-meta">
+                        <div class="info-layout__topics-is-new <%= new_hide?(info.created_at) %>"><%= new_topics?(info.created_at) %></div>
+                        <div class="info-layout__topics-date-category">
+                          <div class="info-layout__datetime">
+                            <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
+                          </div>
+                          <div class="info-layout__topics-category">お知らせ</div>
+                        </div>
                       </div>
-                      <div class="info-layout__topics-category">お知らせ</div>
-                    </div>
-                    <div class="info-layout__topics-title"><%= info.title %></div>
-                  </a>
-                </div>
-              <% end %>
-              <%# eachここまで %>
-            </div>
-            <div class="info-layout__link-to-index">
-              <a href="">
-                <span>一覧を見る</span>
-              </a>
+                      <div class="info-layout__topics-title"><%= info.title %></div>
+                    </a>
+                  </div>
+                <% end %>
+              </div>
+              <div class="info-layout__link-to-index">
+                <a href="infos">
+                  <span>一覧を見る</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       
 
         <section class="article container" id="member-article">

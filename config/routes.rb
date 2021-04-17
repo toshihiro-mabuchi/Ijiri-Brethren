@@ -62,6 +62,6 @@ Rails.application.routes.draw do
   ### 御言葉 ###
   resources :bibles
   
-  ### ギャラリー ###
+  ### アルバム ###
   resources :galleries, except: :show
 end
