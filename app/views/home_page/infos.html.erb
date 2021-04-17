@@ -1,0 +1,55 @@
+<% provide(:title, 'お知らせ') %>
+
+<section class="info-layout__topics" >
+  <div class="info-layout__topics-heading">
+    <div class="info-layout__topics-heading-base">
+      <h2>
+        <span lang="ja">お知らせ</span>
+      </h2>
+      
+    </div>
+  </div>
+  <div class="info-layout__topics-body">
+    <div class="info-layout__topics-panel">
+      <div class="info-layout__topics-list">
+        <% @general_infos.each do |info| %>
+          <div class="info-layout__topics-item">
+            <a href="infos/<%= info.id %>">
+              <div class="info-layout__topics-meta">
+                <div class="info-layout__topics-is-new <%= new_hide?(info.created_at) %>"><%= new_topics?(info.created_at) %></div>
+                <div class="info-layout__topics-date-category">
+                  <div class="info-layout__datetime">
+                    <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
+                  </div>
+                  <div class="info-layout__topics-category">お知らせ</div>
+                </div>
+              </div>
+              <div class="info-layout__topics-title"><%= info.title %></div>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= will_paginate @general_infos %>
+
+<style>
+.pagination {
+  
+    clear: both;
+    display: flex;
+    font-family: icons, メイリオ, Meiryo, sans-serif;
+    font-size: 1.4rem;
+    -webkit-box-pack: center;
+    justify-content: center;
+    line-height: 2.5em;
+    position: relative;
+    text-align: center;
+    z-index: 0;
+    margin: 0px;
+    overflow: hidden;
+
+}
+</style>

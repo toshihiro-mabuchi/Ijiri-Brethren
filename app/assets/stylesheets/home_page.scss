@@ -47,9 +47,9 @@ Stylesheet: ホームページスタイル
 .access {
   @extend .content-width;
 
-  &__right {
-    // display: inline-block;
-  }
+  // &__right {
+  //   // display: inline-block;
+  // }
 
   &__left {
     display: inline-block;
@@ -126,44 +126,6 @@ Stylesheet: ホームページスタイル
 		// 	margin: 0 auto;
 		// }
 
-		&-tabs {
-			margin-top: 30px;
-
-			ul {
-				display: flex;
-				justify-content: center;
-				margin: 0;
-				padding: 0;
-			}
-
-			a {
-				border-top: 4px solid transparent;
-				color: currentColor;
-				display: block;
-				height: 100%;
-				padding: 1em 3px;
-				text-decoration: none;
-				width: 100%;
-		  }
-
-			li {
-				background: #2b2b2b;
-				border-left: 1px solid #666;
-				color: #fff;
-				display: block;
-				flex: 0 1 150px;
-				margin: 0;
-				padding: 0;
-				text-align: center;
-				transition: background .3s ease-in;
-			}
-			.clicked {
-				background: #fff;
-				border-left: none;
-				color: #2b2b2b;
-			}
-		}
-
 		&-list {
 			margin-bottom: 2rem;
 
@@ -181,8 +143,9 @@ Stylesheet: ホームページスタイル
 				padding: 1em 0;
 				color: currentColor;
 				display: flex;
-				align-items: flex-start;
-				justify-content: space-between;
+				// align-items: flex-start;
+				// justify-content: space-between;
+				flex-direction: column;
 				text-decoration: none;
 			}
 
@@ -193,15 +156,26 @@ Stylesheet: ホームページスタイル
 			background: #fff600;
 			font-size: .875em;
 			line-height: 1;
-			margin: .14286em 2.57143em 0 0;
+			margin: 0 3em 0 0;
 			padding: .42857em .85714em;
+
+			&-hide {
+				background: none;
+				width: 60px;
+			}
 		}
 
 		// @media screen and (max-width: 767px)
 		&-meta {
+			display: flex;
+			// align-items: flex-start;
+		}
+		
+		&-date-category {
 			flex-basis: auto;
 			max-width: calc(100% - 4em);
-			flex: 0 0 18em;
+			// flex: 0 0 18em;
+			flex: 0 0 14em;
 			max-width: 18em;
 			margin-top: .1875em;
 			margin-right: .375em;
@@ -222,8 +196,16 @@ Stylesheet: ホームページスタイル
 			&:before {
 				content: "|";
 				position: absolute;
-				top: 0;
+				top: -0.1em;
 				left: 0;
+			}
+		}
+
+		&-title {
+			margin-top: 0.4em;
+
+			&:hover {
+				color: #c13333;
 			}
 		}
 	}
@@ -256,24 +238,5 @@ Stylesheet: ホームページスタイル
 a {
   background-color: transparent;
 }
-
-
-
-// :root {
-//   font-size: 62.5%;
-// }
-// html {
-//   line-height: 1.15;
-// }
-// *, :before, :after {
-//   box-sizing: border-box;
-// }
-// *, :before, :after {
-//   box-sizing: border-box;
-// }
-// ::selection {
-//   background-color: #c13333;
-// }
-
 
 

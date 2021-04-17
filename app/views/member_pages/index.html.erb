@@ -1,62 +1,51 @@
-<% provide(:title, 'メンバー') %>
+<% provide(:title, 'メンバーページ') %>
 
 <h2>メンバー専用画面</h2>
 
 <div id="content">
-
-  <div id="member-main" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; background-color: #eee;">
-
+  <div id="member-main">
     <div class="row">
 
-      <!-- sidebar_start -->
-      <%# <div class="sm_sidebar col-sm-3" style="margin-top: 10px;"> %>
-      <div class="sm_sidebar" style="margin-top: 10px;">
-        <div class="container" style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; margin: 55px 10px; padding: 20px; background-color: #ddd;">
-          <div class="sm_sidebar_title">ユーザー関連</div>
-          <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "アカウント情報", user_path(current_user) %></div>
-          </div>
-            <div class="sm_sidebar_title">お知らせ関連</div>
-          <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "お知らせ一覧", infos_path %></div>
-          </div>
-            <div class="sm_sidebar_title">お便り関連</div>
-          <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "毎月のお便り一覧", articles_path %></div>
-          </div>
-            <div class="sm_sidebar_title">写真関連</div>
-          <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "ギャラリー", galleries_path %></div>
-          </div>
-          <div class="sm_sidebar_title">動画関連</div>
-          <div class="col-xs-12 col-lg-12">
-            <div class="tab-item"><%= link_to "動画一覧", members_view_movies_path %></div>
-          </div>
-          <div>----------</div>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        </div>
-      </div>
-      <!-- sidebar_end -->
-
-      <!-- content_start -->
-      <%# <div class="col-sm-9 col-sm-offset-3 sm_member_content"> %>
       <div class="sm_member_content">
-        <section class="info container" id="member-info">
-          <%# <U><h2>お知らせ</h2></U> %>
-          <U><%= link_to "お知らせ", infos_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
-          <div class="info__contents">
-            <% @member_infos.each do |info| %>
-              <div style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: #ccc solid 2px; font-size: 100%; padding: 20px; background-color: #fff;">
-                <div class="info__title" style="border: #ccc solid 1px; border-left: #ccc solid 10px; padding: 5px; background: #fff; font-size: 100%; background-color: #eee;">
-                  <%= info.title %>
-                </div>
-                <div class="info__content" style="background: #fff; border: 1px #ccc solid; box-shadow: 0 2px 3px 0 #ddd; font-size: 100%; padding: 20px;">
-                  <%= info.content %>
-                </div>
-              </div><br>
-            <% end %>
+      <!-- content_start -->
+        <section class="info-layout__topics" >
+          <div class="info-layout__topics-heading">
+            <div class="info-layout__topics-heading-base">
+              <h2>
+                <span lang="ja">お知らせ</span>
+              </h2>
+              
+            </div>
+          </div>
+          <div class="info-layout__topics-body">
+            <div class="info-layout__topics-panel">
+              <div class="info-layout__topics-list">
+                <% @member_infos.each do |info| %>
+                  <div class="info-layout__topics-item">
+                    <a href="infos/<%= info.id %>">
+                      <div class="info-layout__topics-meta">
+                        <div class="info-layout__topics-is-new <%= new_hide?(info.created_at) %>"><%= new_topics?(info.created_at) %></div>
+                        <div class="info-layout__topics-date-category">
+                          <div class="info-layout__datetime">
+                            <span class="info-layout__datetime-year"><%= l info.created_at, format: :ymd %></span>
+                          </div>
+                          <div class="info-layout__topics-category">お知らせ</div>
+                        </div>
+                      </div>
+                      <div class="info-layout__topics-title"><%= info.title %></div>
+                    </a>
+                  </div>
+                <% end %>
+              </div>
+              <div class="info-layout__link-to-index">
+                <a href="infos">
+                  <span>一覧を見る</span>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
+      
 
         <section class="article container" id="member-article">
           <%# <U><h2>お便り</h2></U> %>
@@ -75,8 +64,8 @@
         </section>
         <br>
 
-        <%# <U><h2>ギャラリー</h2></U> %>
-        <U><%= link_to "ギャラリー", galleries_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
+        <%# <U><h2>アルバム</h2></U> %>
+        <U><%= link_to "アルバム", galleries_path, class: 'nav-link', style: "text-align: center; color: black; font-size: 24px;" %></U>
         <section class="gallery container" id="member-gallery">
           <!--
           <% @galleries.each do |category, galleries| %>
@@ -147,6 +136,7 @@
         </section>
       </div>
       <!-- content_end -->
+
     </div>
   </div>
 </div>

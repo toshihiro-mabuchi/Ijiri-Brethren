@@ -28,7 +28,7 @@ puts "メンバー作成！"
 
 # お知らせサンプルデーター作成
 
-3.times do |i|
+7.times do |i|
   n = i + 1 
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "メンバー向けお知らせタイトル#{number}",
@@ -36,10 +36,23 @@ puts "メンバー作成！"
                category: "メンバー",
                display_flag: true)
 end
+# 1月以上前
+Info.create!(title: "メンバー向けお知らせタイトル８",
+             content: "メンバー向けお知らせ本文８",
+             category: "メンバー",
+             display_flag: true,
+             created_at: '2021-03-13 00:00:00'.in_time_zone)
+
+# 1年前
+Info.create!(title: "メンバー向けお知らせタイトル９",
+  content: "メンバー向けお知らせ本文９",
+  category: "メンバー",
+  display_flag: true,
+  created_at: '2020-03-13 00:00:00'.in_time_zone)
 
 puts "メンバー向けお知らせ作成！"
 
-3.times do |i|
+12.times do |i|
   n = i + 1 
   number = n.to_s.tr('0-9a-zA-Z','０-９ａ-ｚＡ-Ｚ')
   Info.create!(title: "一般向けお知らせタイトル#{number}",
@@ -47,6 +60,20 @@ puts "メンバー向けお知らせ作成！"
                category: "一般",
                display_flag: true)
 end
+
+# 1月以上前
+Info.create!(title: "一般向けお知らせタイトル８",
+  content: "一般向けお知らせ本文８",
+  category: "一般",
+  display_flag: true,
+  created_at: '2021-03-13 00:00:00'.in_time_zone)
+
+# 1年前
+Info.create!(title: "一般向けお知らせタイトル９",
+content: "一般向けお知らせ本文９",
+category: "一般",
+display_flag: true,
+created_at: '2020-03-13 00:00:00'.in_time_zone)
 
 puts "一般向けお知らせ作成！"
 
@@ -152,7 +179,7 @@ puts "動画サンプルデータ作成！"
 
 # お便りサンプルデータ作成
 
-24.times do |i|
+14.times do |i|
   n = i + 1
   article = Article.new
   article.issue_date = Date.current - 24.month + n.month
@@ -170,7 +197,7 @@ array = [["test_1.png", "ねこ"], ["test_2.png", "ねこ"], ["test_3.jpg", "背
   n = i + 1
   gallery = Gallery.new
   gallery.category = image_data[1]
-  gallery.title = "ギャラリーアイテムタイトル#{n}"
+  gallery.title = "アルバムアイテムタイトル#{n}"
   gallery.image.attach(io: File.open("public/#{image_data[0]}"), filename: "#{image_data[0]}")
   gallery.save
 end

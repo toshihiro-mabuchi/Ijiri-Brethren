@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   ### ホームページ ###
   root 'home_page#index'
+  get  'home_page/infos'  => 'home_page#infos'
+  get  'home_page/infos/:id'  => 'home_page#infos_show'
 
   ### 管理者画面 ###
   resources :admin_pages, only: :index do
@@ -60,6 +62,6 @@ Rails.application.routes.draw do
   ### 御言葉 ###
   resources :bibles
   
-  ### ギャラリー ###
+  ### アルバム ###
   resources :galleries, except: :show
 end

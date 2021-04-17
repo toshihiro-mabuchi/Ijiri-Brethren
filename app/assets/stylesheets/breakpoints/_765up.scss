@@ -1,32 +1,63 @@
 
-.c-page-home__topics-item a {
-  color: currentColor;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  text-decoration: none;
-  padding: 1.375em 1.625em;
-  flex-wrap: wrap;
-}
 
-// それ以外
-.c-page-home__topics-is-new {
-  background: #fff600;
-  font-family: Quicksand,sans-serif;
-  font-size: .875em;
-  line-height: 1;
-  margin: .14286em 2.57143em 0 0;
-  padding: .42857em .85714em;
-}
+// info
+.info-layout{
 
-.c-page-home__topics-meta {
-  flex: 0 0 18em;
-  max-width: 18em;
-  margin-top: .1875em;
-  margin-right: .375em;
-  order: -2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: flex-start;
+  &__topics {
+
+    &-item {
+      position: relative;
+      margin: 0;
+
+      // @media screen and (max-width: 575px)
+      & a {
+        padding: 1em 0;
+        color: currentColor;
+        display: flex;
+        align-items: flex-start;
+        // justify-content: space-between;
+        flex-direction: row;
+        text-decoration: none;
+        padding: 1.375em 1.625em;
+      }
+
+    }
+
+    &-meta {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    &-date-category {
+      flex-basis: auto;
+      max-width: calc(100% - 4em);
+      // flex: 0 0 18em;
+      flex: 0 0 14em;
+      max-width: 18em;
+      margin-top: .1875em;
+      margin-right: .375em;
+      // order: -2;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &-is-new {
+      margin: 0 3.4em 0 4em;
+    }
+
+    &-category {
+      color: #666;
+      font-size: .875em;
+      position: relative;
+      padding-left: .71429em;
+      margin-top: .21429em;
+      margin-left: .57143em;
+      line-height: 1.2;
+    }
+
+    &-title {
+      margin-top: 0.2em;
+    }
+
+  }
 }

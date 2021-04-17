@@ -5,14 +5,17 @@ class InfosController < ApplicationController
 
   def index
     if current_user.admin?
-      @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, id: :DESC)
-      @general_infos = Info.where(category: "一般").order(display_flag: :DESC, id: :DESC)
+      @member_infos = Info.where(category: "メンバー").order(display_flag: :DESC, created_at: :DESC)
+      @general_infos = Info.where(category: "一般").order(display_flag: :DESC, created_at: :DESC)
     else
-      @member_infos = Info.where(category: "メンバー",display_flag: true).order(display_flag: :DESC, id: :DESC)
+      @member_infos = Info.where(category: "メンバー",display_flag: true).order(display_flag: :DESC, created_at: :DESC)
+                          .paginate(page: params[:page], per_page: 12)
     end
+    @now = Time.current
   end
 
   def show
+    @info = Info.find(params[:id])
   end
 
   def new
